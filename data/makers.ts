@@ -51,7 +51,7 @@ export const makers: Maker[] = [
     storyLayout: "editorial",
     storyImages: [
       "/images/FGextra.webp",
-      "/images/FGhands.webp",
+      "/images/FGProcess2.webp",
     ],
     storyImagePositions: [1, 2],
     bio: "British potter working in reduction-fired stoneware and porcelain. Apprenticed with Lisa Hammond MBE, studied in Mashiko, Japan. Author of By My Hands.",
