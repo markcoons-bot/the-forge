@@ -48,15 +48,15 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           THE QUESTION
           ═══════════════════════════════════════════════ */}
-      <section className="py-32 md:py-48 px-6 md:px-10">
+      <section className="bg-forge-paper py-32 md:py-48 px-6 md:px-10">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <blockquote className="font-serif text-3xl md:text-5xl font-light italic leading-[1.3] text-forge-accent">
+            <blockquote className="font-serif text-3xl md:text-5xl font-light italic leading-[1.3] text-forge-text">
               &ldquo;What is the most beautiful thing you have ever ruined?&rdquo;
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[15px] font-extralight text-forge-paper/70 mt-8 max-w-md mx-auto">
+            <p className="font-sans text-[15px] font-extralight text-forge-text/50 mt-8 max-w-md mx-auto">
               Toil. Frustration. Mistakes. That ultimately craft beauty.
             </p>
           </ScrollReveal>
