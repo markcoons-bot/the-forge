@@ -46,8 +46,7 @@ function FullBleedImageWithCaption({
   position?: "left" | "right";
 }) {
   const isRight = position === "right";
-  const gradientDirection = isRight ? "to left" : "to right";
-  const gradient = `linear-gradient(${gradientDirection}, rgba(26,24,22,0.78) 0%, rgba(26,24,22,0.4) 28%, rgba(26,24,22,0.08) 52%, transparent 65%)`;
+  const gradient = "linear-gradient(to top, rgba(26,24,22,0.7) 0%, rgba(26,24,22,0.35) 25%, rgba(26,24,22,0.05) 45%, transparent 55%)";
 
   return (
     <ScrollReveal>
@@ -66,16 +65,19 @@ function FullBleedImageWithCaption({
           <>
             <div className="absolute inset-0" style={{ background: gradient }} />
             <div
-              className={`absolute top-0 bottom-0 flex items-center p-8 md:p-16 z-10 ${
-                isRight ? "right-0" : "left-0"
+              className={`absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10 flex ${
+                isRight ? "justify-end" : "justify-start"
               }`}
             >
               <blockquote
-                className={`font-serif text-[22px] md:text-[28px] font-light italic leading-[1.45] text-forge-paper/[0.92] max-w-xs md:max-w-sm ${
+                className={`max-w-xs md:max-w-md ${
                   isRight ? "text-right" : "text-left"
                 }`}
               >
-                {caption}
+                <span className="font-serif text-[56px] md:text-[72px] leading-none text-forge-accent/60 block mb-[-8px] md:mb-[-12px]">&ldquo;</span>
+                <span className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.45] text-forge-paper/[0.92]">
+                  {caption}
+                </span>
               </blockquote>
             </div>
           </>
