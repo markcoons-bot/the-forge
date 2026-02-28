@@ -70,7 +70,7 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className={`${BODY} text-forge-text/60 mt-8 max-w-md mx-auto tracking-wide`}>
-              Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[18px] text-forge-text/90">the work.</span>
+              Toil. Frustration. Mistakes. That ultimately craft <em className="italic text-[20px]">the work.</em>
             </p>
           </ScrollReveal>
         </div>

@@ -1,14 +1,25 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { NAV_LINK, NAV_LINK_MUTED } from "@/lib/typography";
 
 export default function Navigation() {
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
   const [visible, setVisible] = useState(false);
   const locked = useRef(false);
 
   useEffect(() => {
+    // Show nav immediately on all pages except homepage
+    if (!isHomepage) {
+      setVisible(true);
+      locked.current = true;
+      return;
+    }
+
+    // Homepage: reveal nav after scrolling past the hero
     const handleScroll = () => {
       if (locked.current) return;
 
@@ -25,7 +36,7 @@ export default function Navigation() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomepage]);
 
   return (
     <nav
