@@ -51,6 +51,12 @@ export default function Navigation() {
               Makers
             </Link>
             <Link
+              href="/gallery"
+              className={NAV_LINK_MUTED}
+            >
+              Gallery
+            </Link>
+            <Link
               href="/shop"
               className={NAV_LINK_MUTED}
             >

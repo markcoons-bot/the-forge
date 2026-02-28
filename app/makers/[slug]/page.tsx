@@ -9,6 +9,8 @@ import ProductStrip from "@/components/ProductStrip";
 import Footer from "@/components/Footer";
 import { makers, getMaker } from "@/data/makers";
 import { getProductsByMaker } from "@/data/products";
+import { getGalleryItemsByMaker } from "@/data/gallery";
+import GalleryGrid from "@/components/GalleryGrid";
 import {
   STORY_DARK,
   STORY_LIGHT,
@@ -369,6 +371,21 @@ export default function MakerPage({ params }: PageProps) {
   const makerProducts = getProductsByMaker(maker.slug);
   const heroImage = maker.profileHeroImage || maker.portraitImage;
 
+  // Gallery images for "From the Studio" — exclude images already used on the page
+  const usedImages = new Set(
+    [
+      maker.portraitImage,
+      maker.profileHeroImage,
+      ...maker.storyImages,
+      maker.materialsImage,
+      ...makerProducts.map((p) => p.image),
+      ...makerProducts.flatMap((p) => p.alternateImages || []),
+    ].filter(Boolean)
+  );
+  const studioGalleryItems = getGalleryItemsByMaker(maker.slug)
+    .filter((item) => !usedImages.has(item.src))
+    .slice(0, 9);
+
   return (
     <>
       <Navigation />
@@ -454,6 +471,24 @@ export default function MakerPage({ params }: PageProps) {
                   <ProductCard product={product} variant="light" />
                 </ScrollReveal>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ═══════════════════════════════════════════════
+          FROM THE STUDIO
+          ═══════════════════════════════════════════════ */}
+      {studioGalleryItems.length > 0 && (
+        <section className="py-16 md:py-24 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto">
+            <ScrollReveal>
+              <span className={`${SECTION_LABEL_DARK} label-line mb-10`}>
+                From the Studio
+              </span>
+            </ScrollReveal>
+            <div className="mt-10">
+              <GalleryGrid items={studioGalleryItems} columns={3} />
             </div>
           </div>
         </section>

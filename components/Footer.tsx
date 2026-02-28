@@ -29,6 +29,12 @@ export default function Footer() {
                 The Makers
               </Link>
               <Link
+                href="/gallery"
+                className="font-sans text-[14px] font-light text-forge-paper/55 hover:text-forge-paper/80 transition-colors duration-300"
+              >
+                Gallery
+              </Link>
+              <Link
                 href="/shop"
                 className="font-sans text-[14px] font-light text-forge-paper/55 hover:text-forge-paper/80 transition-colors duration-300"
               >
