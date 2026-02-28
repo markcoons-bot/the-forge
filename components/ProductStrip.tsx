@@ -3,14 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/data/products";
-import { SECTION_LABEL_ACCENT, PRODUCT_NAME, PRODUCT_PRICE } from "@/lib/typography";
+import { SECTION_LABEL_LIGHT } from "@/lib/typography";
 
 interface ProductStripProps {
   products: Product[];
-  accentColor?: string;
 }
 
-export default function ProductStrip({ products, accentColor }: ProductStripProps) {
+export default function ProductStrip({ products }: ProductStripProps) {
   if (products.length === 0) return null;
 
   const formatPrice = (price: number, currency: string) => {
@@ -19,12 +18,9 @@ export default function ProductStrip({ products, accentColor }: ProductStripProp
   };
 
   return (
-    <section className="py-10 md:py-14">
+    <section className="bg-forge-paper py-10 md:py-14">
       <div className="px-6 md:px-10 mb-6">
-        <span
-          className={SECTION_LABEL_ACCENT}
-          style={accentColor ? { color: accentColor } : undefined}
-        >
+        <span className={SECTION_LABEL_LIGHT}>
           The Work
         </span>
       </div>
@@ -50,10 +46,10 @@ export default function ProductStrip({ products, accentColor }: ProductStripProp
                   sizes="220px"
                 />
               </div>
-              <p className={`${PRODUCT_NAME} text-forge-paper/80 group-hover:text-forge-paper transition-colors duration-300 text-sm`}>
+              <p className="font-serif text-[16px] font-light text-forge-text/90 group-hover:text-forge-text transition-colors duration-300">
                 {product.name}
               </p>
-              <p className={`${PRODUCT_PRICE} text-forge-paper/40 mt-1 text-xs`}>
+              <p className="font-mono text-[15px] text-forge-text/80 mt-1">
                 {formatPrice(product.price, product.currency)}
               </p>
             </Link>

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/data/products";
 import { makers } from "@/data/makers";
-import { PRODUCT_NAME, PRODUCT_MAKER, PRODUCT_PRICE } from "@/lib/typography";
 
 interface ProductCardProps {
   product: Product;
@@ -54,7 +53,7 @@ export default function ProductCard({
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3
-            className={`${PRODUCT_NAME} ${
+            className={`font-serif text-[17px] font-light ${
               isDark ? "text-forge-paper" : "text-forge-text"
             }`}
           >
@@ -62,8 +61,8 @@ export default function ProductCard({
           </h3>
           {maker && (
             <p
-              className={`${PRODUCT_MAKER} ${
-                isDark ? "text-forge-paper/40" : "text-forge-text/40"
+              className={`font-sans text-[14px] font-light mt-0.5 ${
+                isDark ? "text-forge-paper/55" : "text-forge-text/60"
               }`}
             >
               {maker.name}
@@ -71,8 +70,8 @@ export default function ProductCard({
           )}
         </div>
         <p
-          className={`${PRODUCT_PRICE} ${
-            isDark ? "text-forge-accent" : "text-forge-text/60"
+          className={`font-mono text-[15px] shrink-0 ${
+            isDark ? "text-forge-paper/80" : "text-forge-text"
           }`}
         >
           {formatPrice(product.price, product.currency)}

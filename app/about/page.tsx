@@ -8,7 +8,7 @@ import {
   BODY,
   BODY_DARK,
   SECTION_LABEL,
-  SECTION_LABEL_ACCENT,
+  SECTION_LABEL_DARK,
 } from "@/lib/typography";
 
 export const metadata: Metadata = {
@@ -54,7 +54,7 @@ export default function AboutPage() {
       <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_ACCENT} block mb-8`}>
+            <span className={`${SECTION_LABEL_DARK} block mb-8`}>
               About
             </span>
             <h1 className={`${H1_PAGE} text-forge-paper`}>
@@ -126,7 +126,7 @@ export default function AboutPage() {
       {/* Pull quote */}
       <section className="py-20 md:py-24 px-6 md:px-10">
         <ScrollReveal>
-          <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.3] max-w-3xl mx-auto text-center">
+          <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-paper/80 leading-[1.3] max-w-3xl mx-auto text-center">
             The process is the beauty. The object is just proof that the
             process happened.
           </blockquote>
@@ -135,14 +135,14 @@ export default function AboutPage() {
 
       {/* Accent divider */}
       <div className="py-[60px] flex justify-center">
-        <div className="w-10 h-px bg-forge-accent" />
+        <div className="w-10 h-px bg-forge-paper/20" />
       </div>
 
       {/* Our Standards — LIGHT section */}
       <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL} text-forge-accent block mb-14`}>
+            <span className={`${SECTION_LABEL} text-forge-text/60 block mb-14`}>
               Our Standards
             </span>
           </ScrollReveal>
@@ -168,7 +168,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_ACCENT} block mb-6`}>
+            <span className={`${SECTION_LABEL_DARK} block mb-6`}>
               For Makers
             </span>
             <h3 className={`${H2_SECTION} text-forge-paper mb-10`}>
@@ -193,15 +193,15 @@ export default function AboutPage() {
                 ["Premium pricing protected", "We do not run sales. We do not offer discount codes. Your prices are your prices, and we will never pressure you to lower them."],
                 ["You control production", "Made to order, ready to ship, limited runs — your pace, your capacity. We will never ask you to scale beyond what your hands can do."],
               ].map(([title, desc], index) => (
-                <div key={index} className="flex items-start gap-6 py-5 border-b border-white/5">
-                  <span className="font-mono text-[10px] text-forge-accent/40 pt-1 shrink-0 w-5 text-right">
+                <div key={index} className="flex items-start gap-6 py-5 border-b border-white/[0.08]">
+                  <span className="font-mono text-[10px] text-forge-paper/40 pt-1 shrink-0 w-5 text-right">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
                     <p className="font-sans text-[17px] font-medium text-forge-paper mb-1">
                       {title}
                     </p>
-                    <p className={`${BODY} text-forge-paper/60`}>
+                    <p className={`${BODY} text-forge-paper/70`}>
                       {desc}
                     </p>
                   </div>
@@ -213,7 +213,7 @@ export default function AboutPage() {
           <ScrollReveal delay={240}>
             <a
               href="#"
-              className="font-sans text-[12px] font-light uppercase tracking-[0.15em] text-forge-accent underline underline-offset-4 decoration-forge-accent/40 hover:text-white hover:decoration-white/40 transition-colors duration-300"
+              className="font-sans text-[13px] font-light uppercase tracking-[0.15em] text-forge-paper/80 underline underline-offset-4 decoration-forge-paper/30 hover:text-white hover:decoration-white/40 transition-colors duration-300"
             >
               Apply to The Forge &rarr;
             </a>
@@ -224,7 +224,7 @@ export default function AboutPage() {
       {/* Closing quote */}
       <section className="pt-24 md:pt-28 pb-20 md:pb-24 px-6 md:px-10">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-accent">
+          <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/80">
             &ldquo;The work is the thing. Everything else is just making sure
             the work gets seen.&rdquo;
           </blockquote>

@@ -13,10 +13,9 @@ import {
   STORY_DARK,
   STORY_LIGHT,
   SECTION_LABEL,
+  SECTION_LABEL_DARK,
   SECTION_LABEL_LIGHT,
-  H1_MAKER,
   H2_SECTION,
-  QUOTE_SMALL,
   NAV_LINK_DARK,
   METHOD_STEP,
 } from "@/lib/typography";
@@ -58,7 +57,7 @@ function FullBleedImageWithCaption({
   position?: "left" | "right";
 }) {
   const isRight = position === "right";
-  const gradient = "linear-gradient(to top, rgba(26,24,22,0.7) 0%, rgba(26,24,22,0.35) 25%, rgba(26,24,22,0.05) 45%, transparent 55%)";
+  const gradient = "linear-gradient(to top, rgba(26,24,22,0.75) 0%, rgba(26,24,22,0.4) 25%, rgba(26,24,22,0.08) 45%, transparent 55%)";
 
   return (
     <ScrollReveal>
@@ -77,7 +76,7 @@ function FullBleedImageWithCaption({
           <>
             <div className="absolute inset-0" style={{ background: gradient }} />
             <div
-              className={`absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10 flex ${
+              className={`absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10 flex text-shadow-image ${
                 isRight ? "justify-end" : "justify-start"
               }`}
             >
@@ -86,8 +85,8 @@ function FullBleedImageWithCaption({
                   isRight ? "text-right" : "text-left"
                 }`}
               >
-                <span className="font-serif text-[56px] md:text-[72px] leading-none text-forge-accent/60 block mb-[-8px] md:mb-[-12px]">&ldquo;</span>
-                <span className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.45] text-forge-paper/90">
+                <span className="font-serif text-[100px] md:text-[120px] leading-none text-forge-paper/[0.25] block mb-[-20px] md:mb-[-28px]">&ldquo;</span>
+                <span className="font-serif text-[30px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper">
                   {caption}
                 </span>
               </blockquote>
@@ -101,18 +100,29 @@ function FullBleedImageWithCaption({
 
 /* ─────────────────────────────────────────────
    EDITORIAL LAYOUT — alternating light/dark
-   hero → light para → image → dark para →
-   image+quote → light para → craft
    ───────────────────────────────────────────── */
 function EditorialStory({
   maker,
 }: {
   maker: ReturnType<typeof getMaker> & {};
 }) {
+  const firstName = maker.name.split(" ")[0];
+
   return (
     <>
+      {/* ── Story Header ── */}
+      <section className="bg-forge-paper pt-16 md:pt-24 pb-4 px-6 md:px-10">
+        <div className="max-w-prose mx-auto">
+          <ScrollReveal>
+            <h2 className="font-serif text-[36px] md:text-[44px] font-light italic leading-[1.2] text-forge-text/80">
+              {firstName}
+            </h2>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ── PARA 1 — Warm paper, dark text ── */}
-      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
+      <section className="bg-forge-paper py-10 md:py-16 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
             <p className={STORY_LIGHT}>
@@ -180,7 +190,7 @@ function EditorialStory({
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL} text-forge-accent/60 mb-12`}>
+              <h2 className={`${SECTION_LABEL_DARK} mb-12`}>
                 The Craft
               </h2>
             </ScrollReveal>
@@ -206,11 +216,23 @@ function DefaultStory({
   maker: ReturnType<typeof getMaker> & {};
 }) {
   const imagePositions = maker.storyImagePositions || [1, 3];
+  const firstName = maker.name.split(" ")[0];
 
   return (
     <>
+      {/* Story Header */}
+      <section className="pt-16 md:pt-24 pb-4 px-6 md:px-10">
+        <div className="max-w-prose mx-auto">
+          <ScrollReveal>
+            <h2 className="font-serif text-[36px] md:text-[44px] font-light italic leading-[1.2] text-forge-paper/80">
+              {firstName}
+            </h2>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Story */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-16">
         <div className="max-w-prose mx-auto px-6 md:px-10">
           {maker.story.map((paragraph, index) => {
             const imageIndex = imagePositions.indexOf(index);
@@ -235,7 +257,7 @@ function DefaultStory({
 
                 {showPullQuote && (
                   <ScrollReveal>
-                    <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-accent my-16 md:my-20 pl-6 border-l-2 border-forge-accent/30">
+                    <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/80 my-16 md:my-20 pl-6 border-l-2 border-forge-paper/20">
                       {maker.pullQuote}
                     </blockquote>
                   </ScrollReveal>
@@ -272,7 +294,7 @@ function DefaultStory({
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL} text-forge-accent/60 mb-12`}>
+              <h2 className={`${SECTION_LABEL_DARK} mb-12`}>
                 The Craft
               </h2>
             </ScrollReveal>
@@ -288,7 +310,7 @@ function DefaultStory({
         <section className="py-16 md:py-24 px-6 md:px-10">
           <div className="max-w-prose mx-auto">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL} text-forge-accent/60 mb-12`}>
+              <h2 className={`${SECTION_LABEL_DARK} mb-12`}>
                 The Method
               </h2>
             </ScrollReveal>
@@ -297,7 +319,7 @@ function DefaultStory({
               {maker.method.map((step, index) => (
                 <ScrollReveal key={index} delay={index * 60}>
                   <div className="flex items-start gap-6 py-5 border-b border-white/5">
-                    <span className="font-mono text-[11px] text-forge-accent/40 pt-0.5 shrink-0">
+                    <span className="font-mono text-[11px] text-forge-paper/40 pt-0.5 shrink-0">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <p className={`${METHOD_STEP} text-forge-paper/80`}>
@@ -309,7 +331,7 @@ function DefaultStory({
             </div>
 
             <ScrollReveal delay={100} className="mt-10">
-              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-paper/40">
+              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-paper/50">
                 Materials: {maker.materials}
               </p>
             </ScrollReveal>
@@ -352,30 +374,36 @@ export default function MakerPage({ params }: PageProps) {
         />
         <div className="maker-portrait-overlay absolute inset-0" />
 
-        <div className="relative z-10 p-8 md:p-16 pb-16 md:pb-24">
-          <p
-            className={`${SECTION_LABEL} tracking-[0.15em] mb-6`}
-            style={{ color: maker.accentColor }}
-          >
+        <div className="relative z-10 p-8 md:p-16 pb-16 md:pb-24 text-shadow-hero">
+          <p className={`${SECTION_LABEL} text-[12px] md:text-[13px] tracking-[0.15em] text-forge-paper mb-6`}>
             {maker.medium} &mdash; {maker.location}
           </p>
-          <h1 className={`${H1_MAKER} text-forge-paper mb-8`}>
+          <h1
+            className="font-serif font-light leading-[1.2] text-forge-paper mb-8"
+            style={{ fontSize: "clamp(48px, 8vw, 80px)" }}
+          >
             {maker.name}
           </h1>
-          <blockquote className={`${QUOTE_SMALL} text-forge-paper/90 max-w-2xl`}>
-            &ldquo;{maker.quote}&rdquo;
-          </blockquote>
+          <div className="relative max-w-2xl">
+            {/* Decorative quotation mark */}
+            <span className="font-serif text-[150px] md:text-[200px] leading-none text-forge-paper/[0.3] absolute -top-[80px] md:-top-[110px] -left-[10px] md:-left-[20px] select-none pointer-events-none" aria-hidden="true">
+              &ldquo;
+            </span>
+            <blockquote className="font-serif text-[24px] md:text-[28px] font-light italic leading-[1.3] text-forge-paper relative z-10">
+              &ldquo;{maker.quote}&rdquo;
+            </blockquote>
+          </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-          <div className="w-px h-10 bg-forge-accent/30 animate-scroll-line" />
+          <div className="w-px h-10 bg-forge-paper/20 animate-scroll-line" />
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════
-          PRODUCT STRIP — horizontal filmstrip
+          PRODUCT STRIP — warm paper background
           ═══════════════════════════════════════════════ */}
-      <ProductStrip products={makerProducts} accentColor={maker.accentColor} />
+      <ProductStrip products={makerProducts} />
 
       {/* ═══════════════════════════════════════════════
           STORY + CRAFT
@@ -419,7 +447,7 @@ export default function MakerPage({ params }: PageProps) {
           ═══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 px-6 md:px-10">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.3] text-forge-accent">
+          <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.3] text-forge-paper/80">
             &ldquo;{maker.quote}&rdquo;
           </blockquote>
         </ScrollReveal>

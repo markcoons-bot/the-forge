@@ -9,14 +9,12 @@ import Footer from "@/components/Footer";
 import { makers } from "@/data/makers";
 import { products, getProductsByMaker } from "@/data/products";
 import {
-  H1_HERO,
   H2_SECTION,
   BODY,
   BODY_LIGHT,
   QUOTE_LARGE,
-  QUOTE_MEDIUM,
   SECTION_LABEL,
-  SECTION_LABEL_ACCENT,
+  SECTION_LABEL_DARK,
   SECTION_LABEL_LIGHT,
   NAV_LINK,
 } from "@/lib/typography";
@@ -36,12 +34,15 @@ export default function Home() {
         <HeroVideo />
         <div className="absolute inset-0 bg-forge-dark/70" />
         <div className="hero-glow" aria-hidden="true" />
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className={`${H1_HERO} tracking-[-0.01em] text-forge-paper mb-8`}>
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-shadow-hero">
+          <h1
+            className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-8"
+            style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
+          >
             Everything here was made{" "}
             <em className="italic">by hand.</em>
           </h1>
-          <p className={`${BODY} text-forge-paper/80 max-w-2xl mx-auto`}>
+          <p className="font-sans text-[18px] font-light leading-[1.9] text-forge-paper/80 max-w-2xl mx-auto">
             By someone who chose this life. Who chose time over speed. Who works
             with clay from dirt, lumber from trees, metal from fire, glass from
             sand and heat.
@@ -50,10 +51,10 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-          <span className={`${SECTION_LABEL} text-[10px] text-forge-paper/20`}>
+          <span className={`${SECTION_LABEL} text-[10px] text-forge-paper/40`}>
             Scroll
           </span>
-          <div className="w-px h-12 bg-forge-accent/30 animate-scroll-line" />
+          <div className="w-px h-12 bg-forge-paper/20 animate-scroll-line" />
         </div>
       </section>
 
@@ -69,7 +70,7 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className={`${BODY} text-forge-text/60 mt-8 max-w-md mx-auto tracking-wide`}>
-              Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[17px] text-forge-text/90">beauty.</span>
+              Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[18px] text-forge-text/90">beauty.</span>
             </p>
           </ScrollReveal>
         </div>
@@ -80,7 +81,7 @@ export default function Home() {
           ═══════════════════════════════════════════════ */}
       <section id="makers">
         <ScrollReveal className="text-center py-10">
-          <span className={`${SECTION_LABEL_ACCENT}`}>
+          <span className={SECTION_LABEL_DARK}>
             The Makers
           </span>
         </ScrollReveal>
@@ -113,22 +114,22 @@ export default function Home() {
 
                 {/* Content */}
                 <div
-                  className={`relative z-10 h-full flex flex-col justify-end p-8 md:p-16 ${
+                  className={`relative z-10 h-full flex flex-col justify-end p-8 md:p-16 text-shadow-image ${
                     index % 2 === 0 ? "items-start" : "items-start md:items-end"
                   }`}
                 >
                   <div className={`max-w-xl ${index % 2 === 0 ? "" : "md:text-right"}`}>
-                    <p className={`${SECTION_LABEL} tracking-[0.15em] mb-4`} style={{ color: maker.accentColor }}>
+                    <p className={`${SECTION_LABEL} text-[12px] tracking-[0.15em] text-forge-paper mb-4`}>
                       {maker.medium} &mdash; {maker.location}
                     </p>
-                    <blockquote className={`${QUOTE_MEDIUM} text-forge-paper/90 mb-6`}>
+                    <blockquote className="font-serif text-[32px] md:text-[38px] font-light italic leading-[1.3] text-forge-paper mb-6">
                       &ldquo;{maker.quote}&rdquo;
                     </blockquote>
                     <div className="flex items-center gap-4">
-                      <span className="font-sans text-[19px] font-light text-white">
+                      <span className="font-sans text-[22px] md:text-[24px] font-normal text-white">
                         {maker.name}
                       </span>
-                      <span className={`${NAV_LINK} tracking-[0.05em] text-forge-paper/40 group-hover:text-forge-accent transition-all duration-500 ease-forge`}>
+                      <span className="font-mono text-[13px] tracking-[0.05em] text-forge-paper/70 group-hover:text-forge-paper transition-all duration-500 ease-forge">
                         Enter studio &rarr;
                       </span>
                     </div>
@@ -139,7 +140,7 @@ export default function Home() {
                         {makerProducts.map((product) => (
                           <div
                             key={product.slug}
-                            className="relative w-16 h-20 md:w-20 md:h-24 overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                            className="relative w-16 h-20 md:w-20 md:h-24 overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity duration-500 ring-1 ring-white/20"
                           >
                             <div
                               className="absolute inset-0"
@@ -209,7 +210,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <p className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.3] mt-12">
+            <p className="font-serif text-2xl md:text-3xl font-light italic text-forge-text/60 leading-[1.3] mt-12">
               Perfectly imperfect.
             </p>
           </ScrollReveal>
@@ -220,7 +221,7 @@ export default function Home() {
           DIVIDER
           ═══════════════════════════════════════════════ */}
       <div className="py-4 flex justify-center">
-        <div className="w-10 h-px bg-forge-accent/40" />
+        <div className="w-10 h-px bg-forge-paper/20" />
       </div>
 
       {/* ═══════════════════════════════════════════════

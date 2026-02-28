@@ -123,6 +123,15 @@ body {
     transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
+/* Text shadow for readability on images */
+.text-shadow-hero {
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6), 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-image {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+
 /* Radial glow */
 .hero-glow {
   position: absolute;
