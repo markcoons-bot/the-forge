@@ -10,6 +10,7 @@ export interface Maker {
   materials: string;
   materialsImage?: string;
   craft?: string;
+  storyLayout?: "editorial";
   accentColor: string;
   portraitGradient: string;
   portraitImage: string;
@@ -47,9 +48,10 @@ export const makers: Maker[] = [
     portraitGradient: "linear-gradient(145deg, #3d3229 0%, #5c4a3a 40%, #2a2420 100%)",
     portraitImage: "/images/FGhands.webp",
     profileHeroImage: "/images/FGobject2.webp",
+    storyLayout: "editorial",
     storyImages: [
-      "/images/FGprocess.webp",
-      "/images/FGHero.webp",
+      "/images/FGextra.webp",
+      "/images/FGhands.webp",
     ],
     storyImagePositions: [1, 2],
     bio: "British potter working in reduction-fired stoneware and porcelain. Apprenticed with Lisa Hammond MBE, studied in Mashiko, Japan. Author of By My Hands.",
