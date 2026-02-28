@@ -34,6 +34,25 @@ function renderWithEmphasis(text: string) {
   );
 }
 
+function FullBleedImage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <ScrollReveal>
+      <div
+        className="relative h-[55vh] overflow-hidden my-20"
+        style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover story-image-inner"
+          sizes="100vw"
+        />
+      </div>
+    </ScrollReveal>
+  );
+}
+
 export default function MakerPage({ params }: PageProps) {
   const maker = getMaker(params.slug);
   if (!maker) notFound();
@@ -74,7 +93,7 @@ export default function MakerPage({ params }: PageProps) {
           <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-forge-paper mb-8">
             {maker.name}
           </h1>
-          <blockquote className="font-serif text-xl md:text-2xl font-light italic text-forge-paper/[0.85] max-w-2xl">
+          <blockquote className="font-serif text-xl md:text-2xl font-light italic text-forge-paper/[0.9] max-w-2xl">
             &ldquo;{maker.quote}&rdquo;
           </blockquote>
         </div>
@@ -87,8 +106,8 @@ export default function MakerPage({ params }: PageProps) {
       {/* ═══════════════════════════════════════════════
           2. THE STORY
           ═══════════════════════════════════════════════ */}
-      <section className="py-24 md:py-36 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
+      <section className="py-24 md:py-36">
+        <div className="max-w-prose mx-auto px-6 md:px-10">
           {maker.story.map((paragraph, index) => {
             const imageIndex = imagePositions.indexOf(index);
             const storyImage =
@@ -100,29 +119,28 @@ export default function MakerPage({ params }: PageProps) {
             const showPullQuote = index === maker.story.length - 1;
 
             return (
-              <ScrollReveal key={index} delay={index * 80}>
+              <div key={index}>
                 {storyImage && (
-                  <div className="relative w-full aspect-[16/9] my-16 -mx-0 md:-mx-20 md:w-[calc(100%+10rem)] overflow-hidden rounded-sm">
-                    <Image
-                      src={storyImage}
-                      alt={`${maker.name} studio`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 900px"
-                    />
-                  </div>
+                  <FullBleedImage
+                    src={storyImage}
+                    alt={`${maker.name} studio`}
+                  />
                 )}
 
                 {showPullQuote && (
-                  <blockquote className="font-serif text-2xl md:text-3xl font-light italic leading-[1.4] text-forge-accent my-16 pl-6 border-l-2 border-forge-accent/30">
-                    {maker.pullQuote}
-                  </blockquote>
+                  <ScrollReveal>
+                    <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.4] text-forge-accent my-16 md:my-20 pl-6 border-l-2 border-forge-accent/30">
+                      {maker.pullQuote}
+                    </blockquote>
+                  </ScrollReveal>
                 )}
 
-                <p className={`font-sans text-[17px] font-extralight leading-[2] text-forge-paper/[0.88] ${isLastParagraph ? "" : "mb-8"}`}>
-                  {renderWithEmphasis(paragraph)}
-                </p>
-              </ScrollReveal>
+                <ScrollReveal delay={index * 80}>
+                  <p className={`font-sans text-[17px] md:text-[18px] font-extralight leading-[2] text-forge-paper/[0.90] ${isLastParagraph ? "" : "mb-8"}`}>
+                    {renderWithEmphasis(paragraph)}
+                  </p>
+                </ScrollReveal>
+              </div>
             );
           })}
         </div>
@@ -160,30 +178,33 @@ export default function MakerPage({ params }: PageProps) {
           4. THE CRAFT (or fallback to Method + Materials)
           ═══════════════════════════════════════════════ */}
       {maker.craft ? (
-        <section className="py-24 md:py-36 px-6 md:px-10">
-          <div className="max-w-prose mx-auto">
+        <section className="py-24 md:py-36">
+          {maker.materialsImage && (
+            <ScrollReveal>
+              <div
+                className="relative h-[55vh] overflow-hidden mb-20"
+                style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
+              >
+                <Image
+                  src={maker.materialsImage}
+                  alt={`${maker.name} materials and tools`}
+                  fill
+                  className="object-cover story-image-inner"
+                  sizes="100vw"
+                />
+              </div>
+            </ScrollReveal>
+          )}
+
+          <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
               <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 mb-12">
                 The Craft
               </h2>
             </ScrollReveal>
 
-            {maker.materialsImage && (
-              <ScrollReveal>
-                <div className="relative w-full aspect-[16/9] mb-12 -mx-0 md:-mx-20 md:w-[calc(100%+10rem)] overflow-hidden rounded-sm">
-                  <Image
-                    src={maker.materialsImage}
-                    alt={`${maker.name} materials and tools`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 900px"
-                  />
-                </div>
-              </ScrollReveal>
-            )}
-
             <ScrollReveal delay={100}>
-              <p className="font-sans text-[17px] font-extralight leading-[2] text-forge-paper/[0.88]">
+              <p className="font-sans text-[17px] md:text-[18px] font-extralight leading-[2] text-forge-paper/[0.90]">
                 {renderWithEmphasis(maker.craft)}
               </p>
             </ScrollReveal>
@@ -207,7 +228,7 @@ export default function MakerPage({ params }: PageProps) {
                       <span className="font-mono text-[11px] text-forge-accent/40 pt-0.5 shrink-0">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <p className="font-sans text-[15px] font-extralight text-forge-paper/[0.8]">
+                      <p className="font-sans text-[15px] font-extralight text-forge-paper/[0.85]">
                         {step}
                       </p>
                     </div>
@@ -223,23 +244,21 @@ export default function MakerPage({ params }: PageProps) {
             </div>
           </section>
 
-          {/* Materials image if present but no craft */}
           {maker.materialsImage && (
-            <section className="py-16 md:py-24 px-6 md:px-10">
-              <div className="max-w-prose mx-auto">
-                <ScrollReveal>
-                  <div className="relative w-full aspect-[16/9] -mx-0 md:-mx-20 md:w-[calc(100%+10rem)] overflow-hidden rounded-sm">
-                    <Image
-                      src={maker.materialsImage}
-                      alt={`${maker.name} materials`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 900px"
-                    />
-                  </div>
-                </ScrollReveal>
+            <ScrollReveal>
+              <div
+                className="relative h-[55vh] overflow-hidden"
+                style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
+              >
+                <Image
+                  src={maker.materialsImage}
+                  alt={`${maker.name} materials`}
+                  fill
+                  className="object-cover story-image-inner"
+                  sizes="100vw"
+                />
               </div>
-            </section>
+            </ScrollReveal>
           )}
         </>
       )}

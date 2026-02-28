@@ -23,7 +23,7 @@ const config: Config = {
         mono: ["var(--font-jetbrains)", "JetBrains Mono", "monospace"],
       },
       maxWidth: {
-        prose: "640px",
+        prose: "700px",
       },
       lineHeight: {
         relaxed: "2.2",
