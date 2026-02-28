@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { NAV_LINK, NAV_LINK_MUTED } from "@/lib/typography";
 
 export default function Navigation() {
   const [visible, setVisible] = useState(false);
@@ -38,26 +39,26 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
           <Link
             href="/"
-            className="font-mono text-xs tracking-[0.15em] uppercase text-forge-accent hover:text-forge-paper transition-colors duration-300"
+            className={`${NAV_LINK} tracking-[0.15em] uppercase text-forge-accent hover:text-forge-paper transition-colors duration-300`}
           >
             The Forge
           </Link>
           <div className="flex items-center gap-8">
             <Link
-              href="/#makers"
-              className="font-mono text-xs tracking-[0.08em] text-forge-muted hover:text-forge-paper transition-colors duration-300"
+              href="/makers"
+              className={NAV_LINK_MUTED}
             >
               Makers
             </Link>
             <Link
               href="/shop"
-              className="font-mono text-xs tracking-[0.08em] text-forge-muted hover:text-forge-paper transition-colors duration-300"
+              className={NAV_LINK_MUTED}
             >
               Shop
             </Link>
             <Link
               href="/about"
-              className="font-mono text-xs tracking-[0.08em] text-forge-muted hover:text-forge-paper transition-colors duration-300"
+              className={NAV_LINK_MUTED}
             >
               About
             </Link>

@@ -5,9 +5,21 @@ import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductCard from "@/components/ProductCard";
+import ProductStrip from "@/components/ProductStrip";
 import Footer from "@/components/Footer";
 import { makers, getMaker } from "@/data/makers";
 import { getProductsByMaker } from "@/data/products";
+import {
+  STORY_DARK,
+  STORY_LIGHT,
+  SECTION_LABEL,
+  SECTION_LABEL_LIGHT,
+  H1_MAKER,
+  H2_SECTION,
+  QUOTE_SMALL,
+  NAV_LINK_DARK,
+  METHOD_STEP,
+} from "@/lib/typography";
 
 interface PageProps {
   params: { slug: string };
@@ -75,7 +87,7 @@ function FullBleedImageWithCaption({
                 }`}
               >
                 <span className="font-serif text-[56px] md:text-[72px] leading-none text-forge-accent/60 block mb-[-8px] md:mb-[-12px]">&ldquo;</span>
-                <span className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.45] text-forge-paper/[0.92]">
+                <span className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.45] text-forge-paper/90">
                   {caption}
                 </span>
               </blockquote>
@@ -90,22 +102,20 @@ function FullBleedImageWithCaption({
 /* ─────────────────────────────────────────────
    EDITORIAL LAYOUT — alternating light/dark
    hero → light para → image → dark para →
-   image+quote → light para → work → craft
+   image+quote → light para → craft
    ───────────────────────────────────────────── */
 function EditorialStory({
   maker,
-  makerProducts,
 }: {
   maker: ReturnType<typeof getMaker> & {};
-  makerProducts: ReturnType<typeof getProductsByMaker>;
 }) {
   return (
     <>
       {/* ── PARA 1 — Warm paper, dark text ── */}
-      <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[18px] md:text-[20px] font-extralight leading-[2] text-forge-text/[0.88]">
+            <p className={STORY_LIGHT}>
               {renderWithEmphasis(maker.story[0])}
             </p>
           </ScrollReveal>
@@ -123,10 +133,10 @@ function EditorialStory({
       )}
 
       {/* ── PARA 2 — Dark background, warm white text ── */}
-      <section className="py-20 md:py-28 px-6 md:px-10">
+      <section className="py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[18px] md:text-[20px] font-extralight leading-[2] text-forge-paper/[0.92]">
+            <p className={STORY_DARK}>
               {renderWithEmphasis(maker.story[1])}
             </p>
           </ScrollReveal>
@@ -143,46 +153,20 @@ function EditorialStory({
         />
       )}
 
-      {/* ── PARA 3 — Warm paper again, flows into Work ── */}
-      <section className="bg-forge-paper pt-20 md:pt-28 px-6 md:px-10">
+      {/* ── PARA 3 — Warm paper again ── */}
+      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[18px] md:text-[20px] font-extralight leading-[2] text-forge-text/[0.88]">
+            <p className={STORY_LIGHT}>
               {renderWithEmphasis(maker.story[2])}
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── THE WORK — continues on warm paper ── */}
-      {makerProducts.length > 0 && (
-        <section className="bg-forge-paper pt-16 md:pt-20 pb-24 md:pb-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <ScrollReveal>
-              <div className="mb-16 md:mb-20">
-                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-text/40 block mb-4">
-                  The Work
-                </span>
-                <h2 className="font-serif text-3xl md:text-4xl font-light text-forge-text">
-                  Available pieces
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-              {makerProducts.map((product, index) => (
-                <ScrollReveal key={product.slug} delay={index * 100}>
-                  <ProductCard product={product} variant="light" />
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── THE CRAFT — dark background ── */}
       {maker.craft && (
-        <section className="py-24 md:py-36">
+        <section className="py-20 md:py-28">
           {maker.materialsImage && (
             <FullBleedImageWithCaption
               src={maker.materialsImage}
@@ -196,13 +180,13 @@ function EditorialStory({
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
-              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 mb-12">
+              <h2 className={`${SECTION_LABEL} text-forge-accent/60 mb-12`}>
                 The Craft
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <p className="font-sans text-[18px] md:text-[20px] font-extralight leading-[2] text-forge-paper/[0.92]">
+              <p className={STORY_DARK}>
                 {renderWithEmphasis(maker.craft)}
               </p>
             </ScrollReveal>
@@ -218,17 +202,15 @@ function EditorialStory({
    ───────────────────────────────────────────── */
 function DefaultStory({
   maker,
-  makerProducts,
 }: {
   maker: ReturnType<typeof getMaker> & {};
-  makerProducts: ReturnType<typeof getProductsByMaker>;
 }) {
   const imagePositions = maker.storyImagePositions || [1, 3];
 
   return (
     <>
       {/* Story */}
-      <section className="py-24 md:py-36">
+      <section className="py-16 md:py-24">
         <div className="max-w-prose mx-auto px-6 md:px-10">
           {maker.story.map((paragraph, index) => {
             const imageIndex = imagePositions.indexOf(index);
@@ -253,7 +235,7 @@ function DefaultStory({
 
                 {showPullQuote && (
                   <ScrollReveal>
-                    <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.4] text-forge-accent my-16 md:my-20 pl-6 border-l-2 border-forge-accent/30">
+                    <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-accent my-16 md:my-20 pl-6 border-l-2 border-forge-accent/30">
                       {maker.pullQuote}
                     </blockquote>
                   </ScrollReveal>
@@ -261,7 +243,7 @@ function DefaultStory({
 
                 <ScrollReveal delay={index * 80}>
                   <p
-                    className={`font-sans text-[18px] md:text-[20px] font-extralight leading-[2] text-forge-paper/[0.92] ${
+                    className={`${STORY_DARK} ${
                       isLastParagraph ? "" : "mb-8"
                     }`}
                   >
@@ -274,35 +256,9 @@ function DefaultStory({
         </div>
       </section>
 
-      {/* Work */}
-      {makerProducts.length > 0 && (
-        <section className="bg-forge-paper py-24 md:py-32 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <ScrollReveal>
-              <div className="mb-16 md:mb-20">
-                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-text/40 block mb-4">
-                  The Work
-                </span>
-                <h2 className="font-serif text-3xl md:text-4xl font-light text-forge-text">
-                  Available pieces
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
-              {makerProducts.map((product, index) => (
-                <ScrollReveal key={product.slug} delay={index * 100}>
-                  <ProductCard product={product} variant="light" />
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Method + Materials (or Craft) */}
       {maker.craft ? (
-        <section className="py-24 md:py-36">
+        <section className="py-20 md:py-28">
           {maker.materialsImage && (
             <FullBleedImageWithCaption
               src={maker.materialsImage}
@@ -316,13 +272,13 @@ function DefaultStory({
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
-              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 mb-12">
+              <h2 className={`${SECTION_LABEL} text-forge-accent/60 mb-12`}>
                 The Craft
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <p className="font-sans text-[18px] md:text-[20px] font-extralight leading-[2] text-forge-paper/[0.92]">
+              <p className={STORY_DARK}>
                 {renderWithEmphasis(maker.craft)}
               </p>
             </ScrollReveal>
@@ -332,7 +288,7 @@ function DefaultStory({
         <section className="py-16 md:py-24 px-6 md:px-10">
           <div className="max-w-prose mx-auto">
             <ScrollReveal>
-              <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 mb-12">
+              <h2 className={`${SECTION_LABEL} text-forge-accent/60 mb-12`}>
                 The Method
               </h2>
             </ScrollReveal>
@@ -344,7 +300,7 @@ function DefaultStory({
                     <span className="font-mono text-[11px] text-forge-accent/40 pt-0.5 shrink-0">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <p className="font-sans text-[15px] font-extralight text-forge-paper/[0.85]">
+                    <p className={`${METHOD_STEP} text-forge-paper/80`}>
                       {step}
                     </p>
                   </div>
@@ -353,7 +309,7 @@ function DefaultStory({
             </div>
 
             <ScrollReveal delay={100} className="mt-10">
-              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-paper/50">
+              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-paper/40">
                 Materials: {maker.materials}
               </p>
             </ScrollReveal>
@@ -398,15 +354,15 @@ export default function MakerPage({ params }: PageProps) {
 
         <div className="relative z-10 p-8 md:p-16 pb-16 md:pb-24">
           <p
-            className="font-mono text-[11px] tracking-[0.15em] uppercase mb-6"
+            className={`${SECTION_LABEL} tracking-[0.15em] mb-6`}
             style={{ color: maker.accentColor }}
           >
             {maker.medium} &mdash; {maker.location}
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-forge-paper mb-8">
+          <h1 className={`${H1_MAKER} text-forge-paper mb-8`}>
             {maker.name}
           </h1>
-          <blockquote className="font-serif text-xl md:text-2xl font-light italic text-forge-paper/[0.9] max-w-2xl">
+          <blockquote className={`${QUOTE_SMALL} text-forge-paper/90 max-w-2xl`}>
             &ldquo;{maker.quote}&rdquo;
           </blockquote>
         </div>
@@ -417,20 +373,53 @@ export default function MakerPage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          STORY + WORK + CRAFT
+          PRODUCT STRIP — horizontal filmstrip
+          ═══════════════════════════════════════════════ */}
+      <ProductStrip products={makerProducts} accentColor={maker.accentColor} />
+
+      {/* ═══════════════════════════════════════════════
+          STORY + CRAFT
           ═══════════════════════════════════════════════ */}
       {maker.storyLayout === "editorial" ? (
-        <EditorialStory maker={maker} makerProducts={makerProducts} />
+        <EditorialStory maker={maker} />
       ) : (
-        <DefaultStory maker={maker} makerProducts={makerProducts} />
+        <DefaultStory maker={maker} />
+      )}
+
+      {/* ═══════════════════════════════════════════════
+          FULL PRODUCT GRID
+          ═══════════════════════════════════════════════ */}
+      {makerProducts.length > 0 && (
+        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto">
+            <ScrollReveal>
+              <div className="mb-16 md:mb-20">
+                <span className={`${SECTION_LABEL_LIGHT} block mb-4`}>
+                  The Work
+                </span>
+                <h2 className={`${H2_SECTION} text-forge-text`}>
+                  Available pieces
+                </h2>
+              </div>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+              {makerProducts.map((product, index) => (
+                <ScrollReveal key={product.slug} delay={index * 100}>
+                  <ProductCard product={product} variant="light" />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* ═══════════════════════════════════════════════
           CLOSING
           ═══════════════════════════════════════════════ */}
-      <section className="py-24 md:py-36 px-6 md:px-10">
+      <section className="py-20 md:py-28 px-6 md:px-10">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.4] text-forge-accent">
+          <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.3] text-forge-accent">
             &ldquo;{maker.quote}&rdquo;
           </blockquote>
         </ScrollReveal>
@@ -443,13 +432,13 @@ export default function MakerPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link
             href="/"
-            className="font-mono text-xs tracking-[0.08em] text-forge-paper/40 hover:text-forge-accent transition-colors duration-300"
+            className={NAV_LINK_DARK}
           >
             &larr; Back to The Forge
           </Link>
           <Link
             href="/shop"
-            className="font-mono text-xs tracking-[0.08em] text-forge-paper/40 hover:text-forge-accent transition-colors duration-300"
+            className={NAV_LINK_DARK}
           >
             Visit the shop &rarr;
           </Link>

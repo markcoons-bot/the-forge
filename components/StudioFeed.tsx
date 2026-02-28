@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import { SECTION_LABEL_ACCENT, NAV_LINK } from "@/lib/typography";
 
 interface StudioTile {
   image: string;
@@ -87,16 +88,16 @@ export default function StudioFeed() {
         <ScrollReveal>
           <div className="flex items-end justify-between">
             <div>
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-3">
+              <span className={`${SECTION_LABEL_ACCENT} block mb-3`}>
                 From the Studios
               </span>
-              <p className="font-sans text-sm font-extralight text-forge-paper/30">
+              <p className="font-sans text-sm font-light text-forge-paper/20">
                 Unfinished work. Open kilns. Quiet mornings. The moments between the moments.
               </p>
             </div>
             <a
               href="#"
-              className="hidden md:inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] text-forge-paper/30 hover:text-forge-accent transition-colors duration-300 shrink-0"
+              className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/20 hover:text-forge-accent transition-colors duration-300 shrink-0`}
             >
               Follow the makers <span>&rarr;</span>
             </a>
@@ -133,7 +134,7 @@ export default function StudioFeed() {
                   <p className="font-sans text-sm font-light text-forge-paper">
                     {tile.makerName}
                   </p>
-                  <p className="font-sans text-xs font-extralight text-forge-paper/40 mt-1.5">
+                  <p className="font-sans text-xs font-light text-forge-paper/40 mt-1.5">
                     {tile.caption}
                   </p>
                 </div>
@@ -147,7 +148,7 @@ export default function StudioFeed() {
       <div className="px-6 md:hidden mt-6">
         <a
           href="#"
-          className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.08em] text-forge-paper/30 hover:text-forge-accent transition-colors duration-300"
+          className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/20 hover:text-forge-accent transition-colors duration-300`}
         >
           Follow the makers <span>&rarr;</span>
         </a>

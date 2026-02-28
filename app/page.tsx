@@ -7,7 +7,19 @@ import ProductCard from "@/components/ProductCard";
 import StudioFeed from "@/components/StudioFeed";
 import Footer from "@/components/Footer";
 import { makers } from "@/data/makers";
-import { products } from "@/data/products";
+import { products, getProductsByMaker } from "@/data/products";
+import {
+  H1_HERO,
+  H2_SECTION,
+  BODY,
+  BODY_LIGHT,
+  QUOTE_LARGE,
+  QUOTE_MEDIUM,
+  SECTION_LABEL,
+  SECTION_LABEL_ACCENT,
+  SECTION_LABEL_LIGHT,
+  NAV_LINK,
+} from "@/lib/typography";
 
 export default function Home() {
   const featuredProducts = products.slice(0, 6);
@@ -25,11 +37,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-forge-dark/70" />
         <div className="hero-glow" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-8">
+          <h1 className={`${H1_HERO} tracking-[-0.01em] text-forge-paper mb-8`}>
             Everything here was made{" "}
             <em className="italic">by hand.</em>
           </h1>
-          <p className="font-sans text-[17px] md:text-lg font-extralight leading-relaxed text-forge-paper/[0.8] max-w-2xl mx-auto">
+          <p className={`${BODY} text-forge-paper/80 max-w-2xl mx-auto`}>
             By someone who chose this life. Who chose time over speed. Who works
             with clay from dirt, lumber from trees, metal from fire, glass from
             sand and heat.
@@ -38,7 +50,7 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-          <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-paper/30">
+          <span className={`${SECTION_LABEL} text-[10px] text-forge-paper/20`}>
             Scroll
           </span>
           <div className="w-px h-12 bg-forge-accent/30 animate-scroll-line" />
@@ -48,15 +60,15 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           THE QUESTION
           ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-paper py-32 md:py-48 px-6 md:px-10">
+      <section className="bg-forge-paper py-24 md:py-36 px-6 md:px-10">
         <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <blockquote className="font-serif text-3xl md:text-5xl font-light italic leading-[1.3] text-forge-text">
+            <blockquote className={`${QUOTE_LARGE} text-forge-text`}>
               &ldquo;What is the most beautiful thing you have ever ruined?&rdquo;
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[15px] font-light tracking-wide text-forge-text/60 mt-8 max-w-md mx-auto">
+            <p className={`${BODY} text-forge-text/60 mt-8 max-w-md mx-auto tracking-wide`}>
               Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[17px] text-forge-text/90">beauty.</span>
             </p>
           </ScrollReveal>
@@ -67,76 +79,104 @@ export default function Home() {
           ACT TWO — The Makers
           ═══════════════════════════════════════════════ */}
       <section id="makers">
-        <ScrollReveal className="text-center py-16">
-          <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70">
+        <ScrollReveal className="text-center py-10">
+          <span className={`${SECTION_LABEL_ACCENT}`}>
             The Makers
           </span>
         </ScrollReveal>
 
         <div className="flex flex-col gap-[2px]">
-          {makers.map((maker, index) => (
-            <Link
-              key={maker.slug}
-              href={`/makers/${maker.slug}`}
-              className="group relative block"
-              style={{ height: "82vh", minHeight: "500px" }}
-            >
-              {/* Portrait background */}
-              <div
-                className="absolute inset-0"
-                style={{ background: maker.portraitGradient }}
-              />
-              <Image
-                src={maker.portraitImage}
-                alt={`${maker.name} — ${maker.medium}`}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                priority={index < 2}
-              />
-              <div className="maker-portrait-overlay absolute inset-0" />
+          {makers.map((maker, index) => {
+            const makerProducts = getProductsByMaker(maker.slug).slice(0, 3);
 
-              {/* Content */}
-              <div
-                className={`relative z-10 h-full flex flex-col justify-end p-8 md:p-16 ${
-                  index % 2 === 0 ? "items-start" : "items-start md:items-end"
-                }`}
+            return (
+              <Link
+                key={maker.slug}
+                href={`/makers/${maker.slug}`}
+                className="group relative block"
+                style={{ height: "82vh", minHeight: "500px" }}
               >
-                <div className={`max-w-xl ${index % 2 === 0 ? "" : "md:text-right"}`}>
-                  <p className="font-mono text-[11px] tracking-[0.15em] uppercase mb-4" style={{ color: maker.accentColor }}>
-                    {maker.medium} &mdash; {maker.location}
-                  </p>
-                  <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl font-light italic leading-[1.3] text-forge-paper/90 mb-6">
-                    &ldquo;{maker.quote}&rdquo;
-                  </blockquote>
-                  <div className="flex items-center gap-4">
-                    <span className="font-sans text-[19px] font-light text-white">
-                      {maker.name}
-                    </span>
-                    <span className="font-mono text-[11px] tracking-[0.05em] text-forge-paper/0 group-hover:text-forge-accent transition-all duration-500 ease-forge">
-                      Enter studio &rarr;
-                    </span>
+                {/* Portrait background */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: maker.portraitGradient }}
+                />
+                <Image
+                  src={maker.portraitImage}
+                  alt={`${maker.name} — ${maker.medium}`}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority={index < 2}
+                />
+                <div className="maker-portrait-overlay absolute inset-0" />
+
+                {/* Content */}
+                <div
+                  className={`relative z-10 h-full flex flex-col justify-end p-8 md:p-16 ${
+                    index % 2 === 0 ? "items-start" : "items-start md:items-end"
+                  }`}
+                >
+                  <div className={`max-w-xl ${index % 2 === 0 ? "" : "md:text-right"}`}>
+                    <p className={`${SECTION_LABEL} tracking-[0.15em] mb-4`} style={{ color: maker.accentColor }}>
+                      {maker.medium} &mdash; {maker.location}
+                    </p>
+                    <blockquote className={`${QUOTE_MEDIUM} text-forge-paper/90 mb-6`}>
+                      &ldquo;{maker.quote}&rdquo;
+                    </blockquote>
+                    <div className="flex items-center gap-4">
+                      <span className="font-sans text-[19px] font-light text-white">
+                        {maker.name}
+                      </span>
+                      <span className={`${NAV_LINK} tracking-[0.05em] text-forge-paper/40 group-hover:text-forge-accent transition-all duration-500 ease-forge`}>
+                        Enter studio &rarr;
+                      </span>
+                    </div>
+
+                    {/* Product thumbnails */}
+                    {makerProducts.length > 0 && (
+                      <div className={`flex gap-3 mt-5 ${index % 2 === 0 ? "" : "md:justify-end"}`}>
+                        {makerProducts.map((product) => (
+                          <div
+                            key={product.slug}
+                            className="relative w-16 h-20 md:w-20 md:h-24 overflow-hidden opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                          >
+                            <div
+                              className="absolute inset-0"
+                              style={{ background: product.bgGradient }}
+                            />
+                            <Image
+                              src={product.image}
+                              alt={product.name}
+                              fill
+                              className="object-cover"
+                              sizes="96px"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════
           ACT THREE — Why We Built This
           ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-paper py-32 md:py-48 px-6 md:px-10">
+      <section className="bg-forge-paper py-24 md:py-36 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <h2 className="font-serif text-3xl md:text-4xl font-light leading-[1.3] text-forge-text mb-12">
+            <h2 className={`${H2_SECTION} text-forge-text mb-12`}>
               Every object here has a maker, a method, and a reason it exists.
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-text/[0.85] mb-8">
+            <p className={`${BODY_LIGHT} mb-8`}>
               This is a marketplace. But not the kind you&apos;re used to. No algorithm
               decides what you see. No discount banner interrupts the work. No
               infinite scroll of <em className="italic">indistinguishable options</em>. Just makers, their
@@ -145,7 +185,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-text/[0.85] mb-8">
+            <p className={`${BODY_LIGHT} mb-8`}>
               The materials here are elemental. Clay pulled from the ground,
               shaped on a wheel, and <em className="italic">transformed by fire</em>. Lumber salvaged from
               trees that lived longer than the maker. Metal heated until it
@@ -157,7 +197,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-text/[0.85] mb-8">
+            <p className={`${BODY_LIGHT} mb-8`}>
               Every object here represents years of practice. Decades, in most
               cases. And if you asked the maker, they would tell you <em className="italic">it could
               always be better</em>. That the glaze didn&apos;t break the way they
@@ -169,7 +209,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <p className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.4] mt-12">
+            <p className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.3] mt-12">
               Perfectly imperfect.
             </p>
           </ScrollReveal>
@@ -179,27 +219,27 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           DIVIDER
           ═══════════════════════════════════════════════ */}
-      <div className="py-8 flex justify-center">
-        <div className="w-10 h-px bg-forge-accent/50" />
+      <div className="py-4 flex justify-center">
+        <div className="w-10 h-px bg-forge-accent/40" />
       </div>
 
       {/* ═══════════════════════════════════════════════
           THE SHOP Preview
           ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-paper py-24 md:py-32 px-6 md:px-10">
+      <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16 md:mb-20">
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-text/40 block mb-4">
+              <span className={`${SECTION_LABEL_LIGHT} block mb-4`}>
                 The Shop
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-light text-forge-text">
+              <h2 className={`${H2_SECTION} text-forge-text`}>
                 Objects worth owning
               </h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
             {featuredProducts.map((product, index) => (
               <ScrollReveal key={product.slug} delay={index * 100}>
                 <ProductCard product={product} variant="light" />
@@ -210,7 +250,7 @@ export default function Home() {
           <ScrollReveal className="text-center mt-16 md:mt-20">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.08em] text-forge-text/60 hover:text-forge-text transition-colors duration-300"
+              className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300`}
             >
               View all objects <span>&rarr;</span>
             </Link>
@@ -221,9 +261,9 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           CLOSING
           ═══════════════════════════════════════════════ */}
-      <section className="py-32 md:py-48 px-6 md:px-10">
+      <section className="py-24 md:py-36 px-6 md:px-10">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-3xl md:text-5xl font-light italic leading-[1.3] text-forge-paper/[0.92]">
+          <blockquote className={`${QUOTE_LARGE} text-forge-paper/90`}>
             &ldquo;In a world that chose speed, they chose time.&rdquo;
           </blockquote>
         </ScrollReveal>

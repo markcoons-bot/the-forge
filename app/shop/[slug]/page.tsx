@@ -8,6 +8,13 @@ import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 import { products, getProduct, getProductsByMaker } from "@/data/products";
 import { getMaker } from "@/data/makers";
+import {
+  BODY_DARK,
+  SECTION_LABEL_ACCENT,
+  META_LABEL,
+  META_HINT,
+  NAV_LINK_DARK,
+} from "@/lib/typography";
 
 interface PageProps {
   params: { slug: string };
@@ -54,7 +61,7 @@ export default function ProductPage({ params }: PageProps) {
           <ScrollReveal className="mb-12">
             <Link
               href="/shop"
-              className="font-mono text-xs tracking-[0.08em] text-forge-paper/40 hover:text-forge-accent transition-colors duration-300"
+              className={NAV_LINK_DARK}
             >
               &larr; Back to shop
             </Link>
@@ -86,10 +93,10 @@ export default function ProductPage({ params }: PageProps) {
             {/* Details */}
             <div className="flex flex-col justify-center">
               <ScrollReveal delay={100}>
-                <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-forge-accent mb-4">
+                <p className={`${META_LABEL} text-forge-accent mb-4`}>
                   {product.status}
                   {product.leadTime && (
-                    <span className="text-forge-paper/30">
+                    <span className="text-forge-paper/20">
                       {" "}
                       &mdash; {product.leadTime}
                     </span>
@@ -98,7 +105,7 @@ export default function ProductPage({ params }: PageProps) {
               </ScrollReveal>
 
               <ScrollReveal delay={150}>
-                <h1 className="font-serif text-3xl md:text-4xl font-light text-forge-paper mb-2">
+                <h1 className="font-serif text-3xl md:text-4xl font-light leading-[1.2] text-forge-paper mb-2">
                   {product.name}
                 </h1>
               </ScrollReveal>
@@ -107,7 +114,7 @@ export default function ProductPage({ params }: PageProps) {
                 <ScrollReveal delay={200}>
                   <Link
                     href={`/makers/${maker.slug}`}
-                    className="font-sans text-sm font-extralight text-forge-paper/[0.6] hover:text-forge-accent transition-colors duration-300 mb-6 inline-block"
+                    className="font-sans text-sm font-light text-forge-paper/60 hover:text-forge-accent transition-colors duration-300 mb-6 inline-block"
                   >
                     From the studio of {maker.name}
                   </Link>
@@ -123,10 +130,10 @@ export default function ProductPage({ params }: PageProps) {
               {/* Curator's note */}
               <ScrollReveal delay={300}>
                 <div className="mb-10">
-                  <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-forge-paper/40 mb-3">
+                  <p className={`${META_HINT} tracking-[0.15em] uppercase text-forge-paper/40 mb-3`}>
                     Curator&apos;s Note
                   </p>
-                  <p className="font-serif text-base italic leading-[1.9] text-forge-paper/[0.82]">
+                  <p className="font-serif text-base italic leading-[1.9] text-forge-paper/80">
                     {product.curatorNote}
                   </p>
                 </div>
@@ -136,26 +143,26 @@ export default function ProductPage({ params }: PageProps) {
               <ScrollReveal delay={350}>
                 <div className="space-y-0 mb-10">
                   <div className="flex items-start gap-6 py-4 border-b border-white/5">
-                    <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-forge-paper/40 w-24 shrink-0 pt-0.5">
+                    <span className={`${META_HINT} tracking-[0.1em] uppercase text-forge-paper/40 w-24 shrink-0 pt-0.5`}>
                       Materials
                     </span>
-                    <p className="font-sans text-sm font-extralight text-forge-paper/[0.78]">
+                    <p className="font-sans text-sm font-light text-forge-paper/80">
                       {product.materials}
                     </p>
                   </div>
                   <div className="flex items-start gap-6 py-4 border-b border-white/5">
-                    <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-forge-paper/40 w-24 shrink-0 pt-0.5">
+                    <span className={`${META_HINT} tracking-[0.1em] uppercase text-forge-paper/40 w-24 shrink-0 pt-0.5`}>
                       Dimensions
                     </span>
-                    <p className="font-sans text-sm font-extralight text-forge-paper/[0.78]">
+                    <p className="font-sans text-sm font-light text-forge-paper/80">
                       {product.dimensions}
                     </p>
                   </div>
                   <div className="flex items-start gap-6 py-4 border-b border-white/5">
-                    <span className="font-mono text-[10px] tracking-[0.1em] uppercase text-forge-paper/40 w-24 shrink-0 pt-0.5">
+                    <span className={`${META_HINT} tracking-[0.1em] uppercase text-forge-paper/40 w-24 shrink-0 pt-0.5`}>
                       Care
                     </span>
-                    <p className="font-sans text-sm font-extralight text-forge-paper/[0.78]">
+                    <p className="font-sans text-sm font-light text-forge-paper/80">
                       {product.care}
                     </p>
                   </div>
@@ -179,13 +186,13 @@ export default function ProductPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <div className="mb-12 md:mb-16">
-                <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-3">
+                <span className={`${SECTION_LABEL_ACCENT} block mb-3`}>
                   More from {maker?.name}
                 </span>
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
               {moreFromMaker.slice(0, 3).map((p, index) => (
                 <ScrollReveal key={p.slug} delay={index * 100}>
                   <ProductCard product={p} variant="dark" />
@@ -201,15 +208,15 @@ export default function ProductPage({ params }: PageProps) {
         <section className="py-16 md:py-24 px-6 md:px-10 border-t border-white/5">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
-              <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-6">
+              <span className={`${SECTION_LABEL_ACCENT} block mb-6`}>
                 About the Maker
               </span>
-              <p className="font-sans text-[17px] font-extralight leading-[2] text-forge-paper/[0.78] mb-6">
+              <p className={`${BODY_DARK} mb-6`}>
                 {maker.bio || maker.story[0]}
               </p>
               <Link
                 href={`/makers/${maker.slug}`}
-                className="font-mono text-xs tracking-[0.08em] text-forge-paper/40 hover:text-forge-accent transition-colors duration-300"
+                className={NAV_LINK_DARK}
               >
                 View full profile &rarr;
               </Link>

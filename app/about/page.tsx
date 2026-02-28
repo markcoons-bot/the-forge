@@ -2,6 +2,14 @@ import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import {
+  H1_PAGE,
+  H2_SECTION,
+  BODY,
+  BODY_DARK,
+  SECTION_LABEL,
+  SECTION_LABEL_ACCENT,
+} from "@/lib/typography";
 
 export const metadata: Metadata = {
   title: "About — The Forge",
@@ -46,10 +54,10 @@ export default function AboutPage() {
       <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-8">
+            <span className={`${SECTION_LABEL_ACCENT} block mb-8`}>
               About
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] text-forge-paper">
+            <h1 className={`${H1_PAGE} text-forge-paper`}>
               Why The Forge Exists
             </h1>
           </ScrollReveal>
@@ -60,7 +68,7 @@ export default function AboutPage() {
       <section className="pb-20 md:pb-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className={`${BODY_DARK} mb-10`}>
               I built The Forge because I needed it to exist. I am a
               woodworker — not a famous one, not a fast one — and I have spent
               enough years in a shop to know <em className="italic">what it costs</em> to make something
@@ -74,7 +82,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className={`${BODY_DARK} mb-10`}>
               We live in a world that wants everything now. Instant. Overnight.
               Two-day shipping on a thing that was injection-molded in a factory
               and will break in a year. And that is fine for most things. But
@@ -89,7 +97,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className={`${BODY_DARK} mb-10`}>
               The problem is not that people don&apos;t care about craft. They
               do. The problem is that the places where craft is sold — the
               marketplaces, the platforms — treat handmade objects the same way
@@ -102,7 +110,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={240}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88]">
+            <p className={`${BODY_DARK}`}>
               The Forge is the opposite of that. Every maker here was invited.
               Every object was chosen. The stories are real — we visit studios,
               we watch the process, we write about it honestly. This is a
@@ -118,7 +126,7 @@ export default function AboutPage() {
       {/* Pull quote */}
       <section className="py-20 md:py-24 px-6 md:px-10">
         <ScrollReveal>
-          <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.4] max-w-3xl mx-auto text-center">
+          <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.3] max-w-3xl mx-auto text-center">
             The process is the beauty. The object is just proof that the
             process happened.
           </blockquote>
@@ -134,7 +142,7 @@ export default function AboutPage() {
       <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-accent block mb-14">
+            <span className={`${SECTION_LABEL} text-forge-accent block mb-14`}>
               Our Standards
             </span>
           </ScrollReveal>
@@ -143,10 +151,10 @@ export default function AboutPage() {
             {standards.map((standard, index) => (
               <ScrollReveal key={standard.title} delay={index * 60}>
                 <div className="py-7 border-b border-forge-text/10">
-                  <h3 className="font-serif text-xl md:text-2xl font-light text-forge-text mb-3">
+                  <h3 className="font-serif text-xl md:text-2xl font-light leading-[1.3] text-forge-text mb-3">
                     {standard.title}
                   </h3>
-                  <p className="font-sans text-[16px] font-light leading-[2] text-forge-text/70 max-w-2xl">
+                  <p className={`${BODY} text-forge-text/60 max-w-2xl`}>
                     {standard.description}
                   </p>
                 </div>
@@ -160,16 +168,16 @@ export default function AboutPage() {
       <section className="py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-6">
+            <span className={`${SECTION_LABEL_ACCENT} block mb-6`}>
               For Makers
             </span>
-            <h3 className="font-serif text-3xl md:text-4xl font-light text-forge-paper mb-10 leading-[1.3]">
+            <h3 className={`${H2_SECTION} text-forge-paper mb-10`}>
               If you make things by hand, we want to hear from you.
             </h3>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className={`${BODY_DARK} mb-10`}>
               The Forge is invitation-only, but we are always looking. If your
               work meets our standards — if you shape raw materials into finished
               objects with <em className="italic">your own hands</em> and you are proud of what you make — we
@@ -186,14 +194,14 @@ export default function AboutPage() {
                 ["You control production", "Made to order, ready to ship, limited runs — your pace, your capacity. We will never ask you to scale beyond what your hands can do."],
               ].map(([title, desc], index) => (
                 <div key={index} className="flex items-start gap-6 py-5 border-b border-white/5">
-                  <span className="font-mono text-[10px] text-forge-accent/50 pt-1 shrink-0 w-5 text-right">
+                  <span className="font-mono text-[10px] text-forge-accent/40 pt-1 shrink-0 w-5 text-right">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
                     <p className="font-sans text-[17px] font-medium text-forge-paper mb-1">
                       {title}
                     </p>
-                    <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/70">
+                    <p className={`${BODY} text-forge-paper/60`}>
                       {desc}
                     </p>
                   </div>
