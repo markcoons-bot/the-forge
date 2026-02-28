@@ -56,8 +56,8 @@ export default function Home() {
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[15px] font-extralight text-forge-text/50 mt-8 max-w-md mx-auto">
-              Toil. Frustration. Mistakes. That ultimately craft beauty.
+            <p className="font-sans text-[15px] font-light tracking-wide text-forge-text/60 mt-8 max-w-md mx-auto">
+              Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[17px] text-forge-text/90">beauty.</span>
             </p>
           </ScrollReveal>
         </div>
