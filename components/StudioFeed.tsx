@@ -88,7 +88,7 @@ export default function StudioFeed() {
         <ScrollReveal>
           <div className="flex items-end justify-between">
             <div>
-              <span className={`${SECTION_LABEL_DARK} block mb-3`}>
+              <span className={`${SECTION_LABEL_DARK} label-line mb-3`}>
                 From the Studios
               </span>
               <p className="font-sans text-[14px] font-light text-forge-paper/40">

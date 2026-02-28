@@ -54,7 +54,7 @@ export default function AboutPage() {
       <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} block mb-8`}>
+            <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
               About
             </span>
             <h1 className={`${H1_PAGE} text-forge-paper`}>
@@ -142,7 +142,7 @@ export default function AboutPage() {
       <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL} text-forge-text/60 block mb-14`}>
+            <span className={`${SECTION_LABEL} text-forge-text/60 label-line mb-14`}>
               Our Standards
             </span>
           </ScrollReveal>
@@ -168,7 +168,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} block mb-6`}>
+            <span className={`${SECTION_LABEL_DARK} label-line mb-6`}>
               For Makers
             </span>
             <h3 className={`${H2_SECTION} text-forge-paper mb-10`}>

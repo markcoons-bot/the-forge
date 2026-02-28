@@ -20,7 +20,7 @@ export default function ProductStrip({ products }: ProductStripProps) {
   return (
     <section className="bg-forge-paper py-10 md:py-14">
       <div className="px-6 md:px-10 mb-6">
-        <span className={SECTION_LABEL_LIGHT}>
+        <span className={`${SECTION_LABEL_LIGHT} label-line`}>
           The Work
         </span>
       </div>

@@ -128,7 +128,7 @@ export default function ProductPage({ params }: PageProps) {
               {/* Curator's note */}
               <ScrollReveal delay={300}>
                 <div className="mb-10">
-                  <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-forge-paper/50 mb-3">
+                  <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-forge-paper/50 label-line mb-3">
                     Curator&apos;s Note
                   </p>
                   <p className="font-serif text-[16px] italic leading-[1.9] text-forge-paper/80">
@@ -184,7 +184,7 @@ export default function ProductPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <div className="mb-12 md:mb-16">
-                <span className={`${SECTION_LABEL_DARK} block mb-3`}>
+                <span className={`${SECTION_LABEL_DARK} label-line mb-3`}>
                   More from {maker?.name}
                 </span>
               </div>
@@ -206,7 +206,7 @@ export default function ProductPage({ params }: PageProps) {
         <section className="py-16 md:py-24 px-6 md:px-10 border-t border-white/[0.08]">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
-              <span className={`${SECTION_LABEL_DARK} block mb-6`}>
+              <span className={`${SECTION_LABEL_DARK} label-line mb-6`}>
                 About the Maker
               </span>
               <p className={`${BODY_DARK} mb-6`}>

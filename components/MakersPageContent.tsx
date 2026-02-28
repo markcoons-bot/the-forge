@@ -38,7 +38,7 @@ export default function MakersPageContent() {
         {/* Header */}
         <ScrollReveal>
           <div className="mb-16 md:mb-20">
-            <span className={`${SECTION_LABEL_LIGHT} block mb-4`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line mb-4`}>
               The Makers
             </span>
             <h1 className={`${H1_PAGE} text-forge-text mb-4`}>

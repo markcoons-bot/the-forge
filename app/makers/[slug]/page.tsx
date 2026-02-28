@@ -45,6 +45,23 @@ function renderWithEmphasis(text: string) {
   );
 }
 
+function renderDropLead(text: string, variant: "light" | "dark") {
+  const sentenceEnd = text.match(/^(.*?\.)\s([\s\S]*)$/);
+  if (!sentenceEnd) {
+    return renderWithEmphasis(text);
+  }
+  const [, first, rest] = sentenceEnd;
+  const leadColor = variant === "light" ? "text-forge-text/90" : "text-forge-paper";
+  return (
+    <>
+      <span className={`font-serif text-[20px] md:text-[22px] font-normal leading-[1.9] ${leadColor}`}>
+        {renderWithEmphasis(first)}
+      </span>{" "}
+      {renderWithEmphasis(rest)}
+    </>
+  );
+}
+
 function FullBleedImageWithCaption({
   src,
   alt,
@@ -121,12 +138,12 @@ function EditorialStory({
         </div>
       </section>
 
-      {/* ── PARA 1 — Warm paper, dark text ── */}
+      {/* ── PARA 1 — Warm paper, dark text, drop lead ── */}
       <section className="bg-forge-paper py-10 md:py-16 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
             <p className={STORY_LIGHT}>
-              {renderWithEmphasis(maker.story[0])}
+              {renderDropLead(maker.story[0], "light")}
             </p>
           </ScrollReveal>
         </div>
@@ -190,7 +207,7 @@ function EditorialStory({
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL_DARK} mb-12`}>
+              <h2 className={`${SECTION_LABEL_DARK} label-line mb-12`}>
                 The Craft
               </h2>
             </ScrollReveal>
@@ -269,7 +286,7 @@ function DefaultStory({
                       isLastParagraph ? "" : "mb-8"
                     }`}
                   >
-                    {renderWithEmphasis(paragraph)}
+                    {index === 0 ? renderDropLead(paragraph, "dark") : renderWithEmphasis(paragraph)}
                   </p>
                 </ScrollReveal>
               </div>
@@ -294,7 +311,7 @@ function DefaultStory({
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL_DARK} mb-12`}>
+              <h2 className={`${SECTION_LABEL_DARK} label-line mb-12`}>
                 The Craft
               </h2>
             </ScrollReveal>
@@ -310,7 +327,7 @@ function DefaultStory({
         <section className="py-16 md:py-24 px-6 md:px-10">
           <div className="max-w-prose mx-auto">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL_DARK} mb-12`}>
+              <h2 className={`${SECTION_LABEL_DARK} label-line mb-12`}>
                 The Method
               </h2>
             </ScrollReveal>
@@ -422,7 +439,7 @@ export default function MakerPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <div className="mb-16 md:mb-20">
-                <span className={`${SECTION_LABEL_LIGHT} block mb-4`}>
+                <span className={`${SECTION_LABEL_LIGHT} label-line mb-4`}>
                   The Work
                 </span>
                 <h2 className={`${H2_SECTION} text-forge-text`}>

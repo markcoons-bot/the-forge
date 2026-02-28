@@ -70,10 +70,21 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={200}>
             <p className={`${BODY} text-forge-text/60 mt-8 max-w-md mx-auto tracking-wide`}>
-              Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[18px] text-forge-text/90">beauty.</span>
+              Toil. Frustration. Mistakes. That ultimately craft <span className="font-serif italic text-[18px] text-forge-text/90">the work.</span>
             </p>
           </ScrollReveal>
         </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          TRANSITION — Question to Makers
+          ═══════════════════════════════════════════════ */}
+      <section className="py-20 md:py-20 px-6 md:px-10">
+        <ScrollReveal className="text-center">
+          <p className="font-serif text-[22px] md:text-[24px] font-light italic leading-[1.3] text-forge-paper/70">
+            These are the people who know.
+          </p>
+        </ScrollReveal>
       </section>
 
       {/* ═══════════════════════════════════════════════
@@ -81,7 +92,7 @@ export default function Home() {
           ═══════════════════════════════════════════════ */}
       <section id="makers">
         <ScrollReveal className="text-center py-10">
-          <span className={SECTION_LABEL_DARK}>
+          <span className={`${SECTION_LABEL_DARK} label-line`}>
             The Makers
           </span>
         </ScrollReveal>
@@ -231,7 +242,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16 md:mb-20">
-              <span className={`${SECTION_LABEL_LIGHT} block mb-4`}>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-4`}>
                 The Shop
               </span>
               <h2 className={`${H2_SECTION} text-forge-text`}>

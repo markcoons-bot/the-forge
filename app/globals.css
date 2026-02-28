@@ -132,6 +132,20 @@ body {
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5), 0 1px 6px rgba(0, 0, 0, 0.25);
 }
 
+/* Section label accent line */
+.label-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.label-line::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background-color: var(--forge-accent);
+  flex-shrink: 0;
+}
+
 /* Radial glow */
 .hero-glow {
   position: absolute;
