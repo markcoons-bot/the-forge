@@ -66,7 +66,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           ACT TWO — The Makers
           ═══════════════════════════════════════════════ */}
-      <section>
+      <section id="makers">
         <ScrollReveal className="text-center py-16">
           <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70">
             The Makers

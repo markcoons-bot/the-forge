@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-3">
               <Link
-                href="/makers"
+                href="/#makers"
                 className="font-sans text-sm font-extralight text-forge-paper/50 hover:text-forge-paper transition-colors duration-300"
               >
                 The Makers

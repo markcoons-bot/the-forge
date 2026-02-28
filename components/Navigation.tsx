@@ -44,7 +44,7 @@ export default function Navigation() {
           </Link>
           <div className="flex items-center gap-8">
             <Link
-              href="/makers"
+              href="/#makers"
               className="font-mono text-xs tracking-[0.08em] text-forge-muted hover:text-forge-paper transition-colors duration-300"
             >
               Makers
