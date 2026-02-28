@@ -103,7 +103,7 @@ export const makers: Maker[] = [
     materials: "Reclaimed American hardwoods — walnut, white oak, cherry, maple",
     accentColor: "#a08060",
     portraitGradient: "linear-gradient(145deg, #2e2518 0%, #4a3828 40%, #1e1a14 100%)",
-    portraitImage: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80",
+    portraitImage: "https://images.unsplash.com/photo-1586864387789-628af9feed72?w=1920&q=80",
     storyImages: [
       "https://images.unsplash.com/photo-1616464916356-3a777b2b60b1?w=1200&q=80",
       "https://images.unsplash.com/photo-1605433246452-258b9e8a2e05?w=1200&q=80",

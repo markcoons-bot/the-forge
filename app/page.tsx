@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import HeroVideo from "@/components/HeroVideo";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductCard from "@/components/ProductCard";
@@ -19,16 +20,9 @@ export default function Home() {
           ACT ONE — Cold Open
           ═══════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
-        {/* Hero image */}
-        <Image
-          src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?w=1920&q=80"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-forge-dark/60" />
+        {/* Hero video */}
+        <HeroVideo />
+        <div className="absolute inset-0 bg-forge-dark/70" />
         <div className="hero-glow" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-8">

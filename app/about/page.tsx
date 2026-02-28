@@ -43,10 +43,10 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 md:pt-44 pb-20 md:pb-28 px-6 md:px-10">
+      <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-8">
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-8">
               About
             </span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] text-forge-paper">
@@ -56,11 +56,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Philosophy */}
-      <section className="pb-24 md:pb-36 px-6 md:px-10">
+      {/* Philosophy — personal story */}
+      <section className="pb-20 md:pb-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[18px] font-extralight leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
               I built The Forge because I needed it to exist. I am a
               woodworker — not a famous one, not a fast one — and I have spent
               enough years in a shop to know <em className="italic">what it costs</em> to make something
@@ -74,7 +74,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <p className="font-sans text-[18px] font-extralight leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
               We live in a world that wants everything now. Instant. Overnight.
               Two-day shipping on a thing that was injection-molded in a factory
               and will break in a year. And that is fine for most things. But
@@ -89,7 +89,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <p className="font-sans text-[18px] font-extralight leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
               The problem is not that people don&apos;t care about craft. They
               do. The problem is that the places where craft is sold — the
               marketplaces, the platforms — treat handmade objects the same way
@@ -102,7 +102,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={240}>
-            <p className="font-sans text-[18px] font-extralight leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88]">
               The Forge is the opposite of that. Every maker here was invited.
               Every object was chosen. The stories are real — we visit studios,
               we watch the process, we write about it honestly. This is a
@@ -112,33 +112,41 @@ export default function AboutPage() {
               this</em>. Let me tell you who made it, and how, and why it matters.
             </p>
           </ScrollReveal>
-
-          <ScrollReveal delay={300}>
-            <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.4] my-16 pl-6 border-l-2 border-forge-accent/30">
-              The process is the beauty. The object is just proof that the
-              process happened.
-            </blockquote>
-          </ScrollReveal>
         </div>
       </section>
 
-      {/* Our Standards */}
-      <section className="py-20 md:py-28 px-6 md:px-10 border-t border-white/5">
+      {/* Pull quote */}
+      <section className="py-20 md:py-24 px-6 md:px-10">
+        <ScrollReveal>
+          <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-accent leading-[1.4] max-w-3xl mx-auto text-center">
+            The process is the beauty. The object is just proof that the
+            process happened.
+          </blockquote>
+        </ScrollReveal>
+      </section>
+
+      {/* Accent divider */}
+      <div className="py-[60px] flex justify-center">
+        <div className="w-10 h-px bg-forge-accent" />
+      </div>
+
+      {/* Our Standards — LIGHT section */}
+      <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 mb-16">
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-accent block mb-14">
               Our Standards
-            </h2>
+            </span>
           </ScrollReveal>
 
-          <div className="space-y-0">
+          <div>
             {standards.map((standard, index) => (
               <ScrollReveal key={standard.title} delay={index * 60}>
-                <div className="py-8 border-b border-white/5">
-                  <h3 className="font-serif text-xl md:text-2xl font-light text-forge-paper mb-4">
+                <div className="py-7 border-b border-forge-text/10">
+                  <h3 className="font-serif text-xl md:text-2xl font-light text-forge-text mb-3">
                     {standard.title}
                   </h3>
-                  <p className="font-sans text-[15px] font-extralight leading-[1.9] text-forge-paper/[0.8] max-w-2xl">
+                  <p className="font-sans text-[16px] font-light leading-[2] text-forge-text/70 max-w-2xl">
                     {standard.description}
                   </p>
                 </div>
@@ -148,20 +156,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* For Makers */}
-      <section className="py-24 md:py-36 px-6 md:px-10 border-t border-white/5">
+      {/* For Makers — dark */}
+      <section className="py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <h2 className="font-mono text-[11px] tracking-[0.2em] uppercase text-forge-accent/70 mb-6">
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-forge-accent/70 block mb-6">
               For Makers
-            </h2>
+            </span>
             <h3 className="font-serif text-3xl md:text-4xl font-light text-forge-paper mb-10 leading-[1.3]">
               If you make things by hand, we want to hear from you.
             </h3>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <p className="font-sans text-[18px] font-extralight leading-[2] text-forge-paper/[0.88] mb-10">
+            <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/[0.88] mb-10">
               The Forge is invitation-only, but we are always looking. If your
               work meets our standards — if you shape raw materials into finished
               objects with <em className="italic">your own hands</em> and you are proud of what you make — we
@@ -170,7 +178,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={160}>
-            <div className="space-y-0 my-12">
+            <div className="my-10">
               {[
                 ["12% commission", "Lower than the industry standard. No listing fees, no monthly subscription, no hidden costs."],
                 ["Professional editorial", "We write your story. Studio visit, process photography direction, long-form profile. Your work presented the way it deserves."],
@@ -178,14 +186,14 @@ export default function AboutPage() {
                 ["You control production", "Made to order, ready to ship, limited runs — your pace, your capacity. We will never ask you to scale beyond what your hands can do."],
               ].map(([title, desc], index) => (
                 <div key={index} className="flex items-start gap-6 py-5 border-b border-white/5">
-                  <span className="font-mono text-[11px] text-forge-accent/50 pt-0.5 shrink-0 w-5 text-right">
+                  <span className="font-mono text-[10px] text-forge-accent/50 pt-1 shrink-0 w-5 text-right">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <p className="font-sans text-sm font-light text-forge-paper mb-1">
+                    <p className="font-sans text-[17px] font-medium text-forge-paper mb-1">
                       {title}
                     </p>
-                    <p className="font-sans text-sm font-extralight text-forge-paper/70">
+                    <p className="font-sans text-[17px] font-light leading-[2] text-forge-paper/70">
                       {desc}
                     </p>
                   </div>
@@ -195,17 +203,20 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={240}>
-            <a href="#" className="btn-forge">
-              Apply to The Forge
+            <a
+              href="#"
+              className="font-sans text-[12px] font-light uppercase tracking-[0.15em] text-forge-accent underline underline-offset-4 decoration-forge-accent/40 hover:text-white hover:decoration-white/40 transition-colors duration-300"
+            >
+              Apply to The Forge &rarr;
             </a>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="py-24 md:py-32 px-6 md:px-10">
+      {/* Closing quote */}
+      <section className="pt-24 md:pt-28 pb-20 md:pb-24 px-6 md:px-10">
         <ScrollReveal className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.3] text-forge-paper/[0.88]">
+          <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-accent">
             &ldquo;The work is the thing. Everything else is just making sure
             the work gets seen.&rdquo;
           </blockquote>
