@@ -34,38 +34,25 @@ function renderWithEmphasis(text: string) {
   );
 }
 
-function FullBleedImage({ src, alt }: { src: string; alt: string }) {
-  return (
-    <ScrollReveal>
-      <div
-        className="relative h-[55vh] md:h-[65vh] overflow-hidden"
-        style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-cover story-image-inner"
-          sizes="100vw"
-        />
-      </div>
-    </ScrollReveal>
-  );
-}
-
-function FullBleedImageWithQuote({
+function FullBleedImageWithCaption({
   src,
   alt,
-  quote,
+  caption,
+  position = "right",
 }: {
   src: string;
   alt: string;
-  quote: string;
+  caption: string;
+  position?: "left" | "right";
 }) {
+  const isRight = position === "right";
+  const gradientDirection = isRight ? "to left" : "to right";
+  const gradient = `linear-gradient(${gradientDirection}, rgba(26,24,22,0.78) 0%, rgba(26,24,22,0.4) 28%, rgba(26,24,22,0.08) 52%, transparent 65%)`;
+
   return (
     <ScrollReveal>
       <div
-        className="relative h-[65vh] md:h-[75vh] overflow-hidden"
+        className="relative h-[60vh] md:h-[70vh] overflow-hidden"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <Image
@@ -75,20 +62,24 @@ function FullBleedImageWithQuote({
           className="object-cover story-image-inner"
           sizes="100vw"
         />
-        {/* Localized text-protection gradient — bottom-left only */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to top right, rgba(26,24,22,0.82) 0%, rgba(26,24,22,0.5) 28%, rgba(26,24,22,0.12) 55%, transparent 70%)",
-          }}
-        />
-        {/* Quote on image */}
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10">
-          <blockquote className="font-serif text-[28px] md:text-[34px] font-light italic leading-[1.35] text-forge-paper/[0.95] max-w-2xl">
-            &ldquo;{quote}&rdquo;
-          </blockquote>
-        </div>
+        {caption && (
+          <>
+            <div className="absolute inset-0" style={{ background: gradient }} />
+            <div
+              className={`absolute top-0 bottom-0 flex items-center p-8 md:p-16 z-10 ${
+                isRight ? "right-0" : "left-0"
+              }`}
+            >
+              <blockquote
+                className={`font-serif text-[22px] md:text-[28px] font-light italic leading-[1.45] text-forge-paper/[0.92] max-w-xs md:max-w-sm ${
+                  isRight ? "text-right" : "text-left"
+                }`}
+              >
+                {caption}
+              </blockquote>
+            </div>
+          </>
+        )}
       </div>
     </ScrollReveal>
   );
@@ -119,11 +110,13 @@ function EditorialStory({
         </div>
       </section>
 
-      {/* ── FULL-BLEED IMAGE 1 ── */}
+      {/* ── FULL-BLEED IMAGE 1 — with side caption ── */}
       {maker.storyImages[0] && (
-        <FullBleedImage
+        <FullBleedImageWithCaption
           src={maker.storyImages[0]}
           alt={`${maker.name} in the studio`}
+          caption="Before the glaze, before the kiln, before the fire decides — there is only the maker and the morning."
+          position="right"
         />
       )}
 
@@ -138,12 +131,13 @@ function EditorialStory({
         </div>
       </section>
 
-      {/* ── FULL-BLEED IMAGE 2 — with pull quote on it ── */}
+      {/* ── FULL-BLEED IMAGE 2 — pull quote on image, left side ── */}
       {maker.storyImages[1] && (
-        <FullBleedImageWithQuote
+        <FullBleedImageWithCaption
           src={maker.storyImages[1]}
           alt={`${maker.name} at work`}
-          quote={maker.pullQuote}
+          caption="You cannot rush a kiln. You cannot argue with thermal shock. The clay remembers everything you did to it."
+          position="left"
         />
       )}
 
@@ -188,21 +182,15 @@ function EditorialStory({
       {maker.craft && (
         <section className="py-24 md:py-36">
           {maker.materialsImage && (
-            <ScrollReveal>
-              <div
-                className="relative h-[55vh] md:h-[65vh] overflow-hidden mb-20"
-                style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
-              >
-                <Image
-                  src={maker.materialsImage}
-                  alt={`${maker.name} materials and tools`}
-                  fill
-                  className="object-cover story-image-inner"
-                  sizes="100vw"
-                />
-              </div>
-            </ScrollReveal>
+            <FullBleedImageWithCaption
+              src={maker.materialsImage}
+              alt={`${maker.name} materials and tools`}
+              caption="In the hands of a master, these are not tools. They are the last point of contact between intention and the irreversible."
+              position="right"
+            />
           )}
+
+          <div className="h-20" />
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
@@ -253,9 +241,11 @@ function DefaultStory({
             return (
               <div key={index}>
                 {storyImage && (
-                  <FullBleedImage
+                  <FullBleedImageWithCaption
                     src={storyImage}
                     alt={`${maker.name} studio`}
+                    caption=""
+                    position={imageIndex % 2 === 0 ? "right" : "left"}
                   />
                 )}
 
@@ -312,21 +302,15 @@ function DefaultStory({
       {maker.craft ? (
         <section className="py-24 md:py-36">
           {maker.materialsImage && (
-            <ScrollReveal>
-              <div
-                className="relative h-[55vh] md:h-[65vh] overflow-hidden mb-20"
-                style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
-              >
-                <Image
-                  src={maker.materialsImage}
-                  alt={`${maker.name} materials and tools`}
-                  fill
-                  className="object-cover story-image-inner"
-                  sizes="100vw"
-                />
-              </div>
-            </ScrollReveal>
+            <FullBleedImageWithCaption
+              src={maker.materialsImage}
+              alt={`${maker.name} materials and tools`}
+              caption=""
+              position="right"
+            />
           )}
+
+          <div className="h-20" />
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
