@@ -17,7 +17,7 @@ export default function ProductCard({
 
   const formatPrice = (price: number, currency: string) => {
     const symbols: Record<string, string> = { USD: "$", GBP: "£", EUR: "€" };
-    return `${symbols[currency] || currency} ${price}`;
+    return `${symbols[currency] || currency}${price.toLocaleString()}`;
   };
 
   return (

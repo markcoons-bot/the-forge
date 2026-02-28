@@ -12,7 +12,7 @@ interface StudioTile {
 
 const tiles: StudioTile[] = [
   {
-    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&h=400&fit=crop&q=80",
+    image: "/images/FGextra.webp",
     makerName: "Florian Gadsby",
     medium: "Clay",
     caption: "Kiln opening, 6am",
@@ -24,7 +24,7 @@ const tiles: StudioTile[] = [
     caption: "Gathering from the furnace",
   },
   {
-    image: "https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?w=400&h=400&fit=crop&q=80",
+    image: "/images/FGProcess2.webp",
     makerName: "Florian Gadsby",
     medium: "Clay",
     caption: "Glaze testing, batch 34",
@@ -64,6 +64,12 @@ const tiles: StudioTile[] = [
     makerName: "Reva Solis",
     medium: "Metal",
     caption: "Bronze pour, 1,100°C",
+  },
+  {
+    image: "/images/Potterytools.webp",
+    makerName: "Florian Gadsby",
+    medium: "Clay",
+    caption: "Tools of the trade",
   },
   {
     image: "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=400&h=400&fit=crop&q=80",

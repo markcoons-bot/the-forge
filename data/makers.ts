@@ -8,10 +8,15 @@ export interface Maker {
   pullQuote: string;
   method: string[];
   materials: string;
+  materialsImage?: string;
+  craft?: string;
   accentColor: string;
   portraitGradient: string;
   portraitImage: string;
+  profileHeroImage?: string;
   storyImages: string[];
+  storyImagePositions?: number[];
+  bio?: string;
 }
 
 export const makers: Maker[] = [
@@ -22,30 +27,32 @@ export const makers: Maker[] = [
     location: "London, England",
     quote: "The kiln decides. I just prepare.",
     story: [
-      "Florian Gadsby throws pots in a small studio in London, alone, most days from seven in the morning until the light fails. He trained in Ireland under Lisa Hammond and then in Japan under Ken Matsuzaki, carrying home not souvenirs but an understanding of fire — how a gas kiln at 1,295 degrees Celsius will, if you let it, transform a glaze into something you could not have planned.",
-      "He was twenty-three when he went to Japan. He spoke little Japanese. He wedged clay for months before he was allowed near the wheel. He learned that ceramics is not about the pot. It is about *the thousands of pots before the pot* — the ones that cracked, that warped, that came out of the kiln looking nothing like what he intended.",
-      "His feldspathic crackle glazes — milky, fractured surfaces that look like dried riverbeds — are the result of thermal shock, a kind of controlled violence. The glaze contracts faster than the clay body beneath it, and the surface shatters into a web of fine lines. It is a defect, technically. He makes it *beautiful*.",
-      "Millions of people watch him work online. They see the quiet studio, the patient hands, the kiln opening where everything is revealed. But what they are really watching is someone who chose a life measured in firings, not followers. His work sells out in minutes. He could scale. *He does not.*",
-      "Each piece is thrown on the wheel, trimmed, dried slowly over days, bisque fired, glazed by hand — sometimes dipped, sometimes poured, sometimes layered — and then fired again in a gas reduction kiln where the atmosphere inside the chamber is starved of oxygen, forcing the flames to pull it from the glaze itself. The result is unpredictable. *That is the point.*"
+      "Most mornings, Florian Gadsby takes the London Underground to a small studio where no one is waiting for him. He unlocks the door, fills a bucket, and sits down at the wheel. He has been doing this, more or less, since he was nineteen — first as an apprentice to Lisa Hammond MBE, the grande dame of British salt-glazed pottery, then for three years under her eye, learning to throw with the kind of patience that cannot be taught, *only endured*.",
+      "At twenty-three he left for Mashiko, Japan, where he spent six months studying with Ken Matsuzaki, a Living National Treasure candidate whose family has made pottery for generations. In Mashiko he learned that a kiln is not a tool but *a collaborator* — unpredictable, temperamental, capable of ruining a month's work or transforming it into something no human hand could have planned. His feldspathic crackle glazes — those milky, fractured surfaces that look like frozen lightning — are the result of that collaboration: thermal shock, a kind of controlled violence, the glaze shattering into a web of hairline fractures. It is, technically, a defect. Gadsby has spent years making that defect *beautiful*.",
+      "He fires his gas kiln to 1,295°C over fourteen hours, then waits two days to see what the fire has done. His making cycles stretch two to three months: weeks of throwing, then trimming, then the slow meditation of glazing each piece by hand. When a collection is ready, it sells out in minutes. Over three million people follow his work across platforms. *But in the studio, it is just him and the wheel.*"
     ],
     pullQuote: "You cannot rush a kiln. You cannot argue with thermal shock. The clay remembers everything you did to it.",
     method: [
-      "Thrown on a kick wheel, one piece at a time",
-      "Dried slowly over three to five days to prevent cracking",
-      "Bisque fired to 1,000°C to harden the raw clay",
-      "Glazed by hand using feldspathic crackle glazes",
-      "Gas reduction fired to 1,295°C over fourteen hours",
-      "Kiln cooled for forty-eight hours before opening"
+      "Wheel-thrown stoneware and porcelain",
+      "Gas reduction firing to cone 10 (1,295°C)",
+      "Feldspathic crackle glazes, hand-mixed",
+      "High-iron stoneware clay body",
+      "Each piece trimmed, glazed, and fired by hand",
+      "2–3 month making cycles"
     ],
-    materials: "Stoneware clay body, feldspathic glazes, wood ash, iron oxide",
+    materials: "His clay bodies are high-iron stoneware, dense and warm-toned, sourced from suppliers he has used for years. The glazes are his own formulations — feldspathic bases with additions of wood ash, silica, and trace minerals that shift in the kiln's reduction atmosphere. He mixes them in large batches, tests them obsessively, and still gets surprised by what the fire decides to do.",
+    materialsImage: "/images/Potterytools.webp",
+    craft: "Gadsby works in reduction-fired stoneware, throwing each piece on the wheel before firing in a gas kiln to 1,295°C — cone 10 in the language of ceramics. His feldspathic crackle glazes are hand-mixed from feldspar, wood ash, silica, and trace minerals, formulations he has developed and refined over years. The clay bodies are high-iron stoneware, dense and warm-toned. Each piece is trimmed, glazed, and fired by hand over making cycles that stretch two to three months.",
     accentColor: "#b8a490",
     portraitGradient: "linear-gradient(145deg, #3d3229 0%, #5c4a3a 40%, #2a2420 100%)",
-    portraitImage: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1920&q=80",
+    portraitImage: "/images/FGHero.webp",
+    profileHeroImage: "/images/FGextra.webp",
     storyImages: [
-      "https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?w=1200&q=80",
-      "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=1200&q=80",
-      "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=1200&q=80",
+      "/images/FGprocess.webp",
+      "/images/FGhands.webp",
     ],
+    storyImagePositions: [1, 2],
+    bio: "British potter working in reduction-fired stoneware and porcelain. Apprenticed with Lisa Hammond MBE, studied in Mashiko, Japan. Author of By My Hands.",
   },
   {
     slug: "hana-miura",
