@@ -76,7 +76,7 @@ export const products: Product[] = [
     dimensions: "8cm diameter × 10cm tall, ~300ml",
     care: "Hand wash only. Do not microwave. Each tumbler is slightly different in weight and color — this is inherent to hand-blown glass.",
     bgGradient: "linear-gradient(145deg, #c0d4d8 0%, #8ab0b8 40%, #6a9098 100%)",
-    image: "https://images.unsplash.com/photo-1518893063132-36e46dbe2428?w=800&q=80",
+    image: "/images/HMproduct1.webp",
   },
   {
     slug: "cobalt-sake-set",
@@ -91,7 +91,7 @@ export const products: Product[] = [
     dimensions: "Tokkuri: 8cm × 14cm, 260ml. Cups: 5cm × 4cm, 45ml each",
     care: "Hand wash only. Store upright. The sake set is lead-free and food safe.",
     bgGradient: "linear-gradient(145deg, #2a3a50 0%, #1a2a40 40%, #0e1a28 100%)",
-    image: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=800&q=80",
+    image: "/images/HMproduct%202.webp",
   },
   {
     slug: "light-vessel",
@@ -106,7 +106,22 @@ export const products: Product[] = [
     dimensions: "15cm diameter × 20cm tall",
     care: "Display piece. Clean with a soft dry cloth. Avoid direct sustained sunlight which may cause uneven heating.",
     bgGradient: "linear-gradient(145deg, #4a3850 0%, #3a2840 40%, #2a1a30 100%)",
-    image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&q=80",
+    image: "/images/HMobject.webp",
+  },
+  {
+    slug: "studio-vessels-trio",
+    name: "Studio Vessels (Set of 3)",
+    makerSlug: "hana-miura",
+    price: 580,
+    currency: "USD",
+    status: "Made to Order",
+    leadTime: "12–14 weeks",
+    curatorNote: "Three vessels from a single session — each blown within minutes of the others, sharing the same gather, the same furnace temperature, the same afternoon light. Yet no two are alike. The variations in wall thickness, color density, and form are the fingerprint of the process itself. Hana considers these trios her most honest work — they show what the glass wanted to be, not what she planned.",
+    materials: "Soda-lime glass, mixed metallic oxide inclusions",
+    dimensions: "Varies — tallest approximately 18cm, widest approximately 12cm",
+    care: "Hand wash only. Display together or separately. Each vessel is unique and may not sit perfectly level — this is intentional.",
+    bgGradient: "linear-gradient(145deg, #a0b0b8 0%, #708898 40%, #506878 100%)",
+    image: "/images/HMobjects.jpg",
   },
 
   // Elias Brandt — Wood

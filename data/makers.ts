@@ -17,6 +17,8 @@ export interface Maker {
   profileHeroImage?: string;
   storyImages: string[];
   storyImagePositions?: number[];
+  storyImageCaptions?: string[];
+  materialsCaption?: string;
   bio?: string;
 }
 
@@ -54,6 +56,11 @@ export const makers: Maker[] = [
       "/images/FGProcess2.webp",
     ],
     storyImagePositions: [1, 2],
+    storyImageCaptions: [
+      "Before the glaze, before the kiln, before the fire decides — there is only the maker and the morning.",
+      "You cannot rush a kiln. You cannot argue with thermal shock. The clay remembers everything you did to it.",
+    ],
+    materialsCaption: "In the hands of a master, these are not tools. They are the last point of contact between intention and the irreversible.",
     bio: "British potter working in reduction-fired stoneware and porcelain. Apprenticed with Lisa Hammond MBE, studied in Mashiko, Japan. Author of By My Hands.",
   },
   {
@@ -63,11 +70,9 @@ export const makers: Maker[] = [
     location: "Toyama, Japan",
     quote: "Glass has no memory. You must give it one.",
     story: [
-      "Hana Miura works with molten glass in a converted rice warehouse in Toyama Prefecture, where the Sea of Japan sends cold air through the valley and the furnace burns at 1,100 degrees year-round. *She has not turned it off in eleven years.*",
-      "She trained at the Toyama Institute of Glass Art and then spent four years in Murano, Italy, learning from maestros who had blown glass since childhood. She returned to Japan carrying techniques that are five hundred years old and a conviction that glass should look like it *contains* light, not just transmits it.",
-      "Her pieces are blown, not cast. Each one begins as a gather of molten glass on the end of a blowpipe — a glowing orange mass that she shapes with breath, gravity, and a handful of tools that have not changed in centuries. She works with an assistant who turns the pipe while she shapes, a choreography so practiced it looks like thought.",
-      "The colors come from metallic oxides added to the melt: cobalt for blue, manganese for violet, iron for the pale green of river water. She layers them, trapping one color inside another so that the finished piece shifts in the light like *a memory you cannot quite hold*.",
-      "She makes perhaps two hundred pieces a year. *Most of them she breaks.*"
+      "The furnace has not been turned off in eleven years. It burns at 1,100 degrees in a converted rice warehouse on the edge of Toyama Prefecture, where the Sea of Japan pushes winter air through the valley and the windows fog with the heat of a small sun. Hana Miura arrives before dawn most mornings, when the glass is quietest — a glowing pool of molten silica waiting at the end of a blowpipe for the breath that will give it form. *She calls this hour the stillness before the shaping.*",
+      "She trained at the Toyama Institute of Glass Art, then spent four years on the island of Murano, learning from maestros whose families had blown glass since the fifteenth century. They taught her that glass is not a material — it is *a moment*. It exists in a narrow window between liquid and solid, between possibility and permanence, and the glassblower's job is to work inside that window before it closes. She returned to Japan carrying five centuries of Venetian technique and a conviction that glass should look like it contains light, not merely transmits it.",
+      "Her pieces are blown, never cast. Each begins as a gather of molten glass on the end of a blowpipe — a glowing orange mass that she shapes with breath, gravity, and a handful of tools unchanged in centuries. The colors come from metallic oxides added to the melt: cobalt for the blue of deep water, manganese for the violet of a bruise, iron for the pale green of river light. She layers them, trapping one color inside another, so the finished piece shifts as you move around it — *like a memory you almost remember*. She makes perhaps two hundred pieces a year. Most of them she breaks.",
     ],
     pullQuote: "I break more than I keep. That is how I know I am still reaching for something.",
     method: [
@@ -76,16 +81,27 @@ export const makers: Maker[] = [
       "Colors layered using metallic oxide inclusions",
       "Annealed slowly over twenty-four hours",
       "Cold-worked and polished by hand",
-      "Each piece inspected — most are rejected"
+      "Each piece inspected — most are rejected",
     ],
-    materials: "Soda-lime glass, metallic oxides (cobalt, manganese, iron), silica",
+    materials: "Soda-lime glass gathered from a continuously burning furnace. Metallic oxides for color — cobalt for blue, manganese dioxide for violet, iron oxide for the pale green of river water. Each color is weighed to the gram, but the kiln chemistry shifts with temperature and atmosphere. No two melts produce the same result.",
+    materialsImage: "/images/HMobjects.jpg",
+    craft: "Miura works in free-blown soda-lime glass, gathering from a furnace that burns continuously at 1,100°C. Each piece is shaped on the blowpipe using breath, gravity, and hand tools — jacks, tweezers, blocks, and paddles — techniques unchanged since the Roman Empire. Colors are achieved through metallic oxide inclusions layered within the glass itself, trapping one hue inside another to create depth and movement. After blowing, each piece is annealed over twenty-four hours to relieve internal stress. The pontil mark is cold-worked and polished by hand. Every piece is inspected against her standards. Most are rejected.",
+    storyLayout: "editorial",
     accentColor: "#7a9ea8",
     portraitGradient: "linear-gradient(145deg, #1e2d33 0%, #2a4a55 40%, #1a2228 100%)",
-    portraitImage: "https://images.unsplash.com/photo-1518893063132-36e46dbe2428?w=1920&q=80",
+    portraitImage: "/images/HMhands.webp",
+    profileHeroImage: "/images/glassblowinggloryhole.jpg",
     storyImages: [
-      "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=1200&q=80",
-      "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&q=80",
+      "/images/HMprocess.jpg",
+      "/images/HMobject.webp",
     ],
+    storyImagePositions: [1, 2],
+    storyImageCaptions: [
+      "Between liquid and solid, between possibility and permanence — the glassblower works inside a window that is always closing.",
+      "Every color is a decision made in fire. Cobalt for depth. Manganese for shadow. Iron for the light that lives in river water.",
+    ],
+    materialsCaption: "She keeps the broken ones on a shelf by the door. Not as trophies. As teachers.",
+    bio: "Japanese glass artist working in free-blown soda-lime glass. Trained at Toyama Institute of Glass Art and in Murano, Italy. Known for layered metallic oxide color work.",
   },
   {
     slug: "elias-brandt",

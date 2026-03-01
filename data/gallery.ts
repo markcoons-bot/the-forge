@@ -204,6 +204,9 @@ export const galleryItems: GalleryItem[] = [
     makerSlug: "hana-miura",
     type: "product",
     aspect: "4/3",
+    productName: "Studio Vessels (Set of 3)",
+    productPrice: "$580",
+    productSlug: "studio-vessels-trio",
   },
   {
     id: "fg-extra",
@@ -224,13 +227,16 @@ export const galleryItems: GalleryItem[] = [
     aspect: "4/3",
   },
   {
-    id: "hm-product-2",
+    id: "hm-cobalt-set",
     src: "/images/HMproduct%202.webp",
     maker: "Hana Miura",
     medium: "Glass",
     makerSlug: "hana-miura",
     type: "product",
     aspect: "3/4",
+    productName: "Cobalt Sake Set",
+    productPrice: "$340",
+    productSlug: "cobalt-sake-set",
   },
   {
     id: "fg-tools",

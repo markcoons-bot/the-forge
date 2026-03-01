@@ -156,7 +156,7 @@ function EditorialStory({
         <FullBleedImageWithCaption
           src={maker.storyImages[0]}
           alt={`${maker.name} in the studio`}
-          caption="Before the glaze, before the kiln, before the fire decides — there is only the maker and the morning."
+          caption={maker.storyImageCaptions?.[0] || ""}
           position="right"
         />
       )}
@@ -177,7 +177,7 @@ function EditorialStory({
         <FullBleedImageWithCaption
           src={maker.storyImages[1]}
           alt={`${maker.name} at work`}
-          caption="You cannot rush a kiln. You cannot argue with thermal shock. The clay remembers everything you did to it."
+          caption={maker.storyImageCaptions?.[1] || ""}
           position="left"
         />
       )}
@@ -200,7 +200,7 @@ function EditorialStory({
             <FullBleedImageWithCaption
               src={maker.materialsImage}
               alt={`${maker.name} materials and tools`}
-              caption="In the hands of a master, these are not tools. They are the last point of contact between intention and the irreversible."
+              caption={maker.materialsCaption || ""}
               position="right"
             />
           )}
@@ -304,7 +304,7 @@ function DefaultStory({
             <FullBleedImageWithCaption
               src={maker.materialsImage}
               alt={`${maker.name} materials and tools`}
-              caption=""
+              caption={maker.materialsCaption || ""}
               position="right"
             />
           )}
