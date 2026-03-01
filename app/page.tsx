@@ -62,7 +62,7 @@ export default function Home() {
           ═══════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
         <Image
-          src="/images/kintsugi-hero.webp"
+          src="/images/kintsugi3.webp"
           alt="Kintsugi — the art of golden repair"
           fill
           className="object-cover"
