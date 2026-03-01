@@ -56,7 +56,7 @@ export default function ProductPage({ params }: PageProps) {
       <section className="pt-24 md:pt-32 pb-24 lg:pb-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Back link */}
-          <ScrollReveal className="mb-12">
+          <ScrollReveal variant="fade-in" className="mb-12">
             <Link
               href="/shop"
               className={NAV_LINK_DARK}
@@ -67,7 +67,7 @@ export default function ProductPage({ params }: PageProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Images */}
-            <ScrollReveal>
+            <ScrollReveal variant="scale-in">
               <div className="space-y-3">
                 {allImages.map((img, index) => (
                   <div key={index} className="relative aspect-[4/5] w-full overflow-hidden">

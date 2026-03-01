@@ -131,7 +131,7 @@ export default function AboutPage() {
 
       {/* Pull quote */}
       <section className="py-20 md:py-24 px-6 md:px-10">
-        <ScrollReveal>
+        <ScrollReveal variant="fade-in">
           <blockquote className="font-serif text-2xl md:text-3xl font-light italic text-forge-paper/80 leading-[1.3] max-w-3xl mx-auto text-center">
             The process is the beauty. The object is just proof that the
             process happened.
@@ -155,7 +155,7 @@ export default function AboutPage() {
 
           <div>
             {standards.map((standard, index) => (
-              <ScrollReveal key={standard.title} delay={index * 60}>
+              <ScrollReveal key={standard.title} delay={index * 80}>
                 <div className="py-7 border-b border-forge-text/10">
                   <h3 className="font-serif text-xl md:text-2xl font-light leading-[1.3] text-forge-text mb-3">
                     {standard.title}
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
       {/* Closing quote */}
       <section className="pt-24 md:pt-28 pb-20 md:pb-24 px-6 md:px-10">
-        <ScrollReveal className="max-w-3xl mx-auto text-center">
+        <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
           <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/80">
             &ldquo;The work is the thing. Everything else is just making sure
             the work gets seen.&rdquo;

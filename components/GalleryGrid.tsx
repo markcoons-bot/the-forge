@@ -20,7 +20,12 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
+            // Stagger based on position in the observed batch
+            const el = entry.target as HTMLElement;
+            const idx = parseInt(el.dataset.index || "0", 10);
+            setTimeout(() => {
+              el.classList.add("revealed");
+            }, (idx % 6) * 80);
             observer.unobserve(entry.target);
           }
         });
@@ -45,7 +50,7 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
       className={colClass}
       style={{ columnGap: "5px" }}
     >
-      {items.map((item) => {
+      {items.map((item, index) => {
         const href = item.productSlug
           ? `/shop/${item.productSlug}`
           : `/makers/${item.makerSlug}`;
@@ -54,7 +59,8 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
           <Link
             key={item.id}
             href={href}
-            className="gallery-item reveal group relative block mb-[5px] overflow-hidden cursor-pointer"
+            data-index={index}
+            className="gallery-item reveal reveal--fade-in group relative block mb-[5px] overflow-hidden cursor-pointer"
             style={{ breakInside: "avoid" }}
           >
             <div

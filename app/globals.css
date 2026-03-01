@@ -28,19 +28,71 @@ body {
   color: var(--forge-paper);
 }
 
-/* Scroll reveal */
+/* ═══════════════════════════════════════════════
+   Scroll reveal animation system
+   ═══════════════════════════════════════════════ */
+
+/* GPU acceleration hint for all animated elements */
+.reveal {
+  will-change: transform, opacity;
+}
+
+/* DEFAULT — fade up */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .reveal.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
+/* FADE IN — opacity only, no movement */
+.reveal.reveal--fade-in {
+  transform: none;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.reveal--fade-in.revealed {
+  transform: none;
+}
+
+/* SCALE IN — zoom from 0.97 + fade */
+.reveal.reveal--scale-in {
+  transform: scale(0.97);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.reveal--scale-in.revealed {
+  transform: scale(1);
+}
+
+/* FROM RIGHT — slide in from right */
+.reveal.reveal--from-right {
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal.reveal--from-right.revealed {
+  transform: translateX(0);
+}
+
+/* Mobile: reduce animation distances for performance */
+@media (max-width: 768px) {
+  .reveal {
+    transform: translateY(20px);
+  }
+  .reveal.reveal--from-right {
+    transform: translateX(24px);
+  }
+}
+
+/* Legacy delay classes */
 .reveal-delay-1 {
   transition-delay: 0.15s;
 }
@@ -51,6 +103,11 @@ body {
 
 .reveal-delay-3 {
   transition-delay: 0.45s;
+}
+
+/* Clean up will-change after animation */
+.reveal.revealed {
+  will-change: auto;
 }
 
 /* Film grain overlay */
@@ -227,4 +284,25 @@ body {
 
 .studio-feed-scroll::-webkit-scrollbar-thumb:hover {
   background: rgba(168, 144, 112, 0.3);
+}
+
+/* Hidden scrollbar utility — for showcase strips */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* Product showcase scroll-snap (desktop only) */
+@media (min-width: 768px) {
+  .showcase-scroll {
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 40px;
+  }
+  .showcase-scroll > * > * {
+    scroll-snap-align: start;
+  }
 }

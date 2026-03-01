@@ -79,7 +79,7 @@ function FullBleedImageWithCaption({
   const gradient = "linear-gradient(to top, rgba(26,24,22,0.75) 0%, rgba(26,24,22,0.4) 25%, rgba(26,24,22,0.08) 45%, transparent 55%)";
 
   return (
-    <ScrollReveal>
+    <ScrollReveal variant="scale-in">
       <div
         className="relative h-[50vh] md:h-[70vh] overflow-hidden"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
@@ -277,7 +277,7 @@ function DefaultStory({
                 )}
 
                 {showPullQuote && (
-                  <ScrollReveal>
+                  <ScrollReveal variant="fade-in">
                     <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/80 my-16 md:my-20 pl-6 border-l-2 border-forge-paper/20">
                       {maker.pullQuote}
                     </blockquote>
@@ -502,7 +502,7 @@ export default function MakerPage({ params }: PageProps) {
           CLOSING
           ═══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 px-6 md:px-10">
-        <ScrollReveal className="max-w-3xl mx-auto text-center">
+        <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
           <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.3] text-forge-paper/80">
             &ldquo;{maker.quote}&rdquo;
           </blockquote>
