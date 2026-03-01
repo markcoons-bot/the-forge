@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
@@ -6,10 +7,7 @@ import Link from "next/link";
 import {
   H1_PAGE,
   BODY,
-  BODY_DARK,
-  SECTION_LABEL,
-  SECTION_LABEL_DARK,
-  NAV_LINK_DARK,
+  SECTION_LABEL_LIGHT,
 } from "@/lib/typography";
 
 export const metadata: Metadata = {
@@ -17,6 +15,11 @@ export const metadata: Metadata = {
   description:
     "Why The Forge exists. A marketplace built by a maker, for makers.",
 };
+
+{/*
+  SAVED FOR LATER USE:
+  "The process is the beauty. The object is just proof that the process happened."
+*/}
 
 const standards = [
   {
@@ -56,99 +59,96 @@ export default function AboutPage() {
     <>
       <Navigation />
 
-      {/* Hero */}
-      <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
+      {/* Header */}
+      <section className="bg-forge-paper pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
+        <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line mb-8`}>
               About
             </span>
-            <h1 className={`${H1_PAGE} text-forge-paper`}>
+            <h1 className={`${H1_PAGE} text-forge-text`}>
               Why The Forge Exists
             </h1>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Philosophy — personal story */}
-      <section className="pb-20 md:pb-24 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
+      {/* Prose */}
+      <section className="bg-forge-paper pb-0 px-6 md:px-10">
+        <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
-            <p className={`${BODY_DARK} mb-10`}>
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85] mb-8">
               I built The Forge because I needed it to exist. I am a
               woodworker — not a famous one, not a fast one — and I have spent
-              enough years in a shop to know <em className="italic">what it costs</em> to make something
-              real. Not the price on the tag. The other cost. The years of
-              failed joints before your hands learn what your eyes already know.
-              The stock you ruin because you rushed a cut, or because you
-              didn&apos;t, and <em className="italic">the wood moved anyway</em>. The mornings you walk into
-              the shop and nothing goes right and you do it again tomorrow
-              because this is what you chose.
+              enough years in a shop to know what it costs to make something
+              real. Not the price on the tag. The years of failed joints before
+              your hands learn what your eyes already know.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <p className={`${BODY_DARK} mb-10`}>
-              We live in a world that wants everything now. Instant. Overnight.
-              Two-day shipping on a thing that was injection-molded in a factory
-              and will break in a year. And that is fine for most things. But
-              some things should not be made that way. A bowl that was thrown on
-              a wheel and fired for fourteen hours is not the same as a bowl that
-              was stamped from a mold. It is not better because it is handmade.
-              It is <em className="italic">different</em>. It carries the evidence of a human decision at
-              every point in its existence — the thickness of the wall, the pull
-              of the glaze, the heat of the kiln. You can feel it when you hold
-              it. You might not be able to name what you feel, but it is there.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={160}>
-            <p className={`${BODY_DARK} mb-10`}>
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
               The problem is not that people don&apos;t care about craft. They
-              do. The problem is that the places where craft is sold — the
-              marketplaces, the platforms — treat handmade objects the same way
-              they treat everything else. Thumbnail grids. Discount codes.
-              Suggested products. The work gets flattened. A vase that took
-              three weeks to make sits next to a factory replica that took three
-              minutes, and the platform does not know the difference. Or worse,
-              it does, and it does not care.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={240}>
-            <p className={`${BODY_DARK}`}>
-              The Forge is the opposite of that. Every maker here was invited.
-              Every object was chosen. The stories are real — we visit studios,
-              we watch the process, we write about it honestly. This is a
-              marketplace, and the makers here need to make a living, and the
-              objects need to find homes. But the experience should feel like
-              walking into a gallery where someone you trust says: <em className="italic">here, look at
-              this</em>. Let me tell you who made it, and how, and why it matters.
+              do. The problem is that the places where craft is sold treat
+              handmade objects the same way they treat everything else.
+              Thumbnail grids. Discount codes. A vase that took three weeks to
+              make sits next to a factory replica that took three minutes — and
+              the platform does not know the difference.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Pull quote */}
-      <section className="py-20 md:py-24 px-6 md:px-10">
+      {/* Big quote break */}
+      <section className="bg-forge-paper py-12 md:py-20 px-6 md:px-10">
         <ScrollReveal variant="fade-in">
-          <blockquote className="font-serif text-[26px] md:text-[32px] font-light italic text-forge-paper/[0.92] leading-[1.3] max-w-3xl mx-auto text-center">
-            The process is the beauty. The object is just proof that the
-            process happened.
-          </blockquote>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-10 md:mb-12">
+              <div className="w-[60px] h-px bg-forge-text/[0.15]" />
+            </div>
+            <blockquote className="font-serif text-[26px] md:text-[34px] font-light italic leading-[1.3] text-forge-text/70">
+              &ldquo;The experience should feel like walking into a gallery
+              where someone you trust says: here, look at this.&rdquo;
+            </blockquote>
+            <div className="flex justify-center mt-10 md:mt-12">
+              <div className="w-[60px] h-px bg-forge-text/[0.15]" />
+            </div>
+          </div>
         </ScrollReveal>
       </section>
 
-      {/* Accent divider */}
-      <div className="py-[60px] flex justify-center">
-        <div className="w-10 h-px bg-forge-paper/20" />
-      </div>
+      {/* Paragraph 3 */}
+      <section className="bg-forge-paper pb-0 px-6 md:px-10">
+        <div className="max-w-[680px] mx-auto">
+          <ScrollReveal>
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
+              The Forge is the opposite of that. Every maker here was invited.
+              Every object was chosen. The stories are real. This is a
+              marketplace, and the makers here need to make a living. But the
+              experience should never feel transactional.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
 
-      {/* Our Standards — LIGHT section */}
+      {/* Full-bleed image break */}
+      <section className="bg-forge-paper px-0">
+        <div className="mt-16 mb-16 relative w-full h-[40vh] md:h-[50vh]">
+          <Image
+            src="/images/FGhands.webp"
+            alt="Hands shaping clay on the wheel"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+      </section>
+
+      {/* Our Standards */}
       <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL} text-forge-text/60 label-line mb-14`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line mb-14`}>
               Our Standards
             </span>
           </ScrollReveal>
@@ -157,7 +157,7 @@ export default function AboutPage() {
             {standards.map((standard, index) => (
               <ScrollReveal key={standard.title} delay={index * 80}>
                 <div className="py-7 border-b border-forge-text/10">
-                  <h3 className="font-serif text-[24px] md:text-[28px] font-light leading-[1.3] text-forge-text mb-3">
+                  <h3 className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.3] text-forge-text mb-3">
                     {standard.title}
                   </h3>
                   <p className={`${BODY} text-forge-text/60 max-w-2xl`}>
@@ -170,19 +170,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* For Makers — dark */}
-      <section className="py-20 md:py-24 px-6 md:px-10">
+      {/* For Makers — warm paper */}
+      <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10 border-t border-forge-text/10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} label-line mb-6`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line mb-6`}>
               For Makers
             </span>
-            <h3 className="font-serif text-[24px] md:text-[28px] font-light leading-[1.3] text-forge-paper mb-6">
+            <h3 className="font-serif text-[28px] md:text-[32px] font-normal leading-[1.3] text-forge-text mb-6">
               If you&apos;re a maker, we&apos;d like to hear from you.
             </h3>
             <Link
               href="/apply"
-              className={NAV_LINK_DARK}
+              className="font-sans text-[15px] font-light text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
             >
               Learn about joining The Forge &rarr;
             </Link>
@@ -190,10 +190,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Closing quote */}
-      <section className="pt-24 md:pt-28 pb-20 md:pb-24 px-6 md:px-10">
+      {/* Closing quote — dark */}
+      <section className="py-16 px-6 md:px-10">
         <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-[28px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper/[0.92]">
+          <blockquote className="font-serif text-[30px] font-normal italic leading-[1.3] text-forge-paper/[0.85]">
             &ldquo;The work is the thing. Everything else is just making sure
             the work gets seen.&rdquo;
           </blockquote>
