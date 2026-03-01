@@ -53,7 +53,7 @@ export default function ProductShowcase() {
   }, []);
 
   return (
-    <section className="bg-forge-paper py-16 md:py-20" ref={containerRef}>
+    <div className="pb-16 md:pb-20" ref={containerRef}>
       {/* Header row */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-end justify-between mb-8">
         <div>
@@ -145,6 +145,6 @@ export default function ProductShowcase() {
           })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -58,39 +58,23 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          THE STATEMENT
+          STATEMENT + PRODUCT SHOWCASE — warm paper zone
           ═══════════════════════════════════════════════ */}
       {/*
         SAVED FOR LATER USE (e.g. About page):
         "What is the most beautiful thing you have ever ruined?"
         Sub-line: "Toil. Frustration. Mistakes. That ultimately craft the work."
       */}
-      <section className="bg-forge-dark py-20 md:py-32 px-6 md:px-10">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="bg-forge-paper pt-16 md:pt-24">
+        <div className="text-center px-6 md:px-10 mb-10 md:mb-16">
           <ScrollReveal>
-            <p className="font-serif text-[32px] md:text-[46px] font-normal leading-[1.2] text-forge-paper/[0.95] mb-8">
-              This is a place for people who make.
+            <p className="font-serif text-[36px] md:text-[52px] font-normal leading-[1.2] text-forge-text">
+              The work speaks for itself.
             </p>
-          </ScrollReveal>
-          <ScrollReveal delay={150}>
-            <p className="font-serif text-[19px] md:text-[24px] font-light italic leading-[1.4] text-forge-paper/[0.65] mb-2">
-              Not mass production. Not noise.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay={250}>
-            <p className="font-serif text-[19px] md:text-[24px] font-light italic leading-[1.4] text-forge-paper/[0.65] mb-12 md:mb-16">
-              Just work &mdash; done slowly and well.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal variant="fade-in" delay={400}>
-            <div className="flex flex-col items-center">
-              <span className="font-sans text-[14px] font-normal tracking-[0.15em] uppercase text-forge-paper/50">
-                Meet the makers
-              </span>
-              <div className="w-px h-[30px] bg-forge-paper/25 mt-3" />
-            </div>
           </ScrollReveal>
         </div>
+
+        <ProductShowcase />
       </section>
 
       {/* ═══════════════════════════════════════════════
@@ -198,11 +182,6 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* ═══════════════════════════════════════════════
-          PRODUCT SHOWCASE — horizontal scroll strip
-          ═══════════════════════════════════════════════ */}
-      <ProductShowcase />
 
       {/* ═══════════════════════════════════════════════
           CLOSING
