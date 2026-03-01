@@ -47,8 +47,8 @@ export default function Home() {
           <ScrollReveal immediate delay={400}>
             <p className="font-sans text-[18px] font-light leading-[1.9] text-forge-paper/80 max-w-2xl mx-auto">
               By someone who chose this life. Who chose time over speed. Who works
-              with clay from dirt, lumber from trees, metal from fire, glass from
-              sand and heat.
+              with clay from dirt, glass from sand and heat, wood from trees that
+              lived longer than the maker.
             </p>
           </ScrollReveal>
         </div>
@@ -210,12 +210,11 @@ export default function Home() {
           <ScrollReveal delay={200}>
             <p className={`${BODY_LIGHT} mb-8`}>
               The materials here are elemental. Clay pulled from the ground,
-              shaped on a wheel, and <em className="italic">transformed by fire</em>. Lumber salvaged from
-              trees that lived longer than the maker. Metal heated until it
-              glows, then bent to a will that took decades to develop. Glass
-              gathered as a molten drop and blown into form with <em className="italic">a single breath</em>.
-              Thread spun from wool that grew on an animal, dyed with plants
-              foraged from a hillside.
+              shaped on a wheel, and <em className="italic">transformed by fire</em>. Glass gathered as
+              a molten drop and blown into form with <em className="italic">a single breath</em>. Lumber
+              salvaged from trees that lived longer than the maker, joined
+              without a single nail, finished with oil until the surface
+              feels like skin.
             </p>
           </ScrollReveal>
 

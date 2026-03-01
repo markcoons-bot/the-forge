@@ -110,11 +110,9 @@ export const makers: Maker[] = [
     location: "Asheville, North Carolina",
     quote: "The tree was alive longer than I have been. I try to remember that.",
     story: [
-      "Elias Brandt builds furniture from trees that have already fallen. He does not harvest living wood. He walks salvage yards and storm sites and old barns marked for demolition, looking for timber that carries the marks of its life — nail holes, weather checks, the grey patina of decades spent holding up a roof.",
-      "His workshop sits on four acres outside Asheville, in a hollow where the morning fog pools like milk. He works with hand tools when he can and machines when he must, and he can tell you the species, approximate age, and likely origin of a piece of wood by looking at its end grain.",
-      "He apprenticed under George Nakashima's protégé, Mira Nakamura, learning the Japanese concept of wabi-sabi through American hardwoods. A knot is not a flaw. A split is not a failure. The wood is telling you what it wants to be, and *your job is to listen*.",
-      "His tables are joined without metal fasteners — mortise and tenon, dovetail, wedged through-tenon — joinery methods that have held buildings together for millennia. He finishes with hand-rubbed oil, dozens of coats applied and buffed over weeks, until the surface feels like *skin*.",
-      "He makes perhaps eight to twelve pieces a year. Each one takes months. He has a waiting list measured in years, and *he is fine with that*."
+      "Elias Brandt builds from trees that have already fallen. He does not harvest living wood. He walks salvage yards and storm sites and old barns marked for demolition, looking for timber that carries the marks of its life — nail holes, weather checks, the grey patina of decades spent holding up a roof. His workshop sits on four acres outside Asheville, in a hollow where the morning fog pools like milk. He works with hand tools when he can and machines when he must, and he can tell you the species, approximate age, and likely origin of a piece of wood *by looking at its end grain*.",
+      "He apprenticed under George Nakashima's protégé, Mira Nakamura, spending three years in New Hope, Pennsylvania, learning the Japanese concept of wabi-sabi through American hardwoods. A knot is not a flaw. A split is not a failure. The wood is telling you what it wants to be, and *your job is to listen*. Nakamura taught him to read a board the way a sailor reads water — the direction of the grain, the tension in a curve, the places where the tree fought against wind and won. When Brandt returned to the mountains, he brought that patience with him.",
+      "His pieces are joined without metal fasteners — mortise and tenon, dovetail, wedged through-tenon, and the butterfly keys he has become known for. Where most woodworkers would discard a cracked board, Brandt stabilizes it with a walnut bowtie inlaid across the fracture, turning a defect into *the most beautiful part of the piece*. He finishes with hand-rubbed oil, dozens of coats applied and buffed over weeks, until the surface feels like skin. He makes perhaps forty to fifty objects a year — cutting boards, serving boards, carved spoons, the occasional table. Each one takes weeks. *He is fine with that.*",
     ],
     pullQuote: "Wood does not forgive. If you cut wrong, you cannot uncut. There is no undo. That discipline changes how you think.",
     method: [
@@ -123,79 +121,27 @@ export const makers: Maker[] = [
       "Milled and dimensioned with hand planes and jointers",
       "Joined with traditional joinery — no metal fasteners",
       "Hand-rubbed oil finish, twenty to thirty coats over weeks",
-      "Final surface sanded to 2,000 grit and burnished"
+      "Final surface sanded to 2,000 grit and burnished",
     ],
-    materials: "Reclaimed American hardwoods — walnut, white oak, cherry, maple",
+    materials: "Reclaimed American hardwoods — walnut, white oak, cherry, maple. His butterfly keys are always cut from a contrasting species: dark walnut into pale oak, or cherry into maple. The oil is a blend of tung and linseed he mixes himself, thinned with citrus solvent so it penetrates deep into the grain before curing. No stains. No lacquers. The wood is the finish.",
+    materialsImage: "/images/walnut.webp",
+    craft: "Brandt works exclusively in salvaged American hardwoods — walnut, white oak, cherry, and maple — sourced from storm falls, old barns, and demolition sites across the southern Appalachians. Each board is air-dried for one to three years before he touches it. His signature is the butterfly key: a bowtie-shaped inlay of contrasting wood set across a natural crack, stabilizing the fracture while celebrating it. Every piece is joined with traditional joinery — mortise and tenon, dovetail, wedged through-tenon — and finished with twenty to thirty coats of hand-rubbed tung oil over several weeks.",
+    storyLayout: "editorial",
     accentColor: "#a08060",
     portraitGradient: "linear-gradient(145deg, #2e2518 0%, #4a3828 40%, #1e1a14 100%)",
-    portraitImage: "https://images.unsplash.com/photo-1586864387789-628af9feed72?w=1920&q=80",
+    portraitImage: "/images/Wood1.webp",
+    profileHeroImage: "/images/walnut.jpg",
     storyImages: [
-      "https://images.unsplash.com/photo-1616464916356-3a777b2b60b1?w=1200&q=80",
-      "https://images.unsplash.com/photo-1605433246452-258b9e8a2e05?w=1200&q=80",
-      "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=1200&q=80",
+      "/images/Woodproduct.webp",
+      "/images/woodproduct2.webp",
     ],
-  },
-  {
-    slug: "reva-solis",
-    name: "Reva Solis",
-    medium: "Metal",
-    location: "Santa Fe, New Mexico",
-    quote: "Fire does not care about your plan.",
-    story: [
-      "Reva Solis forges in a cinderblock studio at the edge of Santa Fe, where the high desert light makes metal look like it is still molten even after it has cooled. She works in bronze and iron, sometimes copper, heating billets in a coal forge until they glow the color of a summer sunset and then shaping them under a power hammer that shakes the floor.",
-      "She studied sculpture at the Institute of American Indian Arts before turning to blacksmithing, drawn by the directness of it — no intermediary between intention and material. You heat the metal. You hit the metal. *The metal becomes something.* Or it does not, and you heat it again.",
-      "Her work sits between function and sculpture. A candelabra that looks like desert brush after a fire. A set of cooking knives with handles forged from railroad spikes. A door pull shaped like a river stone, warm in the hand, heavy with intention.",
-      "She fires her forge with coal she sources from a mine in Gallup. She prefers it to gas because the heat is uneven — hotter at the center, cooler at the edges — and that variation gives the metal a surface texture that gas cannot replicate. Every piece carries *the signature of its fire*.",
-      "She has turned down gallery representation three times. She sells directly, from the studio, to people who drive out to see the work in person. She believes an object *should be held before it is bought*."
+    storyImagePositions: [1, 2],
+    storyImageCaptions: [
+      "A butterfly key set across a natural crack — not hiding the flaw, but making it the most honest part of the piece.",
+      "Objects that are meant to be used. Bread on the board, oil in the grain, a life measured in meals shared.",
     ],
-    pullQuote: "I want you to feel the weight before you decide. An object should earn its place in your life.",
-    method: [
-      "Coal-forged at temperatures up to 1,200°C",
-      "Shaped under a power hammer and finished by hand",
-      "Joined by forge welding — no modern adhesives",
-      "Patinated with heat and chemical solutions",
-      "Sealed with beeswax and linseed oil",
-      "Each piece is unique — no molds, no casting"
-    ],
-    materials: "Wrought iron, bronze, copper, coal-forge fire, beeswax",
-    accentColor: "#c47a50",
-    portraitGradient: "linear-gradient(145deg, #2d1e16 0%, #5c3a28 40%, #1e1610 100%)",
-    portraitImage: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80",
-    storyImages: [
-      "https://images.unsplash.com/photo-1530124566582-a45a7c79fd85?w=1200&q=80",
-      "https://images.unsplash.com/photo-1602178506166-9a3d87917922?w=1200&q=80",
-    ],
-  },
-  {
-    slug: "maren-loft",
-    name: "Maren Loft",
-    medium: "Fiber",
-    location: "Reykjavík, Iceland",
-    quote: "Thread is just a line. Weaving is just crossing lines. And yet.",
-    story: [
-      "Maren Loft weaves on a loom her grandmother built in 1958, in a studio overlooking the harbor in Reykjavík where the light in winter lasts four hours and in summer never quite leaves. She works with Icelandic wool — the outer coat coarse and water-resistant, the inner coat soft as fog — spinning it herself on a wheel that predates her by decades.",
-      "She learned to weave at seven, sitting beside her grandmother, who learned from her grandmother, who learned from hers. The patterns are not written down. They are carried in *muscle memory*, in the rhythm of the shuttle passing through the warp, in the sound the loom makes when the tension is right.",
-      "Her textiles are functional. Blankets that will outlast their owners. Scarves that cut the North Atlantic wind. Table runners with patterns derived from Icelandic geological surveys — the contour lines of glaciers translated into thread. She does not make decorative objects. She makes things that work.",
-      "She dyes with plants she forages herself: birch leaves for yellow, arctic thyme for green, crowberries for a violet so deep it looks black in low light. The colors shift with each harvest, each season, each rainfall. *No two batches are the same.*",
-      "She produces slowly. A single blanket takes three weeks on the loom, and before that, months of spinning. She has no interest in speed. The wool, she says, *already waited a year on the sheep*."
-    ],
-    pullQuote: "My grandmother's hands knew patterns her mind had forgotten. The loom remembers what we cannot.",
-    method: [
-      "Icelandic wool hand-spun on a vintage spinning wheel",
-      "Natural dyes foraged from birch, arctic thyme, and crowberry",
-      "Woven on a 1958 counterbalance loom",
-      "Patterns carried through four generations of oral tradition",
-      "Finished with traditional Icelandic fulling process",
-      "Each piece washed in geothermal spring water"
-    ],
-    materials: "Icelandic wool (þel and tog fibers), foraged botanical dyes, geothermal water",
-    accentColor: "#8a7a6a",
-    portraitGradient: "linear-gradient(145deg, #252220 0%, #3a3530 40%, #1a1816 100%)",
-    portraitImage: "https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=1920&q=80",
-    storyImages: [
-      "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=80",
-      "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=1200&q=80",
-    ],
+    materialsCaption: "Black walnut. The grain remembers every year of drought, every season of rain. You can read a tree's autobiography in its end grain if you know the language.",
+    bio: "American woodworker specializing in salvaged hardwoods. Apprenticed with Mira Nakamura in the Nakashima tradition. Known for butterfly key joinery and hand-rubbed oil finishes.",
   },
 ];
 

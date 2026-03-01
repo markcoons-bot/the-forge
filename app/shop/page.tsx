@@ -16,12 +16,8 @@ import {
 const mediums = [
   "All",
   "Clay",
-  "Wood",
-  "Metal",
   "Glass",
-  "Leather",
-  "Stone",
-  "Fiber",
+  "Wood",
 ] as const;
 
 export default function ShopPage() {

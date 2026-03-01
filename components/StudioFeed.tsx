@@ -19,10 +19,16 @@ const tiles: StudioTile[] = [
     caption: "Kiln opening, 6am",
   },
   {
-    image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&h=400&fit=crop&q=80",
+    image: "/images/HMprocess.jpg",
     makerName: "Hana Miura",
     medium: "Glass",
     caption: "Gathering from the furnace",
+  },
+  {
+    image: "/images/Wood1.webp",
+    makerName: "Elias Brandt",
+    medium: "Wood",
+    caption: "Selecting salvaged stock",
   },
   {
     image: "/images/FGProcess2.webp",
@@ -31,40 +37,22 @@ const tiles: StudioTile[] = [
     caption: "Glaze testing, batch 34",
   },
   {
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=400&fit=crop&q=80",
+    image: "/images/walnut.webp",
     makerName: "Elias Brandt",
     medium: "Wood",
-    caption: "White oak, air-dried two years",
+    caption: "Black walnut grain, close",
   },
   {
-    image: "https://images.unsplash.com/photo-1518893063132-36e46dbe2428?w=400&h=400&fit=crop&q=80",
+    image: "/images/HMobject.webp",
     makerName: "Hana Miura",
     medium: "Glass",
-    caption: "Annealing oven, overnight",
+    caption: "Light vessel, afternoon sun",
   },
   {
-    image: "https://images.unsplash.com/photo-1531310197839-ccf54634509e?w=400&h=400&fit=crop&q=80",
-    makerName: "Maren Loft",
-    medium: "Fiber",
-    caption: "Crowberry dye bath",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=400&fit=crop&q=80",
-    makerName: "Reva Solis",
-    medium: "Metal",
-    caption: "Coal forge at dusk",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1605433246452-258b9e8a2e05?w=400&h=400&fit=crop&q=80",
+    image: "/images/woodproduct3.webp",
     makerName: "Elias Brandt",
     medium: "Wood",
-    caption: "Dovetail, hand-cut",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1602178506166-9a3d87917922?w=400&h=400&fit=crop&q=80",
-    makerName: "Reva Solis",
-    medium: "Metal",
-    caption: "Bronze pour, 1,100°C",
+    caption: "Spoons, cherry, hand-carved",
   },
   {
     image: "/images/Potterytools.webp",
@@ -73,10 +61,22 @@ const tiles: StudioTile[] = [
     caption: "Tools of the trade",
   },
   {
-    image: "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?w=400&h=400&fit=crop&q=80",
-    makerName: "Maren Loft",
-    medium: "Fiber",
-    caption: "Warp threads, morning light",
+    image: "/images/glassblowinggloryhole.jpg",
+    makerName: "Hana Miura",
+    medium: "Glass",
+    caption: "Glory hole, 1,100°C",
+  },
+  {
+    image: "/images/woodproduct2.webp",
+    makerName: "Elias Brandt",
+    medium: "Wood",
+    caption: "Barn oak, bread, artichoke",
+  },
+  {
+    image: "/images/FGprocess3.webp",
+    makerName: "Florian Gadsby",
+    medium: "Clay",
+    caption: "Trimming, early morning",
   },
 ];
 
