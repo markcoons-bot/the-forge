@@ -187,16 +187,10 @@ export default function Home() {
         </ScrollReveal>
       </section>
 
-      {/* ═══════════════════════════════════════════════
-          CLOSING
-          ═══════════════════════════════════════════════ */}
-      <section className="py-14 md:py-20 px-6 md:px-10">
-        <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-[28px] md:text-[36px] font-normal italic leading-[1.3] text-forge-paper/[0.85]">
-            &ldquo;In a world that chose speed, they chose time.&rdquo;
-          </blockquote>
-        </ScrollReveal>
-      </section>
+      {/*
+        SAVED FOR LATER USE:
+        "In a world that chose speed, they chose time."
+      */}
 
       {/* ═══════════════════════════════════════════════
           FROM THE STUDIOS
