@@ -195,7 +195,7 @@ function EditorialStory({
 
       {/* ── THE CRAFT — dark background ── */}
       {maker.craft && (
-        <section className="py-20 md:py-28">
+        <section className={maker.materialsImage ? "pb-20 md:pb-28" : "py-20 md:py-28"}>
           {maker.materialsImage && (
             <FullBleedImageWithCaption
               src={maker.materialsImage}
@@ -205,7 +205,9 @@ function EditorialStory({
             />
           )}
 
-          <div className="h-20" />
+          <div className="py-8 flex justify-center">
+            <div className="w-10 h-px bg-forge-paper/20" />
+          </div>
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
@@ -299,7 +301,7 @@ function DefaultStory({
 
       {/* Method + Materials (or Craft) */}
       {maker.craft ? (
-        <section className="py-20 md:py-28">
+        <section className={maker.materialsImage ? "pb-20 md:pb-28" : "py-20 md:py-28"}>
           {maker.materialsImage && (
             <FullBleedImageWithCaption
               src={maker.materialsImage}
@@ -309,7 +311,9 @@ function DefaultStory({
             />
           )}
 
-          <div className="h-20" />
+          <div className="py-8 flex justify-center">
+            <div className="w-10 h-px bg-forge-paper/20" />
+          </div>
 
           <div className="max-w-prose mx-auto px-6 md:px-10">
             <ScrollReveal>
