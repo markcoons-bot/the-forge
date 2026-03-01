@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import {
   H1_PAGE,
-  BODY,
   SECTION_LABEL_LIGHT,
 } from "@/lib/typography";
 
@@ -76,7 +75,7 @@ export default function AboutPage() {
       <section className="bg-forge-paper pb-0 px-6 md:px-10">
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85] mb-8">
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/90 mb-8">
               I built The Forge because I needed it to exist. I am a
               woodworker — not a famous one, not a fast one — and I have spent
               enough years in a shop to know what it costs to make something
@@ -86,7 +85,7 @@ export default function AboutPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={80}>
-            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/90">
               The problem is not that people don&apos;t care about craft. They
               do. The problem is that the places where craft is sold treat
               handmade objects the same way they treat everything else.
@@ -105,7 +104,7 @@ export default function AboutPage() {
             <div className="flex justify-center mb-10 md:mb-12">
               <div className="w-[60px] h-px bg-forge-text/[0.15]" />
             </div>
-            <blockquote className="font-serif text-[28px] md:text-[38px] font-light italic leading-[1.3] text-forge-text/70">
+            <blockquote className="font-serif text-[28px] md:text-[38px] font-light italic leading-[1.3] text-forge-text/60">
               &ldquo;The experience should feel like walking into a gallery
               where someone you trust says: here, look at this.&rdquo;
             </blockquote>
@@ -120,7 +119,7 @@ export default function AboutPage() {
       <section className="bg-forge-paper pb-4 px-6 md:px-10">
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
-            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/90">
               That&apos;s what The Forge is. Every maker here was invited. Every
               object was chosen. This is a marketplace — but it should feel
               like a gallery.
@@ -150,11 +149,11 @@ export default function AboutPage() {
           <div>
             {standards.map((standard, index) => (
               <ScrollReveal key={standard.title} delay={index * 80}>
-                <div className="py-7 border-b border-forge-text/10">
-                  <h3 className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.3] text-forge-text mb-3">
+                <div className="py-7 border-b border-forge-text/[0.12]">
+                  <h3 className="font-serif text-[28px] font-normal leading-[1.3] text-forge-text/90 mb-3">
                     {standard.title}
                   </h3>
-                  <p className={`${BODY} text-forge-text/60 max-w-2xl`}>
+                  <p className="font-sans text-[17px] font-light leading-[1.75] text-forge-text/75 max-w-2xl">
                     {standard.description}
                   </p>
                 </div>
@@ -171,12 +170,12 @@ export default function AboutPage() {
             <span className={`${SECTION_LABEL_LIGHT} label-line mb-6`}>
               For Makers
             </span>
-            <h3 className="font-serif text-[28px] md:text-[32px] font-normal leading-[1.3] text-forge-text mb-6">
+            <h3 className="font-serif text-[32px] font-normal leading-[1.3] text-forge-text/90 mb-6">
               If you&apos;re a maker, we&apos;d like to hear from you.
             </h3>
             <Link
               href="/apply"
-              className="font-sans text-[15px] font-light text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+              className="font-sans text-[15px] font-light text-forge-text/[0.55] hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
             >
               Learn about joining The Forge &rarr;
             </Link>
