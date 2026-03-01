@@ -68,7 +68,7 @@ export default function Home() {
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[20px] font-light leading-[1.6] text-forge-text/70 mt-6 max-w-md mx-auto tracking-wide">
+            <p className="font-sans text-[16px] md:text-[20px] font-light leading-[1.6] text-forge-text/70 mt-6 max-w-md mx-auto tracking-wide">
               Toil. Frustration. Mistakes. That ultimately craft <em className="italic">the work.</em>
             </p>
           </ScrollReveal>
@@ -78,9 +78,9 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           TRANSITION — Question to Makers
           ═══════════════════════════════════════════════ */}
-      <section className="py-20 md:py-20 px-6 md:px-10">
+      <section className="py-12 md:py-20 px-6 md:px-10">
         <ScrollReveal className="text-center">
-          <p className="font-serif text-[22px] md:text-[24px] font-light italic leading-[1.3] text-forge-paper/70">
+          <p className="font-serif text-[18px] md:text-[24px] font-light italic leading-[1.3] text-forge-paper/70">
             These are the people who know.
           </p>
         </ScrollReveal>
@@ -124,7 +124,7 @@ export default function Home() {
 
                 {/* Content */}
                 <div
-                  className={`relative z-10 h-full flex flex-col justify-end p-8 md:p-16 text-shadow-image ${
+                  className={`relative z-10 h-full flex flex-col justify-end p-5 md:p-16 pb-10 md:pb-16 text-shadow-image ${
                     index % 2 === 0 ? "items-start" : "items-start md:items-end"
                   }`}
                 >
@@ -132,11 +132,11 @@ export default function Home() {
                     <p className={`${SECTION_LABEL} text-[12px] tracking-[0.15em] text-forge-paper mb-4`}>
                       {maker.medium} &mdash; {maker.location}
                     </p>
-                    <blockquote className="font-serif text-[32px] md:text-[38px] font-light italic leading-[1.3] text-forge-paper mb-6">
+                    <blockquote className="font-serif text-[24px] md:text-[38px] font-light italic leading-[1.3] text-forge-paper mb-6">
                       &ldquo;{maker.quote}&rdquo;
                     </blockquote>
                     <div className="flex items-center gap-4">
-                      <span className="font-sans text-[22px] md:text-[24px] font-normal text-white">
+                      <span className="font-sans text-[18px] md:text-[24px] font-normal text-white">
                         {maker.name}
                       </span>
                       <span className="font-mono text-[13px] tracking-[0.05em] text-forge-paper/70 group-hover:text-forge-paper transition-all duration-500 ease-forge">
@@ -146,7 +146,7 @@ export default function Home() {
 
                     {/* Product thumbnails */}
                     {makerProducts.length > 0 && (
-                      <div className={`flex gap-3 mt-5 ${index % 2 === 0 ? "" : "md:justify-end"}`}>
+                      <div className={`hidden md:flex gap-3 mt-5 ${index % 2 === 0 ? "" : "md:justify-end"}`}>
                         {makerProducts.map((product) => (
                           <div
                             key={product.slug}

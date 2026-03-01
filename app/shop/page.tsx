@@ -59,20 +59,22 @@ export default function ShopPage() {
 
           {/* Filters */}
           <ScrollReveal className="mb-12 md:mb-16">
-            <div className="flex flex-wrap gap-2">
-              {mediums.map((medium) => (
-                <button
-                  key={medium}
-                  onClick={() => setActiveFilter(medium)}
-                  className={`font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-2.5 border transition-all duration-300 ${
-                    activeFilter === medium
-                      ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
-                      : "text-forge-text/50 hover:text-forge-text/70 bg-transparent border-forge-text/20"
-                  }`}
-                >
-                  {medium}
-                </button>
-              ))}
+            <div className="overflow-x-auto -mx-6 md:mx-0">
+              <div className="flex gap-2 px-6 md:px-0 w-max md:w-auto md:flex-wrap">
+                {mediums.map((medium) => (
+                  <button
+                    key={medium}
+                    onClick={() => setActiveFilter(medium)}
+                    className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
+                      activeFilter === medium
+                        ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
+                        : "text-forge-text/50 hover:text-forge-text/70 bg-transparent border-forge-text/20"
+                    }`}
+                  >
+                    {medium}
+                  </button>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 

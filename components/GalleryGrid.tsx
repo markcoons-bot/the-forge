@@ -36,8 +36,8 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
 
   const colClass =
     columns === 2
-      ? "columns-1 md:columns-2"
-      : "columns-1 md:columns-2 lg:columns-3";
+      ? "columns-2"
+      : "columns-2 lg:columns-3";
 
   return (
     <div
@@ -68,13 +68,19 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
                 className="object-cover"
                 sizes={
                   columns === 3
-                    ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    : "(max-width: 768px) 100vw, 50vw"
+                    ? "(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                    : "50vw"
                 }
               />
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4">
+              {/* Persistent bottom overlay — mobile */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 md:hidden">
+                <p className="font-serif text-[14px] font-light text-white leading-tight">{item.maker}</p>
+                <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-white/60">{item.medium}</p>
+              </div>
+
+              {/* Hover overlay — desktop only */}
+              <div className="hidden md:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center text-center p-4">
                 <p className="font-serif text-[18px] font-light text-white">
                   {item.maker}
                 </p>

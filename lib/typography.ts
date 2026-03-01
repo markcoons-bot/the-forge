@@ -5,7 +5,7 @@
 
 // ── Body Text ──
 export const BODY = "font-sans text-[18px] font-light leading-[1.9]";
-export const BODY_STORY = "font-sans text-[18px] md:text-[19px] font-light leading-[1.9]";
+export const BODY_STORY = "font-sans text-[17px] md:text-[19px] font-light leading-[1.9]";
 
 // ── Body on dark backgrounds (white text) ──
 export const BODY_DARK_PRIMARY = `${BODY} text-forge-paper`;

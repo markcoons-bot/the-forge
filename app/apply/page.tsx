@@ -274,24 +274,27 @@ export default function ApplyPage() {
                 >
                   Country
                 </label>
-                <select
-                  id="country"
-                  required
-                  value={formData.country}
-                  onChange={(e) =>
-                    setFormData({ ...formData, country: e.target.value })
-                  }
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
-                >
-                  <option value="" disabled>
-                    Select your country
-                  </option>
-                  {countries.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
+                <div className="relative">
+                  <select
+                    id="country"
+                    required
+                    value={formData.country}
+                    onChange={(e) =>
+                      setFormData({ ...formData, country: e.target.value })
+                    }
+                    className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                  >
+                    <option value="" disabled>
+                      Select your country
                     </option>
-                  ))}
-                </select>
+                    {countries.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-forge-text/40 text-lg" aria-hidden="true">&#9662;</span>
+                </div>
               </div>
 
               <div>
@@ -301,24 +304,27 @@ export default function ApplyPage() {
                 >
                   Medium
                 </label>
-                <select
-                  id="medium"
-                  required
-                  value={formData.medium}
-                  onChange={(e) =>
-                    setFormData({ ...formData, medium: e.target.value })
-                  }
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
-                >
-                  <option value="" disabled>
-                    Select your medium
-                  </option>
-                  {mediums.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
+                <div className="relative">
+                  <select
+                    id="medium"
+                    required
+                    value={formData.medium}
+                    onChange={(e) =>
+                      setFormData({ ...formData, medium: e.target.value })
+                    }
+                    className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                  >
+                    <option value="" disabled>
+                      Select your medium
                     </option>
-                  ))}
-                </select>
+                    {mediums.map((m) => (
+                      <option key={m} value={m}>
+                        {m}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-forge-text/40 text-lg" aria-hidden="true">&#9662;</span>
+                </div>
               </div>
 
               <div>
@@ -328,23 +334,26 @@ export default function ApplyPage() {
                 >
                   Years practicing your craft
                 </label>
-                <select
-                  id="years"
-                  required
-                  value={formData.years}
-                  onChange={(e) =>
-                    setFormData({ ...formData, years: e.target.value })
-                  }
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
-                >
-                  <option value="" disabled>
-                    Select
-                  </option>
-                  <option value="1-3">1–3 years</option>
-                  <option value="3-5">3–5 years</option>
-                  <option value="5-10">5–10 years</option>
-                  <option value="10+">10+ years</option>
-                </select>
+                <div className="relative">
+                  <select
+                    id="years"
+                    required
+                    value={formData.years}
+                    onChange={(e) =>
+                      setFormData({ ...formData, years: e.target.value })
+                    }
+                    className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                  >
+                    <option value="" disabled>
+                      Select
+                    </option>
+                    <option value="1-3">1–3 years</option>
+                    <option value="3-5">3–5 years</option>
+                    <option value="5-10">5–10 years</option>
+                    <option value="10+">10+ years</option>
+                  </select>
+                  <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-forge-text/40 text-lg" aria-hidden="true">&#9662;</span>
+                </div>
               </div>
 
               <div>
@@ -389,7 +398,7 @@ export default function ApplyPage() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="font-mono text-[13px] tracking-[0.08em] text-forge-text/70 hover:text-forge-text underline underline-offset-4 decoration-forge-text/30 hover:decoration-forge-text/60 transition-colors duration-300 cursor-pointer"
+                  className="btn-forge-solid w-full py-4 text-[13px] tracking-[0.08em]"
                 >
                   Submit Application &rarr;
                 </button>

@@ -31,7 +31,7 @@ export default function ProductStrip({ products }: ProductStripProps) {
             <Link
               key={product.slug}
               href={`/shop/${product.slug}`}
-              className="group block shrink-0 w-[180px] md:w-[220px]"
+              className="group block shrink-0 w-[70vw] md:w-[220px]"
             >
               <div className="relative aspect-[4/5] overflow-hidden mb-3">
                 <div

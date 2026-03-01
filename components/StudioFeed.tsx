@@ -123,11 +123,17 @@ export default function StudioFeed() {
                   sizes="300px"
                 />
 
-                {/* Hover overlay */}
+                {/* Persistent bottom caption — mobile */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-forge-dark/70 to-transparent px-3 py-2 md:hidden">
+                  <p className="font-sans text-[12px] font-light text-forge-paper/80 truncate">{tile.caption}</p>
+                  <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-forge-paper/50">{tile.medium}</p>
+                </div>
+
+                {/* Hover overlay — desktop */}
                 <div className="absolute inset-0 bg-forge-dark/0 group-hover:bg-forge-dark/60 transition-all duration-500 ease-forge" />
 
-                {/* Hover content — centered */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-forge translate-y-2 group-hover:translate-y-0">
+                {/* Hover content — centered, desktop */}
+                <div className="absolute inset-0 hidden md:flex flex-col items-center justify-center text-center p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-forge translate-y-2 group-hover:translate-y-0">
                   <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-forge-paper/60 mb-2">
                     {tile.medium}
                   </p>

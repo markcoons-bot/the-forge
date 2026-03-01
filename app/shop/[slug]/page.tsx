@@ -53,7 +53,7 @@ export default function ProductPage({ params }: PageProps) {
     <>
       <Navigation />
 
-      <section className="pt-24 md:pt-32 pb-16 md:pb-24 px-6 md:px-10">
+      <section className="pt-24 md:pt-32 pb-24 lg:pb-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Back link */}
           <ScrollReveal className="mb-12">
@@ -167,9 +167,9 @@ export default function ProductPage({ params }: PageProps) {
                 </div>
               </ScrollReveal>
 
-              {/* Add to Cart — subtle */}
+              {/* Add to Cart — inline on desktop */}
               <ScrollReveal delay={400}>
-                <button className="btn-forge w-full md:w-auto">
+                <button className="btn-forge w-full md:w-auto hidden lg:inline-flex">
                   Add to cart
                 </button>
               </ScrollReveal>
@@ -177,6 +177,13 @@ export default function ProductPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Sticky Add to Cart — mobile/tablet only */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forge-dark/95 backdrop-blur-md border-t border-white/[0.08] px-6 py-4">
+        <button className="btn-forge-solid w-full">
+          Add to cart &mdash; {formatPrice(product.price, product.currency)}
+        </button>
+      </div>
 
       {/* More from this maker */}
       {moreFromMaker.length > 0 && (
@@ -190,7 +197,19 @@ export default function ProductPage({ params }: PageProps) {
               </div>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+            {/* Mobile: horizontal scroll */}
+            <div className="md:hidden overflow-x-auto -mx-6">
+              <div className="flex gap-4 w-max px-6">
+                {moreFromMaker.slice(0, 3).map((p) => (
+                  <div key={p.slug} className="w-[200px] shrink-0">
+                    <ProductCard product={p} variant="dark" />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tablet/desktop: grid */}
+            <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
               {moreFromMaker.slice(0, 3).map((p, index) => (
                 <ScrollReveal key={p.slug} delay={index * 100}>
                   <ProductCard product={p} variant="dark" />

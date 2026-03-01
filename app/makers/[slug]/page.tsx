@@ -81,7 +81,7 @@ function FullBleedImageWithCaption({
   return (
     <ScrollReveal>
       <div
-        className="relative h-[60vh] md:h-[70vh] overflow-hidden"
+        className="relative h-[50vh] md:h-[70vh] overflow-hidden"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <Image
@@ -95,17 +95,17 @@ function FullBleedImageWithCaption({
           <>
             <div className="absolute inset-0" style={{ background: gradient }} />
             <div
-              className={`absolute bottom-0 left-0 right-0 p-8 md:p-16 z-10 flex text-shadow-image ${
+              className={`absolute bottom-0 left-0 right-0 p-5 md:p-16 z-10 flex text-shadow-image ${
                 isRight ? "justify-end" : "justify-start"
               }`}
             >
               <blockquote
-                className={`max-w-xs md:max-w-md ${
+                className={`max-w-[280px] md:max-w-md ${
                   isRight ? "text-right" : "text-left"
                 }`}
               >
-                <span className="font-serif text-[100px] md:text-[120px] leading-none text-forge-paper/[0.25] block mb-[-20px] md:mb-[-28px]">&ldquo;</span>
-                <span className="font-serif text-[30px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper">
+                <span className="font-serif text-[60px] md:text-[120px] leading-none text-forge-paper/[0.25] block mb-[-12px] md:mb-[-28px]">&ldquo;</span>
+                <span className="font-serif text-[22px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper">
                   {caption}
                 </span>
               </blockquote>
@@ -412,22 +412,22 @@ export default function MakerPage({ params }: PageProps) {
         />
         <div className="maker-portrait-overlay absolute inset-0" />
 
-        <div className="relative z-10 p-8 md:p-16 pb-16 md:pb-24 text-shadow-hero">
+        <div className="relative z-10 p-5 md:p-16 pb-12 md:pb-24 text-shadow-hero">
           <p className={`${SECTION_LABEL} text-[12px] md:text-[13px] tracking-[0.15em] text-forge-paper mb-6`}>
             {maker.medium} &mdash; {maker.location}
           </p>
           <h1
             className="font-serif font-light leading-[1.2] text-forge-paper mb-8"
-            style={{ fontSize: "clamp(48px, 8vw, 80px)" }}
+            style={{ fontSize: "clamp(36px, 10vw, 80px)" }}
           >
             {maker.name}
           </h1>
-          <div className="relative max-w-2xl">
+          <div className="relative max-w-2xl overflow-hidden">
             {/* Decorative quotation mark */}
-            <span className="font-serif text-[150px] md:text-[200px] leading-none text-forge-paper/[0.3] absolute -top-[80px] md:-top-[110px] -left-[10px] md:-left-[20px] select-none pointer-events-none" aria-hidden="true">
+            <span className="font-serif text-[80px] md:text-[200px] leading-none text-forge-paper/[0.3] absolute -top-[40px] md:-top-[110px] left-0 md:-left-[20px] select-none pointer-events-none" aria-hidden="true">
               &ldquo;
             </span>
-            <blockquote className="font-serif text-[24px] md:text-[28px] font-light italic leading-[1.3] text-forge-paper relative z-10">
+            <blockquote className="font-serif text-[20px] md:text-[28px] font-light italic leading-[1.3] text-forge-paper relative z-10">
               &ldquo;{maker.quote}&rdquo;
             </blockquote>
           </div>
