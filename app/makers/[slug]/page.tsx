@@ -429,12 +429,23 @@ export default function MakerPage({ params }: PageProps) {
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-              {makerProducts.map((product, index) => (
+              {makerProducts.slice(0, 6).map((product, index) => (
                 <ScrollReveal key={product.slug} delay={index * 100}>
                   <ProductCard product={product} variant="light" showMaker={false} />
                 </ScrollReveal>
               ))}
             </div>
+
+            {makerProducts.length > 6 && (
+              <div className="text-center mt-10 mb-2">
+                <Link
+                  href="/shop"
+                  className="font-sans text-[15px] font-normal text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+                >
+                  View all pieces &rarr;
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       )}
