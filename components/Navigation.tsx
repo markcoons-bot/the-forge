@@ -79,6 +79,13 @@ export default function Navigation() {
             >
               About
             </Link>
+            <span className="hidden md:block w-px h-4 bg-forge-paper/15" />
+            <Link
+              href="/apply"
+              className={`${NAV_LINK} text-forge-accent/80 hover:text-forge-accent transition-colors duration-300`}
+            >
+              For Makers &rarr;
+            </Link>
           </div>
         </div>
       </div>

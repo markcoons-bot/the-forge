@@ -2,13 +2,14 @@ import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 import {
   H1_PAGE,
-  H2_SECTION,
   BODY,
   BODY_DARK,
   SECTION_LABEL,
   SECTION_LABEL_DARK,
+  NAV_LINK_DARK,
 } from "@/lib/typography";
 
 export const metadata: Metadata = {
@@ -42,6 +43,11 @@ const standards = [
     title: "Small-Batch Reality",
     description:
       "We do not work with makers who outsource production or manufacture at scale. Every object on The Forge is made by the hands listed on the page. If the maker takes a vacation, production stops. That is the point.",
+  },
+  {
+    title: "Built to Last",
+    description:
+      "These objects are not disposable. We look for work that gets better with age — a patina that deepens, a handle that wears smooth, a glaze that tells time. The things on The Forge are meant to be used daily, for years, and to be better for it.",
   },
 ];
 
@@ -171,52 +177,15 @@ export default function AboutPage() {
             <span className={`${SECTION_LABEL_DARK} label-line mb-6`}>
               For Makers
             </span>
-            <h3 className={`${H2_SECTION} text-forge-paper mb-10`}>
-              If you make things by hand, we want to hear from you.
+            <h3 className="font-serif text-[24px] md:text-[28px] font-light leading-[1.3] text-forge-paper mb-6">
+              If you&apos;re a maker, we&apos;d like to hear from you.
             </h3>
-          </ScrollReveal>
-
-          <ScrollReveal delay={80}>
-            <p className={`${BODY_DARK} mb-10`}>
-              The Forge is invitation-only, but we are always looking. If your
-              work meets our standards — if you shape raw materials into finished
-              objects with <em className="italic">your own hands</em> and you are proud of what you make — we
-              would like to see it.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={160}>
-            <div className="my-10">
-              {[
-                ["12% commission", "Lower than the industry standard. No listing fees, no monthly subscription, no hidden costs."],
-                ["Professional editorial", "We write your story. Studio visit, process photography direction, long-form profile. Your work presented the way it deserves."],
-                ["Premium pricing protected", "We do not run sales. We do not offer discount codes. Your prices are your prices, and we will never pressure you to lower them."],
-                ["You control production", "Made to order, ready to ship, limited runs — your pace, your capacity. We will never ask you to scale beyond what your hands can do."],
-              ].map(([title, desc], index) => (
-                <div key={index} className="flex items-start gap-6 py-5 border-b border-white/[0.08]">
-                  <span className="font-mono text-[10px] text-forge-paper/40 pt-1 shrink-0 w-5 text-right">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <p className="font-sans text-[17px] font-medium text-forge-paper mb-1">
-                      {title}
-                    </p>
-                    <p className={`${BODY} text-forge-paper/70`}>
-                      {desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={240}>
-            <a
-              href="#"
-              className="font-sans text-[13px] font-light uppercase tracking-[0.15em] text-forge-paper/80 underline underline-offset-4 decoration-forge-paper/30 hover:text-white hover:decoration-white/40 transition-colors duration-300"
+            <Link
+              href="/apply"
+              className={NAV_LINK_DARK}
             >
-              Apply to The Forge &rarr;
-            </a>
+              Learn about joining The Forge &rarr;
+            </Link>
           </ScrollReveal>
         </div>
       </section>

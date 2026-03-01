@@ -1,0 +1,245 @@
+"use client";
+
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import ScrollReveal from "@/components/ScrollReveal";
+import Footer from "@/components/Footer";
+import {
+  BODY_DARK,
+  SECTION_LABEL_DARK,
+} from "@/lib/typography";
+
+const mediums = [
+  "Clay",
+  "Wood",
+  "Metal",
+  "Glass",
+  "Leather",
+  "Stone",
+  "Fiber",
+  "Other",
+];
+
+const benefits = [
+  {
+    title: "12% commission",
+    description:
+      "Lower than the industry standard. No listing fees, no monthly subscription, no hidden costs.",
+  },
+  {
+    title: "Professional editorial",
+    description:
+      "We write your story. Studio visit, process photography direction, long-form profile. Your work presented the way it deserves.",
+  },
+  {
+    title: "Premium pricing protected",
+    description:
+      "We do not run sales. We do not offer discount codes. Your prices are your prices.",
+  },
+  {
+    title: "You control production",
+    description:
+      "Made to order, ready to ship, limited runs — your pace, your capacity.",
+  },
+];
+
+export default function ApplyPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    website: "",
+    medium: "",
+    about: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Will connect to Supabase later
+  };
+
+  return (
+    <>
+      <Navigation />
+
+      {/* Hero */}
+      <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
+        <div className="max-w-prose mx-auto">
+          <ScrollReveal>
+            <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
+              For Makers
+            </span>
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] text-forge-paper">
+              If you make things by hand, we want to hear from you.
+            </h1>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="pb-16 md:pb-20 px-6 md:px-10">
+        <div className="max-w-prose mx-auto">
+          <ScrollReveal>
+            <p className={BODY_DARK}>
+              The Forge is invitation-only, but we are always looking. If your
+              work meets our standards — if you shape raw materials into finished
+              objects with <em className="italic">your own hands</em> and you are
+              proud of what you make — we would like to see it.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="pb-20 md:pb-24 px-6 md:px-10">
+        <div className="max-w-prose mx-auto">
+          {benefits.map((benefit, index) => (
+            <ScrollReveal key={benefit.title} delay={index * 60}>
+              <div className="py-6 border-b border-white/[0.08]">
+                <p className="font-sans text-[17px] font-medium text-forge-paper mb-1.5">
+                  {benefit.title}
+                </p>
+                <p className="font-sans text-[16px] font-light leading-[1.8] text-forge-paper/70">
+                  {benefit.description}
+                </p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Application Form — warm paper */}
+      <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+        <div className="max-w-prose mx-auto">
+          <ScrollReveal>
+            <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.3] text-forge-text mb-10">
+              Tell us about your work
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="website"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Website or Instagram
+                </label>
+                <input
+                  type="url"
+                  id="website"
+                  value={formData.website}
+                  onChange={(e) =>
+                    setFormData({ ...formData, website: e.target.value })
+                  }
+                  placeholder="https://"
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="medium"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Medium
+                </label>
+                <select
+                  id="medium"
+                  required
+                  value={formData.medium}
+                  onChange={(e) =>
+                    setFormData({ ...formData, medium: e.target.value })
+                  }
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                >
+                  <option value="" disabled>
+                    Select your medium
+                  </option>
+                  {mediums.map((m) => (
+                    <option key={m} value={m}>
+                      {m}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="about"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Tell us about your work
+                </label>
+                <textarea
+                  id="about"
+                  required
+                  rows={4}
+                  value={formData.about}
+                  onChange={(e) =>
+                    setFormData({ ...formData, about: e.target.value })
+                  }
+                  placeholder="What do you make? How long have you been making it? What matters to you about the work?"
+                  className="w-full bg-transparent border border-forge-text/20 focus:border-forge-text/60 outline-none p-4 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300 resize-none"
+                />
+              </div>
+
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  className="font-mono text-[13px] tracking-[0.08em] text-forge-text/70 hover:text-forge-text underline underline-offset-4 decoration-forge-text/30 hover:decoration-forge-text/60 transition-colors duration-300 cursor-pointer"
+                >
+                  Submit Application &rarr;
+                </button>
+              </div>
+
+              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-text/40 pt-2">
+                We respond to every application personally.
+              </p>
+            </form>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}
