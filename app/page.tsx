@@ -7,7 +7,7 @@ import ProductCard from "@/components/ProductCard";
 import ProductShowcase from "@/components/ProductShowcase";
 import StudioFeed from "@/components/StudioFeed";
 import Footer from "@/components/Footer";
-import { makers } from "@/data/makers";
+import { getHomepageMakers } from "@/data/makers";
 import { products, getProductsByMaker } from "@/data/products";
 import {
   H2_SECTION,
@@ -20,6 +20,7 @@ import {
 } from "@/lib/typography";
 
 export default function Home() {
+  const homepageMakers = getHomepageMakers();
   const featuredProducts = products.slice(0, 6);
 
   return (
@@ -107,7 +108,7 @@ export default function Home() {
         </ScrollReveal>
 
         <div className="flex flex-col gap-[2px]">
-          {makers.map((maker, index) => {
+          {homepageMakers.map((maker, index) => {
             const makerProducts = getProductsByMaker(maker.slug).slice(0, 3);
 
             return (
@@ -184,6 +185,21 @@ export default function Home() {
               </Link>
             );
           })}
+        </div>
+
+        {/* Transition — after maker portraits */}
+        <div className="py-20 md:py-24 px-6 md:px-10">
+          <ScrollReveal variant="fade-in" className="text-center">
+            <p className="font-serif text-[22px] md:text-[24px] font-light italic leading-[1.4] text-forge-paper/70 mb-6">
+              Every maker here was invited. Every object was chosen.
+            </p>
+            <Link
+              href="/makers"
+              className="font-sans text-[14px] font-light text-forge-paper/60 hover:text-forge-paper transition-colors duration-300"
+            >
+              See all makers &rarr;
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
 

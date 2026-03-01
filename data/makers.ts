@@ -11,6 +11,7 @@ export interface Maker {
   materialsImage?: string;
   craft?: string;
   storyLayout?: "editorial";
+  homepage?: boolean;
   accentColor: string;
   portraitGradient: string;
   portraitImage: string;
@@ -28,6 +29,7 @@ export const makers: Maker[] = [
     name: "Florian Gadsby",
     medium: "Clay",
     location: "London, England",
+    homepage: true,
     quote: "The kiln decides. I just prepare.",
     story: [
       "Most mornings, Florian Gadsby takes the London Underground to a small studio where no one is waiting for him. He unlocks the door, fills a bucket, and sits down at the wheel. He has been doing this, more or less, since he was nineteen — first as an apprentice to Lisa Hammond MBE, the grande dame of British salt-glazed pottery, then for three years under her eye, learning to throw with the kind of patience that cannot be taught, *only endured*.",
@@ -68,6 +70,7 @@ export const makers: Maker[] = [
     name: "Hana Miura",
     medium: "Glass",
     location: "Toyama, Japan",
+    homepage: true,
     quote: "Glass has no memory. You must give it one.",
     story: [
       "The furnace has not been turned off in eleven years. It burns at 1,100 degrees in a converted rice warehouse on the edge of Toyama Prefecture, where the Sea of Japan pushes winter air through the valley and the windows fog with the heat of a small sun. Hana Miura arrives before dawn most mornings, when the glass is quietest — a glowing pool of molten silica waiting at the end of a blowpipe for the breath that will give it form. *She calls this hour the stillness before the shaping.*",
@@ -108,6 +111,7 @@ export const makers: Maker[] = [
     name: "Elias Brandt",
     medium: "Wood",
     location: "Asheville, North Carolina",
+    homepage: true,
     quote: "The tree was alive longer than I have been. I try to remember that.",
     story: [
       "Elias Brandt builds from trees that have already fallen. He does not harvest living wood. He walks salvage yards and storm sites and old barns marked for demolition, looking for timber that carries the marks of its life — nail holes, weather checks, the grey patina of decades spent holding up a roof. His workshop sits on four acres outside Asheville, in a hollow where the morning fog pools like milk. He works with hand tools when he can and machines when he must, and he can tell you the species, approximate age, and likely origin of a piece of wood *by looking at its end grain*.",
@@ -147,4 +151,8 @@ export const makers: Maker[] = [
 
 export function getMaker(slug: string): Maker | undefined {
   return makers.find((m) => m.slug === slug);
+}
+
+export function getHomepageMakers(): Maker[] {
+  return makers.filter((m) => m.homepage).slice(0, 3);
 }
