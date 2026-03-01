@@ -9,9 +9,7 @@ import Footer from "@/components/Footer";
 import { products, getProduct, getProductsByMaker } from "@/data/products";
 import { getMaker } from "@/data/makers";
 import {
-  BODY_DARK,
-  SECTION_LABEL_DARK,
-  NAV_LINK_DARK,
+  SECTION_LABEL_LIGHT,
 } from "@/lib/typography";
 
 interface PageProps {
@@ -53,21 +51,21 @@ export default function ProductPage({ params }: PageProps) {
     <>
       <Navigation />
 
-      <section className="pt-24 md:pt-32 pb-24 lg:pb-24 px-6 md:px-10">
+      <section className="bg-forge-paper pt-24 md:pt-32 pb-24 lg:pb-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Back link */}
           <ScrollReveal variant="fade-in" className="mb-12">
             <Link
               href="/shop"
-              className={NAV_LINK_DARK}
+              className="font-sans text-[14px] font-normal text-forge-text/[0.55] hover:text-forge-text/[0.85] transition-colors duration-300"
             >
               &larr; Back to shop
             </Link>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            {/* Images */}
-            <ScrollReveal variant="scale-in">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Images — 7 of 12 columns (58%) */}
+            <ScrollReveal variant="scale-in" className="lg:col-span-7">
               <div className="space-y-3">
                 {allImages.map((img, index) => (
                   <div key={index} className="relative aspect-[4/5] w-full overflow-hidden">
@@ -80,7 +78,7 @@ export default function ProductPage({ params }: PageProps) {
                       alt={`${product.name}${index > 0 ? ` — view ${index + 1}` : ""}`}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="(max-width: 1024px) 100vw, 58vw"
                       priority={index === 0}
                     />
                   </div>
@@ -88,13 +86,13 @@ export default function ProductPage({ params }: PageProps) {
               </div>
             </ScrollReveal>
 
-            {/* Details */}
-            <div className="flex flex-col justify-center">
+            {/* Details — 5 of 12 columns */}
+            <div className="lg:col-span-5 flex flex-col justify-center">
               <ScrollReveal delay={100}>
-                <p className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-paper/75 mb-4">
+                <p className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-4">
                   {product.status}
                   {product.leadTime && (
-                    <span className="text-forge-paper/60">
+                    <span>
                       {" "}
                       &mdash; {product.leadTime}
                     </span>
@@ -103,24 +101,27 @@ export default function ProductPage({ params }: PageProps) {
               </ScrollReveal>
 
               <ScrollReveal delay={150}>
-                <h1 className="font-serif text-[32px] md:text-[40px] font-light leading-[1.2] text-forge-paper mb-2">
+                <h1 className="font-serif text-[32px] md:text-[40px] font-normal leading-[1.2] text-forge-text mb-2">
                   {product.name}
                 </h1>
               </ScrollReveal>
 
               {maker && (
                 <ScrollReveal delay={200}>
-                  <Link
-                    href={`/makers/${maker.slug}`}
-                    className="font-sans text-[15px] font-light text-forge-paper/70 hover:text-forge-paper transition-colors duration-300 mb-6 inline-block"
-                  >
-                    From the studio of {maker.name}
-                  </Link>
+                  <p className="font-sans text-[16px] font-light text-forge-text/[0.55] mb-6">
+                    From the studio of{" "}
+                    <Link
+                      href={`/makers/${maker.slug}`}
+                      className="hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+                    >
+                      {maker.name}
+                    </Link>
+                  </p>
                 </ScrollReveal>
               )}
 
               <ScrollReveal delay={250}>
-                <p className="font-serif text-[26px] md:text-[28px] font-light text-forge-paper mb-10">
+                <p className="font-serif text-[28px] font-normal text-forge-text mb-10">
                   {formatPrice(product.price, product.currency)}
                 </p>
               </ScrollReveal>
@@ -128,10 +129,10 @@ export default function ProductPage({ params }: PageProps) {
               {/* Curator's note */}
               <ScrollReveal delay={300}>
                 <div className="mb-10">
-                  <p className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-paper/75 label-line mb-3">
+                  <p className={`${SECTION_LABEL_LIGHT} label-line mb-3`}>
                     Curator&apos;s Note
                   </p>
-                  <p className="font-serif text-[17px] md:text-[19px] italic leading-[1.75] text-forge-paper/[0.92]">
+                  <p className="font-sans text-[17px] font-light leading-[1.75] text-forge-text/80">
                     {product.curatorNote}
                   </p>
                 </div>
@@ -140,36 +141,36 @@ export default function ProductPage({ params }: PageProps) {
               {/* Specs */}
               <ScrollReveal delay={350}>
                 <div className="space-y-0 mb-10">
-                  <div className="flex items-start gap-6 py-4 border-b border-white/[0.08]">
-                    <span className="font-mono text-[13px] font-normal tracking-[0.1em] uppercase text-forge-paper/75 w-24 shrink-0 pt-0.5">
+                  <div className="flex items-start gap-6 py-4 border-b border-forge-text/10">
+                    <span className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text/[0.45] w-24 shrink-0 pt-0.5">
                       Materials
                     </span>
-                    <p className="font-sans text-[16px] font-light text-forge-paper/[0.92]">
+                    <p className="font-sans text-[16px] font-light text-forge-text/80">
                       {product.materials}
                     </p>
                   </div>
-                  <div className="flex items-start gap-6 py-4 border-b border-white/[0.08]">
-                    <span className="font-mono text-[13px] font-normal tracking-[0.1em] uppercase text-forge-paper/75 w-24 shrink-0 pt-0.5">
+                  <div className="flex items-start gap-6 py-4 border-b border-forge-text/10">
+                    <span className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text/[0.45] w-24 shrink-0 pt-0.5">
                       Dimensions
                     </span>
-                    <p className="font-sans text-[16px] font-light text-forge-paper/[0.92]">
+                    <p className="font-sans text-[16px] font-light text-forge-text/80">
                       {product.dimensions}
                     </p>
                   </div>
-                  <div className="flex items-start gap-6 py-4 border-b border-white/[0.08]">
-                    <span className="font-mono text-[13px] font-normal tracking-[0.1em] uppercase text-forge-paper/75 w-24 shrink-0 pt-0.5">
+                  <div className="flex items-start gap-6 py-4 border-b border-forge-text/10">
+                    <span className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text/[0.45] w-24 shrink-0 pt-0.5">
                       Care
                     </span>
-                    <p className="font-sans text-[16px] font-light text-forge-paper/[0.92]">
+                    <p className="font-sans text-[16px] font-light text-forge-text/80">
                       {product.care}
                     </p>
                   </div>
                 </div>
               </ScrollReveal>
 
-              {/* Add to Cart — inline on desktop */}
+              {/* Add to Cart — desktop */}
               <ScrollReveal delay={400}>
-                <button className="btn-forge w-full md:w-auto hidden lg:inline-flex">
+                <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-mono text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
                   Add to cart
                 </button>
               </ScrollReveal>
@@ -179,22 +180,25 @@ export default function ProductPage({ params }: PageProps) {
       </section>
 
       {/* Sticky Add to Cart — mobile/tablet only */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forge-dark/95 backdrop-blur-md border-t border-white/[0.08] px-6 py-4">
-        <button className="btn-forge-solid w-full">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forge-paper/95 backdrop-blur-md border-t border-forge-text/10 px-6 py-4">
+        <button className="w-full py-[18px] bg-forge-text text-forge-paper font-mono text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
           Add to cart &mdash; {formatPrice(product.price, product.currency)}
         </button>
       </div>
 
       {/* More from this maker */}
-      {moreFromMaker.length > 0 && (
-        <section className="py-16 md:py-24 px-6 md:px-10 border-t border-white/[0.08]">
+      {moreFromMaker.length >= 2 && (
+        <section className="bg-forge-paper pb-20 md:pb-28 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
+            {/* Divider */}
+            <div className="flex justify-center py-10">
+              <div className="w-20 h-px bg-forge-text/[0.15]" />
+            </div>
+
             <ScrollReveal>
-              <div className="mb-12 md:mb-16">
-                <span className={`${SECTION_LABEL_DARK} label-line mb-3`}>
-                  More from {maker?.name}
-                </span>
-              </div>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
+                More from {maker?.name}
+              </span>
             </ScrollReveal>
 
             {/* Mobile: horizontal scroll */}
@@ -202,7 +206,7 @@ export default function ProductPage({ params }: PageProps) {
               <div className="flex gap-4 w-max px-6">
                 {moreFromMaker.slice(0, 3).map((p) => (
                   <div key={p.slug} className="w-[200px] shrink-0">
-                    <ProductCard product={p} variant="dark" />
+                    <ProductCard product={p} variant="light" showMaker={false} />
                   </div>
                 ))}
               </div>
@@ -212,32 +216,10 @@ export default function ProductPage({ params }: PageProps) {
             <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
               {moreFromMaker.slice(0, 3).map((p, index) => (
                 <ScrollReveal key={p.slug} delay={index * 100}>
-                  <ProductCard product={p} variant="dark" />
+                  <ProductCard product={p} variant="light" showMaker={false} />
                 </ScrollReveal>
               ))}
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* About the Maker */}
-      {maker && (
-        <section className="py-16 md:py-24 px-6 md:px-10 border-t border-white/[0.08]">
-          <div className="max-w-3xl mx-auto">
-            <ScrollReveal>
-              <span className={`${SECTION_LABEL_DARK} label-line mb-6`}>
-                About the Maker
-              </span>
-              <p className={`${BODY_DARK} mb-6`}>
-                {maker.bio || maker.story[0]}
-              </p>
-              <Link
-                href={`/makers/${maker.slug}`}
-                className={NAV_LINK_DARK}
-              >
-                View full profile &rarr;
-              </Link>
-            </ScrollReveal>
           </div>
         </section>
       )}
