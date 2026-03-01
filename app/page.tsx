@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import { getHomepageMakers } from "@/data/makers";
 import { getProductsByMaker } from "@/data/products";
 import {
-  QUOTE_LARGE,
   SECTION_LABEL,
   SECTION_LABEL_DARK,
 } from "@/lib/typography";
@@ -171,28 +170,29 @@ export default function Home() {
           })}
         </div>
 
-        {/* Transition — after maker portraits */}
-        <div className="py-10 md:py-14 px-6 md:px-10">
-          <ScrollReveal variant="fade-in" className="text-center">
-            <p className="font-serif text-[26px] font-light italic leading-[1.4] text-forge-paper/[0.88] mb-6">
-              Every maker here was invited. Every object was chosen.
-            </p>
-            <Link
-              href="/makers"
-              className="font-sans text-[15px] font-light text-forge-paper/70 hover:text-forge-paper hover:underline underline-offset-4 transition-all duration-300"
-            >
-              See all makers &rarr;
-            </Link>
-          </ScrollReveal>
-        </div>
+      </section>
+
+      {/* Transition — after maker portraits */}
+      <section className="bg-forge-paper py-14 md:py-20 px-6 md:px-10">
+        <ScrollReveal variant="fade-in" className="text-center">
+          <p className="font-serif text-[26px] font-normal italic leading-[1.4] text-forge-text/[0.85] mb-6">
+            Every maker here was invited. Every object was chosen.
+          </p>
+          <Link
+            href="/makers"
+            className="font-sans text-[15px] font-light text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+          >
+            See all makers &rarr;
+          </Link>
+        </ScrollReveal>
       </section>
 
       {/* ═══════════════════════════════════════════════
           CLOSING
           ═══════════════════════════════════════════════ */}
-      <section className="py-24 md:py-36 px-6 md:px-10">
+      <section className="py-14 md:py-20 px-6 md:px-10">
         <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
-          <blockquote className={`${QUOTE_LARGE} text-forge-paper/90`}>
+          <blockquote className="font-serif text-[28px] md:text-[36px] font-normal italic leading-[1.3] text-forge-paper/[0.85]">
             &ldquo;In a world that chose speed, they chose time.&rdquo;
           </blockquote>
         </ScrollReveal>

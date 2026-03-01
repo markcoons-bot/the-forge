@@ -82,7 +82,7 @@ const tiles: StudioTile[] = [
 
 export default function StudioFeed() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="pt-14 md:pt-20 pb-20 md:pb-28">
       {/* Header */}
       <div className="px-6 md:px-10 max-w-7xl mx-auto mb-8">
         <ScrollReveal>
