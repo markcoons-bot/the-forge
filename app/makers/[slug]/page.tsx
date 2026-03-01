@@ -417,6 +417,27 @@ export default function MakerPage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════
+          INTRO
+          ═══════════════════════════════════════════════ */}
+      {maker.profileIntro && (
+        <section className="bg-forge-paper pt-10 md:pt-16 pb-8 md:pb-12 px-6 md:px-10">
+          <div className="max-w-[680px] mx-auto">
+            <ScrollReveal>
+              <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.05em] text-forge-text mb-3">
+                {maker.name}
+              </p>
+              <p className="font-sans text-[18px] font-light leading-[1.75] text-forge-text/[0.85] mb-3">
+                {maker.profileIntro}
+              </p>
+              <p className="font-mono text-[13px] font-normal text-forge-text/[0.45]">
+                {maker.medium} &mdash; {maker.location}
+              </p>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
+
+      {/* ═══════════════════════════════════════════════
           FULL PRODUCT GRID — warm paper
           ═══════════════════════════════════════════════ */}
       {makerProducts.length > 0 && (

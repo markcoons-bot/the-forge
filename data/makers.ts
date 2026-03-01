@@ -21,6 +21,7 @@ export interface Maker {
   storyImageCaptions?: string[];
   materialsCaption?: string;
   bio?: string;
+  profileIntro?: string;
 }
 
 export const makers: Maker[] = [
@@ -64,6 +65,7 @@ export const makers: Maker[] = [
     ],
     materialsCaption: "In the hands of a master, these are not tools. They are the last point of contact between intention and the irreversible.",
     bio: "British potter working in reduction-fired stoneware and porcelain. Apprenticed with Lisa Hammond MBE, studied in Mashiko, Japan. Author of By My Hands.",
+    profileIntro: "London-based ceramicist trained under Lisa Hammond MBE and Ken Matsuzaki in Mashiko, Japan. He works in reduction-fired stoneware, throwing each piece by hand and firing in a gas kiln at 1,295\u00B0C. Over three million people follow his work. The Forge is where you can own it.",
   },
   {
     slug: "hana-miura",
@@ -105,6 +107,7 @@ export const makers: Maker[] = [
     ],
     materialsCaption: "She keeps the broken ones on a shelf by the door. Not as trophies. As teachers.",
     bio: "Japanese glass artist working in free-blown soda-lime glass. Trained at Toyama Institute of Glass Art and in Murano, Italy. Known for layered metallic oxide color work.",
+    profileIntro: "Toyama-based glass artist trained at the Toyama Institute of Glass Art and on the island of Murano, where she studied under maestros whose families have blown glass since the fifteenth century. She works in free-blown soda-lime glass, layering metallic oxides to trap color inside color. She makes perhaps two hundred pieces a year. Most of them she breaks.",
   },
   {
     slug: "elias-brandt",
@@ -146,6 +149,7 @@ export const makers: Maker[] = [
     ],
     materialsCaption: "Black walnut. The grain remembers every year of drought, every season of rain. You can read a tree's autobiography in its end grain if you know the language.",
     bio: "American woodworker specializing in salvaged hardwoods. Apprenticed with Mira Nakamura in the Nakashima tradition. Known for butterfly key joinery and hand-rubbed oil finishes.",
+    profileIntro: "Asheville-based woodworker who builds exclusively from salvaged American hardwoods \u2014 walnut, white oak, cherry, and maple sourced from storm falls and old barns. He apprenticed under George Nakashima\u2019s prot\u00E9g\u00E9, Mira Nakamura, and is known for his butterfly key joinery: a bowtie of contrasting wood set across a natural crack, turning a defect into the most beautiful part of the piece.",
   },
 ];
 
