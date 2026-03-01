@@ -10,7 +10,6 @@ import { makers } from "@/data/makers";
 import { products, getProductsByMaker } from "@/data/products";
 import {
   H2_SECTION,
-  BODY,
   BODY_LIGHT,
   QUOTE_LARGE,
   SECTION_LABEL,
@@ -69,8 +68,8 @@ export default function Home() {
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className={`${BODY} text-forge-text/60 mt-8 max-w-md mx-auto tracking-wide`}>
-              Toil. Frustration. Mistakes. That ultimately craft <em className="italic text-[20px]">the work.</em>
+            <p className="font-sans text-[20px] font-light leading-[1.6] text-forge-text/70 mt-6 max-w-md mx-auto tracking-wide">
+              Toil. Frustration. Mistakes. That ultimately craft <em className="italic">the work.</em>
             </p>
           </ScrollReveal>
         </div>
