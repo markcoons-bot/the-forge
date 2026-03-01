@@ -43,13 +43,43 @@ const benefits = [
   },
 ];
 
+const countries = [
+  "United States",
+  "Canada",
+  "United Kingdom",
+  "Australia",
+  "Japan",
+  "Germany",
+  "France",
+  "Netherlands",
+  "Sweden",
+  "Denmark",
+  "Norway",
+  "Italy",
+  "Spain",
+  "Portugal",
+  "Mexico",
+  "South Korea",
+  "New Zealand",
+  "Ireland",
+  "Belgium",
+  "Switzerland",
+  "Austria",
+  "Other",
+];
+
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     website: "",
+    instagram: "",
+    country: "",
     medium: "",
+    years: "",
     about: "",
+    referral: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -158,10 +188,29 @@ export default function ApplyPage() {
 
               <div>
                 <label
+                  htmlFor="phone"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Phone <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                  placeholder="+1 (555) 000-0000"
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                />
+              </div>
+
+              <div>
+                <label
                   htmlFor="website"
                   className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
-                  Website or Instagram
+                  Website <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
                 <input
                   type="url"
@@ -173,6 +222,52 @@ export default function ApplyPage() {
                   placeholder="https://"
                   className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
                 />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="instagram"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Instagram <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="instagram"
+                  value={formData.instagram}
+                  onChange={(e) =>
+                    setFormData({ ...formData, instagram: e.target.value })
+                  }
+                  placeholder="@yourstudio"
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="country"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Country
+                </label>
+                <select
+                  id="country"
+                  required
+                  value={formData.country}
+                  onChange={(e) =>
+                    setFormData({ ...formData, country: e.target.value })
+                  }
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                >
+                  <option value="" disabled>
+                    Select your country
+                  </option>
+                  {countries.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>
@@ -204,6 +299,32 @@ export default function ApplyPage() {
 
               <div>
                 <label
+                  htmlFor="years"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  Years practicing your craft
+                </label>
+                <select
+                  id="years"
+                  required
+                  value={formData.years}
+                  onChange={(e) =>
+                    setFormData({ ...formData, years: e.target.value })
+                  }
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                >
+                  <option value="" disabled>
+                    Select
+                  </option>
+                  <option value="1-3">1–3 years</option>
+                  <option value="3-5">3–5 years</option>
+                  <option value="5-10">5–10 years</option>
+                  <option value="10+">10+ years</option>
+                </select>
+              </div>
+
+              <div>
+                <label
                   htmlFor="about"
                   className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
@@ -219,6 +340,25 @@ export default function ApplyPage() {
                   }
                   placeholder="What do you make? How long have you been making it? What matters to you about the work?"
                   className="w-full bg-transparent border border-forge-text/20 focus:border-forge-text/60 outline-none p-4 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300 resize-none"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="referral"
+                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                >
+                  How did you hear about us? <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="referral"
+                  value={formData.referral}
+                  onChange={(e) =>
+                    setFormData({ ...formData, referral: e.target.value })
+                  }
+                  placeholder="Instagram, a friend, a search…"
+                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
                 />
               </div>
 
