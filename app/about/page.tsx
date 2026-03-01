@@ -99,13 +99,13 @@ export default function AboutPage() {
       </section>
 
       {/* Big quote break */}
-      <section className="bg-forge-paper py-12 md:py-20 px-6 md:px-10">
+      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
         <ScrollReveal variant="fade-in">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <div className="flex justify-center mb-10 md:mb-12">
               <div className="w-[60px] h-px bg-forge-text/[0.15]" />
             </div>
-            <blockquote className="font-serif text-[26px] md:text-[34px] font-light italic leading-[1.3] text-forge-text/70">
+            <blockquote className="font-serif text-[28px] md:text-[38px] font-light italic leading-[1.3] text-forge-text/70">
               &ldquo;The experience should feel like walking into a gallery
               where someone you trust says: here, look at this.&rdquo;
             </blockquote>
