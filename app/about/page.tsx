@@ -121,10 +121,9 @@ export default function AboutPage() {
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
-              The Forge is the opposite of that. Every maker here was invited.
-              Every object was chosen. The stories are real. This is a
-              marketplace, and the makers here need to make a living. But the
-              experience should never feel transactional.
+              That&apos;s what The Forge is. Every maker here was invited. Every
+              object was chosen. This is a marketplace — but it should feel
+              like a gallery.
             </p>
           </ScrollReveal>
         </div>
