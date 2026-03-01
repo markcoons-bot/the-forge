@@ -56,7 +56,7 @@ function renderDropLead(text: string, variant: "light" | "dark") {
   const leadColor = variant === "light" ? "text-forge-text/90" : "text-forge-paper";
   return (
     <>
-      <span className={`font-serif text-[20px] md:text-[22px] font-normal leading-[1.9] ${leadColor}`}>
+      <span className={`font-sans text-[17px] md:text-[19px] font-normal leading-[1.75] ${leadColor}`}>
         {renderWithEmphasis(first)}
       </span>{" "}
       {renderWithEmphasis(rest)}

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
@@ -118,7 +117,7 @@ export default function AboutPage() {
       </section>
 
       {/* Paragraph 3 */}
-      <section className="bg-forge-paper pb-0 px-6 md:px-10">
+      <section className="bg-forge-paper pb-4 px-6 md:px-10">
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
@@ -131,21 +130,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Full-bleed image break */}
-      <section className="bg-forge-paper px-0">
-        <div className="mt-16 mb-16 relative w-full h-[40vh] md:h-[50vh]">
-          <Image
-            src="/images/FGhands.webp"
-            alt="Hands shaping clay on the wheel"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-      </section>
+      {/*
+        SAVED FOR LATER USE — Full-bleed image break:
+        <section className="bg-forge-paper px-0">
+          <div className="mt-16 mb-16 relative w-full h-[40vh] md:h-[50vh]">
+            <Image src="/images/FGhands.webp" alt="Hands shaping clay on the wheel" fill className="object-cover" sizes="100vw" />
+          </div>
+        </section>
+      */}
 
       {/* Our Standards */}
-      <section className="bg-forge-paper py-20 md:py-24 px-6 md:px-10">
+      <section className="bg-forge-paper pt-20 md:pt-24 pb-20 md:pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <span className={`${SECTION_LABEL_LIGHT} label-line mb-14`}>
@@ -190,15 +185,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Closing quote — dark */}
-      <section className="py-16 px-6 md:px-10">
-        <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-[30px] font-normal italic leading-[1.3] text-forge-paper/[0.85]">
-            &ldquo;The work is the thing. Everything else is just making sure
-            the work gets seen.&rdquo;
-          </blockquote>
-        </ScrollReveal>
-      </section>
+      {/*
+        SAVED FOR LATER USE — Closing quote (dark section):
+        "The work is the thing. Everything else is just making sure the work gets seen."
+      */}
 
       <Footer />
     </>
