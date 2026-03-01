@@ -3,25 +3,19 @@ import Image from "next/image";
 import HeroVideo from "@/components/HeroVideo";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
-import ProductCard from "@/components/ProductCard";
 import ProductShowcase from "@/components/ProductShowcase";
 import StudioFeed from "@/components/StudioFeed";
 import Footer from "@/components/Footer";
 import { getHomepageMakers } from "@/data/makers";
-import { products, getProductsByMaker } from "@/data/products";
+import { getProductsByMaker } from "@/data/products";
 import {
-  H2_SECTION,
-  BODY_LIGHT,
   QUOTE_LARGE,
   SECTION_LABEL,
   SECTION_LABEL_DARK,
-  SECTION_LABEL_LIGHT,
-  NAV_LINK,
 } from "@/lib/typography";
 
 export default function Home() {
   const homepageMakers = getHomepageMakers();
-  const featuredProducts = products.slice(0, 6);
 
   return (
     <>
@@ -64,18 +58,35 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          THE QUESTION
+          THE QUESTION — cinematic image moment
           ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-paper py-24 md:py-36 px-6 md:px-10">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
+        <Image
+          src="/images/FGProcess2.webp"
+          alt="Pottery studio — shelves of handmade ceramics"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55))" }}
+        />
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <blockquote className={`${QUOTE_LARGE} text-forge-text`}>
+            <blockquote
+              className="font-serif text-[30px] md:text-[44px] font-light italic leading-[1.3] text-forge-paper"
+              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}
+            >
               &ldquo;What is the most beautiful thing you have ever ruined?&rdquo;
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[17px] md:text-[20px] font-light leading-[1.6] text-forge-text/70 mt-6 max-w-md mx-auto tracking-wide">
-              Toil. Frustration. Mistakes. That ultimately craft <em className="italic">the work.</em>
+            <p
+              className="font-sans text-[18px] font-light leading-[1.6] text-forge-paper/80 mt-6 max-w-md mx-auto"
+              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}
+            >
+              Toil. Frustration. Mistakes. That ultimately craft the work.
             </p>
           </ScrollReveal>
         </div>
@@ -84,21 +95,16 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════
           TRANSITION — Question to Makers
           ═══════════════════════════════════════════════ */}
-      <section className="py-12 md:py-20 px-6 md:px-10">
+      <section className="py-12 md:py-16 px-6 md:px-10">
         <ScrollReveal variant="fade-in" className="text-center">
-          <p className="font-serif text-[18px] md:text-[24px] font-light italic leading-[1.3] text-forge-paper/70">
+          <p className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/[0.88]">
             These are the people who know.
           </p>
         </ScrollReveal>
       </section>
 
       {/* ═══════════════════════════════════════════════
-          PRODUCT SHOWCASE — horizontal scroll strip
-          ═══════════════════════════════════════════════ */}
-      <ProductShowcase />
-
-      {/* ═══════════════════════════════════════════════
-          ACT TWO — The Makers
+          THE MAKERS — portrait cards
           ═══════════════════════════════════════════════ */}
       <section id="makers">
         <ScrollReveal variant="fade-in" className="text-center py-10">
@@ -188,14 +194,14 @@ export default function Home() {
         </div>
 
         {/* Transition — after maker portraits */}
-        <div className="py-20 md:py-24 px-6 md:px-10">
+        <div className="py-10 md:py-14 px-6 md:px-10">
           <ScrollReveal variant="fade-in" className="text-center">
-            <p className="font-serif text-[22px] md:text-[24px] font-light italic leading-[1.4] text-forge-paper/70 mb-6">
+            <p className="font-serif text-[26px] font-light italic leading-[1.4] text-forge-paper/[0.88] mb-6">
               Every maker here was invited. Every object was chosen.
             </p>
             <Link
               href="/makers"
-              className="font-sans text-[14px] font-light text-forge-paper/60 hover:text-forge-paper transition-colors duration-300"
+              className="font-sans text-[15px] font-light text-forge-paper/70 hover:text-forge-paper hover:underline underline-offset-4 transition-all duration-300"
             >
               See all makers &rarr;
             </Link>
@@ -204,97 +210,9 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          ACT THREE — Why We Built This
+          PRODUCT SHOWCASE — horizontal scroll strip
           ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-paper py-24 md:py-36 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
-          <ScrollReveal>
-            <h2 className={`${H2_SECTION} text-forge-text mb-12`}>
-              Every object here has a maker, a method, and a reason it exists.
-            </h2>
-          </ScrollReveal>
-
-          <ScrollReveal delay={100}>
-            <p className={`${BODY_LIGHT} mb-8`}>
-              This is a marketplace. But not the kind you&apos;re used to. No algorithm
-              decides what you see. No discount banner interrupts the work. No
-              infinite scroll of <em className="italic">indistinguishable options</em>. Just makers, their
-              objects, and the stories that connect them.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={200}>
-            <p className={`${BODY_LIGHT} mb-8`}>
-              The materials here are elemental. Clay pulled from the ground,
-              shaped on a wheel, and <em className="italic">transformed by fire</em>. Glass gathered as
-              a molten drop and blown into form with <em className="italic">a single breath</em>. Lumber
-              salvaged from trees that lived longer than the maker, joined
-              without a single nail, finished with oil until the surface
-              feels like skin.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal delay={300}>
-            <p className={`${BODY_LIGHT} mb-8`}>
-              Every object here represents years of practice. Decades, in most
-              cases. And if you asked the maker, they would tell you <em className="italic">it could
-              always be better</em>. That the glaze didn&apos;t break the way they
-              imagined. That the joint isn&apos;t as tight as last time. That the
-              color shifted in the kiln, or the wood moved overnight, or the
-              glass had a mind of its own. Working with raw materials, it&apos;s
-              almost never perfect.
-            </p>
-          </ScrollReveal>
-
-          <ScrollReveal variant="fade-in" delay={400}>
-            <p className="font-serif text-[26px] md:text-[32px] font-light italic text-forge-text/60 leading-[1.3] mt-12">
-              Perfectly imperfect.
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════
-          DIVIDER
-          ═══════════════════════════════════════════════ */}
-      <div className="py-4 flex justify-center">
-        <div className="w-10 h-px bg-forge-paper/20" />
-      </div>
-
-      {/* ═══════════════════════════════════════════════
-          THE SHOP Preview
-          ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal>
-            <div className="text-center mb-16 md:mb-20">
-              <span className={`${SECTION_LABEL_LIGHT} label-line mb-4`}>
-                The Shop
-              </span>
-              <h2 className={`${H2_SECTION} text-forge-text`}>
-                Objects worth owning
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-            {featuredProducts.map((product, index) => (
-              <ScrollReveal key={product.slug} delay={index * 100}>
-                <ProductCard product={product} variant="light" />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal variant="fade-in" className="text-center mt-16 md:mt-20">
-            <Link
-              href="/shop"
-              className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300`}
-            >
-              View all objects <span>&rarr;</span>
-            </Link>
-          </ScrollReveal>
-        </div>
-      </section>
+      <ProductShowcase />
 
       {/* ═══════════════════════════════════════════════
           CLOSING
