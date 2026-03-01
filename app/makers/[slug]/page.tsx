@@ -342,7 +342,7 @@ function DefaultStory({
               {maker.method.map((step, index) => (
                 <ScrollReveal key={index} delay={index * 60}>
                   <div className="flex items-start gap-6 py-5 border-b border-white/5">
-                    <span className="font-mono text-[11px] text-forge-paper/40 pt-0.5 shrink-0">
+                    <span className="font-mono text-[13px] font-normal text-forge-paper/60 pt-0.5 shrink-0">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <p className={`${METHOD_STEP} text-forge-paper/80`}>
@@ -354,7 +354,7 @@ function DefaultStory({
             </div>
 
             <ScrollReveal delay={100} className="mt-10">
-              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-paper/50">
+              <p className="font-mono text-[13px] font-normal tracking-[0.05em] text-forge-paper/70">
                 Materials: {maker.materials}
               </p>
             </ScrollReveal>
@@ -413,7 +413,7 @@ export default function MakerPage({ params }: PageProps) {
         <div className="maker-portrait-overlay absolute inset-0" />
 
         <div className="relative z-10 p-5 md:p-16 pb-12 md:pb-24 text-shadow-hero">
-          <p className={`${SECTION_LABEL} text-[12px] md:text-[13px] tracking-[0.15em] text-forge-paper mb-6`}>
+          <p className={`${SECTION_LABEL} text-forge-paper/75 mb-6`}>
             {maker.medium} &mdash; {maker.location}
           </p>
           <h1
@@ -503,7 +503,7 @@ export default function MakerPage({ params }: PageProps) {
           ═══════════════════════════════════════════════ */}
       <section className="py-20 md:py-28 px-6 md:px-10">
         <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-2xl md:text-4xl font-light italic leading-[1.3] text-forge-paper/80">
+          <blockquote className="font-serif text-[26px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper/[0.92]">
             &ldquo;{maker.quote}&rdquo;
           </blockquote>
         </ScrollReveal>

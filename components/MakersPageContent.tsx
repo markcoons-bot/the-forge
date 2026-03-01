@@ -58,7 +58,7 @@ export default function MakersPageContent() {
                   className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
                     activeFilter === medium
                       ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
-                      : "text-forge-text/50 hover:text-forge-text/70 bg-transparent border-forge-text/20"
+                      : "text-forge-text/60 hover:text-forge-text/80 bg-transparent border-forge-text/20"
                   }`}
                 >
                   {medium}
@@ -98,7 +98,7 @@ export default function MakersPageContent() {
 
                   {/* Details — right 7 cols */}
                   <div className="md:col-span-7 flex flex-col justify-center">
-                    <p className={`${SECTION_LABEL} text-[12px] tracking-[0.15em] text-forge-text/60 mb-3`}>
+                    <p className={`${SECTION_LABEL} text-forge-text/60 mb-3`}>
                       {maker.medium} &mdash; {maker.location}
                     </p>
                     <h2 className="font-serif text-[28px] md:text-[32px] font-light leading-[1.3] text-forge-text mb-4">
@@ -140,7 +140,7 @@ export default function MakersPageContent() {
 
                     <Link
                       href={`/makers/${maker.slug}`}
-                      className="font-mono text-[13px] tracking-[0.08em] text-forge-text/60 hover:text-forge-text underline underline-offset-4 decoration-forge-text/30 transition-colors duration-300"
+                      className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-text/60 hover:text-forge-text underline underline-offset-4 decoration-forge-text/30 transition-colors duration-300"
                     >
                       View full profile &rarr;
                     </Link>

@@ -60,7 +60,7 @@ export default function ProductShowcase() {
           <span className={`${SECTION_LABEL_LIGHT} label-line mb-2`}>
             Recently Added
           </span>
-          <p className="font-sans text-[14px] font-light text-forge-text/50 mt-2">
+          <p className="font-sans text-[16px] font-light text-forge-text/60 mt-2">
             From the studios of our makers
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function ProductShowcase() {
                     {/* Maker name on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                      <p className="font-mono text-[10px] tracking-[0.12em] uppercase text-white/70">
+                      <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-white/80">
                         {maker?.name}
                       </p>
                     </div>
@@ -132,10 +132,10 @@ export default function ProductShowcase() {
 
                   {/* Info */}
                   <div className="mt-3 flex items-start justify-between gap-3">
-                    <p className="font-serif text-[15px] font-light text-forge-text/80 leading-tight">
+                    <p className="font-serif text-[16px] md:text-[18px] font-medium text-forge-text leading-tight">
                       {product.name}
                     </p>
-                    <p className="font-mono text-[14px] text-forge-text/60 shrink-0">
+                    <p className="font-sans text-[16px] font-medium text-forge-text shrink-0">
                       {formatPrice(product.price, product.currency)}
                     </p>
                   </div>

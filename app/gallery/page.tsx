@@ -23,7 +23,7 @@ export default function GalleryPage() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] text-forge-text mb-4">
               Gallery
             </h1>
-            <p className="font-sans text-[18px] font-light leading-[1.9] text-forge-text/60">
+            <p className="font-sans text-[18px] font-light leading-[1.9] text-forge-text/70">
               The work, the process, the studio. Click anything that stops you.
             </p>
           </ScrollReveal>

@@ -56,7 +56,7 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <ScrollReveal variant="fade-in" immediate delay={1000} className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-          <span className={`${SECTION_LABEL} text-[10px] text-forge-paper/40`}>
+          <span className={`${SECTION_LABEL} text-forge-paper/50`}>
             Scroll
           </span>
           <div className="w-px h-12 bg-forge-paper/20 animate-scroll-line" />
@@ -74,7 +74,7 @@ export default function Home() {
             </blockquote>
           </ScrollReveal>
           <ScrollReveal delay={200}>
-            <p className="font-sans text-[16px] md:text-[20px] font-light leading-[1.6] text-forge-text/70 mt-6 max-w-md mx-auto tracking-wide">
+            <p className="font-sans text-[17px] md:text-[20px] font-light leading-[1.6] text-forge-text/70 mt-6 max-w-md mx-auto tracking-wide">
               Toil. Frustration. Mistakes. That ultimately craft <em className="italic">the work.</em>
             </p>
           </ScrollReveal>
@@ -141,7 +141,7 @@ export default function Home() {
                 >
                   <ScrollReveal delay={100}>
                     <div className={`max-w-xl ${index % 2 === 0 ? "" : "md:text-right"}`}>
-                      <p className={`${SECTION_LABEL} text-[12px] tracking-[0.15em] text-forge-paper mb-4`}>
+                      <p className={`${SECTION_LABEL} text-forge-paper/75 mb-4`}>
                         {maker.medium} &mdash; {maker.location}
                       </p>
                       <blockquote className="font-serif text-[24px] md:text-[38px] font-light italic leading-[1.3] text-forge-paper mb-6">
@@ -151,7 +151,7 @@ export default function Home() {
                         <span className="font-sans text-[18px] md:text-[24px] font-normal text-white">
                           {maker.name}
                         </span>
-                        <span className="font-mono text-[13px] tracking-[0.05em] text-forge-paper/70 group-hover:text-forge-paper transition-all duration-500 ease-forge">
+                        <span className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-paper/70 group-hover:text-forge-paper transition-all duration-500 ease-forge">
                           Enter studio &rarr;
                         </span>
                       </div>
@@ -247,7 +247,7 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal variant="fade-in" delay={400}>
-            <p className="font-serif text-2xl md:text-3xl font-light italic text-forge-text/60 leading-[1.3] mt-12">
+            <p className="font-serif text-[26px] md:text-[32px] font-light italic text-forge-text/60 leading-[1.3] mt-12">
               Perfectly imperfect.
             </p>
           </ScrollReveal>

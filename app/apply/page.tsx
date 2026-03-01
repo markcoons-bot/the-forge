@@ -93,7 +93,7 @@ export default function ApplyPage() {
             <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
               For Makers
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light leading-[1.2] text-forge-paper">
+            <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[56px] font-light leading-[1.2] text-forge-paper">
               If you make things by hand, we want to hear from you.
             </h1>
           </ScrollReveal>
@@ -121,7 +121,7 @@ export default function ApplyPage() {
             <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
               What It Costs
             </span>
-            <p className="font-serif text-2xl md:text-3xl font-light leading-[1.3] text-forge-paper mb-6">
+            <p className="font-serif text-[26px] md:text-[32px] font-light leading-[1.3] text-forge-paper mb-6">
               12% commission + 3% payment processing.
             </p>
             <p className={`${BODY_DARK} mb-6`}>
@@ -133,7 +133,7 @@ export default function ApplyPage() {
               $1,360. We make money when you make money — and only when you
               make money.
             </p>
-            <p className="font-sans text-[15px] font-light leading-[1.8] text-forge-paper/50">
+            <p className="font-sans text-[16px] font-light leading-[1.8] text-forge-paper/70">
               For context: Etsy takes 20–30% when you add up their transaction
               fees, processing fees, and mandatory advertising. 1stDibs charges
               a monthly subscription plus 15–30% per sale. We think the maker
@@ -165,7 +165,7 @@ export default function ApplyPage() {
       <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.3] text-forge-text mb-10">
+            <h2 className="font-serif text-[26px] md:text-[32px] font-light leading-[1.3] text-forge-text mb-10">
               Tell us about your work
             </h2>
           </ScrollReveal>
@@ -175,7 +175,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Name
                 </label>
@@ -194,7 +194,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Email
                 </label>
@@ -213,7 +213,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="phone"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Phone <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -232,7 +232,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="website"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Website <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -251,7 +251,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="instagram"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Instagram <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -270,7 +270,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="country"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Country
                 </label>
@@ -300,7 +300,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="medium"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Medium
                 </label>
@@ -330,7 +330,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="years"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Years practicing your craft
                 </label>
@@ -359,7 +359,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="about"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   Tell us about your work
                 </label>
@@ -379,7 +379,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="referral"
-                  className="block font-mono text-[11px] tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
                 >
                   How did you hear about us? <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -404,7 +404,7 @@ export default function ApplyPage() {
                 </button>
               </div>
 
-              <p className="font-mono text-[11px] tracking-[0.05em] text-forge-text/40 pt-2">
+              <p className="font-mono text-[13px] font-normal tracking-[0.05em] text-forge-text/60 pt-2">
                 We respond to every application personally.
               </p>
             </form>

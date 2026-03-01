@@ -64,7 +64,7 @@ export default function ShopPage() {
                     className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
                       activeFilter === medium
                         ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
-                        : "text-forge-text/50 hover:text-forge-text/70 bg-transparent border-forge-text/20"
+                        : "text-forge-text/60 hover:text-forge-text/80 bg-transparent border-forge-text/20"
                     }`}
                   >
                     {medium}

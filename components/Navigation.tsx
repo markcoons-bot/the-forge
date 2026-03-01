@@ -68,7 +68,7 @@ export default function Navigation() {
           <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
             <Link
               href="/"
-              className={`${NAV_LINK} tracking-[0.15em] uppercase text-forge-accent hover:text-forge-paper transition-colors duration-300`}
+              className={`${NAV_LINK} tracking-[0.15em] uppercase text-forge-paper/90 hover:text-forge-paper transition-colors duration-300`}
             >
               The Forge
             </Link>
@@ -90,7 +90,7 @@ export default function Navigation() {
               <span className="w-px h-4 bg-forge-paper/15" />
               <Link
                 href="/apply"
-                className={`${NAV_LINK} text-forge-accent/80 hover:text-forge-accent transition-colors duration-300`}
+                className={`${NAV_LINK} text-forge-paper/80 hover:text-forge-paper transition-colors duration-300`}
               >
                 For Makers &rarr;
               </Link>
@@ -162,7 +162,7 @@ export default function Navigation() {
           <Link
             href="/apply"
             onClick={() => setMenuOpen(false)}
-            className={`${NAV_LINK} text-forge-accent hover:text-forge-accent/80 transition-colors duration-300`}
+            className={`${NAV_LINK} text-forge-paper/80 hover:text-forge-paper transition-colors duration-300`}
           >
             For Makers &rarr;
           </Link>

@@ -46,10 +46,10 @@ export default function ProductStrip({ products }: ProductStripProps) {
                   sizes="220px"
                 />
               </div>
-              <p className="font-serif text-[16px] font-light text-forge-text/90 group-hover:text-forge-text transition-colors duration-300">
+              <p className="font-serif text-[16px] md:text-[18px] font-medium text-forge-text group-hover:text-forge-text transition-colors duration-300">
                 {product.name}
               </p>
-              <p className="font-mono text-[15px] text-forge-text/80 mt-1">
+              <p className="font-sans text-[16px] font-medium text-forge-text mt-1">
                 {formatPrice(product.price, product.currency)}
               </p>
             </Link>

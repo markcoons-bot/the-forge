@@ -91,13 +91,13 @@ export default function StudioFeed() {
               <span className={`${SECTION_LABEL_DARK} label-line mb-3`}>
                 From the Studios
               </span>
-              <p className="font-sans text-[14px] font-light text-forge-paper/40">
+              <p className="font-sans text-[16px] font-light text-forge-paper/70">
                 Unfinished work. Open kilns. Quiet mornings. The moments between the moments.
               </p>
             </div>
             <a
               href="#"
-              className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/40 hover:text-forge-paper/70 transition-colors duration-300 shrink-0`}
+              className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/60 hover:text-forge-paper transition-colors duration-300 shrink-0`}
             >
               Follow the makers <span>&rarr;</span>
             </a>
@@ -125,8 +125,8 @@ export default function StudioFeed() {
 
                 {/* Persistent bottom caption — mobile */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-forge-dark/70 to-transparent px-3 py-2 md:hidden">
-                  <p className="font-sans text-[12px] font-light text-forge-paper/80 truncate">{tile.caption}</p>
-                  <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-forge-paper/50">{tile.medium}</p>
+                  <p className="font-sans text-[14px] font-light text-forge-paper/80 truncate">{tile.caption}</p>
+                  <p className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-paper/70">{tile.medium}</p>
                 </div>
 
                 {/* Hover overlay — desktop */}
@@ -134,13 +134,13 @@ export default function StudioFeed() {
 
                 {/* Hover content — centered, desktop */}
                 <div className="absolute inset-0 hidden md:flex flex-col items-center justify-center text-center p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-forge translate-y-2 group-hover:translate-y-0">
-                  <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-forge-paper/60 mb-2">
+                  <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-forge-paper/75 mb-2">
                     {tile.medium}
                   </p>
-                  <p className="font-sans text-[14px] font-light text-forge-paper">
+                  <p className="font-sans text-[15px] font-normal text-forge-paper">
                     {tile.makerName}
                   </p>
-                  <p className="font-sans text-[13px] font-light text-forge-paper/50 mt-1.5">
+                  <p className="font-sans text-[15px] font-light text-forge-paper/70 mt-1.5">
                     {tile.caption}
                   </p>
                 </div>
@@ -154,7 +154,7 @@ export default function StudioFeed() {
       <div className="px-6 md:hidden mt-6">
         <a
           href="#"
-          className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/40 hover:text-forge-paper/70 transition-colors duration-300`}
+          className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/60 hover:text-forge-paper transition-colors duration-300`}
         >
           Follow the makers <span>&rarr;</span>
         </a>

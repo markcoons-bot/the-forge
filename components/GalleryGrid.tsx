@@ -81,8 +81,8 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
 
               {/* Persistent bottom overlay — mobile */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 md:hidden">
-                <p className="font-serif text-[14px] font-light text-white leading-tight">{item.maker}</p>
-                <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-white/60">{item.medium}</p>
+                <p className="font-serif text-[15px] font-light text-white leading-tight">{item.maker}</p>
+                <p className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-white/70">{item.medium}</p>
               </div>
 
               {/* Hover overlay — desktop only */}
@@ -90,16 +90,16 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
                 <p className="font-serif text-[18px] font-light text-white">
                   {item.maker}
                 </p>
-                <p className="font-mono text-[11px] tracking-[0.12em] uppercase text-white/60 mt-1">
+                <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-white/70 mt-1">
                   {item.medium}
                 </p>
                 {item.productName && (
                   <>
-                    <p className="font-sans text-[14px] font-light text-white/80 mt-3">
+                    <p className="font-sans text-[15px] font-light text-white/80 mt-3">
                       {item.productName}
                     </p>
                     {item.productPrice && (
-                      <p className="font-mono text-[13px] text-white/60 mt-1">
+                      <p className="font-sans text-[15px] font-medium text-white/70 mt-1">
                         {item.productPrice}
                       </p>
                     )}

@@ -38,9 +38,9 @@ export default function ProductCard({
         {/* Status badge */}
         <div className="absolute top-4 left-4 z-10">
           <span
-            className={`font-mono text-[10px] tracking-[0.1em] uppercase px-2 py-1 ${
+            className={`font-mono text-[12px] md:text-[13px] font-normal tracking-[0.1em] uppercase px-2 py-1 ${
               isDark
-                ? "text-forge-paper/60 bg-forge-dark/40"
+                ? "text-forge-paper/75 bg-forge-dark/40"
                 : "text-forge-text/60 bg-forge-paper/60"
             } backdrop-blur-sm`}
           >
@@ -53,7 +53,7 @@ export default function ProductCard({
       <div className="flex items-start justify-between gap-4">
         <div>
           <h3
-            className={`font-serif text-[17px] font-light ${
+            className={`font-serif text-[16px] md:text-[18px] font-medium ${
               isDark ? "text-forge-paper" : "text-forge-text"
             }`}
           >
@@ -61,8 +61,8 @@ export default function ProductCard({
           </h3>
           {maker && (
             <p
-              className={`font-sans text-[14px] font-light mt-0.5 ${
-                isDark ? "text-forge-paper/55" : "text-forge-text/60"
+              className={`font-sans text-[15px] font-normal mt-0.5 ${
+                isDark ? "text-forge-paper/75" : "text-forge-text/80"
               }`}
             >
               {maker.name}
@@ -70,8 +70,8 @@ export default function ProductCard({
           )}
         </div>
         <p
-          className={`font-mono text-[15px] shrink-0 ${
-            isDark ? "text-forge-paper/80" : "text-forge-text"
+          className={`font-sans text-[16px] font-medium shrink-0 ${
+            isDark ? "text-forge-paper/90" : "text-forge-text"
           }`}
         >
           {formatPrice(product.price, product.currency)}
