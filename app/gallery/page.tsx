@@ -20,7 +20,7 @@ export default function GalleryPage() {
       <section className="bg-forge-paper pt-32 md:pt-40 pb-10 md:pb-14 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] text-forge-text mb-4">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.2] text-forge-text mb-4">
               Gallery
             </h1>
             <p className="font-sans text-[18px] font-light leading-[1.9] text-forge-text/70">

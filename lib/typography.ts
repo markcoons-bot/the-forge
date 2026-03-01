@@ -24,9 +24,9 @@ export const STORY_DARK = `${BODY_STORY} text-forge-paper/[0.92]`;
 export const STORY_LIGHT = `${BODY_STORY} text-forge-text`;
 
 // ── Section Labels (13px min, JetBrains Mono, weight 400) ──
-export const SECTION_LABEL = "font-mono text-[12px] md:text-[13px] font-normal tracking-[0.2em] uppercase";
-export const SECTION_LABEL_DARK = `${SECTION_LABEL} text-forge-paper/75`;
-export const SECTION_LABEL_LIGHT = `${SECTION_LABEL} text-forge-text/60`;
+export const SECTION_LABEL = "font-mono text-[13px] font-normal tracking-[0.15em] uppercase";
+export const SECTION_LABEL_DARK = `${SECTION_LABEL} text-forge-paper/70`;
+export const SECTION_LABEL_LIGHT = `${SECTION_LABEL} text-forge-text/50`;
 
 // ── Nav / Link Labels (14px, Outfit, weight 400) ──
 export const NAV_LINK = "font-sans text-[14px] font-normal tracking-[0.04em]";
@@ -35,8 +35,8 @@ export const NAV_LINK_DARK = `${NAV_LINK} text-forge-paper/80 hover:text-forge-p
 export const NAV_LINK_LIGHT = `${NAV_LINK} text-forge-text/70 hover:text-forge-text transition-colors duration-300`;
 
 // ── Headings (Cormorant Garamond, 40px+ desktop, 32px+ mobile) ──
-export const H1 = "font-serif font-light leading-[1.2]";
-export const H2 = "font-serif font-light leading-[1.3]";
+export const H1 = "font-serif font-normal leading-[1.2]";
+export const H2 = "font-serif font-normal leading-[1.3]";
 
 export const H1_HERO = `${H1} text-4xl md:text-6xl lg:text-7xl`;
 export const H1_PAGE = `${H1} text-[32px] md:text-[44px] lg:text-[56px]`;

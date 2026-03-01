@@ -66,12 +66,16 @@ export default function Home() {
         Sub-line: "Toil. Frustration. Mistakes. That ultimately craft the work."
       */}
       <section className="bg-forge-paper pt-16 md:pt-24">
-        <div className="text-center px-6 md:px-10 mb-10 md:mb-16">
+        <div className="text-center px-6 md:px-10">
           <ScrollReveal>
             <p className="font-serif text-[36px] md:text-[52px] font-normal leading-[1.2] text-forge-text">
               The work speaks for itself.
             </p>
           </ScrollReveal>
+        </div>
+
+        <div className="flex justify-center py-12">
+          <div className="w-20 h-px bg-forge-text/20" />
         </div>
 
         <ProductShowcase />

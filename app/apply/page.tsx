@@ -93,7 +93,7 @@ export default function ApplyPage() {
             <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
               For Makers
             </span>
-            <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[56px] font-light leading-[1.2] text-forge-paper">
+            <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[56px] font-normal leading-[1.2] text-forge-paper">
               If you make things by hand, we want to hear from you.
             </h1>
           </ScrollReveal>
@@ -165,7 +165,7 @@ export default function ApplyPage() {
       <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <h2 className="font-serif text-[26px] md:text-[32px] font-light leading-[1.3] text-forge-text mb-10">
+            <h2 className="font-serif text-[26px] md:text-[32px] font-normal leading-[1.3] text-forge-text mb-10">
               Tell us about your work
             </h2>
           </ScrollReveal>
