@@ -58,49 +58,39 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          THE QUESTION — cinematic image moment
+          THE STATEMENT
           ═══════════════════════════════════════════════ */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
-        <Image
-          src="/images/Kintsugidark.jpg"
-          alt="Kintsugi bowl — broken and repaired with gold"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55))" }}
-        />
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
+      {/*
+        SAVED FOR LATER USE (e.g. About page):
+        "What is the most beautiful thing you have ever ruined?"
+        Sub-line: "Toil. Frustration. Mistakes. That ultimately craft the work."
+      */}
+      <section className="bg-forge-dark py-20 md:py-32 px-6 md:px-10">
+        <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal>
-            <blockquote
-              className="font-serif text-[30px] md:text-[44px] font-light italic leading-[1.3] text-forge-paper"
-              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}
-            >
-              &ldquo;What is the most beautiful thing you have ever ruined?&rdquo;
-            </blockquote>
-          </ScrollReveal>
-          <ScrollReveal delay={200}>
-            <p
-              className="font-sans text-[18px] font-light leading-[1.6] text-forge-paper/80 mt-6 max-w-md mx-auto"
-              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}
-            >
-              Toil. Frustration. Mistakes. That ultimately craft the work.
+            <p className="font-serif text-[32px] md:text-[46px] font-normal leading-[1.2] text-forge-paper/[0.95] mb-8">
+              This is a place for people who make.
             </p>
           </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <p className="font-serif text-[19px] md:text-[24px] font-light italic leading-[1.4] text-forge-paper/[0.65] mb-2">
+              Not mass production. Not noise.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={250}>
+            <p className="font-serif text-[19px] md:text-[24px] font-light italic leading-[1.4] text-forge-paper/[0.65] mb-12 md:mb-16">
+              Just work &mdash; done slowly and well.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal variant="fade-in" delay={400}>
+            <div className="flex flex-col items-center">
+              <span className="font-sans text-[14px] font-normal tracking-[0.15em] uppercase text-forge-paper/50">
+                Meet the makers
+              </span>
+              <div className="w-px h-[30px] bg-forge-paper/25 mt-3" />
+            </div>
+          </ScrollReveal>
         </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════
-          TRANSITION — Question to Makers
-          ═══════════════════════════════════════════════ */}
-      <section className="py-12 md:py-16 px-6 md:px-10">
-        <ScrollReveal variant="fade-in" className="text-center">
-          <p className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/[0.88]">
-            These are the people who know.
-          </p>
-        </ScrollReveal>
       </section>
 
       {/* ═══════════════════════════════════════════════
