@@ -5,8 +5,7 @@ import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
 import {
-  BODY_DARK,
-  SECTION_LABEL_DARK,
+  SECTION_LABEL_LIGHT,
 } from "@/lib/typography";
 
 const mediums = [
@@ -87,13 +86,13 @@ export default function ApplyPage() {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
+      <section className="bg-forge-paper pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line mb-8`}>
               For Makers
             </span>
-            <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[56px] font-normal leading-[1.2] text-forge-paper">
+            <h1 className="font-serif text-[32px] md:text-[44px] font-normal leading-[1.2] text-forge-text">
               If you make things by hand, we want to hear from you.
             </h1>
           </ScrollReveal>
@@ -101,10 +100,10 @@ export default function ApplyPage() {
       </section>
 
       {/* Intro */}
-      <section className="pb-16 md:pb-20 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
+      <section className="bg-forge-paper pb-16 md:pb-20 px-6 md:px-10">
+        <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
-            <p className={BODY_DARK}>
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
               The Forge is invitation-only, but we are always looking. If your
               work meets our standards — if you shape raw materials into finished
               objects with <em className="italic">your own hands</em> and you are
@@ -115,25 +114,25 @@ export default function ApplyPage() {
       </section>
 
       {/* What it costs */}
-      <section className="pb-16 md:pb-20 px-6 md:px-10">
+      <section className="bg-forge-paper pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} label-line mb-8`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line mb-8`}>
               What It Costs
             </span>
-            <p className="font-serif text-[26px] md:text-[32px] font-light leading-[1.3] text-forge-paper mb-6">
+            <p className="font-serif text-[26px] md:text-[32px] font-normal leading-[1.3] text-forge-text mb-6">
               12% commission + 3% payment processing.
             </p>
-            <p className={`${BODY_DARK} mb-6`}>
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85] mb-6">
               That&apos;s it. No listing fees. No monthly subscription. No
               hidden costs. No surprise deductions.
             </p>
-            <p className={`${BODY_DARK} mb-6`}>
+            <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85] mb-6">
               On a $250 bowl, you keep $212.50. On a $1,600 vase, you keep
               $1,360. We make money when you make money — and only when you
               make money.
             </p>
-            <p className="font-sans text-[16px] font-light leading-[1.8] text-forge-paper/70">
+            <p className="font-sans text-[16px] font-light leading-[1.8] text-forge-text/60">
               For context: Etsy takes 20–30% when you add up their transaction
               fees, processing fees, and mandatory advertising. 1stDibs charges
               a monthly subscription plus 15–30% per sale. We think the maker
@@ -144,15 +143,15 @@ export default function ApplyPage() {
       </section>
 
       {/* Benefits */}
-      <section className="pb-20 md:pb-24 px-6 md:px-10">
+      <section className="bg-forge-paper pb-20 md:pb-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           {benefits.map((benefit, index) => (
             <ScrollReveal key={benefit.title} delay={index * 60}>
-              <div className="py-6 border-b border-white/[0.08]">
-                <p className="font-sans text-[17px] font-medium text-forge-paper mb-1.5">
+              <div className="py-6 border-b border-forge-text/[0.12]">
+                <p className="font-sans text-[18px] font-semibold text-forge-text mb-1.5">
                   {benefit.title}
                 </p>
-                <p className="font-sans text-[16px] font-light leading-[1.8] text-forge-paper/70">
+                <p className="font-sans text-[17px] font-light leading-[1.8] text-forge-text/80">
                   {benefit.description}
                 </p>
               </div>
@@ -161,7 +160,12 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* Application Form — warm paper */}
+      {/* Divider */}
+      <div className="bg-forge-paper flex justify-center py-4">
+        <div className="w-20 h-px bg-forge-text/[0.15]" />
+      </div>
+
+      {/* Application Form */}
       <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
@@ -175,7 +179,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Name
                 </label>
@@ -187,14 +191,14 @@ export default function ApplyPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text transition-colors duration-300"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Email
                 </label>
@@ -206,14 +210,14 @@ export default function ApplyPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text transition-colors duration-300"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="phone"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Phone <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -225,14 +229,14 @@ export default function ApplyPage() {
                     setFormData({ ...formData, phone: e.target.value })
                   }
                   placeholder="+1 (555) 000-0000"
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text placeholder:text-forge-text/[0.35] transition-colors duration-300"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="website"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Website <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -244,14 +248,14 @@ export default function ApplyPage() {
                     setFormData({ ...formData, website: e.target.value })
                   }
                   placeholder="https://"
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text placeholder:text-forge-text/[0.35] transition-colors duration-300"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="instagram"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Instagram <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -263,14 +267,14 @@ export default function ApplyPage() {
                     setFormData({ ...formData, instagram: e.target.value })
                   }
                   placeholder="@yourstudio"
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text placeholder:text-forge-text/[0.35] transition-colors duration-300"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="country"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Country
                 </label>
@@ -282,7 +286,7 @@ export default function ApplyPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, country: e.target.value })
                     }
-                    className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                    className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[17px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
                   >
                     <option value="" disabled>
                       Select your country
@@ -300,7 +304,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="medium"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Medium
                 </label>
@@ -312,7 +316,7 @@ export default function ApplyPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, medium: e.target.value })
                     }
-                    className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                    className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[17px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
                   >
                     <option value="" disabled>
                       Select your medium
@@ -330,7 +334,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="years"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Years practicing your craft
                 </label>
@@ -342,7 +346,7 @@ export default function ApplyPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, years: e.target.value })
                     }
-                    className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[16px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
+                    className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[17px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
                   >
                     <option value="" disabled>
                       Select
@@ -359,7 +363,7 @@ export default function ApplyPage() {
               <div>
                 <label
                   htmlFor="about"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   Tell us about your work
                 </label>
@@ -372,14 +376,14 @@ export default function ApplyPage() {
                     setFormData({ ...formData, about: e.target.value })
                   }
                   placeholder="What do you make? How long have you been making it? What matters to you about the work?"
-                  className="w-full bg-transparent border border-forge-text/20 focus:border-forge-text/60 outline-none p-4 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300 resize-none"
+                  className="w-full bg-transparent border border-forge-text/[0.15] focus:border-forge-text/60 outline-none p-4 font-sans text-[17px] font-light text-forge-text placeholder:text-forge-text/[0.35] transition-colors duration-300 resize-none"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="referral"
-                  className="block font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/60 mb-2"
+                  className="block font-mono text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-2"
                 >
                   How did you hear about us? <span className="text-forge-text/30 normal-case tracking-normal">(optional)</span>
                 </label>
@@ -391,20 +395,20 @@ export default function ApplyPage() {
                     setFormData({ ...formData, referral: e.target.value })
                   }
                   placeholder="Instagram, a friend, a search…"
-                  className="w-full bg-transparent border-b border-forge-text/20 focus:border-forge-text/60 outline-none py-3 font-sans text-[16px] font-light text-forge-text placeholder:text-forge-text/30 transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text placeholder:text-forge-text/[0.35] transition-colors duration-300"
                 />
               </div>
 
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="btn-forge-solid w-full py-4 text-[13px] tracking-[0.08em]"
+                  className="w-full py-4 bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]"
                 >
                   Submit Application &rarr;
                 </button>
               </div>
 
-              <p className="font-mono text-[13px] font-normal tracking-[0.05em] text-forge-text/60 pt-2">
+              <p className="font-sans text-[14px] font-light text-forge-text/50 pt-2">
                 We respond to every application personally.
               </p>
             </form>
