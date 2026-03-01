@@ -86,20 +86,20 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
               </div>
 
               {/* Hover overlay — desktop only */}
-              <div className="hidden md:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center text-center p-4">
-                <p className="font-serif text-[18px] font-light text-white">
+              <div className="hidden md:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center text-center p-4 text-shadow-image">
+                <p className="font-serif text-[18px] font-light text-forge-paper">
                   {item.maker}
                 </p>
-                <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-white/70 mt-1">
+                <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-forge-paper/70 mt-1">
                   {item.medium}
                 </p>
                 {item.productName && (
                   <>
-                    <p className="font-sans text-[15px] font-light text-white/80 mt-3">
+                    <p className="font-sans text-[15px] font-light text-forge-paper/80 mt-3">
                       {item.productName}
                     </p>
                     {item.productPrice && (
-                      <p className="font-sans text-[15px] font-medium text-white/70 mt-1">
+                      <p className="font-sans text-[15px] font-medium text-forge-paper/70 mt-1">
                         {item.productPrice}
                       </p>
                     )}
