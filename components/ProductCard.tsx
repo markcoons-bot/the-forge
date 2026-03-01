@@ -6,13 +6,15 @@ import { makers } from "@/data/makers";
 interface ProductCardProps {
   product: Product;
   variant?: "dark" | "light";
+  showMaker?: boolean;
 }
 
 export default function ProductCard({
   product,
   variant = "light",
+  showMaker = true,
 }: ProductCardProps) {
-  const maker = makers.find((m) => m.slug === product.makerSlug);
+  const maker = showMaker ? makers.find((m) => m.slug === product.makerSlug) : null;
   const isDark = variant === "dark";
 
   const formatPrice = (price: number, currency: string) => {

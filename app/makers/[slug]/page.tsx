@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductCard from "@/components/ProductCard";
-import ProductStrip from "@/components/ProductStrip";
 import Footer from "@/components/Footer";
 import { makers, getMaker } from "@/data/makers";
 import { getProductsByMaker } from "@/data/products";
@@ -17,7 +16,6 @@ import {
   SECTION_LABEL,
   SECTION_LABEL_DARK,
   SECTION_LABEL_LIGHT,
-  H2_SECTION,
   NAV_LINK_DARK,
   METHOD_STEP,
 } from "@/lib/typography";
@@ -47,16 +45,15 @@ function renderWithEmphasis(text: string) {
   );
 }
 
-function renderDropLead(text: string, variant: "light" | "dark") {
+function renderDropLead(text: string) {
   const sentenceEnd = text.match(/^(.*?\.)\s([\s\S]*)$/);
   if (!sentenceEnd) {
     return renderWithEmphasis(text);
   }
   const [, first, rest] = sentenceEnd;
-  const leadColor = variant === "light" ? "text-forge-text/90" : "text-forge-paper";
   return (
     <>
-      <span className={`font-sans text-[17px] md:text-[19px] font-normal leading-[1.75] ${leadColor}`}>
+      <span className="font-sans text-[17px] md:text-[19px] font-normal leading-[1.75] text-forge-paper">
         {renderWithEmphasis(first)}
       </span>{" "}
       {renderWithEmphasis(rest)}
@@ -118,40 +115,38 @@ function FullBleedImageWithCaption({
 }
 
 /* ─────────────────────────────────────────────
-   EDITORIAL LAYOUT — alternating light/dark
+   EDITORIAL LAYOUT — dark story with full-bleed images
    ───────────────────────────────────────────── */
 function EditorialStory({
   maker,
 }: {
   maker: ReturnType<typeof getMaker> & {};
 }) {
-  const firstName = maker.name.split(" ")[0];
-
   return (
     <>
-      {/* ── Story Header ── */}
-      <section className="bg-forge-paper pt-16 md:pt-24 pb-4 px-6 md:px-10">
+      {/* ── THE STORY — dark ── */}
+      <section className="pt-16 md:pt-24 pb-4 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <h2 className="font-serif text-[36px] md:text-[44px] font-light italic leading-[1.2] text-forge-text/80">
-              {firstName}
-            </h2>
+            <span className={`${SECTION_LABEL_DARK} label-line`}>
+              The Story
+            </span>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── PARA 1 — Warm paper, dark text, drop lead ── */}
-      <section className="bg-forge-paper py-10 md:py-16 px-6 md:px-10">
+      {/* ── PARA 1 — dark ── */}
+      <section className="py-10 md:py-16 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className={STORY_LIGHT}>
-              {renderDropLead(maker.story[0], "light")}
+            <p className={STORY_DARK}>
+              {renderDropLead(maker.story[0])}
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── FULL-BLEED IMAGE 1 — with side caption ── */}
+      {/* ── FULL-BLEED IMAGE 1 ── */}
       {maker.storyImages[0] && (
         <FullBleedImageWithCaption
           src={maker.storyImages[0]}
@@ -161,7 +156,7 @@ function EditorialStory({
         />
       )}
 
-      {/* ── PARA 2 — Dark background, warm white text ── */}
+      {/* ── PARA 2 — dark ── */}
       <section className="py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
@@ -172,7 +167,7 @@ function EditorialStory({
         </div>
       </section>
 
-      {/* ── FULL-BLEED IMAGE 2 — pull quote on image, left side ── */}
+      {/* ── FULL-BLEED IMAGE 2 ── */}
       {maker.storyImages[1] && (
         <FullBleedImageWithCaption
           src={maker.storyImages[1]}
@@ -182,42 +177,39 @@ function EditorialStory({
         />
       )}
 
-      {/* ── PARA 3 — Warm paper again ── */}
-      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
+      {/* ── PARA 3 — dark ── */}
+      <section className="py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className={STORY_LIGHT}>
+            <p className={STORY_DARK}>
               {renderWithEmphasis(maker.story[2])}
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── THE CRAFT — dark background ── */}
+      {/* ── Materials image (full-bleed, before craft) ── */}
+      {maker.materialsImage && (
+        <FullBleedImageWithCaption
+          src={maker.materialsImage}
+          alt={`${maker.name} materials and tools`}
+          caption={maker.materialsCaption || ""}
+          position="right"
+        />
+      )}
+
+      {/* ── THE CRAFT — warm paper ── */}
       {maker.craft && (
-        <section className={maker.materialsImage ? "pb-20 md:pb-28" : "py-20 md:py-28"}>
-          {maker.materialsImage && (
-            <FullBleedImageWithCaption
-              src={maker.materialsImage}
-              alt={`${maker.name} materials and tools`}
-              caption={maker.materialsCaption || ""}
-              position="right"
-            />
-          )}
-
-          <div className="py-8 flex justify-center">
-            <div className="w-10 h-px bg-forge-paper/20" />
-          </div>
-
-          <div className="max-w-prose mx-auto px-6 md:px-10">
+        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+          <div className="max-w-prose mx-auto">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL_DARK} label-line mb-12`}>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
                 The Craft
-              </h2>
+              </span>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <p className={STORY_DARK}>
+              <p className={STORY_LIGHT}>
                 {renderWithEmphasis(maker.craft)}
               </p>
             </ScrollReveal>
@@ -237,7 +229,6 @@ function DefaultStory({
   maker: ReturnType<typeof getMaker> & {};
 }) {
   const imagePositions = maker.storyImagePositions || [1, 3];
-  const firstName = maker.name.split(" ")[0];
 
   return (
     <>
@@ -245,9 +236,9 @@ function DefaultStory({
       <section className="pt-16 md:pt-24 pb-4 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <h2 className="font-serif text-[36px] md:text-[44px] font-light italic leading-[1.2] text-forge-paper/80">
-              {firstName}
-            </h2>
+            <span className={`${SECTION_LABEL_DARK} label-line`}>
+              The Story
+            </span>
           </ScrollReveal>
         </div>
       </section>
@@ -263,7 +254,6 @@ function DefaultStory({
                 : null;
 
             const isLastParagraph = index === maker.story.length - 1;
-            const showPullQuote = index === maker.story.length - 1;
 
             return (
               <div key={index}>
@@ -276,21 +266,13 @@ function DefaultStory({
                   />
                 )}
 
-                {showPullQuote && (
-                  <ScrollReveal variant="fade-in">
-                    <blockquote className="font-serif text-[28px] md:text-[32px] font-light italic leading-[1.3] text-forge-paper/80 my-16 md:my-20 pl-6 border-l-2 border-forge-paper/20">
-                      {maker.pullQuote}
-                    </blockquote>
-                  </ScrollReveal>
-                )}
-
                 <ScrollReveal delay={index * 80}>
                   <p
                     className={`${STORY_DARK} ${
                       isLastParagraph ? "" : "mb-8"
                     }`}
                   >
-                    {index === 0 ? renderDropLead(paragraph, "dark") : renderWithEmphasis(paragraph)}
+                    {index === 0 ? renderDropLead(paragraph) : renderWithEmphasis(paragraph)}
                   </p>
                 </ScrollReveal>
               </div>
@@ -299,53 +281,50 @@ function DefaultStory({
         </div>
       </section>
 
+      {/* Materials image (full-bleed, before craft) */}
+      {maker.materialsImage && (
+        <FullBleedImageWithCaption
+          src={maker.materialsImage}
+          alt={`${maker.name} materials and tools`}
+          caption={maker.materialsCaption || ""}
+          position="right"
+        />
+      )}
+
       {/* Method + Materials (or Craft) */}
       {maker.craft ? (
-        <section className={maker.materialsImage ? "pb-20 md:pb-28" : "py-20 md:py-28"}>
-          {maker.materialsImage && (
-            <FullBleedImageWithCaption
-              src={maker.materialsImage}
-              alt={`${maker.name} materials and tools`}
-              caption={maker.materialsCaption || ""}
-              position="right"
-            />
-          )}
-
-          <div className="py-8 flex justify-center">
-            <div className="w-10 h-px bg-forge-paper/20" />
-          </div>
-
-          <div className="max-w-prose mx-auto px-6 md:px-10">
+        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+          <div className="max-w-prose mx-auto">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL_DARK} label-line mb-12`}>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
                 The Craft
-              </h2>
+              </span>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <p className={STORY_DARK}>
+              <p className={STORY_LIGHT}>
                 {renderWithEmphasis(maker.craft)}
               </p>
             </ScrollReveal>
           </div>
         </section>
       ) : (
-        <section className="py-16 md:py-24 px-6 md:px-10">
+        <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
           <div className="max-w-prose mx-auto">
             <ScrollReveal>
-              <h2 className={`${SECTION_LABEL_DARK} label-line mb-12`}>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
                 The Method
-              </h2>
+              </span>
             </ScrollReveal>
 
             <div className="space-y-0">
               {maker.method.map((step, index) => (
                 <ScrollReveal key={index} delay={index * 60}>
-                  <div className="flex items-start gap-6 py-5 border-b border-white/5">
-                    <span className="font-mono text-[13px] font-normal text-forge-paper/60 pt-0.5 shrink-0">
+                  <div className="flex items-start gap-6 py-5 border-b border-forge-text/10">
+                    <span className="font-mono text-[13px] font-normal text-forge-text/50 pt-0.5 shrink-0">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <p className={`${METHOD_STEP} text-forge-paper/80`}>
+                    <p className={`${METHOD_STEP} text-forge-text/80`}>
                       {step}
                     </p>
                   </div>
@@ -354,7 +333,7 @@ function DefaultStory({
             </div>
 
             <ScrollReveal delay={100} className="mt-10">
-              <p className="font-mono text-[13px] font-normal tracking-[0.05em] text-forge-paper/70">
+              <p className="font-mono text-[13px] font-normal tracking-[0.05em] text-forge-text/60">
                 Materials: {maker.materials}
               </p>
             </ScrollReveal>
@@ -423,7 +402,6 @@ export default function MakerPage({ params }: PageProps) {
             {maker.name}
           </h1>
           <div className="relative max-w-2xl overflow-hidden">
-            {/* Decorative quotation mark */}
             <span className="font-serif text-[80px] md:text-[200px] leading-none text-forge-paper/[0.3] absolute -top-[40px] md:-top-[110px] left-0 md:-left-[20px] select-none pointer-events-none" aria-hidden="true">
               &ldquo;
             </span>
@@ -439,9 +417,27 @@ export default function MakerPage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          PRODUCT STRIP — warm paper background
+          FULL PRODUCT GRID — warm paper
           ═══════════════════════════════════════════════ */}
-      <ProductStrip products={makerProducts} />
+      {makerProducts.length > 0 && (
+        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+          <div className="max-w-7xl mx-auto">
+            <ScrollReveal>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-14`}>
+                The Work
+              </span>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+              {makerProducts.map((product, index) => (
+                <ScrollReveal key={product.slug} delay={index * 100}>
+                  <ProductCard product={product} variant="light" showMaker={false} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ═══════════════════════════════════════════════
           STORY + CRAFT
@@ -450,34 +446,6 @@ export default function MakerPage({ params }: PageProps) {
         <EditorialStory maker={maker} />
       ) : (
         <DefaultStory maker={maker} />
-      )}
-
-      {/* ═══════════════════════════════════════════════
-          FULL PRODUCT GRID
-          ═══════════════════════════════════════════════ */}
-      {makerProducts.length > 0 && (
-        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
-            <ScrollReveal>
-              <div className="mb-16 md:mb-20">
-                <span className={`${SECTION_LABEL_LIGHT} label-line mb-4`}>
-                  The Work
-                </span>
-                <h2 className={`${H2_SECTION} text-forge-text`}>
-                  Available pieces
-                </h2>
-              </div>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-              {makerProducts.map((product, index) => (
-                <ScrollReveal key={product.slug} delay={index * 100}>
-                  <ProductCard product={product} variant="light" />
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
       )}
 
       {/* ═══════════════════════════════════════════════
@@ -491,23 +459,10 @@ export default function MakerPage({ params }: PageProps) {
                 From the Studio
               </span>
             </ScrollReveal>
-            <div className="mt-10">
-              <GalleryGrid items={studioGalleryItems} columns={3} />
-            </div>
+            <GalleryGrid items={studioGalleryItems} columns={3} />
           </div>
         </section>
       )}
-
-      {/* ═══════════════════════════════════════════════
-          CLOSING
-          ═══════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 px-6 md:px-10">
-        <ScrollReveal variant="fade-in" className="max-w-3xl mx-auto text-center">
-          <blockquote className="font-serif text-[26px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper/[0.92]">
-            &ldquo;{maker.quote}&rdquo;
-          </blockquote>
-        </ScrollReveal>
-      </section>
 
       {/* ═══════════════════════════════════════════════
           BACK NAVIGATION
