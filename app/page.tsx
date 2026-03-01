@@ -62,8 +62,8 @@ export default function Home() {
           ═══════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
         <Image
-          src="/images/FGProcess2.webp"
-          alt="Pottery studio — shelves of handmade ceramics"
+          src="/images/kintsugi-hero.webp"
+          alt="Kintsugi — the art of golden repair"
           fill
           className="object-cover"
           sizes="100vw"
