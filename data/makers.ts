@@ -46,8 +46,8 @@ export const makers: Maker[] = [
     craft: "Gadsby works in reduction-fired stoneware, throwing each piece on the wheel before firing in a gas kiln to 1,295°C — cone 10 in the language of ceramics. His feldspathic crackle glazes are hand-mixed from feldspar, wood ash, silica, and trace minerals, formulations he has developed and refined over years. The clay bodies are high-iron stoneware, dense and warm-toned. Each piece is trimmed, glazed, and fired by hand over making cycles that stretch two to three months.",
     accentColor: "#b8a490",
     portraitGradient: "linear-gradient(145deg, #3d3229 0%, #5c4a3a 40%, #2a2420 100%)",
-    portraitImage: "/images/FGhands.webp",
-    profileHeroImage: "/images/FGobject2.webp",
+    portraitImage: "/images/FGHero.webp",
+    profileHeroImage: "/images/FGhands.webp",
     storyLayout: "editorial",
     storyImages: [
       "/images/FGextra.webp",
