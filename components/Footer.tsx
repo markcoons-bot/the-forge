@@ -100,9 +100,6 @@ export default function Footer() {
               >
                 Instagram
               </a>
-              <span className="font-sans text-[16px] font-normal text-forge-paper/[0.55]">
-                Newsletter
-              </span>
               <a
                 href="#"
                 className="font-sans text-[16px] font-normal text-forge-paper/[0.55] hover:text-forge-paper/90 transition-colors duration-300"
@@ -117,16 +114,16 @@ export default function Footer() {
         <div className="mt-10 pt-10 pb-10 border-t border-forge-paper/[0.08]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <p className="font-serif text-[22px] font-normal text-forge-paper/80">
+              <p className="font-serif text-[22px] font-normal text-forge-paper/90">
                 Stay in the loop.
               </p>
-              <p className="font-sans text-[14px] font-normal text-forge-paper/[0.45] mt-1">
+              <p className="font-sans text-[14px] font-normal text-forge-paper/[0.55] mt-1">
                 One email a month. New makers, new work, nothing else.
               </p>
             </div>
             <div className="w-full md:w-auto">
               {status === "success" ? (
-                <p className="font-sans text-[14px] font-normal text-forge-paper/70">
+                <p className="font-sans text-[15px] font-normal text-forge-paper/75">
                   You&apos;re in. We&apos;ll be in touch.
                 </p>
               ) : (
@@ -139,12 +136,12 @@ export default function Footer() {
                       if (status === "error" || status === "duplicate") setStatus("idle");
                     }}
                     placeholder="Your email"
-                    className="bg-transparent border-b border-forge-paper/30 text-forge-paper font-sans text-[15px] outline-none py-1.5 placeholder:text-forge-paper/[0.35] w-full md:w-[280px] transition-colors duration-300 focus:border-forge-paper/60"
+                    className="bg-transparent border-b border-forge-paper/[0.35] text-forge-paper font-sans text-[15px] outline-none py-1.5 placeholder:text-forge-paper/40 w-full md:w-[280px] transition-colors duration-300 focus:border-forge-paper/60"
                   />
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="text-forge-paper/50 hover:text-forge-paper/90 transition-colors duration-300 text-lg shrink-0 disabled:opacity-50"
+                    className="text-forge-paper/[0.65] hover:text-forge-paper transition-colors duration-300 text-lg shrink-0 disabled:opacity-50"
                   >
                     {status === "loading" ? "..." : "\u2192"}
                   </button>
