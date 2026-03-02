@@ -192,6 +192,11 @@ export default function Home() {
         "In a world that chose speed, they chose time."
       */}
 
+      {/* Divider — before studios */}
+      <div className="bg-forge-paper flex justify-center">
+        <div className="w-20 h-px bg-forge-text/[0.12]" />
+      </div>
+
       {/* ═══════════════════════════════════════════════
           FROM THE STUDIOS
           ═══════════════════════════════════════════════ */}

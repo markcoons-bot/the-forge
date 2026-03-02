@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-import { SECTION_LABEL_DARK, NAV_LINK } from "@/lib/typography";
+import { SECTION_LABEL_LIGHT, NAV_LINK } from "@/lib/typography";
 
 interface StudioTile {
   image: string;
@@ -82,22 +82,22 @@ const tiles: StudioTile[] = [
 
 export default function StudioFeed() {
   return (
-    <section className="pt-14 md:pt-20 pb-20 md:pb-28">
+    <section className="bg-forge-paper pt-14 md:pt-20 pb-20 md:pb-28">
       {/* Header */}
       <div className="px-6 md:px-10 max-w-7xl mx-auto mb-8">
         <ScrollReveal>
           <div className="flex items-end justify-between">
             <div>
-              <span className={`${SECTION_LABEL_DARK} label-line mb-3`}>
+              <span className={`${SECTION_LABEL_LIGHT} label-line mb-3`}>
                 From the Studios
               </span>
-              <p className="font-sans text-[16px] font-light text-forge-paper/70">
+              <p className="font-sans text-[16px] font-light text-forge-text/60">
                 Unfinished work. Open kilns. Quiet mornings. The moments between the moments.
               </p>
             </div>
             <a
               href="#"
-              className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/60 hover:text-forge-paper transition-colors duration-300 shrink-0`}
+              className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300 shrink-0`}
             >
               Follow the makers <span>&rarr;</span>
             </a>
@@ -154,7 +154,7 @@ export default function StudioFeed() {
       <div className="px-6 md:hidden mt-6">
         <a
           href="#"
-          className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-paper/60 hover:text-forge-paper transition-colors duration-300`}
+          className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300`}
         >
           Follow the makers <span>&rarr;</span>
         </a>
