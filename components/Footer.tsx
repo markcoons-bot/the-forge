@@ -1,6 +1,39 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email.includes("@") || !email.includes(".")) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
+
+    const { error } = await supabase
+      .from("newsletter_signups")
+      .insert({ email });
+
+    if (error) {
+      if (error.code === "23505") {
+        setStatus("duplicate");
+      } else {
+        setStatus("error");
+      }
+    } else {
+      setStatus("success");
+      setEmail("");
+    }
+  };
+
   return (
     <footer className="bg-forge-dark border-t border-forge-paper/[0.12]">
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-16">
@@ -55,7 +88,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Connect */}
           <div>
             <p className="font-mono text-[14px] font-medium tracking-[0.15em] uppercase text-forge-paper/70 mb-6">
               Connect
@@ -67,12 +100,46 @@ export default function Footer() {
               >
                 Instagram
               </a>
-              <a
-                href="#"
-                className="font-sans text-[16px] font-normal text-forge-paper/[0.55] hover:text-forge-paper/90 transition-colors duration-300"
-              >
-                Newsletter
-              </a>
+
+              {/* Newsletter signup */}
+              <div>
+                {status === "success" ? (
+                  <p className="font-sans text-[14px] font-normal text-forge-paper/70">
+                    You&apos;re in. We&apos;ll be in touch.
+                  </p>
+                ) : (
+                  <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-2">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        if (status === "error" || status === "duplicate") setStatus("idle");
+                      }}
+                      placeholder="Your email"
+                      className="bg-transparent border-b border-forge-paper/30 text-forge-paper font-sans text-[14px] outline-none py-1.5 placeholder:text-forge-paper/[0.35] w-full transition-colors duration-300 focus:border-forge-paper/60"
+                    />
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="text-forge-paper/50 hover:text-forge-paper/90 transition-colors duration-300 text-lg shrink-0 disabled:opacity-50"
+                    >
+                      {status === "loading" ? "..." : "\u2192"}
+                    </button>
+                  </form>
+                )}
+                {status === "duplicate" && (
+                  <p className="font-sans text-[14px] font-normal text-forge-paper/70 mt-2">
+                    You&apos;re already subscribed.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="font-sans text-[14px] font-normal text-forge-paper/70 mt-2">
+                    Something went wrong. Try again.
+                  </p>
+                )}
+              </div>
+
               <a
                 href="#"
                 className="font-sans text-[16px] font-normal text-forge-paper/[0.55] hover:text-forge-paper/90 transition-colors duration-300"

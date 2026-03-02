@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import { supabase } from "@/lib/supabase";
 import {
   SECTION_LABEL_LIGHT,
 } from "@/lib/typography";
@@ -76,10 +77,72 @@ export default function ApplyPage() {
     referral: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Will connect to Supabase later
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [submitError, setSubmitError] = useState("");
+
+  const validate = (): boolean => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required.";
+    if (!formData.email.includes("@") || !formData.email.includes("."))
+      newErrors.email = "Please enter a valid email.";
+    if (!formData.country) newErrors.country = "Please select your country.";
+    if (!formData.medium) newErrors.medium = "Please select your medium.";
+    if (!formData.years) newErrors.years = "Please select years of experience.";
+    if (!formData.about.trim()) newErrors.about = "Please tell us about your work.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    setSubmitStatus("loading");
+    setSubmitError("");
+
+    const { error } = await supabase.from("maker_applications").insert({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || null,
+      website: formData.website || null,
+      instagram: formData.instagram || null,
+      country: formData.country,
+      medium: formData.medium,
+      years_practicing: formData.years,
+      about_work: formData.about,
+      how_heard: formData.referral || null,
+    });
+
+    if (error) {
+      setSubmitStatus("error");
+      setSubmitError("Something went wrong. Please try again.");
+    } else {
+      setSubmitStatus("success");
+    }
+  };
+
+  if (submitStatus === "success") {
+    return (
+      <>
+        <Navigation />
+        <section className="bg-forge-paper pt-32 md:pt-44 pb-32 md:pb-44 px-6 md:px-10">
+          <div className="max-w-prose mx-auto text-center">
+            <h1 className="font-serif text-[28px] font-normal leading-[1.3] text-forge-text mb-4">
+              Application received.
+            </h1>
+            <p className="font-sans text-[17px] font-light leading-[1.7] text-forge-text/70">
+              We read every application personally. You&apos;ll hear from us soon.
+            </p>
+          </div>
+        </section>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -186,13 +249,16 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   id="name"
-                  required
                   value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
+                  onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errors.name) setErrors({ ...errors, name: "" });
+                  }}
                   className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text transition-colors duration-300"
                 />
+                {errors.name && (
+                  <p className="font-sans text-[13px] mt-1.5" style={{ color: "#a05050" }}>{errors.name}</p>
+                )}
               </div>
 
               <div>
@@ -205,13 +271,16 @@ export default function ApplyPage() {
                 <input
                   type="email"
                   id="email"
-                  required
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={(e) => {
+                    setFormData({ ...formData, email: e.target.value });
+                    if (errors.email) setErrors({ ...errors, email: "" });
+                  }}
                   className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 font-sans text-[17px] font-light text-forge-text transition-colors duration-300"
                 />
+                {errors.email && (
+                  <p className="font-sans text-[13px] mt-1.5" style={{ color: "#a05050" }}>{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -281,11 +350,11 @@ export default function ApplyPage() {
                 <div className="relative">
                   <select
                     id="country"
-                    required
                     value={formData.country}
-                    onChange={(e) =>
-                      setFormData({ ...formData, country: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, country: e.target.value });
+                      if (errors.country) setErrors({ ...errors, country: "" });
+                    }}
                     className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[17px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
                   >
                     <option value="" disabled>
@@ -299,6 +368,9 @@ export default function ApplyPage() {
                   </select>
                   <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-forge-text/40 text-lg" aria-hidden="true">&#9662;</span>
                 </div>
+                {errors.country && (
+                  <p className="font-sans text-[13px] mt-1.5" style={{ color: "#a05050" }}>{errors.country}</p>
+                )}
               </div>
 
               <div>
@@ -311,11 +383,11 @@ export default function ApplyPage() {
                 <div className="relative">
                   <select
                     id="medium"
-                    required
                     value={formData.medium}
-                    onChange={(e) =>
-                      setFormData({ ...formData, medium: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, medium: e.target.value });
+                      if (errors.medium) setErrors({ ...errors, medium: "" });
+                    }}
                     className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[17px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
                   >
                     <option value="" disabled>
@@ -329,6 +401,9 @@ export default function ApplyPage() {
                   </select>
                   <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-forge-text/40 text-lg" aria-hidden="true">&#9662;</span>
                 </div>
+                {errors.medium && (
+                  <p className="font-sans text-[13px] mt-1.5" style={{ color: "#a05050" }}>{errors.medium}</p>
+                )}
               </div>
 
               <div>
@@ -341,11 +416,11 @@ export default function ApplyPage() {
                 <div className="relative">
                   <select
                     id="years"
-                    required
                     value={formData.years}
-                    onChange={(e) =>
-                      setFormData({ ...formData, years: e.target.value })
-                    }
+                    onChange={(e) => {
+                      setFormData({ ...formData, years: e.target.value });
+                      if (errors.years) setErrors({ ...errors, years: "" });
+                    }}
                     className="w-full bg-transparent border-b border-forge-text/[0.15] focus:border-forge-text/60 outline-none py-3 pr-10 font-sans text-[17px] font-light text-forge-text transition-colors duration-300 cursor-pointer appearance-none"
                   >
                     <option value="" disabled>
@@ -358,6 +433,9 @@ export default function ApplyPage() {
                   </select>
                   <span className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-forge-text/40 text-lg" aria-hidden="true">&#9662;</span>
                 </div>
+                {errors.years && (
+                  <p className="font-sans text-[13px] mt-1.5" style={{ color: "#a05050" }}>{errors.years}</p>
+                )}
               </div>
 
               <div>
@@ -369,15 +447,18 @@ export default function ApplyPage() {
                 </label>
                 <textarea
                   id="about"
-                  required
                   rows={4}
                   value={formData.about}
-                  onChange={(e) =>
-                    setFormData({ ...formData, about: e.target.value })
-                  }
+                  onChange={(e) => {
+                    setFormData({ ...formData, about: e.target.value });
+                    if (errors.about) setErrors({ ...errors, about: "" });
+                  }}
                   placeholder="What do you make? How long have you been making it? What matters to you about the work?"
                   className="w-full bg-transparent border border-forge-text/[0.15] focus:border-forge-text/60 outline-none p-4 font-sans text-[17px] font-light text-forge-text placeholder:text-forge-text/[0.35] transition-colors duration-300 resize-none"
                 />
+                {errors.about && (
+                  <p className="font-sans text-[13px] mt-1.5" style={{ color: "#a05050" }}>{errors.about}</p>
+                )}
               </div>
 
               <div>
@@ -402,10 +483,17 @@ export default function ApplyPage() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full py-4 bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]"
+                  disabled={submitStatus === "loading"}
+                  className="w-full py-4 bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530] disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Submit Application &rarr;
+                  {submitStatus === "loading" ? "SUBMITTING..." : "Submit Application \u2192"}
                 </button>
+
+                {submitStatus === "error" && (
+                  <p className="font-sans text-[14px] font-light mt-3" style={{ color: "#a05050" }}>
+                    {submitError}
+                  </p>
+                )}
               </div>
 
               <p className="font-sans text-[14px] font-light text-forge-text/50 pt-2">
