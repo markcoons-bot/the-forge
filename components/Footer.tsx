@@ -100,46 +100,9 @@ export default function Footer() {
               >
                 Instagram
               </a>
-
-              {/* Newsletter signup */}
-              <div>
-                {status === "success" ? (
-                  <p className="font-sans text-[14px] font-normal text-forge-paper/70">
-                    You&apos;re in. We&apos;ll be in touch.
-                  </p>
-                ) : (
-                  <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-2">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        if (status === "error" || status === "duplicate") setStatus("idle");
-                      }}
-                      placeholder="Your email"
-                      className="bg-transparent border-b border-forge-paper/30 text-forge-paper font-sans text-[14px] outline-none py-1.5 placeholder:text-forge-paper/[0.35] w-full transition-colors duration-300 focus:border-forge-paper/60"
-                    />
-                    <button
-                      type="submit"
-                      disabled={status === "loading"}
-                      className="text-forge-paper/50 hover:text-forge-paper/90 transition-colors duration-300 text-lg shrink-0 disabled:opacity-50"
-                    >
-                      {status === "loading" ? "..." : "\u2192"}
-                    </button>
-                  </form>
-                )}
-                {status === "duplicate" && (
-                  <p className="font-sans text-[14px] font-normal text-forge-paper/70 mt-2">
-                    You&apos;re already subscribed.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="font-sans text-[14px] font-normal text-forge-paper/70 mt-2">
-                    Something went wrong. Try again.
-                  </p>
-                )}
-              </div>
-
+              <span className="font-sans text-[16px] font-normal text-forge-paper/[0.55]">
+                Newsletter
+              </span>
               <a
                 href="#"
                 className="font-sans text-[16px] font-normal text-forge-paper/[0.55] hover:text-forge-paper/90 transition-colors duration-300"
@@ -150,7 +113,58 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-forge-paper/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Newsletter signup strip */}
+        <div className="mt-10 pt-10 pb-10 border-t border-forge-paper/[0.08]">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <p className="font-serif text-[22px] font-normal text-forge-paper/80">
+                Stay in the loop.
+              </p>
+              <p className="font-sans text-[14px] font-normal text-forge-paper/[0.45] mt-1">
+                One email a month. New makers, new work, nothing else.
+              </p>
+            </div>
+            <div className="w-full md:w-auto">
+              {status === "success" ? (
+                <p className="font-sans text-[14px] font-normal text-forge-paper/70">
+                  You&apos;re in. We&apos;ll be in touch.
+                </p>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className="flex items-center gap-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === "error" || status === "duplicate") setStatus("idle");
+                    }}
+                    placeholder="Your email"
+                    className="bg-transparent border-b border-forge-paper/30 text-forge-paper font-sans text-[15px] outline-none py-1.5 placeholder:text-forge-paper/[0.35] w-full md:w-[280px] transition-colors duration-300 focus:border-forge-paper/60"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="text-forge-paper/50 hover:text-forge-paper/90 transition-colors duration-300 text-lg shrink-0 disabled:opacity-50"
+                  >
+                    {status === "loading" ? "..." : "\u2192"}
+                  </button>
+                </form>
+              )}
+              {status === "duplicate" && (
+                <p className="font-sans text-[14px] font-normal text-forge-paper/70 mt-2">
+                  You&apos;re already subscribed.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="font-sans text-[14px] font-normal text-forge-paper/70 mt-2">
+                  Something went wrong. Try again.
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 pt-8 border-t border-forge-paper/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-mono text-[13px] font-normal tracking-[0.08em] text-forge-paper/40">
             &copy; {new Date().getFullYear()} The Forge. All rights reserved.
           </p>
