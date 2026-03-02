@@ -46,6 +46,12 @@ export default function Footer() {
               >
                 About The Forge
               </Link>
+              <Link
+                href="/legal"
+                className="font-sans text-[16px] font-normal text-forge-paper/[0.55] hover:text-forge-paper/90 transition-colors duration-300"
+              >
+                Legal
+              </Link>
             </div>
           </div>
 
