@@ -51,7 +51,7 @@ export default function ProductPage({ params }: PageProps) {
     <>
       <Navigation />
 
-      <section className="bg-forge-paper pt-24 md:pt-32 pb-24 lg:pb-24 px-6 md:px-10">
+      <section className="bg-forge-paper pt-24 md:pt-32 pb-24 lg:pb-0 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           {/* Back link */}
           <ScrollReveal variant="fade-in" className="mb-12">
@@ -201,11 +201,11 @@ export default function ProductPage({ params }: PageProps) {
               </span>
             </ScrollReveal>
 
-            {/* Mobile: horizontal scroll */}
-            <div className="md:hidden overflow-x-auto -mx-6">
-              <div className="flex gap-4 w-max px-6">
+            {/* Mobile: 2-col grid */}
+            <div className="md:hidden">
+              <div className="grid grid-cols-2 gap-3">
                 {moreFromMaker.slice(0, 3).map((p) => (
-                  <div key={p.slug} className="w-[200px] shrink-0">
+                  <div key={p.slug}>
                     <ProductCard product={p} variant="light" showMaker={false} />
                   </div>
                 ))}

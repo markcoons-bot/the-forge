@@ -21,7 +21,7 @@ export const BODY_LIGHT_SECONDARY = `${BODY} text-forge-text/70`;
 
 // ── Story paragraphs (editorial) ──
 export const STORY_DARK = `${BODY_STORY} text-forge-paper/[0.92]`;
-export const STORY_LIGHT = `${BODY_STORY} text-forge-text`;
+export const STORY_LIGHT = `${BODY_STORY} text-forge-text/[0.85]`;
 
 // ── Section Labels (13px min, JetBrains Mono, weight 400) ──
 export const SECTION_LABEL = "font-mono text-[13px] font-normal tracking-[0.15em] uppercase";

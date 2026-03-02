@@ -11,7 +11,6 @@ import { getProductsByMaker } from "@/data/products";
 import { getGalleryItemsByMaker } from "@/data/gallery";
 import GalleryGrid from "@/components/GalleryGrid";
 import {
-  STORY_DARK,
   STORY_LIGHT,
   SECTION_LABEL,
   SECTION_LABEL_DARK,
@@ -53,7 +52,7 @@ function renderDropLead(text: string) {
   const [, first, rest] = sentenceEnd;
   return (
     <>
-      <span className="font-sans text-[17px] md:text-[19px] font-normal leading-[1.75] text-forge-paper">
+      <span className="font-sans text-[17px] md:text-[19px] font-normal leading-[1.75] text-forge-text">
         {renderWithEmphasis(first)}
       </span>{" "}
       {renderWithEmphasis(rest)}
@@ -115,7 +114,7 @@ function FullBleedImageWithCaption({
 }
 
 /* ─────────────────────────────────────────────
-   EDITORIAL LAYOUT — dark story with full-bleed images
+   EDITORIAL LAYOUT — warm paper story with full-bleed images
    ───────────────────────────────────────────── */
 function EditorialStory({
   maker,
@@ -124,22 +123,22 @@ function EditorialStory({
 }) {
   return (
     <>
-      {/* ── THE STORY — dark ── */}
-      <section className="pt-16 md:pt-24 pb-4 px-6 md:px-10">
+      {/* ── THE STORY — warm paper ── */}
+      <section className="bg-forge-paper pt-16 md:pt-24 pb-4 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} label-line`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line`}>
               The Story
             </span>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── PARA 1 — dark ── */}
-      <section className="py-10 md:py-16 px-6 md:px-10">
+      {/* ── PARA 1 — warm paper ── */}
+      <section className="bg-forge-paper py-10 md:py-16 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className={STORY_DARK}>
+            <p className={STORY_LIGHT}>
               {renderDropLead(maker.story[0])}
             </p>
           </ScrollReveal>
@@ -156,11 +155,11 @@ function EditorialStory({
         />
       )}
 
-      {/* ── PARA 2 — dark ── */}
-      <section className="py-16 md:py-24 px-6 md:px-10">
+      {/* ── PARA 2 — warm paper ── */}
+      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className={STORY_DARK}>
+            <p className={STORY_LIGHT}>
               {renderWithEmphasis(maker.story[1])}
             </p>
           </ScrollReveal>
@@ -177,11 +176,11 @@ function EditorialStory({
         />
       )}
 
-      {/* ── PARA 3 — dark ── */}
-      <section className="py-16 md:py-24 px-6 md:px-10">
+      {/* ── PARA 3 — warm paper ── */}
+      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <p className={STORY_DARK}>
+            <p className={STORY_LIGHT}>
               {renderWithEmphasis(maker.story[2])}
             </p>
           </ScrollReveal>
@@ -233,10 +232,10 @@ function DefaultStory({
   return (
     <>
       {/* Story Header */}
-      <section className="pt-16 md:pt-24 pb-4 px-6 md:px-10">
+      <section className="bg-forge-paper pt-16 md:pt-24 pb-4 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
           <ScrollReveal>
-            <span className={`${SECTION_LABEL_DARK} label-line`}>
+            <span className={`${SECTION_LABEL_LIGHT} label-line`}>
               The Story
             </span>
           </ScrollReveal>
@@ -244,7 +243,7 @@ function DefaultStory({
       </section>
 
       {/* Story */}
-      <section className="py-10 md:py-16">
+      <section className="bg-forge-paper py-10 md:py-16">
         <div className="max-w-prose mx-auto px-6 md:px-10">
           {maker.story.map((paragraph, index) => {
             const imageIndex = imagePositions.indexOf(index);
@@ -268,7 +267,7 @@ function DefaultStory({
 
                 <ScrollReveal delay={index * 80}>
                   <p
-                    className={`${STORY_DARK} ${
+                    className={`${STORY_LIGHT} ${
                       isLastParagraph ? "" : "mb-8"
                     }`}
                   >
@@ -426,7 +425,7 @@ export default function MakerPage({ params }: PageProps) {
               <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.05em] text-forge-text mb-3">
                 {maker.name}
               </p>
-              <p className="font-sans text-[18px] font-light leading-[1.75] text-forge-text/[0.85] mb-3">
+              <p className="font-sans text-[17px] md:text-[18px] font-light leading-[1.75] text-forge-text/[0.85] mb-3">
                 {maker.profileIntro}
               </p>
               <p className="font-mono text-[13px] font-normal text-forge-text/[0.45]">
@@ -449,7 +448,7 @@ export default function MakerPage({ params }: PageProps) {
               </span>
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-8 md:gap-y-10">
               {makerProducts.slice(0, 6).map((product, index) => (
                 <ScrollReveal key={product.slug} delay={index * 100}>
                   <ProductCard product={product} variant="light" showMaker={false} />
@@ -500,7 +499,7 @@ export default function MakerPage({ params }: PageProps) {
           BACK NAVIGATION
           ═══════════════════════════════════════════════ */}
       <section className="py-16 md:py-24 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-4">
           <Link
             href="/"
             className={NAV_LINK_DARK}

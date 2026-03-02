@@ -67,7 +67,7 @@ export default function Home() {
       <section className="bg-forge-paper pt-16 md:pt-24">
         <div className="text-center px-6 md:px-10">
           <ScrollReveal>
-            <p className="font-serif text-[36px] md:text-[52px] font-normal leading-[1.2] text-forge-text">
+            <p className="font-serif text-[32px] md:text-[52px] font-normal leading-[1.2] text-forge-text">
               The work speaks for itself.
             </p>
           </ScrollReveal>

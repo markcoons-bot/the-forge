@@ -75,7 +75,7 @@ export default function ShopPage() {
           </ScrollReveal>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-8 md:gap-y-10">
             {filteredProducts.map((product, index) => (
               <ScrollReveal key={product.slug} delay={index * 80}>
                 <ProductCard product={product} variant="light" />

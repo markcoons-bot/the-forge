@@ -52,10 +52,10 @@ export default function ProductCard({
       </div>
 
       {/* Details */}
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex items-start justify-between gap-2 md:gap-4">
         <div>
           <h3
-            className={`font-serif text-[16px] md:text-[18px] font-medium ${
+            className={`font-serif text-[15px] md:text-[18px] font-medium ${
               isDark ? "text-forge-paper" : "text-forge-text"
             }`}
           >
@@ -72,7 +72,7 @@ export default function ProductCard({
           )}
         </div>
         <p
-          className={`font-sans text-[16px] font-medium shrink-0 ${
+          className={`font-sans text-[14px] md:text-[16px] font-medium shrink-0 ${
             isDark ? "text-forge-paper/90" : "text-forge-text"
           }`}
         >

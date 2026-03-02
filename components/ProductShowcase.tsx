@@ -45,7 +45,7 @@ export default function ProductShowcase() {
   const scroll = useCallback((direction: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    const cardWidth = window.innerWidth >= 768 ? 312 : 252; // card + gap
+    const cardWidth = window.innerWidth >= 768 ? 312 : Math.round(window.innerWidth * 0.75 + 12); // card + gap
     el.scrollBy({
       left: direction === "right" ? cardWidth * 2 : -cardWidth * 2,
       behavior: "smooth",
@@ -105,7 +105,7 @@ export default function ProductShowcase() {
               >
                 <Link
                   href={`/shop/${product.slug}`}
-                  className="group block shrink-0 w-[240px] md:w-[300px]"
+                  className="group block shrink-0 w-[75vw] md:w-[300px]"
                 >
                   {/* Image */}
                   <div className="relative aspect-[4/5] overflow-hidden">
@@ -118,7 +118,7 @@ export default function ProductShowcase() {
                       alt={product.name}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                      sizes="(max-width: 768px) 240px, 300px"
+                      sizes="(max-width: 768px) 75vw, 300px"
                     />
 
                     {/* Maker name on hover */}

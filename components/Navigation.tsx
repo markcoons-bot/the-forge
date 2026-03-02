@@ -129,32 +129,32 @@ export default function Navigation() {
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="flex flex-col items-center gap-8">
+        <nav className="flex flex-col items-center gap-6">
           <Link
             href="/makers"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[28px] font-light text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
           >
             Makers
           </Link>
           <Link
             href="/gallery"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[28px] font-light text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
           >
             Gallery
           </Link>
           <Link
             href="/shop"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[28px] font-light text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
           >
             Shop
           </Link>
           <Link
             href="/about"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[28px] font-light text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
           >
             About
           </Link>
@@ -162,7 +162,7 @@ export default function Navigation() {
           <Link
             href="/apply"
             onClick={() => setMenuOpen(false)}
-            className={`${NAV_LINK} text-forge-paper/80 hover:text-forge-paper transition-colors duration-300`}
+            className={`${NAV_LINK} text-forge-paper/50 hover:text-forge-paper transition-colors duration-300`}
           >
             For Makers &rarr;
           </Link>
