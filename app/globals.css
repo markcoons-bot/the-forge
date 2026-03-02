@@ -40,9 +40,9 @@ body {
 /* DEFAULT — fade up */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .reveal.revealed {
@@ -53,7 +53,7 @@ body {
 /* FADE IN — opacity only, no movement */
 .reveal.reveal--fade-in {
   transform: none;
-  transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.6s ease-out;
 }
 
 .reveal.reveal--fade-in.revealed {
@@ -63,8 +63,8 @@ body {
 /* SCALE IN — zoom from 0.97 + fade */
 .reveal.reveal--scale-in {
   transform: scale(0.97);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .reveal.reveal--scale-in.revealed {
@@ -74,21 +74,20 @@ body {
 /* FROM RIGHT — slide in from right */
 .reveal.reveal--from-right {
   transform: translateX(40px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: opacity 0.6s ease-out,
+    transform 0.6s ease-out;
 }
 
 .reveal.reveal--from-right.revealed {
   transform: translateX(0);
 }
 
-/* Mobile: reduce animation distances for performance */
+/* Mobile: disable all scroll animations — content visible immediately */
 @media (max-width: 768px) {
   .reveal {
-    transform: translateY(20px);
-  }
-  .reveal.reveal--from-right {
-    transform: translateX(24px);
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

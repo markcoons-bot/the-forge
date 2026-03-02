@@ -84,7 +84,7 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={80}>
+          <ScrollReveal delay={100}>
             <p className="font-sans text-[17px] md:text-[19px] font-light leading-[1.8] text-forge-text/90">
               The problem is not that people don&apos;t care about craft. They
               do. The problem is that the places where craft is sold treat
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
           <div>
             {standards.map((standard, index) => (
-              <ScrollReveal key={standard.title} delay={index * 80}>
+              <ScrollReveal key={standard.title} delay={index * 100}>
                 <div className="py-7 border-b border-forge-text/[0.12]">
                   <h3 className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.3] text-forge-text/90 mb-3">
                     {standard.title}

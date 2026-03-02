@@ -98,16 +98,12 @@ export default function ProductPage({ params }: PageProps) {
                     </span>
                   )}
                 </p>
-              </ScrollReveal>
 
-              <ScrollReveal delay={150}>
                 <h1 className="font-serif text-[32px] md:text-[40px] font-normal leading-[1.2] text-forge-text mb-2">
                   {product.name}
                 </h1>
-              </ScrollReveal>
 
-              {maker && (
-                <ScrollReveal delay={200}>
+                {maker && (
                   <p className="font-sans text-[16px] font-light text-forge-text/[0.55] mb-6">
                     From the studio of{" "}
                     <Link
@@ -117,10 +113,8 @@ export default function ProductPage({ params }: PageProps) {
                       {maker.name}
                     </Link>
                   </p>
-                </ScrollReveal>
-              )}
+                )}
 
-              <ScrollReveal delay={250}>
                 <p className="font-serif text-[28px] font-normal text-forge-text mb-10">
                   {formatPrice(product.price, product.currency)}
                 </p>

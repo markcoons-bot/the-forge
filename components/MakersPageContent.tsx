@@ -74,7 +74,7 @@ export default function MakersPageContent() {
             const makerProducts = getProductsByMaker(maker.slug).slice(0, 3);
 
             return (
-              <ScrollReveal key={maker.slug} delay={index * 80}>
+              <ScrollReveal key={maker.slug} delay={index * 100}>
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
                   {/* Portrait — left 5 cols */}
                   <Link

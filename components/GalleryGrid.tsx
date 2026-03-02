@@ -22,10 +22,9 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
           if (entry.isIntersecting) {
             // Stagger based on position in the observed batch
             const el = entry.target as HTMLElement;
-            const idx = parseInt(el.dataset.index || "0", 10);
             setTimeout(() => {
               el.classList.add("revealed");
-            }, (idx % 6) * 80);
+            }, Math.floor(Math.random() * 200));
             observer.unobserve(entry.target);
           }
         });

@@ -73,9 +73,11 @@ export default function Home() {
           </ScrollReveal>
         </div>
 
-        <div className="flex justify-center py-12">
-          <div className="w-20 h-px bg-forge-text/20" />
-        </div>
+        <ScrollReveal variant="fade-in">
+          <div className="flex justify-center py-12">
+            <div className="w-20 h-px bg-forge-text/20" />
+          </div>
+        </ScrollReveal>
 
         <ProductShowcase />
       </section>
@@ -122,7 +124,7 @@ export default function Home() {
                     index % 2 === 0 ? "items-start" : "items-start md:items-end"
                   }`}
                 >
-                  <ScrollReveal delay={100}>
+                  <ScrollReveal delay={index * 150}>
                     <div className={`max-w-xl ${index % 2 === 0 ? "" : "md:text-right"}`}>
                       <p className={`${SECTION_LABEL} text-forge-paper/75 mb-4`}>
                         {maker.medium} &mdash; {maker.location}
