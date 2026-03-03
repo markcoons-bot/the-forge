@@ -55,6 +55,9 @@ export default function ShopPage() {
 
           {/* Filters */}
           <ScrollReveal className="mb-12 md:mb-16">
+            <p className="font-mono text-[11px] font-normal tracking-[0.15em] uppercase text-forge-text/40 mb-3">
+              Elements
+            </p>
             <div className="overflow-x-auto -mx-6 md:mx-0">
               <div className="flex gap-2 px-6 md:px-0 w-max md:w-auto md:flex-wrap">
                 {mediums.map((medium) => (

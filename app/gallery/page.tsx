@@ -24,7 +24,7 @@ export default function GalleryPage() {
               Gallery
             </h1>
             <p className="font-sans text-[16px] font-light leading-[1.9] text-forge-paper/[0.65]">
-              The work, the process, the studio. Click anything that stops you.
+              Form, process, studio. Click anything that stops you.
             </p>
           </ScrollReveal>
         </div>

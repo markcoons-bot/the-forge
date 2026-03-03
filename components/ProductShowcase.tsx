@@ -58,7 +58,7 @@ export default function ProductShowcase() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-end justify-between mb-8">
         <div>
           <span className={`${SECTION_LABEL_LIGHT} label-line mb-2`}>
-            Recently Added
+            New Forms
           </span>
           <p className="font-sans text-[16px] font-light text-forge-text/60 mt-2">
             From the studios of our makers

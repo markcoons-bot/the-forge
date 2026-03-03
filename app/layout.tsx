@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   title: "Form & Element — Handmade Objects by Makers Who Chose This Life",
   description:
     "A curated marketplace for handmade objects. Clay from dirt, lumber from trees, metal from fire, glass from sand and heat. Every object has a maker, a method, and a reason it exists.",
+  icons: { icon: "/images/favicon.svg" },
   openGraph: {
     title: "Form & Element — Handmade Objects by Makers Who Chose This Life",
     description:

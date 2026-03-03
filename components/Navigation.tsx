@@ -68,9 +68,16 @@ export default function Navigation() {
           <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
             <Link
               href="/"
-              className={`${NAV_LINK} tracking-[0.12em] uppercase text-forge-paper/90 hover:text-forge-paper transition-colors duration-300`}
+              className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-300"
             >
-              Form &amp; Element
+              <svg width="28" height="28" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+                <circle cx="200" cy="200" r="175" stroke="#f4efe8" strokeWidth="5"/>
+                <circle cx="200" cy="200" r="158" stroke="#f4efe8" strokeWidth="2.5"/>
+                <text x="200" y="225" fill="#f4efe8" fontSize="105" fontWeight="500" fontFamily="Georgia, serif" textAnchor="middle" letterSpacing="4">F&amp;E</text>
+              </svg>
+              <span className="hidden md:inline font-serif text-[15px] font-normal tracking-[0.16em] uppercase text-forge-paper/90">
+                Form &amp; Element
+              </span>
             </Link>
 
             {/* Desktop links */}
