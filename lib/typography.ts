@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════
-// Typography Tokens — The Forge
+// Typography Tokens — Form & Element
 // Standardized Tailwind class strings for consistency
 // ═══════════════════════════════════════════════
 

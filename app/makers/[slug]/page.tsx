@@ -29,10 +29,10 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: PageProps): Metadata {
   const maker = getMaker(params.slug);
-  if (!maker) return { title: "Maker Not Found — The Forge" };
+  if (!maker) return { title: "Maker Not Found — Form & Element" };
 
   return {
-    title: `${maker.name} — ${maker.medium} — The Forge`,
+    title: `${maker.name} — ${maker.medium} — Form & Element`,
     description: maker.story[0],
   };
 }
@@ -504,7 +504,7 @@ export default function MakerPage({ params }: PageProps) {
             href="/"
             className={NAV_LINK_DARK}
           >
-            &larr; Back to The Forge
+            &larr; Back to Home
           </Link>
           <Link
             href="/shop"

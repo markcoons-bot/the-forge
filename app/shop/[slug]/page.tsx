@@ -22,11 +22,11 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: PageProps): Metadata {
   const product = getProduct(params.slug);
-  if (!product) return { title: "Product Not Found — The Forge" };
+  if (!product) return { title: "Product Not Found — Form & Element" };
 
   const maker = getMaker(product.makerSlug);
   return {
-    title: `${product.name} by ${maker?.name || "Unknown"} — The Forge`,
+    title: `${product.name} by ${maker?.name || "Unknown"} — Form & Element`,
     description: product.curatorNote,
   };
 }

@@ -65,7 +65,7 @@ export const makers: Maker[] = [
     ],
     materialsCaption: "In the hands of a master, these are not tools. They are the last point of contact between intention and the irreversible.",
     bio: "British potter working in reduction-fired stoneware and porcelain. Apprenticed with Lisa Hammond MBE, studied in Mashiko, Japan. Author of By My Hands.",
-    profileIntro: "London-based ceramicist trained under Lisa Hammond MBE and Ken Matsuzaki in Mashiko, Japan. He works in reduction-fired stoneware, throwing each piece by hand and firing in a gas kiln at 1,295\u00B0C. Over three million people follow his work. The Forge is where you can own it.",
+    profileIntro: "London-based ceramicist trained under Lisa Hammond MBE and Ken Matsuzaki in Mashiko, Japan. He works in reduction-fired stoneware, throwing each piece by hand and firing in a gas kiln at 1,295\u00B0C. Over three million people follow his work. Form & Element is where you can own it.",
   },
   {
     slug: "hana-miura",

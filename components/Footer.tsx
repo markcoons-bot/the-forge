@@ -55,8 +55,8 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             {/* Brand */}
             <div>
-              <p className="font-mono text-[18px] font-bold tracking-[0.2em] uppercase text-forge-paper mb-4">
-                The Forge
+              <p className="font-mono text-[18px] font-bold tracking-[0.15em] uppercase text-forge-paper mb-4">
+                Form &amp; Element
               </p>
               <p className="font-sans text-[16px] font-light leading-[1.7] text-forge-paper/[0.65] max-w-[320px]">
                 A curated marketplace for handmade objects and the people who make
@@ -92,7 +92,7 @@ export default function Footer() {
                   href="/about"
                   className="font-sans text-[16px] font-normal text-forge-paper/[0.65] hover:text-forge-paper transition-colors duration-300"
                 >
-                  About The Forge
+                  About
                 </Link>
                 <Link
                   href="/legal"
@@ -133,7 +133,7 @@ export default function Footer() {
 
           <div className="mt-20 pt-8 border-t border-forge-paper/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="font-mono text-[13px] font-normal tracking-[0.08em] text-forge-paper/[0.45]">
-              &copy; {new Date().getFullYear()} The Forge. All rights reserved.
+              &copy; {new Date().getFullYear()} Form &amp; Element. All rights reserved.
             </p>
             <p className="font-mono text-[14px] font-normal tracking-[0.1em] text-forge-paper/[0.55]">
               Made with intention

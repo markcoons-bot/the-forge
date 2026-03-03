@@ -68,9 +68,9 @@ export default function Navigation() {
           <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
             <Link
               href="/"
-              className={`${NAV_LINK} tracking-[0.15em] uppercase text-forge-paper/90 hover:text-forge-paper transition-colors duration-300`}
+              className={`${NAV_LINK} tracking-[0.12em] uppercase text-forge-paper/90 hover:text-forge-paper transition-colors duration-300`}
             >
-              The Forge
+              Form &amp; Element
             </Link>
 
             {/* Desktop links */}

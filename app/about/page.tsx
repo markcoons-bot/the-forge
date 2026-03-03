@@ -9,9 +9,9 @@ import {
 } from "@/lib/typography";
 
 export const metadata: Metadata = {
-  title: "About — The Forge",
+  title: "About — Form & Element",
   description:
-    "Why The Forge exists. A marketplace built by a maker, for makers.",
+    "Why Form & Element exists. A marketplace built by a maker, for makers.",
 };
 
 {/*
@@ -43,12 +43,12 @@ const standards = [
   {
     title: "Small-Batch Reality",
     description:
-      "We do not work with makers who outsource production or manufacture at scale. Every object on The Forge is made by the hands listed on the page. If the maker takes a vacation, production stops. That is the point.",
+      "We do not work with makers who outsource production or manufacture at scale. Every object on Form & Element is made by the hands listed on the page. If the maker takes a vacation, production stops. That is the point.",
   },
   {
     title: "Built to Last",
     description:
-      "These objects are not disposable. We look for work that gets better with age — a patina that deepens, a handle that wears smooth, a glaze that tells time. The things on The Forge are meant to be used daily, for years, and to be better for it.",
+      "These objects are not disposable. We look for work that gets better with age — a patina that deepens, a handle that wears smooth, a glaze that tells time. The things on Form & Element are meant to be used daily, for years, and to be better for it.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function AboutPage() {
               About
             </span>
             <h1 className={`${H1_PAGE} text-forge-text`}>
-              Why The Forge Exists
+              Why Form & Element Exists
             </h1>
           </ScrollReveal>
         </div>
@@ -76,7 +76,7 @@ export default function AboutPage() {
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <p className="font-sans text-[17px] md:text-[19px] font-light leading-[1.8] text-forge-text/90 mb-8">
-              I built The Forge because I needed it to exist. I am a
+              I built Form & Element because I needed it to exist. I am a
               woodworker — not a famous one, not a fast one — and I have spent
               enough years in a shop to know what it costs to make something
               real. Not the price on the tag. The years of failed joints before
@@ -120,7 +120,7 @@ export default function AboutPage() {
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <p className="font-sans text-[17px] md:text-[19px] font-light leading-[1.8] text-forge-text/90">
-              That&apos;s what The Forge is. Every maker here was invited. Every
+              That&apos;s what Form & Element is. Every maker here was invited. Every
               object was chosen. This is a marketplace — but it should feel
               like a gallery.
             </p>
@@ -177,7 +177,7 @@ export default function AboutPage() {
               href="/apply"
               className="font-sans text-[15px] font-light text-forge-text/[0.55] hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
             >
-              Learn about joining The Forge &rarr;
+              Learn about joining Form & Element &rarr;
             </Link>
           </ScrollReveal>
         </div>

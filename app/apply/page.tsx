@@ -167,7 +167,7 @@ export default function ApplyPage() {
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <p className="font-sans text-[19px] font-light leading-[1.8] text-forge-text/[0.85]">
-              The Forge is invitation-only, but we are always looking. If your
+              Form &amp; Element is invitation-only, but we are always looking. If your
               work meets our standards — if you shape raw materials into finished
               objects with <em className="italic">your own hands</em> and you are
               proud of what you make — we would like to see it.

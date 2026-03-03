@@ -6,7 +6,7 @@ import GalleryGrid from "@/components/GalleryGrid";
 import { galleryItems } from "@/data/gallery";
 
 export const metadata: Metadata = {
-  title: "Gallery — The Forge",
+  title: "Gallery — Form & Element",
   description:
     "The work, the process, the studio. A visual journey through the hands of our makers.",
 };

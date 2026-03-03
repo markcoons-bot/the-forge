@@ -1,4 +1,4 @@
-# The Forge
+# Form & Element
 
 A curated marketplace for handmade objects — ceramics, woodwork, blown glass, forged metal, and hand-woven textiles. Built for makers who chose time over speed.
 

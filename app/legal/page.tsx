@@ -7,9 +7,9 @@ import {
 } from "@/lib/typography";
 
 export const metadata: Metadata = {
-  title: "Legal — The Forge",
+  title: "Legal — Form & Element",
   description:
-    "Terms of Service, Privacy Policy, and Maker Agreement for The Forge.",
+    "Terms of Service, Privacy Policy, and Maker Agreement for Form & Element.",
 };
 
 const sectionHeadingClass =
@@ -74,7 +74,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>1. The Platform</h3>
           <p className={bodyClass}>
-            The Forge is a curated online marketplace connecting buyers with
+            Form & Element is a curated online marketplace connecting buyers with
             independent makers of handmade objects. We are not a manufacturer,
             distributor, or retailer. Each product listed on the Site is made by
             an independent maker (&ldquo;Maker&rdquo;) who is solely responsible
@@ -96,13 +96,13 @@ export default function LegalPage() {
             information &mdash; all payment data is processed directly by Stripe
             in accordance with PCI-DSS security standards. When you place an
             order, you are entering into a purchase agreement directly with the
-            Maker. The Forge facilitates this transaction but is not a party to
+            Maker. Form & Element facilitates this transaction but is not a party to
             the sale.
           </p>
 
           <h3 className={subHeadingClass}>4. Products</h3>
           <p className={bodyClass}>
-            Products on The Forge are handmade by independent Makers. Because
+            Products on Form & Element are handmade by independent Makers. Because
             these objects are made by hand, slight variations in color, texture,
             dimension, and finish are normal and expected. These variations are a
             feature of handmade work, not a defect. Products marked
@@ -113,7 +113,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>5. Shipping</h3>
           <p className={bodyClass}>
-            Shipping is handled directly by each Maker. The Forge is not
+            Shipping is handled directly by each Maker. Form & Element is not
             responsible for shipping delays, lost packages, or damage during
             transit, though we will work with the Maker to resolve any issues.
             Currently, we offer shipping within the United States only.
@@ -133,15 +133,15 @@ export default function LegalPage() {
           <h3 className={subHeadingClass}>7. Intellectual Property</h3>
           <p className={bodyClass}>
             All content on the Site &mdash; including text, photographs, design,
-            and editorial content &mdash; is owned by The Forge or licensed from
+            and editorial content &mdash; is owned by Form & Element or licensed from
             our Makers and is protected by copyright and intellectual property
             laws.
           </p>
 
           <h3 className={subHeadingClass}>8. Limitation of Liability</h3>
           <p className={bodyClass}>
-            The Forge acts as a marketplace facilitator. To the fullest extent
-            permitted by law, The Forge shall not be liable for any indirect,
+            Form & Element acts as a marketplace facilitator. To the fullest extent
+            permitted by law, Form & Element shall not be liable for any indirect,
             incidental, special, consequential, or punitive damages arising from
             your use of the Site or purchase of any product.
           </p>
@@ -155,7 +155,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>10. Contact</h3>
           <p className={bodyClass}>
-            Questions about these Terms? Contact us at hello@theforge.com.
+            Questions about these Terms? Contact us at hello@formandelement.com.
           </p>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function LegalPage() {
           <h3 className={subHeadingClass}>5. Your Rights</h3>
           <p className={bodyClass}>
             You may request access to, correction of, or deletion of your
-            personal information at any time by emailing hello@theforge.com.
+            personal information at any time by emailing hello@formandelement.com.
             California residents have additional rights under the CCPA.
           </p>
 
@@ -229,7 +229,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>8. Contact</h3>
           <p className={bodyClass}>
-            Questions? Contact us at hello@theforge.com.
+            Questions? Contact us at hello@formandelement.com.
           </p>
         </div>
       </section>
@@ -248,7 +248,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>1. Acceptance and Curation</h3>
           <p className={bodyClass}>
-            The Forge is invitation-only. Acceptance is at our sole discretion
+            Form & Element is invitation-only. Acceptance is at our sole discretion
             based on craft quality, material honesty, and design integrity. We
             reserve the right to decline or remove any Maker or product at any
             time.
@@ -256,7 +256,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>2. Commission and Fees</h3>
           <p className={bodyClass}>
-            The Forge charges 12% commission plus 3% payment processing
+            Form & Element charges 12% commission plus 3% payment processing
             (Stripe). No listing fees, monthly subscriptions, or hidden costs.
             Commission is deducted automatically at the time of sale through
             Stripe Connect.
@@ -264,7 +264,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>3. Pricing</h3>
           <p className={bodyClass}>
-            You set your own prices. The Forge does not run sales or offer
+            You set your own prices. Form & Element does not run sales or offer
             discount codes. We will never change your prices without your
             consent.
           </p>
@@ -292,24 +292,24 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>7. Content and Editorial</h3>
           <p className={bodyClass}>
-            The Forge creates editorial content for your profile. You review and
-            approve all content before publication. The Forge retains the right
+            Form & Element creates editorial content for your profile. You review and
+            approve all content before publication. Form & Element retains the right
             to display approved content on the Site and in marketing materials.
           </p>
 
           <h3 className={subHeadingClass}>8. Intellectual Property</h3>
           <p className={bodyClass}>
             You retain ownership of your product designs and original images. You
-            grant The Forge a non-exclusive, royalty-free license to use your
+            grant Form & Element a non-exclusive, royalty-free license to use your
             images, name, and likeness on the Site. Editorial content created by
-            The Forge is owned by The Forge but may be used by you with
+            Form & Element is owned by Form & Element but may be used by you with
             attribution.
           </p>
 
           <h3 className={subHeadingClass}>9. Termination</h3>
           <p className={bodyClass}>
             Either party may terminate with 30 days written notice. Pending
-            orders must still be fulfilled. The Forge may terminate immediately
+            orders must still be fulfilled. Form & Element may terminate immediately
             for violations or quality concerns.
           </p>
 
@@ -320,7 +320,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>11. Contact</h3>
           <p className={bodyClass}>
-            Questions? Contact us at hello@theforge.com.
+            Questions? Contact us at hello@formandelement.com.
           </p>
         </div>
       </section>
