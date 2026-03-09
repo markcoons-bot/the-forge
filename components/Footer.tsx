@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
-export default function Footer() {
+export default function Footer({ hideBorder = false }: { hideBorder?: boolean }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "duplicate" | "error">("idle");
@@ -50,7 +50,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-forge-dark border-t border-forge-paper/[0.12]">
+      <footer className={`bg-forge-dark ${hideBorder ? "" : "border-t border-forge-paper/[0.12]"}`}>
         <div className="max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             {/* Brand */}

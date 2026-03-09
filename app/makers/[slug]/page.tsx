@@ -15,7 +15,6 @@ import {
   SECTION_LABEL,
   SECTION_LABEL_DARK,
   SECTION_LABEL_LIGHT,
-  NAV_LINK_DARK,
   METHOD_STEP,
 } from "@/lib/typography";
 
@@ -483,7 +482,7 @@ export default function MakerPage({ params }: PageProps) {
           FROM THE STUDIO
           ═══════════════════════════════════════════════ */}
       {studioGalleryItems.length > 0 && (
-        <section className="py-16 md:py-24 px-6 md:px-10">
+        <section className="bg-forge-dark pt-16 md:pt-24 pb-0 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <span className={`${SECTION_LABEL_DARK} label-line mb-10`}>
@@ -498,24 +497,24 @@ export default function MakerPage({ params }: PageProps) {
       {/* ═══════════════════════════════════════════════
           BACK NAVIGATION
           ═══════════════════════════════════════════════ */}
-      <section className="py-16 md:py-24 px-6 md:px-10">
+      <section className="bg-forge-dark py-16 md:py-24 px-6 md:px-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-4">
           <Link
             href="/"
-            className={NAV_LINK_DARK}
+            className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-paper/60 hover:text-forge-paper transition-colors duration-300"
           >
             &larr; Back to Home
           </Link>
           <Link
             href="/shop"
-            className={NAV_LINK_DARK}
+            className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-paper/60 hover:text-forge-paper transition-colors duration-300"
           >
             Visit the shop &rarr;
           </Link>
         </div>
       </section>
 
-      <Footer />
+      <Footer hideBorder />
     </>
   );
 }
