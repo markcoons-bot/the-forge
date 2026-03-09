@@ -11,11 +11,9 @@ import { getProductsByMaker } from "@/data/products";
 import { getGalleryItemsByMaker } from "@/data/gallery";
 import GalleryGrid from "@/components/GalleryGrid";
 import {
-  STORY_LIGHT,
   SECTION_LABEL,
   SECTION_LABEL_DARK,
   SECTION_LABEL_LIGHT,
-  METHOD_STEP,
 } from "@/lib/typography";
 
 interface PageProps {
@@ -43,22 +41,6 @@ function renderWithEmphasis(text: string) {
   );
 }
 
-function renderDropLead(text: string) {
-  const sentenceEnd = text.match(/^(.*?\.)\s([\s\S]*)$/);
-  if (!sentenceEnd) {
-    return renderWithEmphasis(text);
-  }
-  const [, first, rest] = sentenceEnd;
-  return (
-    <>
-      <span className="font-sans text-[17px] md:text-[19px] font-normal leading-[1.75] text-forge-text">
-        {renderWithEmphasis(first)}
-      </span>{" "}
-      {renderWithEmphasis(rest)}
-    </>
-  );
-}
-
 function FullBleedImageWithCaption({
   src,
   alt,
@@ -76,7 +58,7 @@ function FullBleedImageWithCaption({
   return (
     <ScrollReveal variant="scale-in">
       <div
-        className="relative h-[50vh] md:h-[70vh] overflow-hidden"
+        className="relative min-h-[70vh] md:min-h-[80vh] overflow-hidden"
         style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
       >
         <Image
@@ -89,256 +71,17 @@ function FullBleedImageWithCaption({
         {caption && (
           <>
             <div className="absolute inset-0" style={{ background: gradient }} />
-            <div
-              className={`absolute bottom-0 left-0 right-0 p-5 md:p-16 z-10 flex text-shadow-image ${
-                isRight ? "justify-end" : "justify-start"
-              }`}
+            <blockquote
+              className={`absolute bottom-10 ${
+                isRight ? "right-8 md:right-16 text-right" : "left-8 md:left-16 text-left"
+              } font-serif italic text-[20px] md:text-[26px] leading-[1.4] text-white/80 max-w-xs md:max-w-sm`}
             >
-              <blockquote
-                className={`max-w-[280px] md:max-w-md ${
-                  isRight ? "text-right" : "text-left"
-                }`}
-              >
-                <span className="font-serif text-[60px] md:text-[120px] leading-none text-forge-paper/[0.25] block mb-[-12px] md:mb-[-28px]">&ldquo;</span>
-                <span className="font-serif text-[22px] md:text-[36px] font-light italic leading-[1.3] text-forge-paper">
-                  {caption}
-                </span>
-              </blockquote>
-            </div>
+              &ldquo;{caption}&rdquo;
+            </blockquote>
           </>
         )}
       </div>
     </ScrollReveal>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   EDITORIAL LAYOUT — warm paper story with full-bleed images
-   ───────────────────────────────────────────── */
-function EditorialStory({
-  maker,
-}: {
-  maker: ReturnType<typeof getMaker> & {};
-}) {
-  return (
-    <>
-      {/* ── THE STORY — warm paper ── */}
-      <section className="bg-forge-paper pt-16 md:pt-24 pb-4 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
-          <ScrollReveal>
-            <span className={`${SECTION_LABEL_LIGHT} label-line`}>
-              The Story
-            </span>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── PARA 1 — warm paper ── */}
-      <section className="bg-forge-paper py-10 md:py-16 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
-          <ScrollReveal>
-            <p className={STORY_LIGHT}>
-              {renderDropLead(maker.story[0])}
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── FULL-BLEED IMAGE 1 ── */}
-      {maker.storyImages[0] && (
-        <FullBleedImageWithCaption
-          src={maker.storyImages[0]}
-          alt={`${maker.name} in the studio`}
-          caption={maker.storyImageCaptions?.[0] || ""}
-          position="right"
-        />
-      )}
-
-      {/* ── PARA 2 — warm paper ── */}
-      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
-          <ScrollReveal>
-            <p className={STORY_LIGHT}>
-              {renderWithEmphasis(maker.story[1])}
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── FULL-BLEED IMAGE 2 ── */}
-      {maker.storyImages[1] && (
-        <FullBleedImageWithCaption
-          src={maker.storyImages[1]}
-          alt={`${maker.name} at work`}
-          caption={maker.storyImageCaptions?.[1] || ""}
-          position="left"
-        />
-      )}
-
-      {/* ── PARA 3 — warm paper ── */}
-      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
-          <ScrollReveal>
-            <p className={STORY_LIGHT}>
-              {renderWithEmphasis(maker.story[2])}
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* ── Materials image (full-bleed, before craft) ── */}
-      {maker.materialsImage && (
-        <FullBleedImageWithCaption
-          src={maker.materialsImage}
-          alt={`${maker.name} materials and tools`}
-          caption={maker.materialsCaption || ""}
-          position="right"
-        />
-      )}
-
-      {/* ── THE CRAFT — warm paper ── */}
-      {maker.craft && (
-        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-prose mx-auto">
-            <ScrollReveal>
-              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
-                The Craft
-              </span>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <p className={STORY_LIGHT}>
-                {renderWithEmphasis(maker.craft)}
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-      )}
-    </>
-  );
-}
-
-/* ─────────────────────────────────────────────
-   DEFAULT LAYOUT — for makers without editorial
-   ───────────────────────────────────────────── */
-function DefaultStory({
-  maker,
-}: {
-  maker: ReturnType<typeof getMaker> & {};
-}) {
-  const imagePositions = maker.storyImagePositions || [1, 3];
-
-  return (
-    <>
-      {/* Story Header */}
-      <section className="bg-forge-paper pt-16 md:pt-24 pb-4 px-6 md:px-10">
-        <div className="max-w-prose mx-auto">
-          <ScrollReveal>
-            <span className={`${SECTION_LABEL_LIGHT} label-line`}>
-              The Story
-            </span>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Story */}
-      <section className="bg-forge-paper py-10 md:py-16">
-        <div className="max-w-prose mx-auto px-6 md:px-10">
-          {maker.story.map((paragraph, index) => {
-            const imageIndex = imagePositions.indexOf(index);
-            const storyImage =
-              imageIndex !== -1 && maker.storyImages[imageIndex]
-                ? maker.storyImages[imageIndex]
-                : null;
-
-            const isLastParagraph = index === maker.story.length - 1;
-
-            return (
-              <div key={index}>
-                {storyImage && (
-                  <FullBleedImageWithCaption
-                    src={storyImage}
-                    alt={`${maker.name} studio`}
-                    caption=""
-                    position={imageIndex % 2 === 0 ? "right" : "left"}
-                  />
-                )}
-
-                <ScrollReveal delay={index * 80}>
-                  <p
-                    className={`${STORY_LIGHT} ${
-                      isLastParagraph ? "" : "mb-8"
-                    }`}
-                  >
-                    {index === 0 ? renderDropLead(paragraph) : renderWithEmphasis(paragraph)}
-                  </p>
-                </ScrollReveal>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Materials image (full-bleed, before craft) */}
-      {maker.materialsImage && (
-        <FullBleedImageWithCaption
-          src={maker.materialsImage}
-          alt={`${maker.name} materials and tools`}
-          caption={maker.materialsCaption || ""}
-          position="right"
-        />
-      )}
-
-      {/* Method + Materials (or Craft) */}
-      {maker.craft ? (
-        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
-          <div className="max-w-prose mx-auto">
-            <ScrollReveal>
-              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
-                The Craft
-              </span>
-            </ScrollReveal>
-
-            <ScrollReveal delay={100}>
-              <p className={STORY_LIGHT}>
-                {renderWithEmphasis(maker.craft)}
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-      ) : (
-        <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
-          <div className="max-w-prose mx-auto">
-            <ScrollReveal>
-              <span className={`${SECTION_LABEL_LIGHT} label-line mb-12`}>
-                The Method
-              </span>
-            </ScrollReveal>
-
-            <div className="space-y-0">
-              {maker.method.map((step, index) => (
-                <ScrollReveal key={index} delay={index * 60}>
-                  <div className="flex items-start gap-6 py-5 border-b border-forge-text/10">
-                    <span className="font-mono text-[13px] font-normal text-forge-text/50 pt-0.5 shrink-0">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <p className={`${METHOD_STEP} text-forge-text/80`}>
-                      {step}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            <ScrollReveal delay={100} className="mt-10">
-              <p className="font-mono text-[13px] font-normal tracking-[0.05em] text-forge-text/60">
-                Materials: {maker.materials}
-              </p>
-            </ScrollReveal>
-          </div>
-        </section>
-      )}
-    </>
   );
 }
 
@@ -415,20 +158,14 @@ export default function MakerPage({ params }: PageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════
-          INTRO
+          OPENING STATEMENT
           ═══════════════════════════════════════════════ */}
-      {maker.profileIntro && (
-        <section className="bg-forge-paper pt-10 md:pt-16 pb-8 md:pb-12 px-6 md:px-10">
+      {maker.openingStatement && (
+        <section className="bg-forge-paper pb-2 md:pb-3 pt-8 md:pt-12 px-6 md:px-10">
           <div className="max-w-[680px] mx-auto">
             <ScrollReveal>
-              <p className="font-sans text-[14px] font-semibold uppercase tracking-[0.05em] text-forge-text mb-3">
-                {maker.name}
-              </p>
-              <p className="font-sans text-[17px] md:text-[18px] font-light leading-[1.75] text-forge-text/[0.85] mb-3">
-                {maker.profileIntro}
-              </p>
-              <p className="font-mono text-[13px] font-normal text-forge-text/[0.45]">
-                {maker.medium} &mdash; {maker.location}
+              <p className="font-serif text-[20px] md:text-[26px] font-normal italic leading-[1.5] text-forge-text/[0.75] text-center">
+                {maker.openingStatement}
               </p>
             </ScrollReveal>
           </div>
@@ -436,10 +173,10 @@ export default function MakerPage({ params }: PageProps) {
       )}
 
       {/* ═══════════════════════════════════════════════
-          FULL PRODUCT GRID — warm paper
+          THE FORMS — product grid
           ═══════════════════════════════════════════════ */}
       {makerProducts.length > 0 && (
-        <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+        <section className="bg-forge-paper pt-10 md:pt-14 pb-10 md:pb-14 px-6 md:px-10">
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <span className={`${SECTION_LABEL_LIGHT} label-line mb-14`}>
@@ -470,12 +207,43 @@ export default function MakerPage({ params }: PageProps) {
       )}
 
       {/* ═══════════════════════════════════════════════
-          STORY + CRAFT
+          NARRATIVE
           ═══════════════════════════════════════════════ */}
-      {maker.storyLayout === "editorial" ? (
-        <EditorialStory maker={maker} />
-      ) : (
-        <DefaultStory maker={maker} />
+      <section className="bg-forge-paper">
+        <div className="max-w-[600px] mx-auto px-6 pt-8 md:pt-10 pb-16 md:pb-20">
+          <ScrollReveal>
+            {maker.story.map((paragraph, index) => (
+              <p
+                key={index}
+                className={`font-sans text-[17px] md:text-[19px] font-light leading-[1.85] text-forge-text/80${
+                  index < maker.story.length - 1 ? " mb-8" : ""
+                }`}
+              >
+                {renderWithEmphasis(paragraph)}
+              </p>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════
+          FULL-BLEED IMAGES WITH PULL QUOTES
+          ═══════════════════════════════════════════════ */}
+      {maker.storyImages[0] && (
+        <FullBleedImageWithCaption
+          src={maker.storyImages[0]}
+          alt={`${maker.name} — process`}
+          caption={maker.storyImageCaptions?.[0] || ""}
+          position="right"
+        />
+      )}
+      {maker.storyImages[1] && (
+        <FullBleedImageWithCaption
+          src={maker.storyImages[1]}
+          alt={`${maker.name} — craft`}
+          caption={maker.storyImageCaptions?.[1] || ""}
+          position="left"
+        />
       )}
 
       {/* ═══════════════════════════════════════════════

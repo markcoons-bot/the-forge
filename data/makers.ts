@@ -20,6 +20,7 @@ export interface Maker {
   storyImagePositions?: number[];
   storyImageCaptions?: string[];
   materialsCaption?: string;
+  openingStatement?: string;
   bio?: string;
   profileIntro?: string;
 }
@@ -32,10 +33,11 @@ export const makers: Maker[] = [
     location: "London, England",
     homepage: true,
     quote: "The kiln decides. I just prepare.",
+    openingStatement: "He has been doing this since he was nineteen. The kiln has never once done what he expected. He has never once stopped.",
     story: [
-      "Most mornings, Florian Gadsby takes the London Underground to a small studio where no one is waiting for him. He unlocks the door, fills a bucket, and sits down at the wheel. He has been doing this, more or less, since he was nineteen — first as an apprentice to Lisa Hammond MBE, the grande dame of British salt-glazed pottery, then for three years under her eye, learning to throw with the kind of patience that cannot be taught, *only endured*.",
-      "At twenty-three he left for Mashiko, Japan, where he spent six months studying with Ken Matsuzaki, a Living National Treasure candidate whose family has made pottery for generations. In Mashiko he learned that a kiln is not a tool but *a collaborator* — unpredictable, temperamental, capable of ruining a month's work or transforming it into something no human hand could have planned. His feldspathic crackle glazes — those milky, fractured surfaces that look like frozen lightning — are the result of that collaboration: thermal shock, a kind of controlled violence, the glaze shattering into a web of hairline fractures. It is, technically, a defect. Gadsby has spent years making that defect *beautiful*.",
-      "He fires his gas kiln to 1,295°C over fourteen hours, then waits two days to see what the fire has done. His making cycles stretch two to three months: weeks of throwing, then trimming, then the slow meditation of glazing each piece by hand. When a collection is ready, it sells out in minutes. Over three million people follow his work across platforms. *But in the studio, it is just him and the wheel.*"
+      "Most mornings he takes the Underground to a studio where no one is waiting. He fills a bucket. He sits down at the wheel. He has been doing this since he was nineteen and he has not yet made the piece he is trying to make.",
+      "He trained under Lisa Hammond, then left for Mashiko, Japan \u2014 six months with Ken Matsuzaki, a man whose family has thrown pots for generations. The crackle glazes came from there. Thermal shock. Controlled violence. The glaze shattering into hairline fractures the width of a human hair. It is technically a defect. He has spent years learning to love what he cannot control.",
+      "He fires to 1,295\u00B0C. Waits two days to open the kiln. Three million people follow his work. When a collection drops it sells in minutes. In the studio, none of that exists. There is only the clay, and whether today is the day he finally gets it right."
     ],
     pullQuote: "You cannot rush a kiln. You cannot argue with thermal shock. The clay remembers everything you did to it.",
     method: [
@@ -74,10 +76,11 @@ export const makers: Maker[] = [
     location: "Toyama, Japan",
     homepage: true,
     quote: "Glass has no memory. You must give it one.",
+    openingStatement: "The furnace has not been turned off in eleven years. She arrives before dawn, when the glass is quietest. She calls this hour the stillness before the shaping.",
     story: [
-      "The furnace has not been turned off in eleven years. It burns at 1,100 degrees in a converted rice warehouse on the edge of Toyama Prefecture, where the Sea of Japan pushes winter air through the valley and the windows fog with the heat of a small sun. Hana Miura arrives before dawn most mornings, when the glass is quietest — a glowing pool of molten silica waiting at the end of a blowpipe for the breath that will give it form. *She calls this hour the stillness before the shaping.*",
-      "She trained at the Toyama Institute of Glass Art, then spent four years on the island of Murano, learning from maestros whose families had blown glass since the fifteenth century. They taught her that glass is not a material — it is *a moment*. It exists in a narrow window between liquid and solid, between possibility and permanence, and the glassblower's job is to work inside that window before it closes. She returned to Japan carrying five centuries of Venetian technique and a conviction that glass should look like it contains light, not merely transmits it.",
-      "Her pieces are blown, never cast. Each begins as a gather of molten glass on the end of a blowpipe — a glowing orange mass that she shapes with breath, gravity, and a handful of tools unchanged in centuries. The colors come from metallic oxides added to the melt: cobalt for the blue of deep water, manganese for the violet of a bruise, iron for the pale green of river light. She layers them, trapping one color inside another, so the finished piece shifts as you move around it — *like a memory you almost remember*. She makes perhaps two hundred pieces a year. Most of them she breaks.",
+      "She arrives before the sun does. The furnace is already at 1,100 degrees \u2014 it has not been turned off in eleven years. She gathers the glass on the end of a blowpipe and begins to breathe. Everything that happens next takes less than a minute. Everything she has learned takes longer than that to explain.",
+      "She trained in Toyama, then spent four years on Murano with maestros whose families had blown glass since the fifteenth century. They taught her that glass is not a material. It is a window \u2014 between liquid and solid, between possibility and permanence. Her job is to work inside that window before it closes. She has never once felt she was fast enough.",
+      "The colors come from metallic oxides layered inside the glass itself. Cobalt for depth. Manganese for shadow. Iron for the pale green of river light. She makes perhaps two hundred pieces a year. Most of them she breaks. She keeps the broken ones on a shelf by the door. Not as trophies. As proof that she is still reaching.",
     ],
     pullQuote: "I break more than I keep. That is how I know I am still reaching for something.",
     method: [
@@ -116,10 +119,11 @@ export const makers: Maker[] = [
     location: "Asheville, North Carolina",
     homepage: true,
     quote: "The tree was alive longer than I have been. I try to remember that.",
+    openingStatement: "He does not harvest living wood. He walks salvage yards and storm sites, looking for timber that carries the marks of its life. Your job is to listen.",
     story: [
-      "Elias Brandt builds from trees that have already fallen. He does not harvest living wood. He walks salvage yards and storm sites and old barns marked for demolition, looking for timber that carries the marks of its life — nail holes, weather checks, the grey patina of decades spent holding up a roof. His workshop sits on four acres outside Asheville, in a hollow where the morning fog pools like milk. He works with hand tools when he can and machines when he must, and he can tell you the species, approximate age, and likely origin of a piece of wood *by looking at its end grain*.",
-      "He apprenticed under George Nakashima's protégé, Mira Nakamura, spending three years in New Hope, Pennsylvania, learning the Japanese concept of wabi-sabi through American hardwoods. A knot is not a flaw. A split is not a failure. The wood is telling you what it wants to be, and *your job is to listen*. Nakamura taught him to read a board the way a sailor reads water — the direction of the grain, the tension in a curve, the places where the tree fought against wind and won. When Brandt returned to the mountains, he brought that patience with him.",
-      "His pieces are joined without metal fasteners — mortise and tenon, dovetail, wedged through-tenon, and the butterfly keys he has become known for. Where most woodworkers would discard a cracked board, Brandt stabilizes it with a walnut bowtie inlaid across the fracture, turning a defect into *the most beautiful part of the piece*. He finishes with hand-rubbed oil, dozens of coats applied and buffed over weeks, until the surface feels like skin. He makes perhaps forty to fifty objects a year — cutting boards, serving boards, carved spoons, the occasional table. Each one takes weeks. *He is fine with that.*",
+      "He builds from trees that have already fallen. He does not harvest living wood. He walks salvage yards and storm sites, looking for timber that carries the marks of its life \u2014 nail holes, weather checks, the grey patina of decades spent holding up a roof. He can tell you the species and approximate age of a board by looking at its end grain. He has never been wrong.",
+      "He apprenticed under Mira Nakamura in the Nakashima tradition. Three years learning that a knot is not a flaw. A split is not a failure. The wood is telling you what it wants to be. Your job is to listen. He read boards the way a sailor reads water \u2014 the direction of the grain, the tension in a curve, the places where the tree fought against wind and won.",
+      "Where most woodworkers discard a cracked board, he stabilizes it with a walnut bowtie inlaid across the fracture. The defect becomes the most beautiful part of the piece. He finishes with hand-rubbed oil, dozens of coats over weeks, until the surface feels like skin. He makes forty to fifty objects a year. Each one takes weeks. He is fine with that.",
     ],
     pullQuote: "Wood does not forgive. If you cut wrong, you cannot uncut. There is no undo. That discipline changes how you think.",
     method: [
