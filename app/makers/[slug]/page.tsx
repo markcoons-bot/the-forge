@@ -483,7 +483,7 @@ export default function MakerPage({ params }: PageProps) {
           ═══════════════════════════════════════════════ */}
       {studioGalleryItems.length > 0 && (
         <section className="bg-forge-dark pt-16 md:pt-24 pb-0 px-6 md:px-10">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto pb-12">
             <ScrollReveal>
               <span className={`${SECTION_LABEL_DARK} label-line mb-10`}>
                 From the Studio
@@ -497,17 +497,17 @@ export default function MakerPage({ params }: PageProps) {
       {/* ═══════════════════════════════════════════════
           BACK NAVIGATION
           ═══════════════════════════════════════════════ */}
-      <section className="bg-forge-dark py-16 md:py-24 px-6 md:px-10">
+      <section className="bg-forge-dark border-t border-forge-paper/[0.08] pt-16 pb-16 md:pt-20 md:pb-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-4">
           <Link
             href="/"
-            className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-paper/60 hover:text-forge-paper transition-colors duration-300"
+            className="font-mono text-[13px] tracking-[0.15em] uppercase text-forge-paper/40 hover:text-forge-paper/80 transition-colors duration-300"
           >
             &larr; Back to Home
           </Link>
           <Link
             href="/shop"
-            className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-paper/60 hover:text-forge-paper transition-colors duration-300"
+            className="font-mono text-[13px] tracking-[0.15em] uppercase text-forge-paper/40 hover:text-forge-paper/80 transition-colors duration-300"
           >
             Visit the shop &rarr;
           </Link>
