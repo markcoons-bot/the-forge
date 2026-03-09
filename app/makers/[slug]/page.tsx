@@ -444,7 +444,7 @@ export default function MakerPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto">
             <ScrollReveal>
               <span className={`${SECTION_LABEL_LIGHT} label-line mb-14`}>
-                The Work
+                The Forms
               </span>
             </ScrollReveal>
 
