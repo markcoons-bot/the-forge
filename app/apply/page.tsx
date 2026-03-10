@@ -107,14 +107,14 @@ export default function ApplyPage() {
     const { error } = await supabase.from("maker_applications").insert({
       name: formData.name,
       email: formData.email,
-      phone: formData.phone || null,
-      website: formData.website || null,
-      instagram: formData.instagram || null,
+      phone: formData.phone?.trim() || null,
+      website: formData.website?.trim() || null,
+      instagram: formData.instagram?.trim() || null,
       country: formData.country,
       medium: formData.medium,
       years_practicing: formData.years,
       about_work: formData.about,
-      how_heard: formData.referral || null,
+      how_heard: formData.referral?.trim() || null,
     });
 
     if (error) {
