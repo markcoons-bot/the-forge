@@ -117,7 +117,6 @@ export const makers: Maker[] = [
     name: "Elias Brandt",
     medium: "Wood",
     location: "Asheville, North Carolina",
-    homepage: true,
     quote: "The tree was alive longer than I have been. I try to remember that.",
     openingStatement: "He does not harvest living wood. He walks salvage yards and storm sites, looking for timber that carries the marks of its life. Your job is to listen.",
     story: [
@@ -154,6 +153,42 @@ export const makers: Maker[] = [
     materialsCaption: "Black walnut. The grain remembers every year of drought, every season of rain. You can read a tree's autobiography in its end grain if you know the language.",
     bio: "American woodworker specializing in salvaged hardwoods. Apprenticed with Mira Nakamura in the Nakashima tradition. Known for butterfly key joinery and hand-rubbed oil finishes.",
     profileIntro: "Asheville-based woodworker who builds exclusively from salvaged American hardwoods \u2014 walnut, white oak, cherry, and maple sourced from storm falls and old barns. He apprenticed under George Nakashima\u2019s prot\u00E9g\u00E9, Mira Nakamura, and is known for his butterfly key joinery: a bowtie of contrasting wood set across a natural crack, turning a defect into the most beautiful part of the piece.",
+  },
+  {
+    slug: "nathan-coons",
+    name: "Nathan Coons",
+    medium: "Clay",
+    location: "Phoenix, Arizona",
+    homepage: true,
+    quote: "Every piece begins as nothing. That is the part that never gets old.",
+    openingStatement: "He started at seventeen. He has not stopped. The wheel is still the first place he goes when he needs to think.",
+    story: [
+      "Nathan Coons works out of a converted brick room in Phoenix, Arizona, where the heat outside makes the studio feel like its own kind of kiln. He started throwing in a high school art class at seventeen \u2014 not because someone told him he was gifted, but because the wheel required his complete attention, and that was something he had not found anywhere else. Six years later, he has not left.",
+      "He is self-taught in the truest sense. No apprenticeship, no formal lineage \u2014 only hours. Thousands of them. He has studied the great potters of history from a distance, absorbing the Japanese conviction that form is everything, that the foot of a bowl is as considered as its lip, that restraint is not absence but precision. Two glazes define his current work: a deep forest teal, quiet and resolved, and a white ground shattered with brushed iron oxide \u2014 gestural, almost violent, every piece different from the last. He is drawn to that tension. The structure he controls completely. The glaze he releases.",
+      "He throws for hours at a stretch and keeps only what meets a standard he has not yet fully named. The rest goes back. He is twenty-four years old and already understands something that takes most makers decades to learn \u2014 that the pursuit of the perfect vessel is the work itself, and the day you stop being unsatisfied is the day you stop growing.",
+    ],
+    pullQuote: "The form I can control. The glaze I have to let go. That is where the piece becomes itself.",
+    method: [
+      "Wheel-thrown stoneware",
+      "Electric kiln firing to cone 6",
+      "Two signature glazes: forest teal and brushed iron oxide",
+      "Each piece trimmed and glazed by hand",
+      "Self-taught through thousands of hours at the wheel",
+    ],
+    materials: "Mid-fire stoneware clay, commercially sourced and hand-wedged. Two glaze families: a deep forest teal he has spent years refining, and a white base with brushed iron oxide that shatters unpredictably across the surface. No two pieces carry the same marks.",
+    accentColor: "#4a7a6a",
+    portraitGradient: "linear-gradient(145deg, #3a2e28 0%, #5c4a3a 40%, #2a2420 100%)",
+    portraitImage: "/images/NCHero.jpeg",
+    storyImages: [
+      "/images/NCprocess1.jpeg",
+      "/images/NCProcess4.jpeg",
+    ],
+    storyImageCaptions: [
+      "The form I can control. The glaze I have to let go. That is where the piece becomes itself.",
+      "I have thrown this shape a thousand times. I am still learning it.",
+    ],
+    bio: "Self-taught ceramicist working in wheel-thrown stoneware. Based in Phoenix, Arizona. Known for two signature glazes: a deep forest teal and a brushed iron oxide white.",
+    profileIntro: "Phoenix-based ceramicist who started throwing at seventeen and has not stopped. Self-taught through thousands of hours at the wheel. His work is defined by two glazes \u2014 a deep forest teal, quiet and resolved, and a white ground shattered with brushed iron oxide. He is twenty-four years old.",
   },
 ];
 
