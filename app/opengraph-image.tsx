@@ -17,31 +17,21 @@ export default async function Image() {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "#1a1816",
-          gap: 20,
         }}
       >
-        <div
-          style={{
-            color: "#f4efe8",
-            fontSize: 48,
-            fontWeight: 400,
-            letterSpacing: 10,
-          }}
-        >
-          FORM & ELEMENT
-        </div>
-        <div
-          style={{
-            color: "#f4efe8",
-            fontSize: 16,
-            letterSpacing: 4,
-            opacity: 0.45,
-          }}
-        >
-          HANDMADE OBJECTS BY MAKERS WHO CHOSE THIS LIFE
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ color: "#f4efe8", fontSize: 64 }}>
+            Form & Element
+          </div>
+          <div style={{ color: "#f4efe880", fontSize: 20, marginTop: 24 }}>
+            Handmade objects by makers who chose this life
+          </div>
         </div>
       </div>
     ),
-    { ...size }
+    {
+      width: 1200,
+      height: 630,
+    }
   );
 }
