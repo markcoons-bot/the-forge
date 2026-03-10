@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/data/products";
+import { makers } from "@/data/makers";
 import { SECTION_LABEL_LIGHT } from "@/lib/typography";
 
 interface ProductStripProps {
@@ -27,7 +28,9 @@ export default function ProductStrip({ products }: ProductStripProps) {
 
       <div className="studio-feed-scroll overflow-x-auto pb-4 px-6 md:px-10">
         <div className="flex gap-4 w-max">
-          {products.map((product) => (
+          {products.map((product) => {
+            const maker = makers.find((m) => m.slug === product.makerSlug);
+            return (
             <Link
               key={product.slug}
               href={`/shop/${product.slug}`}
@@ -40,7 +43,7 @@ export default function ProductStrip({ products }: ProductStripProps) {
                 />
                 <Image
                   src={product.image}
-                  alt={product.name}
+                  alt={`${product.name} by ${maker?.name || "unknown maker"} — handmade ${maker?.medium.toLowerCase() || "object"}`}
                   fill
                   className="object-cover transition-transform duration-700 ease-forge group-hover:scale-[1.04]"
                   sizes="220px"
@@ -53,7 +56,8 @@ export default function ProductStrip({ products }: ProductStripProps) {
                 {formatPrice(product.price, product.currency)}
               </p>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

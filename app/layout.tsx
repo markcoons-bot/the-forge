@@ -25,15 +25,53 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Form & Element — Handmade Objects by Makers Who Chose This Life",
+  metadataBase: new URL("https://formandelement.com"),
+  title: {
+    default: "Form & Element — Handmade Objects by Independent Makers",
+    template: "%s | Form & Element",
+  },
   description:
-    "A curated marketplace for handmade objects. Clay from dirt, lumber from trees, metal from fire, glass from sand and heat. Every object has a maker, a method, and a reason it exists.",
+    "A curated marketplace for handmade objects. Every piece made by hand, by makers who have given their lives to a single pursuit.",
+  keywords: [
+    "handmade",
+    "studio pottery",
+    "handcrafted objects",
+    "independent makers",
+    "artisan marketplace",
+    "handmade ceramics",
+    "studio glass",
+    "handmade woodwork",
+  ],
   icons: { icon: "/images/favicon.svg" },
   openGraph: {
-    title: "Form & Element — Handmade Objects by Makers Who Chose This Life",
-    description:
-      "A curated marketplace for handmade objects. Every object has a maker, a method, and a reason it exists.",
     type: "website",
+    locale: "en_US",
+    url: "https://formandelement.com",
+    siteName: "Form & Element",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Form & Element — Handmade Objects by Independent Makers",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Form & Element — Handmade Objects by Independent Makers",
+    description:
+      "A curated marketplace for handmade objects by independent makers.",
+    images: ["/images/og-default.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large" as const,
+    },
   },
 };
 

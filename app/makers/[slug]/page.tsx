@@ -28,9 +28,31 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const maker = getMaker(params.slug);
   if (!maker) return { title: "Maker Not Found — Form & Element" };
 
+  const heroImage = maker.profileHeroImage || maker.portraitImage;
+  const description = maker.story[0].slice(0, 155) + "...";
+
   return {
-    title: `${maker.name} — ${maker.medium} — Form & Element`,
-    description: maker.story[0],
+    title: `${maker.name} — ${maker.medium}, ${maker.location}`,
+    description,
+    openGraph: {
+      title: `${maker.name} | Form & Element`,
+      description,
+      url: `https://formandelement.com/makers/${maker.slug}`,
+      images: [
+        {
+          url: heroImage,
+          width: 1200,
+          height: 800,
+          alt: `${maker.name} — ${maker.medium} maker, ${maker.location}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${maker.name} | Form & Element`,
+      description,
+      images: [heroImage],
+    },
   };
 }
 
@@ -110,8 +132,51 @@ export default function MakerPage({ params }: PageProps) {
     .filter((item) => !usedImages.has(item.src))
     .slice(0, 9);
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: maker.name,
+    jobTitle: `${maker.medium} Maker`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: maker.location,
+    },
+    url: `https://formandelement.com/makers/${maker.slug}`,
+    image: heroImage,
+    description: maker.story[0],
+  };
+
+  const productJsonLd = makerProducts.map((product) => ({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: product.image,
+    description: `Handmade ${maker.medium.toLowerCase()} by ${maker.name}, ${maker.location}`,
+    brand: {
+      "@type": "Brand",
+      name: maker.name,
+    },
+    offers: {
+      "@type": "Offer",
+      price: product.price.toString(),
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+  }));
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      {productJsonLd.map((ld, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+        />
+      ))}
       <Navigation />
 
       {/* ═══════════════════════════════════════════════
@@ -124,7 +189,7 @@ export default function MakerPage({ params }: PageProps) {
         />
         <Image
           src={heroImage}
-          alt={`${maker.name} — ${maker.medium}`}
+          alt={`${maker.name} at work in the studio, ${maker.medium.toLowerCase()}, ${maker.location}`}
           fill
           className="object-cover"
           sizes="100vw"
@@ -215,7 +280,7 @@ export default function MakerPage({ params }: PageProps) {
       {maker.storyImages[0] && (
         <FullBleedImageWithCaption
           src={maker.storyImages[0]}
-          alt={`${maker.name} — process`}
+          alt={`${maker.name} — ${maker.medium.toLowerCase()} making process`}
           caption={maker.storyImageCaptions?.[0] || ""}
           position="right"
         />
@@ -223,7 +288,7 @@ export default function MakerPage({ params }: PageProps) {
       {maker.storyImages[1] && (
         <FullBleedImageWithCaption
           src={maker.storyImages[1]}
-          alt={`${maker.name} — craft`}
+          alt={`${maker.name} — ${maker.medium.toLowerCase()} craft in the studio`}
           caption={maker.storyImageCaptions?.[1] || ""}
           position="left"
         />

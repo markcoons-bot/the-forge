@@ -110,7 +110,7 @@ export default function Home() {
                 />
                 <Image
                   src={maker.portraitImage}
-                  alt={`${maker.name} — ${maker.medium}`}
+                  alt={`${maker.name} at work in the studio, ${maker.medium.toLowerCase()}, ${maker.location}`}
                   fill
                   className="object-cover"
                   sizes="100vw"
@@ -155,7 +155,7 @@ export default function Home() {
                               />
                               <Image
                                 src={product.image}
-                                alt={product.name}
+                                alt={`${product.name} by ${maker.name} — handmade ${maker.medium.toLowerCase()}`}
                                 fill
                                 className="object-cover"
                                 sizes="96px"

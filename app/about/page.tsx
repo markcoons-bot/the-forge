@@ -9,9 +9,9 @@ import {
 } from "@/lib/typography";
 
 export const metadata: Metadata = {
-  title: "About — Form & Element",
+  title: "About Form & Element",
   description:
-    "Why Form & Element exists. A marketplace built by a maker, for makers.",
+    "Form & Element is a curated marketplace for handmade objects. Invitation-only. Every piece made by hand.",
 };
 
 {/*

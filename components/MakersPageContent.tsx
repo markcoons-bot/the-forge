@@ -118,7 +118,7 @@ export default function MakersPageContent() {
                       />
                       <Image
                         src={maker.portraitImage}
-                        alt={`${maker.name} — ${maker.medium}`}
+                        alt={`${maker.name} at work in the studio, ${maker.medium.toLowerCase()}, ${maker.location}`}
                         fill
                         className="object-cover transition-transform duration-700 ease-forge group-hover:scale-[1.03]"
                         sizes="(max-width: 768px) 100vw, 42vw"
@@ -157,7 +157,7 @@ export default function MakersPageContent() {
                               />
                               <Image
                                 src={product.image}
-                                alt={product.name}
+                                alt={`${product.name} by ${maker.name} — handmade ${maker.medium.toLowerCase()}`}
                                 fill
                                 className="object-cover"
                                 sizes="160px"

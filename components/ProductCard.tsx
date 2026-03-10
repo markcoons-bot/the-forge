@@ -14,7 +14,8 @@ export default function ProductCard({
   variant = "light",
   showMaker = true,
 }: ProductCardProps) {
-  const maker = showMaker ? makers.find((m) => m.slug === product.makerSlug) : null;
+  const makerData = makers.find((m) => m.slug === product.makerSlug);
+  const maker = showMaker ? makerData : null;
   const isDark = variant === "dark";
 
   const formatPrice = (price: number, currency: string) => {
@@ -32,7 +33,7 @@ export default function ProductCard({
         />
         <Image
           src={product.image}
-          alt={product.name}
+          alt={`${product.name} by ${makerData?.name || "unknown maker"} — handmade ${makerData?.medium.toLowerCase() || "object"}`}
           fill
           className="product-card-image object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

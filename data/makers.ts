@@ -1,3 +1,13 @@
+/**
+ * SEO NOTE FOR FUTURE MAKERS:
+ * When adding a new maker, ensure:
+ * - story[0] is 155 characters or more (used as meta description)
+ * - heroImage path is correct and image is optimized (under 200kb)
+ * - slug matches the maker's actual name for URL readability
+ * - location is "City, Country/State" format
+ * - all studioImages and galleryImages have real files at those paths
+ */
+
 export interface Maker {
   slug: string;
   name: string;

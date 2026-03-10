@@ -4,9 +4,9 @@ import MakersPageContent from "@/components/MakersPageContent";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "The Makers — Form & Element",
+  title: "Independent Makers — Studio Pottery, Glass, Wood & More",
   description:
-    "Browse the makers of Form & Element. Ceramicists, woodworkers, blacksmiths, glassblowers, and fiber artists — each invited, each extraordinary.",
+    "Meet the makers behind Form & Element. Every maker is selected by hand. Every object made by theirs.",
 };
 
 export default function MakersPage() {

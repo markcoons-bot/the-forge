@@ -68,7 +68,15 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
             >
               <Image
                 src={item.src}
-                alt={`${item.maker} — ${item.medium}`}
+                alt={
+                  item.productName
+                    ? `${item.productName} by ${item.maker} — handmade ${item.medium.toLowerCase()}`
+                    : item.type === "process"
+                      ? `${item.maker} studio — ${item.medium.toLowerCase()} making process`
+                      : item.type === "material"
+                        ? `${item.maker} — ${item.medium.toLowerCase()} raw materials`
+                        : `${item.maker} at work in the studio, ${item.medium.toLowerCase()}`
+                }
                 fill
                 className="object-cover"
                 sizes={

@@ -117,7 +117,7 @@ export default function StudioFeed() {
                 {/* Photo */}
                 <Image
                   src={tile.image}
-                  alt={tile.caption}
+                  alt={`${tile.makerName} studio — ${tile.medium.toLowerCase()} making process`}
                   fill
                   className="object-cover transition-transform duration-700 ease-forge group-hover:scale-[1.06]"
                   sizes="300px"

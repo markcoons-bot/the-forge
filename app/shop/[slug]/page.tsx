@@ -75,7 +75,7 @@ export default function ProductPage({ params }: PageProps) {
                     />
                     <Image
                       src={img}
-                      alt={`${product.name}${index > 0 ? ` — view ${index + 1}` : ""}`}
+                      alt={`${product.name} by ${maker?.name || "unknown maker"} — handmade ${maker?.medium.toLowerCase() || "object"}${index > 0 ? `, view ${index + 1}` : ""}`}
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 58vw"

@@ -115,7 +115,7 @@ export default function ProductShowcase() {
                     />
                     <Image
                       src={product.image}
-                      alt={product.name}
+                      alt={`${product.name} by ${maker?.name || "unknown maker"} — handmade ${maker?.medium.toLowerCase() || "object"}`}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                       sizes="(max-width: 768px) 75vw, 300px"

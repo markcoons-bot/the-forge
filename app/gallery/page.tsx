@@ -6,9 +6,9 @@ import GalleryGrid from "@/components/GalleryGrid";
 import { galleryItems } from "@/data/gallery";
 
 export const metadata: Metadata = {
-  title: "Gallery — Form & Element",
+  title: "From the Studios — A Gallery of Making",
   description:
-    "The work, the process, the studio. A visual journey through the hands of our makers.",
+    "Process, objects, and studio life from the makers of Form & Element.",
 };
 
 export default function GalleryPage() {
