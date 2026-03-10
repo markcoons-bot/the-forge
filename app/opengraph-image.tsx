@@ -19,31 +19,29 @@ export default async function Image() {
           backgroundColor: "#1a1816",
         }}
       >
-        {/* Circle logo */}
-        <div
-          style={{
-            width: 120,
-            height: 120,
-            borderRadius: "50%",
-            border: "2.5px solid #f4efe8",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 40,
-          }}
+        {/* SVG circle logo */}
+        <svg
+          width="140"
+          height="140"
+          viewBox="0 0 400 400"
+          fill="none"
+          style={{ marginBottom: 44 }}
         >
-          <span
-            style={{
-              color: "#f4efe8",
-              fontSize: 38,
-              fontFamily: "Georgia, serif",
-              fontWeight: 500,
-              letterSpacing: 2,
-            }}
+          <circle cx="200" cy="200" r="175" stroke="#f4efe8" strokeWidth="5" />
+          <circle cx="200" cy="200" r="158" stroke="#f4efe8" strokeWidth="2.5" />
+          <text
+            x="200"
+            y="225"
+            fill="#f4efe8"
+            fontSize="105"
+            fontWeight="500"
+            fontFamily="Georgia, serif"
+            textAnchor="middle"
+            letterSpacing="4"
           >
-            F&E
-          </span>
-        </div>
+            F&amp;E
+          </text>
+        </svg>
 
         {/* Brand name */}
         <span
