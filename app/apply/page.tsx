@@ -107,19 +107,20 @@ export default function ApplyPage() {
     const { error } = await supabase.from("maker_applications").insert({
       name: formData.name,
       email: formData.email,
-      phone: formData.phone?.trim() || null,
-      website: formData.website?.trim() || null,
-      instagram: formData.instagram?.trim() || null,
+      phone: formData.phone?.trim() || "",
+      website: formData.website?.trim() || "",
+      instagram: formData.instagram?.trim() || "",
       country: formData.country,
       medium: formData.medium,
       years_practicing: formData.years,
       about_work: formData.about,
-      how_heard: formData.referral?.trim() || null,
+      how_heard: formData.referral?.trim() || "",
     });
 
     if (error) {
+      console.error("Supabase insert error:", JSON.stringify(error, null, 2));
       setSubmitStatus("error");
-      setSubmitError("Something went wrong. Please try again.");
+      setSubmitError(error.message || "Something went wrong. Please try again.");
     } else {
       setSubmitStatus("success");
     }
