@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
-import ProductCard from "@/components/ProductCard";
+import MakerProductGrid from "@/components/MakerProductGrid";
 import Footer from "@/components/Footer";
 import { makers, getMaker } from "@/data/makers";
 import { getProductsByMaker } from "@/data/products";
@@ -184,24 +184,7 @@ export default function MakerPage({ params }: PageProps) {
               </span>
             </ScrollReveal>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-8 md:gap-y-10">
-              {makerProducts.slice(0, 6).map((product, index) => (
-                <ScrollReveal key={product.slug} delay={index * 100}>
-                  <ProductCard product={product} variant="light" showMaker={false} />
-                </ScrollReveal>
-              ))}
-            </div>
-
-            {makerProducts.length > 6 && (
-              <div className="text-center mt-10 mb-2">
-                <Link
-                  href="/shop"
-                  className="font-sans text-[15px] font-normal text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
-                >
-                  View all pieces &rarr;
-                </Link>
-              </div>
-            )}
+            <MakerProductGrid products={makerProducts} />
           </div>
         </section>
       )}
