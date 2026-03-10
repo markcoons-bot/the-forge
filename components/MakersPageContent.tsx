@@ -20,13 +20,26 @@ const mediums = [
   "Wood",
 ] as const;
 
+function getLastName(name: string) {
+  const parts = name.trim().split(/\s+/);
+  return parts[parts.length - 1];
+}
+
 export default function MakersPageContent() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [sort, setSort] = useState<"az" | "medium">("az");
 
-  const filteredMakers =
+  const filteredMakers = (
     activeFilter === "All"
-      ? makers
-      : makers.filter((m) => m.medium === activeFilter);
+      ? [...makers]
+      : makers.filter((m) => m.medium === activeFilter)
+  ).sort((a, b) => {
+    if (sort === "medium") {
+      const mediumCmp = a.medium.localeCompare(b.medium);
+      if (mediumCmp !== 0) return mediumCmp;
+    }
+    return getLastName(a.name).localeCompare(getLastName(b.name));
+  });
 
   return (
     <section className="bg-forge-paper min-h-screen pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-10">
@@ -47,21 +60,38 @@ export default function MakersPageContent() {
           </div>
         </ScrollReveal>
 
-        {/* Filters */}
+        {/* Filters & Sort */}
         <ScrollReveal className="mb-12 md:mb-16">
-          <div className="overflow-x-auto -mx-6 md:mx-0">
-            <div className="flex gap-2 px-6 md:px-0 w-max md:w-auto md:flex-wrap">
-              {mediums.map((medium) => (
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="overflow-x-auto -mx-6 md:mx-0">
+              <div className="flex gap-2 px-6 md:px-0 w-max md:w-auto md:flex-wrap">
+                {mediums.map((medium) => (
+                  <button
+                    key={medium}
+                    onClick={() => setActiveFilter(medium)}
+                    className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
+                      activeFilter === medium
+                        ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
+                        : "text-forge-text/60 hover:text-forge-text/80 bg-transparent border-forge-text/20"
+                    }`}
+                  >
+                    {medium}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="flex gap-4 px-6 md:px-0">
+              {(["az", "medium"] as const).map((option) => (
                 <button
-                  key={medium}
-                  onClick={() => setActiveFilter(medium)}
-                  className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
-                    activeFilter === medium
-                      ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
-                      : "text-forge-text/60 hover:text-forge-text/80 bg-transparent border-forge-text/20"
+                  key={option}
+                  onClick={() => setSort(option)}
+                  className={`font-mono text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 ${
+                    sort === option
+                      ? "text-forge-text/80 underline underline-offset-4"
+                      : "text-forge-text/40 hover:text-forge-text/80"
                   }`}
                 >
-                  {medium}
+                  {option === "az" ? "A — Z" : "By Medium"}
                 </button>
               ))}
             </div>

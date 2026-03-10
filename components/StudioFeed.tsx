@@ -96,7 +96,7 @@ export default function StudioFeed() {
               </p>
             </div>
             <a
-              href="#"
+              href="/makers"
               className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300 shrink-0`}
             >
               Follow the makers <span>&rarr;</span>
@@ -153,7 +153,7 @@ export default function StudioFeed() {
       {/* Mobile "Follow" link */}
       <div className="px-6 md:hidden mt-6">
         <a
-          href="#"
+          href="/makers"
           className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300`}
         >
           Follow the makers <span>&rarr;</span>
