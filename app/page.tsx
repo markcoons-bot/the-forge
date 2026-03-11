@@ -69,9 +69,7 @@ export default function Home() {
         <div className="text-center px-6 md:px-10">
           <ScrollReveal>
             <p className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.8] text-forge-text/[0.7] max-w-2xl mx-auto mb-12 md:mb-16">
-              By someone who chose this life. Who chose time over speed. Who works
-              with clay from dirt, glass from sand and heat, wood from trees that
-              lived longer than the maker.
+              Clay. Sand. Wood. Fire. The oldest elements, shaped into form.
             </p>
           </ScrollReveal>
           <ScrollReveal>
