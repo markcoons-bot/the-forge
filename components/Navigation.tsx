@@ -1,42 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { NAV_LINK, NAV_LINK_MUTED } from "@/lib/typography";
+import { NAV_LINK } from "@/lib/typography";
 
 export default function Navigation() {
   const pathname = usePathname();
-  const isHomepage = pathname === "/";
-  const [visible, setVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const locked = useRef(false);
-
-  // Show nav on scroll (homepage) or immediately (other pages)
-  useEffect(() => {
-    if (!isHomepage) {
-      setVisible(true);
-      locked.current = true;
-      return;
-    }
-
-    const handleScroll = () => {
-      if (locked.current) return;
-
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
-
-      if (scrollY > viewportHeight * 0.85) {
-        setVisible(true);
-        locked.current = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHomepage]);
 
   // Close menu on route change
   useEffect(() => {
@@ -58,11 +29,7 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`nav-container fixed top-0 left-0 right-0 z-50 ${
-          visible
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+        className="nav-container fixed top-0 left-0 right-0 z-50 opacity-100 translate-y-0"
       >
         <div className="bg-forge-dark/80 backdrop-blur-md border-b border-white/5">
           <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
@@ -75,29 +42,29 @@ export default function Navigation() {
                 <circle cx="200" cy="200" r="158" stroke="#f4efe8" strokeWidth="2.5"/>
                 <text x="200" y="225" fill="#f4efe8" fontSize="105" fontWeight="500" fontFamily="Georgia, serif" textAnchor="middle" letterSpacing="4">F&amp;E</text>
               </svg>
-              <span className="hidden md:inline font-serif text-[15px] font-normal tracking-[0.16em] uppercase text-forge-paper/90">
+              <span className="hidden md:inline font-serif text-[15px] font-normal tracking-[0.16em] uppercase text-forge-paper">
                 Form &amp; Element
               </span>
             </Link>
 
             {/* Desktop links */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/makers" className={NAV_LINK_MUTED}>
+              <Link href="/makers" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
                 Makers
               </Link>
-              <Link href="/gallery" className={NAV_LINK_MUTED}>
+              <Link href="/gallery" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
                 Gallery
               </Link>
-              <Link href="/shop" className={NAV_LINK_MUTED}>
+              <Link href="/shop" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
                 Shop
               </Link>
-              <Link href="/about" className={NAV_LINK_MUTED}>
+              <Link href="/about" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
                 About
               </Link>
               <span className="w-px h-4 bg-forge-paper/15" />
               <Link
                 href="/apply"
-                className={`${NAV_LINK} text-forge-paper/80 hover:text-forge-paper transition-colors duration-300`}
+                className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}
               >
                 For Makers &rarr;
               </Link>
