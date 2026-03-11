@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --forge-dark: #1a1816;
+  --forge-dark: #1E1C1A;
   --forge-paper: #f4efe8;
   --forge-text: #2a2520;
   --forge-accent: #a89070;
@@ -226,7 +226,7 @@ body {
   padding: 0.875rem 2rem;
   border: 1px solid rgba(168, 144, 112, 0.4);
   color: var(--forge-accent);
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-tenor), sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -248,7 +248,7 @@ body {
   padding: 1rem 2.5rem;
   background: var(--forge-text);
   color: var(--forge-paper);
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-tenor), sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;

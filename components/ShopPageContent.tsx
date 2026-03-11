@@ -46,7 +46,7 @@ export default function ShopPageContent() {
               <h1 className={`${H1_PAGE} text-forge-text mb-4`}>
                 Objects worth owning
               </h1>
-              <p className={`${BODY} text-forge-text/60 max-w-lg`}>
+              <p className={`${BODY} text-forge-text max-w-lg`}>
                 Every object here was chosen. Every maker was invited. The work
                 deserves to be seen properly.
               </p>
@@ -55,7 +55,7 @@ export default function ShopPageContent() {
 
           {/* Filters */}
           <ScrollReveal className="mb-12 md:mb-16">
-            <p className="font-mono text-[11px] font-normal tracking-[0.15em] uppercase text-forge-text/40 mb-3">
+            <p className="font-sans text-[11px] font-normal tracking-[0.15em] uppercase text-forge-text mb-3">
               Elements
             </p>
             <div className="overflow-x-auto -mx-6 md:mx-0">
@@ -64,10 +64,10 @@ export default function ShopPageContent() {
                   <button
                     key={medium}
                     onClick={() => setActiveFilter(medium)}
-                    className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
+                    className={`shrink-0 font-sans text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
                       activeFilter === medium
                         ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
-                        : "text-forge-text/60 hover:text-forge-text/80 bg-transparent border-forge-text/20"
+                        : "text-forge-text hover:text-forge-text bg-transparent border-forge-text/20"
                     }`}
                   >
                     {medium}
@@ -88,7 +88,7 @@ export default function ShopPageContent() {
 
           {filteredProducts.length === 0 && (
             <div className="text-center py-20">
-              <p className={`${BODY} text-forge-text/40`}>
+              <p className={`${BODY} text-forge-text`}>
                 No objects in this medium yet. Check back soon.
               </p>
             </div>

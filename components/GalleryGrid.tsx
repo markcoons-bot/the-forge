@@ -89,7 +89,7 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
               {/* Persistent bottom overlay — mobile */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 md:hidden">
                 <p className="font-serif text-[15px] font-light text-white leading-tight">{item.maker}</p>
-                <p className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-white/70">{item.medium}</p>
+                <p className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-white">{item.medium}</p>
               </div>
 
               {/* Hover overlay — desktop only */}
@@ -97,16 +97,16 @@ export default function GalleryGrid({ items, columns = 3 }: GalleryGridProps) {
                 <p className="font-serif text-[18px] font-light text-forge-paper">
                   {item.maker}
                 </p>
-                <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-forge-paper/70 mt-1">
+                <p className="font-sans text-[13px] font-normal tracking-[0.12em] uppercase text-forge-paper mt-1">
                   {item.medium}
                 </p>
                 {item.productName && (
                   <>
-                    <p className="font-sans text-[15px] font-light text-forge-paper/80 mt-3">
+                    <p className="font-sans text-[15px] font-normal text-forge-paper mt-3">
                       {item.productName}
                     </p>
                     {item.productPrice && (
-                      <p className="font-sans text-[15px] font-medium text-forge-paper/70 mt-1">
+                      <p className="font-sans text-[15px] font-medium text-forge-paper mt-1">
                         {item.productPrice}
                       </p>
                     )}

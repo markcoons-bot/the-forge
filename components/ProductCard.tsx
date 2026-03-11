@@ -41,10 +41,10 @@ export default function ProductCard({
         {/* Status badge */}
         <div className="absolute top-4 left-4 z-10">
           <span
-            className={`font-mono text-[12px] md:text-[13px] font-normal tracking-[0.1em] uppercase px-2 py-1 ${
+            className={`font-sans text-[12px] md:text-[13px] font-normal tracking-[0.1em] uppercase px-2 py-1 ${
               isDark
-                ? "text-forge-paper/75 bg-forge-dark/40"
-                : "text-forge-text/60 bg-forge-paper/60"
+                ? "text-forge-paper bg-forge-dark/40"
+                : "text-forge-text bg-forge-paper/60"
             } backdrop-blur-sm`}
           >
             {product.status}
@@ -65,7 +65,7 @@ export default function ProductCard({
           {maker && (
             <p
               className={`font-sans text-[15px] font-normal mt-0.5 ${
-                isDark ? "text-forge-paper/75" : "text-forge-text/80"
+                isDark ? "text-forge-paper" : "text-forge-text"
               }`}
             >
               {maker.name}
@@ -74,7 +74,7 @@ export default function ProductCard({
         </div>
         <p
           className={`font-sans text-[14px] md:text-[16px] font-medium shrink-0 ${
-            isDark ? "text-forge-paper/90" : "text-forge-text"
+            isDark ? "text-forge-paper" : "text-forge-text"
           }`}
         >
           {formatPrice(product.price, product.currency)}

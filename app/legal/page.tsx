@@ -19,7 +19,7 @@ const subHeadingClass =
   "font-sans text-[18px] font-semibold text-forge-text mt-8 mb-3";
 
 const bodyClass =
-  "font-sans text-[17px] font-light leading-[1.75] text-forge-text/[0.85] mb-6";
+  "font-serif text-[18px] font-normal leading-[1.8] text-forge-text mb-6";
 
 export default function LegalPage() {
   return (
@@ -35,7 +35,7 @@ export default function LegalPage() {
           <h1 className={`${H1_PAGE} text-forge-text mb-4`}>
             Terms, Privacy &amp; Maker Agreement
           </h1>
-          <p className="font-sans text-[16px] font-light italic text-forge-text/[0.55]">
+          <p className="font-sans text-[16px] font-normal text-forge-text">
             These documents are drafts under review. Last updated: March 2026.
           </p>
 
@@ -43,21 +43,21 @@ export default function LegalPage() {
           <div className="flex items-center gap-3 mt-6 flex-wrap">
             <a
               href="#terms"
-              className="font-sans text-[14px] font-normal text-forge-text/[0.55] hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+              className="font-sans text-[14px] font-normal text-forge-text hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
             >
               Terms of Service
             </a>
-            <span className="text-forge-text/20">|</span>
+            <span className="text-forge-text">|</span>
             <a
               href="#privacy"
-              className="font-sans text-[14px] font-normal text-forge-text/[0.55] hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+              className="font-sans text-[14px] font-normal text-forge-text hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
             >
               Privacy Policy
             </a>
-            <span className="text-forge-text/20">|</span>
+            <span className="text-forge-text">|</span>
             <a
               href="#maker-agreement"
-              className="font-sans text-[14px] font-normal text-forge-text/[0.55] hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+              className="font-sans text-[14px] font-normal text-forge-text hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
             >
               Maker Agreement
             </a>

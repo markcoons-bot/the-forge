@@ -57,7 +57,7 @@ export default function ProductPage({ params }: PageProps) {
           <ScrollReveal variant="fade-in" className="mb-12">
             <Link
               href="/shop"
-              className="font-sans text-[14px] font-normal text-forge-text/[0.55] hover:text-forge-text/[0.85] transition-colors duration-300"
+              className="font-sans text-[14px] font-normal text-forge-text hover:text-forge-text transition-colors duration-300"
             >
               &larr; Back to shop
             </Link>
@@ -89,7 +89,7 @@ export default function ProductPage({ params }: PageProps) {
             {/* Details — 5 of 12 columns */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               <ScrollReveal delay={100}>
-                <p className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/50 mb-4">
+                <p className="font-sans text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text mb-4">
                   {product.status}
                   {product.leadTime && (
                     <span>
@@ -104,7 +104,7 @@ export default function ProductPage({ params }: PageProps) {
                 </h1>
 
                 {maker && (
-                  <p className="font-sans text-[16px] font-light text-forge-text/[0.55] mb-6">
+                  <p className="font-sans text-[16px] font-normal text-forge-text mb-6">
                     From the studio of{" "}
                     <Link
                       href={`/makers/${maker.slug}`}
@@ -126,7 +126,7 @@ export default function ProductPage({ params }: PageProps) {
                   <p className={`${SECTION_LABEL_LIGHT} label-line mb-3`}>
                     Curator&apos;s Note
                   </p>
-                  <p className="font-sans text-[17px] font-light leading-[1.75] text-forge-text/80">
+                  <p className="font-serif text-[18px] font-normal leading-[1.8] text-forge-text">
                     {product.curatorNote}
                   </p>
                 </div>
@@ -136,26 +136,26 @@ export default function ProductPage({ params }: PageProps) {
               <ScrollReveal delay={350}>
                 <div className="space-y-0 mb-10">
                   <div className="flex items-start gap-6 py-4 border-b border-forge-text/10">
-                    <span className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text/[0.45] w-24 shrink-0 pt-0.5">
+                    <span className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text w-24 shrink-0 pt-0.5">
                       Materials
                     </span>
-                    <p className="font-sans text-[16px] font-light text-forge-text/80">
+                    <p className="font-sans text-[16px] font-normal text-forge-text">
                       {product.materials}
                     </p>
                   </div>
                   <div className="flex items-start gap-6 py-4 border-b border-forge-text/10">
-                    <span className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text/[0.45] w-24 shrink-0 pt-0.5">
+                    <span className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text w-24 shrink-0 pt-0.5">
                       Dimensions
                     </span>
-                    <p className="font-sans text-[16px] font-light text-forge-text/80">
+                    <p className="font-sans text-[16px] font-normal text-forge-text">
                       {product.dimensions}
                     </p>
                   </div>
                   <div className="flex items-start gap-6 py-4 border-b border-forge-text/10">
-                    <span className="font-mono text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text/[0.45] w-24 shrink-0 pt-0.5">
+                    <span className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-forge-text w-24 shrink-0 pt-0.5">
                       Care
                     </span>
-                    <p className="font-sans text-[16px] font-light text-forge-text/80">
+                    <p className="font-sans text-[16px] font-normal text-forge-text">
                       {product.care}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ export default function ProductPage({ params }: PageProps) {
 
               {/* Add to Cart — desktop */}
               <ScrollReveal delay={400}>
-                <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-mono text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
+                <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
                   Add to cart
                 </button>
               </ScrollReveal>
@@ -175,7 +175,7 @@ export default function ProductPage({ params }: PageProps) {
 
       {/* Sticky Add to Cart — mobile/tablet only */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forge-paper/95 backdrop-blur-md border-t border-forge-text/10 px-6 py-4">
-        <button className="w-full py-[18px] bg-forge-text text-forge-paper font-mono text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
+        <button className="w-full py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
           Add to cart &mdash; {formatPrice(product.price, product.currency)}
         </button>
       </div>

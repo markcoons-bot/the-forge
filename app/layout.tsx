@@ -1,26 +1,19 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, Tenor_Sans } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["300", "400"],
+  style: ["normal"],
   variable: "--font-cormorant",
   display: "swap",
 });
 
-const outfit = Outfit({
+const tenor = Tenor_Sans({
   subsets: ["latin"],
-  weight: ["200", "300", "400"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  variable: "--font-jetbrains",
+  weight: ["400"],
+  variable: "--font-tenor",
   display: "swap",
 });
 
@@ -83,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${outfit.variable} ${jetbrains.variable} font-sans antialiased`}
+        className={`${cormorant.variable} ${tenor.variable} font-sans antialiased`}
       >
         <div className="film-grain" aria-hidden="true" />
         {children}

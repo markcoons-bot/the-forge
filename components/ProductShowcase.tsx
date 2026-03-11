@@ -60,7 +60,7 @@ export default function ProductShowcase() {
           <span className={`${SECTION_LABEL_LIGHT} label-line mb-2`}>
             New Forms
           </span>
-          <p className="font-sans text-[16px] font-light text-forge-text/60 mt-2">
+          <p className="font-sans text-[16px] font-normal text-forge-text mt-2">
             From the studios of our makers
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function ProductShowcase() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => scroll("left")}
-            className="w-9 h-9 rounded-full border border-forge-text/15 flex items-center justify-center text-forge-text/40 hover:text-forge-text/70 hover:border-forge-text/30 transition-all duration-300"
+            className="w-9 h-9 rounded-full border border-forge-text/15 flex items-center justify-center text-forge-text hover:text-forge-text hover:border-forge-text/30 transition-all duration-300"
             aria-label="Scroll left"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -78,7 +78,7 @@ export default function ProductShowcase() {
           </button>
           <button
             onClick={() => scroll("right")}
-            className="w-9 h-9 rounded-full border border-forge-text/15 flex items-center justify-center text-forge-text/40 hover:text-forge-text/70 hover:border-forge-text/30 transition-all duration-300"
+            className="w-9 h-9 rounded-full border border-forge-text/15 flex items-center justify-center text-forge-text hover:text-forge-text hover:border-forge-text/30 transition-all duration-300"
             aria-label="Scroll right"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -124,7 +124,7 @@ export default function ProductShowcase() {
                     {/* Maker name on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                      <p className="font-mono text-[13px] font-normal tracking-[0.12em] uppercase text-white/80">
+                      <p className="font-sans text-[13px] font-normal tracking-[0.12em] uppercase text-white">
                         {maker?.name}
                       </p>
                     </div>

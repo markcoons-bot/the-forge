@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         forge: {
-          dark: "#1a1816",
+          dark: "#1E1C1A",
           paper: "#f4efe8",
           text: "#2a2520",
           accent: "#a89070",
@@ -19,8 +19,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-cormorant)", "Cormorant Garamond", "serif"],
-        sans: ["var(--font-outfit)", "Outfit", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-tenor)", "Tenor Sans", "sans-serif"],
       },
       maxWidth: {
         prose: "700px",

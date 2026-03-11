@@ -59,7 +59,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 function renderWithEmphasis(text: string) {
   const parts = text.split(/\*([^*]+)\*/g);
   return parts.map((part, i) =>
-    i % 2 === 1 ? <em key={i} className="italic">{part}</em> : part
+    i % 2 === 1 ? <em key={i} className="font-medium">{part}</em> : part
   );
 }
 
@@ -96,7 +96,7 @@ function FullBleedImageWithCaption({
             <blockquote
               className={`absolute bottom-10 ${
                 isRight ? "right-8 md:right-16 text-right" : "left-8 md:left-16 text-left"
-              } font-serif italic text-[20px] md:text-[26px] leading-[1.4] text-white/80 max-w-xs md:max-w-sm`}
+              } font-serif text-[20px] md:text-[26px] leading-[1.4] text-white max-w-xs md:max-w-sm`}
             >
               &ldquo;{caption}&rdquo;
             </blockquote>
@@ -198,7 +198,7 @@ export default function MakerPage({ params }: PageProps) {
         <div className="maker-portrait-overlay absolute inset-0" />
 
         <div className="relative z-10 p-5 md:p-16 pb-12 md:pb-24 text-shadow-hero">
-          <p className={`${SECTION_LABEL} text-forge-paper/75 mb-6`}>
+          <p className={`${SECTION_LABEL} text-forge-paper mb-6`}>
             {maker.medium} &mdash; {maker.location}
           </p>
           <h1
@@ -208,10 +208,10 @@ export default function MakerPage({ params }: PageProps) {
             {maker.name}
           </h1>
           <div className="relative max-w-2xl overflow-hidden">
-            <span className="font-serif text-[80px] md:text-[200px] leading-none text-forge-paper/[0.3] absolute -top-[40px] md:-top-[110px] left-0 md:-left-[20px] select-none pointer-events-none" aria-hidden="true">
+            <span className="font-serif text-[80px] md:text-[200px] leading-none text-forge-paper absolute -top-[40px] md:-top-[110px] left-0 md:-left-[20px] select-none pointer-events-none" aria-hidden="true">
               &ldquo;
             </span>
-            <blockquote className="font-serif text-[20px] md:text-[28px] font-light italic leading-[1.3] text-forge-paper relative z-10">
+            <blockquote className="font-serif text-[20px] md:text-[28px] font-light leading-[1.3] text-forge-paper relative z-10">
               &ldquo;{maker.quote}&rdquo;
             </blockquote>
           </div>
@@ -229,7 +229,7 @@ export default function MakerPage({ params }: PageProps) {
         <section className="bg-forge-paper pb-2 md:pb-3 pt-8 md:pt-12 px-6 md:px-10">
           <div className="max-w-[680px] mx-auto">
             <ScrollReveal>
-              <p className="font-serif text-[20px] md:text-[26px] font-normal italic leading-[1.5] text-forge-text/[0.75] text-center">
+              <p className="font-serif text-[20px] md:text-[26px] font-normal leading-[1.5] text-forge-text text-center">
                 {maker.openingStatement}
               </p>
             </ScrollReveal>
@@ -263,7 +263,7 @@ export default function MakerPage({ params }: PageProps) {
             {maker.story.map((paragraph, index) => (
               <p
                 key={index}
-                className={`font-sans text-[17px] md:text-[19px] font-light leading-[1.85] text-forge-text/80${
+                className={`font-serif text-[18px] md:text-[19px] font-normal leading-[1.8] text-forge-text${
                   index < maker.story.length - 1 ? " mb-8" : ""
                 }`}
               >
@@ -317,13 +317,13 @@ export default function MakerPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between gap-4">
           <Link
             href="/"
-            className="font-mono text-[13px] tracking-[0.15em] uppercase text-forge-paper/40 hover:text-forge-paper/80 transition-colors duration-300"
+            className="font-sans text-[13px] tracking-[0.15em] uppercase text-forge-paper hover:text-forge-paper transition-colors duration-300"
           >
             &larr; Back to Home
           </Link>
           <Link
             href="/shop"
-            className="font-mono text-[13px] tracking-[0.15em] uppercase text-forge-paper/40 hover:text-forge-paper/80 transition-colors duration-300"
+            className="font-sans text-[13px] tracking-[0.15em] uppercase text-forge-paper hover:text-forge-paper transition-colors duration-300"
           >
             Visit the shop &rarr;
           </Link>

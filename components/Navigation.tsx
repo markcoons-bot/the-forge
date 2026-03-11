@@ -31,7 +31,7 @@ export default function Navigation() {
       <nav
         className="nav-container fixed top-0 left-0 right-0 z-50 opacity-100 translate-y-0"
       >
-        <div className="bg-forge-dark/80 backdrop-blur-md border-b border-white/5">
+        <div className="bg-forge-dark border-b border-white/5">
           <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
             <Link
               href="/"
@@ -49,22 +49,22 @@ export default function Navigation() {
 
             {/* Desktop links */}
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/makers" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
+              <Link href="/makers" className={`${NAV_LINK} text-white hover:text-white transition-colors duration-300`}>
                 Makers
               </Link>
-              <Link href="/gallery" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
+              <Link href="/gallery" className={`${NAV_LINK} text-white hover:text-white transition-colors duration-300`}>
                 Gallery
               </Link>
-              <Link href="/shop" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
+              <Link href="/shop" className={`${NAV_LINK} text-white hover:text-white transition-colors duration-300`}>
                 Shop
               </Link>
-              <Link href="/about" className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}>
+              <Link href="/about" className={`${NAV_LINK} text-white hover:text-white transition-colors duration-300`}>
                 About
               </Link>
               <span className="w-px h-4 bg-forge-paper/15" />
               <Link
                 href="/apply"
-                className={`${NAV_LINK} text-forge-paper hover:text-forge-paper/70 transition-colors duration-300`}
+                className={`${NAV_LINK} text-white hover:text-white transition-colors duration-300`}
               >
                 For Makers &rarr;
               </Link>
@@ -107,28 +107,28 @@ export default function Navigation() {
           <Link
             href="/makers"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper hover:text-forge-paper transition-colors duration-300"
           >
             Makers
           </Link>
           <Link
             href="/gallery"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper hover:text-forge-paper transition-colors duration-300"
           >
             Gallery
           </Link>
           <Link
             href="/shop"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper hover:text-forge-paper transition-colors duration-300"
           >
             Shop
           </Link>
           <Link
             href="/about"
             onClick={() => setMenuOpen(false)}
-            className="font-serif text-[32px] font-normal text-forge-paper/90 hover:text-forge-paper transition-colors duration-300"
+            className="font-serif text-[32px] font-normal text-forge-paper hover:text-forge-paper transition-colors duration-300"
           >
             About
           </Link>
@@ -136,7 +136,7 @@ export default function Navigation() {
           <Link
             href="/apply"
             onClick={() => setMenuOpen(false)}
-            className={`${NAV_LINK} text-forge-paper/50 hover:text-forge-paper transition-colors duration-300`}
+            className={`${NAV_LINK} text-forge-paper hover:text-forge-paper transition-colors duration-300`}
           >
             For Makers &rarr;
           </Link>

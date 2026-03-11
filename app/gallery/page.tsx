@@ -20,10 +20,10 @@ export default function GalleryPage() {
       <section className="pt-32 md:pt-40 pb-10 md:pb-14 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal>
-            <h1 className="font-serif text-[32px] md:text-[44px] font-normal leading-[1.2] text-forge-paper/[0.95] mb-4">
+            <h1 className="font-serif text-[32px] md:text-[44px] font-normal leading-[1.2] text-forge-paper mb-4">
               Gallery
             </h1>
-            <p className="font-sans text-[16px] font-light leading-[1.9] text-forge-paper/[0.65]">
+            <p className="font-serif text-[18px] font-normal leading-[1.8] text-forge-paper">
               Form, process, studio. Click anything that stops you.
             </p>
           </ScrollReveal>

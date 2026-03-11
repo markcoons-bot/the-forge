@@ -53,7 +53,7 @@ export default function MakersPageContent() {
             <h1 className={`${H1_PAGE} text-forge-text mb-4`}>
               The people behind the work
             </h1>
-            <p className={`${BODY} text-forge-text/60 max-w-lg`}>
+            <p className={`${BODY} text-forge-text max-w-lg`}>
               Every maker here was invited. Every story is real. The work
               speaks for itself.
             </p>
@@ -69,10 +69,10 @@ export default function MakersPageContent() {
                   <button
                     key={medium}
                     onClick={() => setActiveFilter(medium)}
-                    className={`shrink-0 font-mono text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
+                    className={`shrink-0 font-sans text-[13px] font-normal tracking-[0.1em] uppercase px-5 py-3 md:py-2.5 border transition-all duration-300 ${
                       activeFilter === medium
                         ? "bg-forge-text text-forge-paper border-forge-text underline underline-offset-4"
-                        : "text-forge-text/60 hover:text-forge-text/80 bg-transparent border-forge-text/20"
+                        : "text-forge-text hover:text-forge-text bg-transparent border-forge-text/20"
                     }`}
                   >
                     {medium}
@@ -85,10 +85,10 @@ export default function MakersPageContent() {
                 <button
                   key={option}
                   onClick={() => setSort(option)}
-                  className={`font-mono text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 ${
+                  className={`font-sans text-[13px] tracking-[0.15em] uppercase transition-colors duration-300 ${
                     sort === option
-                      ? "text-forge-text/80 underline underline-offset-4"
-                      : "text-forge-text/40 hover:text-forge-text/80"
+                      ? "text-forge-text underline underline-offset-4"
+                      : "text-forge-text hover:text-forge-text"
                   }`}
                 >
                   {option === "az" ? "A — Z" : "By Medium"}
@@ -128,16 +128,16 @@ export default function MakersPageContent() {
 
                   {/* Details — right 7 cols */}
                   <div className="md:col-span-7 flex flex-col justify-center">
-                    <p className={`${SECTION_LABEL} text-forge-text/60 mb-3`}>
+                    <p className={`${SECTION_LABEL} text-forge-text mb-3`}>
                       {maker.medium} &mdash; {maker.location}
                     </p>
                     <h2 className="font-serif text-[28px] md:text-[32px] font-light leading-[1.3] text-forge-text mb-4">
                       {maker.name}
                     </h2>
-                    <blockquote className="font-serif text-[18px] md:text-[20px] font-light italic leading-[1.3] text-forge-text/70 mb-4">
+                    <blockquote className="font-serif text-[18px] md:text-[20px] font-light leading-[1.3] text-forge-text mb-4">
                       &ldquo;{maker.quote}&rdquo;
                     </blockquote>
-                    <p className="font-sans text-[16px] font-light leading-[1.9] text-forge-text/70 line-clamp-3 mb-6">
+                    <p className="font-serif text-[16px] md:text-[18px] font-normal leading-[1.7] text-forge-text line-clamp-3 mb-6">
                       {maker.story[0].replace(/\*([^*]+)\*/g, "$1")}
                     </p>
 
@@ -170,7 +170,7 @@ export default function MakersPageContent() {
 
                     <Link
                       href={`/makers/${maker.slug}`}
-                      className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-text/60 hover:text-forge-text underline underline-offset-4 decoration-forge-text/30 transition-colors duration-300"
+                      className="font-sans text-[14px] font-normal tracking-[0.15em] text-forge-text hover:text-forge-text underline underline-offset-4 decoration-forge-text/30 transition-colors duration-300"
                     >
                       View full profile &rarr;
                     </Link>
@@ -183,7 +183,7 @@ export default function MakersPageContent() {
 
         {filteredMakers.length === 0 && (
           <div className="text-center py-20">
-            <p className={`${BODY} text-forge-text/40`}>
+            <p className={`${BODY} text-forge-text`}>
               No makers in this medium yet. Check back soon.
             </p>
           </div>

@@ -17,7 +17,7 @@ export default function MakerProductGrid({ products }: { products: Product[] }) 
       {hasMore && page > 0 && (
         <button
           onClick={() => setPage(page - 1)}
-          className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 font-sans text-[13px] text-forge-text/30 hover:text-forge-text/60 transition-colors duration-300 z-10"
+          className="absolute -left-4 md:-left-8 top-1/2 -translate-y-1/2 font-sans text-[13px] text-forge-text hover:text-forge-text transition-colors duration-300 z-10"
           aria-label="Previous products"
         >
           &larr;
@@ -35,7 +35,7 @@ export default function MakerProductGrid({ products }: { products: Product[] }) 
       {hasMore && page < totalPages - 1 && (
         <button
           onClick={() => setPage(page + 1)}
-          className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 font-sans text-[13px] text-forge-text/30 hover:text-forge-text/60 transition-colors duration-300 z-10"
+          className="absolute -right-4 md:-right-8 top-1/2 -translate-y-1/2 font-sans text-[13px] text-forge-text hover:text-forge-text transition-colors duration-300 z-10"
           aria-label="More products"
         >
           &rarr;

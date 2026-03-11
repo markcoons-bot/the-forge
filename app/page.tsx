@@ -35,12 +35,12 @@ export default function Home() {
               style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
             >
               Everything here was made{" "}
-              <em className="italic">by hand.</em>
+              <span>by hand.</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal immediate delay={250}>
             <p
-              className="font-serif italic font-light text-forge-paper/90 mb-8"
+              className="font-serif font-light text-forge-paper mb-8"
               style={{ fontSize: "clamp(16px, 2.5vw, 24px)" }}
             >
               A curated marketplace for handmade objects and the people who make them.
@@ -50,7 +50,7 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <ScrollReveal variant="fade-in" immediate delay={1000} className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-          <span className={`${SECTION_LABEL} text-forge-paper/50`}>
+          <span className={`${SECTION_LABEL} text-forge-paper`}>
             Scroll
           </span>
           <div className="w-px h-12 bg-forge-paper/20 animate-scroll-line" />
@@ -65,16 +65,11 @@ export default function Home() {
         "What is the most beautiful thing you have ever ruined?"
         Sub-line: "Toil. Frustration. Mistakes. That ultimately craft the work."
       */}
-      <section className="bg-forge-paper pt-16 md:pt-24">
+      <section className="bg-forge-paper pt-20 md:pt-28">
         <div className="text-center px-6 md:px-10">
           <ScrollReveal>
-            <p className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.8] text-forge-text/[0.7] max-w-2xl mx-auto mb-12 md:mb-16">
-              Clay. Sand. Wood. Fire. The oldest elements, shaped into form.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal>
-            <p className="font-serif text-[32px] md:text-[52px] font-normal leading-[1.2] text-forge-text">
-              The work speaks for itself.
+            <p className="font-serif text-[32px] md:text-[48px] font-light leading-[1.3] text-forge-text max-w-xl mx-auto">
+              Clay. Sand. Wood. Fire. Element becomes form.
             </p>
           </ScrollReveal>
         </div>
@@ -89,15 +84,15 @@ export default function Home() {
 
         <ScrollReveal variant="fade-in">
           <nav className="flex items-center justify-center gap-4 md:gap-6 pt-2 md:pt-4 pb-14 md:pb-20">
-            <Link href="/shop" className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/75 hover:text-[#A0785A] transition-colors duration-300">
+            <Link href="/shop" className="font-sans text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text hover:text-[#A0785A] transition-colors duration-300">
               Browse the Shop &rarr;
             </Link>
-            <span className="text-forge-text/20 text-[13px]">&middot;</span>
-            <Link href="/gallery" className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/75 hover:text-[#A0785A] transition-colors duration-300">
+            <span className="text-forge-text text-[13px]">&middot;</span>
+            <Link href="/gallery" className="font-sans text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text hover:text-[#A0785A] transition-colors duration-300">
               Explore the Gallery &rarr;
             </Link>
-            <span className="text-forge-text/20 text-[13px]">&middot;</span>
-            <Link href="/makers" className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/75 hover:text-[#A0785A] transition-colors duration-300">
+            <span className="text-forge-text text-[13px]">&middot;</span>
+            <Link href="/makers" className="font-sans text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text hover:text-[#A0785A] transition-colors duration-300">
               Meet the Makers &rarr;
             </Link>
           </nav>
@@ -148,17 +143,17 @@ export default function Home() {
                 >
                   <ScrollReveal delay={index * 150}>
                     <div className={`max-w-xl ${index % 2 === 0 ? "" : "md:text-right"}`}>
-                      <p className={`${SECTION_LABEL} text-forge-paper/75 mb-4`}>
+                      <p className={`${SECTION_LABEL} text-forge-paper mb-4`}>
                         {maker.medium} &mdash; {maker.location}
                       </p>
-                      <blockquote className="font-serif text-[24px] md:text-[38px] font-light italic leading-[1.3] text-forge-paper mb-6">
+                      <blockquote className="font-serif text-[24px] md:text-[38px] font-normal leading-[1.3] text-forge-paper mb-6">
                         &ldquo;{maker.quote}&rdquo;
                       </blockquote>
                       <div className="flex items-center gap-4">
                         <span className="font-sans text-[18px] md:text-[24px] font-normal text-white">
                           {maker.name}
                         </span>
-                        <span className="font-sans text-[14px] font-normal tracking-[0.04em] text-forge-paper/70 group-hover:text-forge-paper transition-all duration-500 ease-forge">
+                        <span className="font-sans text-[14px] font-normal tracking-[0.15em] text-forge-paper group-hover:text-forge-paper transition-all duration-500 ease-forge">
                           Enter studio &rarr;
                         </span>
                       </div>
@@ -199,12 +194,12 @@ export default function Home() {
       {/* Transition — after maker portraits */}
       <section className="bg-forge-paper pt-14 md:pt-20 pb-7 md:pb-10 px-6 md:px-10">
         <ScrollReveal variant="fade-in" className="text-center">
-          <p className="font-serif text-[26px] font-normal italic leading-[1.4] text-forge-text/[0.85] mb-6">
+          <p className="font-serif text-[26px] font-normal leading-[1.4] text-forge-text mb-6">
             Every maker here was invited. Every object was chosen.
           </p>
           <Link
             href="/shop"
-            className="font-sans text-[15px] font-light text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
+            className="font-sans text-[15px] font-normal text-forge-text hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
           >
             Shop the collection &rarr;
           </Link>
