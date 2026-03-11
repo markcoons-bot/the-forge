@@ -38,9 +38,9 @@ export default function Navigation() {
               className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-300"
             >
               <svg width="28" height="28" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-                <circle cx="200" cy="200" r="175" stroke="#f4efe8" strokeWidth="5"/>
-                <circle cx="200" cy="200" r="158" stroke="#f4efe8" strokeWidth="2.5"/>
-                <text x="200" y="225" fill="#f4efe8" fontSize="105" fontWeight="500" fontFamily="Georgia, serif" textAnchor="middle" letterSpacing="4">F&amp;E</text>
+                <circle cx="200" cy="200" r="175" stroke="#ffffff" strokeWidth="5"/>
+                <circle cx="200" cy="200" r="158" stroke="#ffffff" strokeWidth="2.5"/>
+                <text x="200" y="225" fill="#ffffff" fontSize="105" fontWeight="500" fontFamily="Georgia, serif" textAnchor="middle" letterSpacing="4">F&amp;E</text>
               </svg>
               <span className="hidden md:inline font-serif text-[15px] font-normal tracking-[0.16em] uppercase text-forge-paper">
                 Form &amp; Element
