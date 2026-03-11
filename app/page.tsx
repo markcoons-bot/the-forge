@@ -31,18 +31,19 @@ export default function Home() {
         <div className="relative z-10 max-w-4xl mx-auto text-center text-shadow-hero">
           <ScrollReveal immediate delay={100}>
             <h1
-              className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-8"
+              className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-3"
               style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
             >
               Everything here was made{" "}
               <em className="italic">by hand.</em>
             </h1>
           </ScrollReveal>
-          <ScrollReveal immediate delay={400}>
-            <p className="font-sans text-[18px] font-light leading-[1.9] text-forge-paper/80 max-w-2xl mx-auto">
-              By someone who chose this life. Who chose time over speed. Who works
-              with clay from dirt, glass from sand and heat, wood from trees that
-              lived longer than the maker.
+          <ScrollReveal immediate delay={250}>
+            <p
+              className="font-serif italic font-light text-forge-paper/90 mb-8"
+              style={{ fontSize: "clamp(16px, 2.5vw, 24px)" }}
+            >
+              A curated marketplace for handmade objects and the people who make them.
             </p>
           </ScrollReveal>
         </div>
@@ -67,6 +68,13 @@ export default function Home() {
       <section className="bg-forge-paper pt-16 md:pt-24">
         <div className="text-center px-6 md:px-10">
           <ScrollReveal>
+            <p className="font-serif text-[20px] md:text-[26px] font-light italic leading-[1.8] text-forge-text/[0.7] max-w-2xl mx-auto mb-12 md:mb-16">
+              By someone who chose this life. Who chose time over speed. Who works
+              with clay from dirt, glass from sand and heat, wood from trees that
+              lived longer than the maker.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal>
             <p className="font-serif text-[32px] md:text-[52px] font-normal leading-[1.2] text-forge-text">
               The work speaks for itself.
             </p>
@@ -80,6 +88,22 @@ export default function Home() {
         </ScrollReveal>
 
         <ProductShowcase />
+
+        <ScrollReveal variant="fade-in">
+          <nav className="flex items-center justify-center gap-4 md:gap-6 pt-2 md:pt-4 pb-14 md:pb-20">
+            <Link href="/shop" className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/75 hover:text-[#A0785A] transition-colors duration-300">
+              Browse the Shop &rarr;
+            </Link>
+            <span className="text-forge-text/20 text-[13px]">&middot;</span>
+            <Link href="/gallery" className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/75 hover:text-[#A0785A] transition-colors duration-300">
+              Explore the Gallery &rarr;
+            </Link>
+            <span className="text-forge-text/20 text-[13px]">&middot;</span>
+            <Link href="/makers" className="font-mono text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text/75 hover:text-[#A0785A] transition-colors duration-300">
+              Meet the Makers &rarr;
+            </Link>
+          </nav>
+        </ScrollReveal>
       </section>
 
       {/* ═══════════════════════════════════════════════
@@ -175,16 +199,16 @@ export default function Home() {
       </section>
 
       {/* Transition — after maker portraits */}
-      <section className="bg-forge-paper py-14 md:py-20 px-6 md:px-10">
+      <section className="bg-forge-paper pt-14 md:pt-20 pb-7 md:pb-10 px-6 md:px-10">
         <ScrollReveal variant="fade-in" className="text-center">
           <p className="font-serif text-[26px] font-normal italic leading-[1.4] text-forge-text/[0.85] mb-6">
             Every maker here was invited. Every object was chosen.
           </p>
           <Link
-            href="/makers"
+            href="/shop"
             className="font-sans text-[15px] font-light text-forge-text/60 hover:text-forge-text hover:underline underline-offset-4 transition-all duration-300"
           >
-            See all makers &rarr;
+            Shop the collection &rarr;
           </Link>
         </ScrollReveal>
       </section>

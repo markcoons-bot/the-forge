@@ -207,5 +207,8 @@ export function getMaker(slug: string): Maker | undefined {
 }
 
 export function getHomepageMakers(): Maker[] {
-  return makers.filter((m) => m.homepage).slice(0, 3);
+  const order = ["nathan-coons", "hana-miura", "florian-gadsby"];
+  return order
+    .map((slug) => makers.find((m) => m.slug === slug))
+    .filter((m): m is Maker => m !== undefined);
 }

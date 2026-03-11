@@ -82,7 +82,7 @@ const tiles: StudioTile[] = [
 
 export default function StudioFeed() {
   return (
-    <section className="bg-forge-paper pt-14 md:pt-20 pb-20 md:pb-28">
+    <section className="bg-forge-paper pt-6 md:pt-10 pb-20 md:pb-28">
       {/* Header */}
       <div className="px-6 md:px-10 max-w-7xl mx-auto mb-8">
         <ScrollReveal>
@@ -99,7 +99,7 @@ export default function StudioFeed() {
               href="/makers"
               className={`hidden md:inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300 shrink-0`}
             >
-              Follow the makers <span>&rarr;</span>
+              See all makers <span>&rarr;</span>
             </a>
           </div>
         </ScrollReveal>
@@ -156,7 +156,7 @@ export default function StudioFeed() {
           href="/makers"
           className={`inline-flex items-center gap-2 ${NAV_LINK} text-forge-text/60 hover:text-forge-text transition-colors duration-300`}
         >
-          Follow the makers <span>&rarr;</span>
+          See all makers <span>&rarr;</span>
         </a>
       </div>
     </section>
