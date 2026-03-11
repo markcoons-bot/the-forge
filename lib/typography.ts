@@ -29,7 +29,7 @@ export const SECTION_LABEL_DARK = `${SECTION_LABEL} text-forge-paper/70`;
 export const SECTION_LABEL_LIGHT = `${SECTION_LABEL} text-forge-text/50`;
 
 // ── Nav / Link Labels (14px, Outfit, weight 400) ──
-export const NAV_LINK = "font-sans text-[14px] font-normal tracking-[0.04em]";
+export const NAV_LINK = "font-sans text-[14px] font-normal tracking-[0.04em] uppercase";
 export const NAV_LINK_MUTED = `${NAV_LINK} text-forge-paper/80 hover:text-forge-paper transition-colors duration-300`;
 export const NAV_LINK_DARK = `${NAV_LINK} text-forge-paper/80 hover:text-forge-paper transition-colors duration-300`;
 export const NAV_LINK_LIGHT = `${NAV_LINK} text-forge-text/70 hover:text-forge-text transition-colors duration-300`;
