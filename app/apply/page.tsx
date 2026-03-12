@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
@@ -224,14 +225,37 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="bg-forge-paper flex justify-center py-4">
-        <div className="w-20 h-px bg-forge-text/[0.15]" />
+      {/* Studio Image Hero */}
+      <div className="relative w-full h-[280px] md:h-[480px]">
+        <Image
+          src="/images/NCprocess1.jpeg"
+          alt="Hands shaping clay in the studio"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" style={{ top: '66%' }} />
+        <div className="absolute bottom-10 left-6 md:left-10">
+          <span className="block font-sans text-[11px] md:text-[12px] font-normal tracking-[0.15em] uppercase text-white/80 mb-2">
+            From the Studio
+          </span>
+          <p className="font-serif italic text-[22px] md:text-[28px] leading-[1.3] text-white max-w-lg">
+            Every maker here started with an email just like this one.
+          </p>
+        </div>
       </div>
 
       {/* Application Form */}
-      <section className="bg-forge-paper py-20 md:py-28 px-6 md:px-10">
+      <section className="bg-forge-paper pt-8 pb-20 md:pb-28 px-6 md:px-10">
         <div className="max-w-prose mx-auto">
+          <ScrollReveal>
+            <p className="font-sans text-[16px] md:text-[17px] font-normal leading-[1.7] text-forge-text/70 text-center mb-12">
+              We read every application. We respond to every one personally.
+              This is not a form&nbsp;&mdash; it is the beginning of a conversation.
+            </p>
+          </ScrollReveal>
+
           <ScrollReveal>
             <h2 className="font-serif text-[26px] md:text-[32px] font-normal leading-[1.3] text-forge-text mb-10">
               Tell us about your work
@@ -497,9 +521,6 @@ export default function ApplyPage() {
                 )}
               </div>
 
-              <p className="font-sans text-[14px] font-normal text-forge-text pt-2">
-                We respond to every application personally.
-              </p>
             </form>
           </ScrollReveal>
         </div>
