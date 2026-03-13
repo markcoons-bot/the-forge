@@ -1,4 +1,5 @@
 import { client } from "./client";
+import { urlFor } from "./image";
 import {
   allMakersQuery,
   makerBySlugQuery,
@@ -69,6 +70,16 @@ function mapSanityMakerToLocal(sm: SanityMaker): Maker {
   // Find matching local maker for image fallback
   const local = localMakers.find((m) => m.slug === sm.slug);
 
+  // Resolve portrait image: Sanity first, then local fallback
+  const portraitImage = sm.portrait
+    ? urlFor(sm.portrait).width(800).url()
+    : local?.portraitImage || "";
+
+  // Resolve studio/story images: Sanity first, then local fallback
+  const storyImages = sm.studioImages && sm.studioImages.length > 0
+    ? sm.studioImages.map((img: any) => urlFor(img).width(1200).url())
+    : local?.storyImages || [];
+
   return {
     slug: sm.slug,
     name: sm.name,
@@ -82,8 +93,8 @@ function mapSanityMakerToLocal(sm: SanityMaker): Maker {
     materials: local?.materials || "",
     accentColor: local?.accentColor || "#888",
     portraitGradient: local?.portraitGradient || "linear-gradient(145deg, #333 0%, #222 100%)",
-    portraitImage: local?.portraitImage || "",
-    storyImages: local?.storyImages || [],
+    portraitImage,
+    storyImages,
     // Carry forward all local-only fields
     ...(local?.profileHeroImage && { profileHeroImage: local.profileHeroImage }),
     ...(local?.storyImagePositions && { storyImagePositions: local.storyImagePositions }),
@@ -106,6 +117,11 @@ function statusDisplay(status: string): "Ready to Ship" | "Made to Order" {
 function mapSanityProductToLocal(sp: SanityProduct): Product {
   const local = localProducts.find((p) => p.slug === sp.slug);
 
+  // Resolve product image: Sanity first, then local fallback
+  const image = sp.image
+    ? urlFor(sp.image).width(800).url()
+    : local?.image || "";
+
   return {
     slug: sp.slug,
     name: sp.title,
@@ -120,7 +136,7 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
     dimensions: sp.dimensions || local?.dimensions || "",
     care: sp.care || local?.care || "",
     bgGradient: local?.bgGradient || "linear-gradient(145deg, #888 0%, #666 100%)",
-    image: local?.image || "",
+    image,
     ...(local?.alternateImages && { alternateImages: local.alternateImages }),
     ...(sp.process_note && { process_note: sp.process_note }),
     ...(!sp.process_note && local?.process_note && { process_note: local.process_note }),
