@@ -6,8 +6,8 @@ import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
-import { products, getProduct, getProductsByMaker } from "@/data/products";
-import { getMaker } from "@/data/makers";
+import { products as localProducts } from "@/data/products";
+import { fetchAllProducts, fetchProductBySlug, fetchProductsByMaker, fetchMakerBySlug } from "@/sanity/lib/fetchers";
 import {
   SECTION_LABEL_LIGHT,
 } from "@/lib/typography";
@@ -16,27 +16,31 @@ interface PageProps {
   params: { slug: string };
 }
 
-export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+export async function generateStaticParams() {
+  const products = await fetchAllProducts();
+  if (products.length > 0) {
+    return products.map((product) => ({ slug: product.slug }));
+  }
+  return localProducts.map((product) => ({ slug: product.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const product = getProduct(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const product = await fetchProductBySlug(params.slug);
   if (!product) return { title: "Product Not Found — Form & Element" };
 
-  const maker = getMaker(product.makerSlug);
+  const maker = await fetchMakerBySlug(product.makerSlug);
   return {
     title: `${product.name} by ${maker?.name || "Unknown"} — Form & Element`,
     description: product.curatorNote,
   };
 }
 
-export default function ProductPage({ params }: PageProps) {
-  const product = getProduct(params.slug);
+export default async function ProductPage({ params }: PageProps) {
+  const product = await fetchProductBySlug(params.slug);
   if (!product) notFound();
 
-  const maker = getMaker(product.makerSlug);
-  const moreFromMaker = getProductsByMaker(product.makerSlug).filter(
+  const maker = await fetchMakerBySlug(product.makerSlug);
+  const moreFromMaker = (await fetchProductsByMaker(product.makerSlug)).filter(
     (p) => p.slug !== product.slug
   );
 

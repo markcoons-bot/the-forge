@@ -6,8 +6,8 @@ import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import MakerProductGrid from "@/components/MakerProductGrid";
 import Footer from "@/components/Footer";
-import { makers, getMaker } from "@/data/makers";
-import { getProductsByMaker } from "@/data/products";
+import { makers as localMakers } from "@/data/makers";
+import { fetchAllMakers, fetchMakerBySlug, fetchProductsByMaker } from "@/sanity/lib/fetchers";
 import { getGalleryItemsByMaker } from "@/data/gallery";
 import GalleryGrid from "@/components/GalleryGrid";
 import {
@@ -20,12 +20,16 @@ interface PageProps {
   params: { slug: string };
 }
 
-export function generateStaticParams() {
-  return makers.map((maker) => ({ slug: maker.slug }));
+export async function generateStaticParams() {
+  const makers = await fetchAllMakers();
+  if (makers.length > 0) {
+    return makers.map((maker) => ({ slug: maker.slug }));
+  }
+  return localMakers.map((maker) => ({ slug: maker.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const maker = getMaker(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const maker = await fetchMakerBySlug(params.slug);
   if (!maker) return { title: "Maker Not Found — Form & Element" };
 
   const heroImage = maker.profileHeroImage || maker.portraitImage;
@@ -110,11 +114,11 @@ function FullBleedImageWithCaption({
 /* ─────────────────────────────────────────────
    PAGE
    ───────────────────────────────────────────── */
-export default function MakerPage({ params }: PageProps) {
-  const maker = getMaker(params.slug);
+export default async function MakerPage({ params }: PageProps) {
+  const maker = await fetchMakerBySlug(params.slug);
   if (!maker) notFound();
 
-  const makerProducts = getProductsByMaker(maker.slug);
+  const makerProducts = await fetchProductsByMaker(maker.slug);
   const heroImage = maker.profileHeroImage || maker.portraitImage;
 
   // Gallery images for "From the Studio" — exclude images already used on the page

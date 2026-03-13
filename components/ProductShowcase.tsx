@@ -3,11 +3,16 @@
 import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/data/products";
-import { makers } from "@/data/makers";
+import type { Product } from "@/data/products";
+import type { Maker } from "@/data/makers";
 import { SECTION_LABEL_LIGHT } from "@/lib/typography";
 
-export default function ProductShowcase() {
+interface ProductShowcaseProps {
+  products: Product[];
+  makers: Maker[];
+}
+
+export default function ProductShowcase({ products, makers }: ProductShowcaseProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);

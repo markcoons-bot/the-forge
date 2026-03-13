@@ -6,15 +6,18 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ProductShowcase from "@/components/ProductShowcase";
 import StudioFeed from "@/components/StudioFeed";
 import Footer from "@/components/Footer";
-import { getHomepageMakers } from "@/data/makers";
-import { getProductsByMaker } from "@/data/products";
+import { fetchHomepageMakers, fetchAllProducts, fetchAllMakers } from "@/sanity/lib/fetchers";
 import {
   SECTION_LABEL,
   SECTION_LABEL_DARK,
 } from "@/lib/typography";
 
-export default function Home() {
-  const homepageMakers = getHomepageMakers();
+export default async function Home() {
+  const [homepageMakers, allProducts, allMakers] = await Promise.all([
+    fetchHomepageMakers(),
+    fetchAllProducts(),
+    fetchAllMakers(),
+  ]);
 
   return (
     <>
@@ -80,7 +83,7 @@ export default function Home() {
           </div>
         </ScrollReveal>
 
-        <ProductShowcase />
+        <ProductShowcase products={allProducts} makers={allMakers} />
 
         <ScrollReveal variant="fade-in">
           <nav className="flex items-center justify-center gap-4 md:gap-6 pt-2 md:pt-4 pb-14 md:pb-20">
@@ -111,7 +114,7 @@ export default function Home() {
 
         <div className="flex flex-col gap-[2px]">
           {homepageMakers.map((maker, index) => {
-            const makerProducts = getProductsByMaker(maker.slug).slice(0, 3);
+            const makerProducts = allProducts.filter((p) => p.makerSlug === maker.slug).slice(0, 3);
 
             return (
               <Link

@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Product } from "@/data/products";
-import { makers } from "@/data/makers";
+import type { Product } from "@/data/products";
+import type { Maker } from "@/data/makers";
 import { SECTION_LABEL_LIGHT } from "@/lib/typography";
 
 interface ProductStripProps {
   products: Product[];
+  makers: Maker[];
 }
 
-export default function ProductStrip({ products }: ProductStripProps) {
+export default function ProductStrip({ products, makers }: ProductStripProps) {
   if (products.length === 0) return null;
 
   const formatPrice = (price: number, currency: string) => {

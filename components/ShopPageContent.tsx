@@ -5,8 +5,8 @@ import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
-import { products } from "@/data/products";
-import { makers } from "@/data/makers";
+import type { Product } from "@/data/products";
+import type { Maker } from "@/data/makers";
 import {
   H1_PAGE,
   BODY,
@@ -20,7 +20,12 @@ const mediums = [
   "Wood",
 ] as const;
 
-export default function ShopPageContent() {
+interface ShopPageContentProps {
+  products: Product[];
+  makers: Maker[];
+}
+
+export default function ShopPageContent({ products, makers }: ShopPageContentProps) {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
   const filteredProducts =
@@ -79,11 +84,14 @@ export default function ShopPageContent() {
 
           {/* Product Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-8 md:gap-y-10">
-            {filteredProducts.map((product, index) => (
+            {filteredProducts.map((product, index) => {
+              const maker = makers.find((m) => m.slug === product.makerSlug);
+              return (
               <ScrollReveal key={product.slug} delay={Math.floor(index / 3) * 150}>
-                <ProductCard product={product} variant="light" />
+                <ProductCard product={product} variant="light" makerName={maker?.name} makerMedium={maker?.medium} />
               </ScrollReveal>
-            ))}
+              );
+            })}
           </div>
 
           {filteredProducts.length === 0 && (

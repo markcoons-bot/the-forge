@@ -1,7 +1,8 @@
-import { makers } from "@/data/makers";
+import { fetchAllMakers } from "@/sanity/lib/fetchers";
 import { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const makers = await fetchAllMakers();
   const makerPages = makers.map((maker) => ({
     url: `https://formandelement.com/makers/${maker.slug}`,
     lastModified: new Date(),

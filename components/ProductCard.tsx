@@ -1,21 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/data/products";
-import { makers } from "@/data/makers";
 
 interface ProductCardProps {
   product: Product;
   variant?: "dark" | "light";
   showMaker?: boolean;
+  makerName?: string;
+  makerMedium?: string;
 }
 
 export default function ProductCard({
   product,
   variant = "light",
   showMaker = true,
+  makerName,
+  makerMedium,
 }: ProductCardProps) {
-  const makerData = makers.find((m) => m.slug === product.makerSlug);
-  const maker = showMaker ? makerData : null;
+  const maker = showMaker ? { name: makerName, medium: makerMedium } : null;
   const isDark = variant === "dark";
 
   const formatPrice = (price: number, currency: string) => {
@@ -33,7 +35,7 @@ export default function ProductCard({
         />
         <Image
           src={product.image}
-          alt={`${product.name} by ${makerData?.name || "unknown maker"} — handmade ${makerData?.medium.toLowerCase() || "object"}`}
+          alt={`${product.name} by ${makerName || "unknown maker"} — handmade ${makerMedium?.toLowerCase() || "object"}`}
           fill
           className="product-card-image object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

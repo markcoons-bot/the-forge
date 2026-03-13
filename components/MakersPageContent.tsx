@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-import { makers } from "@/data/makers";
-import { getProductsByMaker } from "@/data/products";
+import type { Maker } from "@/data/makers";
+import type { Product } from "@/data/products";
 import {
   H1_PAGE,
   BODY,
@@ -25,7 +25,12 @@ function getLastName(name: string) {
   return parts[parts.length - 1];
 }
 
-export default function MakersPageContent() {
+interface MakersPageContentProps {
+  makers: Maker[];
+  products: Product[];
+}
+
+export default function MakersPageContent({ makers, products }: MakersPageContentProps) {
   const [activeFilter, setActiveFilter] = useState<string>("All");
   const [sort, setSort] = useState<"az" | "medium">("az");
 
@@ -101,7 +106,7 @@ export default function MakersPageContent() {
         {/* Maker Rows */}
         <div className="flex flex-col gap-16 md:gap-20">
           {filteredMakers.map((maker, index) => {
-            const makerProducts = getProductsByMaker(maker.slug).slice(0, 3);
+            const makerProducts = products.filter((p) => p.makerSlug === maker.slug).slice(0, 3);
 
             return (
               <ScrollReveal key={maker.slug} delay={index * 100}>
