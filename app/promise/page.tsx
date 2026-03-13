@@ -19,7 +19,7 @@ export default function PromisePage() {
       <Navigation />
 
       {/* Header */}
-      <section className="bg-forge-paper pt-32 md:pt-44 pb-16 md:pb-20 px-6 md:px-10">
+      <section className="bg-forge-paper pt-32 md:pt-44 pb-0 px-6 md:px-10">
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <span className={`${SECTION_LABEL_LIGHT} label-line mb-8`}>
@@ -33,7 +33,7 @@ export default function PromisePage() {
       </section>
 
       {/* Subhead pull quote */}
-      <section className="bg-forge-paper py-16 md:py-24 px-6 md:px-10">
+      <section className="bg-forge-paper pt-12 pb-16 px-6 md:px-10">
         <ScrollReveal variant="fade-in">
           <div className="max-w-5xl mx-auto text-center">
             <div className="flex justify-center mb-10 md:mb-12">
@@ -52,7 +52,7 @@ export default function PromisePage() {
       </section>
 
       {/* Shipping */}
-      <section className="bg-forge-paper pt-20 md:pt-24 pb-16 md:pb-20 px-6 md:px-10">
+      <section className="bg-forge-paper pt-0 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-[680px] mx-auto">
           <ScrollReveal>
             <span className={`${SECTION_LABEL_LIGHT} label-line mb-14`}>

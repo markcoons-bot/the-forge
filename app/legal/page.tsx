@@ -155,7 +155,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>10. Contact</h3>
           <p className={bodyClass}>
-            Questions about these Terms? Contact us at hello@formandelement.com.
+            Questions about these Terms? Contact us at hello@form-element.com.
           </p>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function LegalPage() {
           <h3 className={subHeadingClass}>5. Your Rights</h3>
           <p className={bodyClass}>
             You may request access to, correction of, or deletion of your
-            personal information at any time by emailing hello@formandelement.com.
+            personal information at any time by emailing hello@form-element.com.
             California residents have additional rights under the CCPA.
           </p>
 
@@ -229,7 +229,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>8. Contact</h3>
           <p className={bodyClass}>
-            Questions? Contact us at hello@formandelement.com.
+            Questions? Contact us at hello@form-element.com.
           </p>
         </div>
       </section>
@@ -258,8 +258,8 @@ export default function LegalPage() {
           <p className={bodyClass}>
             Form & Element charges 12% commission plus 3% payment processing
             (Stripe). No listing fees, monthly subscriptions, or hidden costs.
-            Commission is deducted automatically at the time of sale through
-            Stripe Connect.
+            Payment is made to makers within 7 days of confirmed delivery
+            via bank transfer or PayPal, minus the 15% total fee.
           </p>
 
           <h3 className={subHeadingClass}>3. Pricing</h3>
@@ -278,7 +278,7 @@ export default function LegalPage() {
           <h3 className={subHeadingClass}>5. Fulfillment and Shipping</h3>
           <p className={bodyClass}>
             You are responsible for fulfilling all orders. Ready to Ship items
-            must ship within 5 business days. Made to Order items must be
+            must ship within 2 business days. Made to Order items must be
             fulfilled within the stated lead time. You are responsible for
             secure, professional packaging.
           </p>
@@ -320,7 +320,7 @@ export default function LegalPage() {
 
           <h3 className={subHeadingClass}>11. Contact</h3>
           <p className={bodyClass}>
-            Questions? Contact us at hello@formandelement.com.
+            Questions? Contact us at hello@form-element.com.
           </p>
         </div>
       </section>

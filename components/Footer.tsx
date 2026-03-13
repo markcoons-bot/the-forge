@@ -51,7 +51,7 @@ export default function Footer({ hideBorder = false }: { hideBorder?: boolean })
   return (
     <>
       <footer className={`bg-forge-dark ${hideBorder ? "" : "border-t border-forge-paper/[0.12]"}`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-10 pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 pt-14 pb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
             {/* Brand */}
             <div>
