@@ -13,6 +13,7 @@ export interface Product {
   bgGradient: string;
   image: string;
   alternateImages?: string[];
+  process_note?: string;
 }
 
 export const products: Product[] = [
@@ -32,6 +33,7 @@ export const products: Product[] = [
     bgGradient: "linear-gradient(145deg, #6e5c4c 0%, #4a3c30 40%, #3a2e24 100%)",
     image: "/images/FGproductvase.webp",
     alternateImages: ["/images/FGproduct2.webp"],
+    process_note: "Built over several sessions on the wheel, allowed to dry slowly, then fired twice. The iron oxide wash is applied by hand before the final firing. The surface variation you see is the kiln's contribution.",
   },
   {
     slug: "crackle-glaze-jar",
@@ -47,6 +49,7 @@ export const products: Product[] = [
     care: "Dishwasher safe. Microwave safe. The crackle pattern will evolve with use — this is intentional and beautiful.",
     bgGradient: "linear-gradient(145deg, #d4ccc0 0%, #b8a898 40%, #a09080 100%)",
     image: "/images/FGobject1webp.webp",
+    process_note: "Wheel-thrown and fired to cone 10. The crackle glaze is a centuries-old technique — the crazing develops as the glaze cools faster than the clay body beneath it. Every crack is a record of that moment.",
   },
   {
     slug: "feldspathic-white-yunomi",
@@ -61,6 +64,7 @@ export const products: Product[] = [
     care: "Dishwasher safe. Microwave safe. Will develop character over years of use.",
     bgGradient: "linear-gradient(145deg, #c8bfb0 0%, #a89888 40%, #887868 100%)",
     image: "/images/FGobject2.webp",
+    process_note: "Thrown on the wheel and trimmed by hand. Fired twice in a reduction kiln. The feldspathic glaze is mixed in-studio from raw materials — no two pieces fire identically.",
   },
 
   // Hana Miura — Glass

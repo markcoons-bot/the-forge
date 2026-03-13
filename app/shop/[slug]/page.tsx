@@ -162,6 +162,21 @@ export default function ProductPage({ params }: PageProps) {
                 </div>
               </ScrollReveal>
 
+              {/* The Making */}
+              {product.process_note && (
+                <ScrollReveal delay={375}>
+                  <div className="mb-6">
+                    <div className="border-b border-forge-text/10 mb-4" />
+                    <p className="font-sans text-[12px] font-normal tracking-[0.15em] uppercase text-forge-text mb-3">
+                      The Making
+                    </p>
+                    <p className="font-serif italic text-[18px] font-normal leading-[1.8] text-forge-text">
+                      {product.process_note}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              )}
+
               {/* Add to Cart — desktop */}
               <ScrollReveal delay={400}>
                 <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
