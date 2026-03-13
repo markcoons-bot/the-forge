@@ -95,6 +95,12 @@ export default function Footer({ hideBorder = false }: { hideBorder?: boolean })
                   About
                 </Link>
                 <Link
+                  href="/promise"
+                  className="font-sans text-[16px] font-normal text-forge-paper hover:text-forge-paper transition-colors duration-300"
+                >
+                  Promise
+                </Link>
+                <Link
                   href="/legal"
                   className="font-sans text-[16px] font-normal text-forge-paper hover:text-forge-paper transition-colors duration-300"
                 >
