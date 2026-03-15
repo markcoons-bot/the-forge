@@ -29,9 +29,9 @@ export default async function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
         {/* Hero video */}
         <HeroVideo />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.55) 100%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.65) 100%)" }} />
         <div className="hero-glow" aria-hidden="true" />
-        <div className="absolute z-10 bottom-[120px] left-6 md:left-16 max-w-4xl text-left" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
+        <div className="absolute z-10 bottom-[120px] left-6 md:left-16 max-w-4xl text-left" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
           <ScrollReveal immediate delay={100}>
             <h1
               className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-3"
@@ -46,7 +46,7 @@ export default async function Home() {
               className="font-serif font-light text-forge-paper mb-8"
               style={{ fontSize: "clamp(16px, 2.5vw, 24px)" }}
             >
-              A curated marketplace for handmade objects and the people who make them.
+              By people who have spent a lifetime learning how.
             </p>
           </ScrollReveal>
         </div>
