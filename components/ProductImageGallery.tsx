@@ -43,11 +43,11 @@ export default function ProductImageGallery({
         {hasMultiple && current > 0 && (
           <button
             onClick={() => setCurrent((i) => i - 1)}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-colors duration-200"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 flex items-center justify-center text-white opacity-60 hover:opacity-100 transition-opacity duration-150"
             aria-label="Previous image"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="13 4 7 10 13 16" />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="10 3 5 8 10 13" />
             </svg>
           </button>
         )}
@@ -56,11 +56,11 @@ export default function ProductImageGallery({
         {hasMultiple && current < images.length - 1 && (
           <button
             onClick={() => setCurrent((i) => i + 1)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center text-white/50 hover:text-white transition-colors duration-200"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 flex items-center justify-center text-white opacity-60 hover:opacity-100 transition-opacity duration-150"
             aria-label="Next image"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="7 4 13 10 7 16" />
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 3 11 8 6 13" />
             </svg>
           </button>
         )}
