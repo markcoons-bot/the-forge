@@ -63,6 +63,14 @@ export default defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: "gallery",
+      title: "Gallery Images",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+      validation: (Rule) => Rule.max(8),
+      description: "Additional product images. First image is the main image.",
+    }),
+    defineField({
       name: "curator_note",
       title: "Curator's Note",
       type: "text",

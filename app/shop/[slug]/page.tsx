@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollReveal from "@/components/ScrollReveal";
 import ProductCard from "@/components/ProductCard";
+import ProductImageGallery from "@/components/ProductImageGallery";
 import Footer from "@/components/Footer";
 import { products as localProducts } from "@/data/products";
 import { fetchAllProducts, fetchProductBySlug, fetchProductsByMaker, fetchMakerBySlug } from "@/sanity/lib/fetchers";
@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: PageProps) {
     (p) => p.slug !== product.slug
   );
 
-  const allImages = [product.image, ...(product.alternateImages || [])];
+  const allImages = [product.image, ...(product.galleryImages || []), ...(product.alternateImages || [])].filter(Boolean);
 
   const formatPrice = (price: number, currency: string) => {
     const symbols: Record<string, string> = { USD: "$", GBP: "£", EUR: "€" };
@@ -70,24 +70,11 @@ export default async function ProductPage({ params }: PageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Images — 7 of 12 columns (58%) */}
             <ScrollReveal variant="scale-in" className="lg:col-span-7">
-              <div className="space-y-3">
-                {allImages.map((img, index) => (
-                  <div key={index} className="relative aspect-[4/5] w-full overflow-hidden">
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: product.bgGradient }}
-                    />
-                    <Image
-                      src={img}
-                      alt={`${product.name} by ${maker?.name || "unknown maker"} — handmade ${maker?.medium.toLowerCase() || "object"}${index > 0 ? `, view ${index + 1}` : ""}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 58vw"
-                      priority={index === 0}
-                    />
-                  </div>
-                ))}
-              </div>
+              <ProductImageGallery
+                images={allImages}
+                alt={`${product.name} by ${maker?.name || "unknown maker"} — handmade ${maker?.medium.toLowerCase() || "object"}`}
+                bgGradient={product.bgGradient}
+              />
             </ScrollReveal>
 
             {/* Details — 5 of 12 columns */}

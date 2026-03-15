@@ -13,6 +13,7 @@ export interface Product {
   bgGradient: string;
   image: string;
   alternateImages?: string[];
+  galleryImages?: string[];
   process_note?: string;
 }
 

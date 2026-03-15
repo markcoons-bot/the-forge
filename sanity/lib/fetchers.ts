@@ -39,6 +39,7 @@ interface SanityProduct {
   status: string;
   medium: string;
   image?: any;
+  gallery?: any[];
   curator_note: string;
   process_note?: string;
   materials?: string;
@@ -138,6 +139,9 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
     bgGradient: local?.bgGradient || "linear-gradient(145deg, #888 0%, #666 100%)",
     image,
     ...(local?.alternateImages && { alternateImages: local.alternateImages }),
+    ...(sp.gallery && sp.gallery.length > 0 && {
+      galleryImages: sp.gallery.map((img: any) => urlFor(img).width(1200).url()),
+    }),
     ...(sp.process_note && { process_note: sp.process_note }),
     ...(!sp.process_note && local?.process_note && { process_note: local.process_note }),
   };
