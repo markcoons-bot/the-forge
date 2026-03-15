@@ -29,9 +29,9 @@ export default async function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-10 overflow-hidden">
         {/* Hero video */}
         <HeroVideo />
-        <div className="absolute inset-0 bg-forge-dark/70" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 65%, rgba(0,0,0,0.55) 100%)" }} />
         <div className="hero-glow" aria-hidden="true" />
-        <div className="relative z-10 max-w-4xl mx-auto text-center text-shadow-hero">
+        <div className="absolute z-10 bottom-[120px] left-6 md:left-16 max-w-4xl text-left" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.4)" }}>
           <ScrollReveal immediate delay={100}>
             <h1
               className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-3"
