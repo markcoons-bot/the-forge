@@ -51,6 +51,19 @@ export default async function ProductPage({ params }: PageProps) {
     return `${symbols[currency] || currency}${price.toLocaleString()}`;
   };
 
+  const statusLabel: Record<string, string> = {
+    ready_to_ship: "Ready to Ship",
+    ready_to_ship_low: "Ready to Ship — Low Stock",
+    ready_to_ship_sold_out: "Sold Out",
+    made_to_order: "Made to Order",
+    made_to_order_sold_out: "Made to Order — Sold Out",
+    coming_soon: "Coming Soon",
+  };
+
+  const isSoldOut = product.status === "ready_to_ship_sold_out" || product.status === "made_to_order_sold_out";
+  const isComingSoon = product.status === "coming_soon";
+  const isDisabled = isSoldOut || isComingSoon;
+
   return (
     <>
       <Navigation />
@@ -81,8 +94,8 @@ export default async function ProductPage({ params }: PageProps) {
             <div className="lg:col-span-5 flex flex-col justify-center">
               <ScrollReveal delay={100}>
                 <p className="font-sans text-[13px] font-normal tracking-[0.15em] uppercase text-forge-text mb-4">
-                  {product.status}
-                  {product.leadTime && (
+                  {statusLabel[product.status] || product.status}
+                  {product.status === "made_to_order" && product.leadTime && (
                     <span>
                       {" "}
                       &mdash; {product.leadTime}
@@ -168,29 +181,31 @@ export default async function ProductPage({ params }: PageProps) {
                 </ScrollReveal>
               )}
 
-              {/* Scarcity / shipping signal + Add to Cart — desktop */}
+              {/* Status signal + Add to Cart — desktop */}
               <ScrollReveal delay={400}>
-                {/* Scarcity or shipping line */}
-                {product.stockStatus !== "sold_out" && product.stockStatus !== "coming_soon" && (
-                  <p className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-[#A0785A] mb-4">
-                    {(product.stockStatus === "low_stock" || (product.stockRemaining != null && product.stockRemaining <= 3))
-                      ? product.stockRemaining != null
-                        ? `Only ${product.stockRemaining} remaining`
-                        : "Almost gone"
-                      : product.status === "Made to Order" && product.leadTime
-                        ? `Made to order — ships in ${product.leadTime}`
-                        : product.status === "Ready to Ship"
-                          ? "Ready to ship — 2 business days"
-                          : null}
-                  </p>
-                )}
+                <p className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-[#A0785A] mb-4">
+                  {product.status === "ready_to_ship" && "Ready to ship — 2 business days"}
+                  {product.status === "ready_to_ship_low" && (
+                    product.stockRemaining != null
+                      ? `Only ${product.stockRemaining} remaining`
+                      : "Almost gone"
+                  )}
+                  {product.status === "ready_to_ship_sold_out" && "Sold out"}
+                  {product.status === "made_to_order" && (
+                    product.leadTime
+                      ? `Made to order — ships in ${product.leadTime}`
+                      : "Made to order"
+                  )}
+                  {product.status === "made_to_order_sold_out" && "Made to order — currently unavailable"}
+                  {product.status === "coming_soon" && "Coming soon"}
+                </p>
 
-                {product.stockStatus === "sold_out" ? (
+                {isDisabled ? (
                   <div>
                     <button disabled className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
-                      Sold out
+                      {isComingSoon ? "Coming soon" : "Sold out"}
                     </button>
-                    {product.notifyWhenAvailable && (
+                    {product.status === "ready_to_ship_sold_out" && product.notifyWhenAvailable && (
                       <Link
                         href="mailto:orders@form-element.com"
                         className="hidden lg:block mt-3 font-sans text-[13px] font-normal tracking-[0.05em] text-[#A0785A] hover:text-forge-text transition-colors duration-300"
@@ -199,10 +214,6 @@ export default async function ProductPage({ params }: PageProps) {
                       </Link>
                     )}
                   </div>
-                ) : product.stockStatus === "coming_soon" ? (
-                  <button disabled className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
-                    Coming soon
-                  </button>
                 ) : (
                   <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
                     Add to cart
@@ -216,12 +227,12 @@ export default async function ProductPage({ params }: PageProps) {
 
       {/* Sticky Add to Cart — mobile/tablet only */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forge-paper/95 backdrop-blur-md border-t border-forge-text/10 px-6 py-4">
-        {product.stockStatus === "sold_out" ? (
+        {isDisabled ? (
           <div>
             <button disabled className="w-full py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
-              Sold out
+              {isComingSoon ? "Coming soon" : "Sold out"}
             </button>
-            {product.notifyWhenAvailable && (
+            {product.status === "ready_to_ship_sold_out" && product.notifyWhenAvailable && (
               <Link
                 href="mailto:orders@form-element.com"
                 className="block text-center mt-2 font-sans text-[13px] font-normal tracking-[0.05em] text-[#A0785A]"
@@ -230,10 +241,6 @@ export default async function ProductPage({ params }: PageProps) {
               </Link>
             )}
           </div>
-        ) : product.stockStatus === "coming_soon" ? (
-          <button disabled className="w-full py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
-            Coming soon
-          </button>
         ) : (
           <button className="w-full py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
             Add to cart &mdash; {formatPrice(product.price, product.currency)}

@@ -38,7 +38,11 @@ export default defineType({
       options: {
         list: [
           { title: "Ready to Ship", value: "ready_to_ship" },
+          { title: "Ready to Ship — Low Stock", value: "ready_to_ship_low" },
+          { title: "Sold Out", value: "ready_to_ship_sold_out" },
           { title: "Made to Order", value: "made_to_order" },
+          { title: "Made to Order — Sold Out", value: "made_to_order_sold_out" },
+          { title: "Coming Soon", value: "coming_soon" },
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -98,20 +102,6 @@ export default defineType({
       name: "care",
       title: "Care",
       type: "string",
-    }),
-    defineField({
-      name: "stock_status",
-      title: "Stock Status",
-      type: "string",
-      options: {
-        list: [
-          { title: "Available", value: "available" },
-          { title: "Low Stock", value: "low_stock" },
-          { title: "Sold Out", value: "sold_out" },
-          { title: "Coming Soon", value: "coming_soon" },
-        ],
-      },
-      initialValue: "available",
     }),
     defineField({
       name: "stock_remaining",

@@ -45,7 +45,6 @@ interface SanityProduct {
   materials?: string;
   dimensions?: string;
   care?: string;
-  stock_status?: string;
   stock_remaining?: number;
   lead_time?: string;
   notify_when_available?: boolean;
@@ -113,10 +112,6 @@ function mapSanityMakerToLocal(sm: SanityMaker): Maker {
   };
 }
 
-function statusDisplay(status: string): "Ready to Ship" | "Made to Order" {
-  return status === "made_to_order" ? "Made to Order" : "Ready to Ship";
-}
-
 function mapSanityProductToLocal(sp: SanityProduct): Product {
   const local = localProducts.find((p) => p.slug === sp.slug);
 
@@ -131,7 +126,7 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
     makerSlug: sp.maker?.slug || local?.makerSlug || "",
     price: sp.price,
     currency: local?.currency || "USD",
-    status: statusDisplay(sp.status),
+    status: (sp.status as Product["status"]) || local?.status || "ready_to_ship",
     ...(sp.lead_time && { leadTime: sp.lead_time }),
     ...(!sp.lead_time && local?.leadTime && { leadTime: local.leadTime }),
     curatorNote: sp.curator_note || local?.curatorNote || "",
@@ -146,7 +141,6 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
     }),
     ...(sp.process_note && { process_note: sp.process_note }),
     ...(!sp.process_note && local?.process_note && { process_note: local.process_note }),
-    stockStatus: (sp.stock_status as Product["stockStatus"]) || local?.stockStatus || "available",
     ...(sp.stock_remaining != null && { stockRemaining: sp.stock_remaining }),
     ...(sp.stock_remaining == null && local?.stockRemaining != null && { stockRemaining: local.stockRemaining }),
     ...(sp.notify_when_available != null && { notifyWhenAvailable: sp.notify_when_available }),

@@ -20,6 +20,15 @@ export default function ProductCard({
   const maker = showMaker ? { name: makerName, medium: makerMedium } : null;
   const isDark = variant === "dark";
 
+  const badgeLabel: Record<string, string> = {
+    ready_to_ship: "Ready to Ship",
+    ready_to_ship_low: "Low Stock",
+    ready_to_ship_sold_out: "Sold Out",
+    made_to_order: "Made to Order",
+    made_to_order_sold_out: "Sold Out",
+    coming_soon: "Coming Soon",
+  };
+
   const formatPrice = (price: number, currency: string) => {
     const symbols: Record<string, string> = { USD: "$", GBP: "£", EUR: "€" };
     return `${symbols[currency] || currency}${price.toLocaleString()}`;
@@ -49,7 +58,7 @@ export default function ProductCard({
                 : "text-forge-text bg-forge-paper/60"
             } backdrop-blur-sm`}
           >
-            {product.status}
+            {badgeLabel[product.status] || product.status}
           </span>
         </div>
       </div>
