@@ -34,8 +34,8 @@ export default async function Home() {
         <div className="absolute z-10 bottom-[120px] left-6 md:left-16 max-w-4xl text-left" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
           <ScrollReveal immediate delay={100}>
             <h1
-              className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-3"
-              style={{ fontSize: "clamp(36px, 5.5vw, 72px)" }}
+              className="font-serif font-light leading-[1.15] tracking-[-0.01em] text-forge-paper mb-3 md:whitespace-nowrap"
+              style={{ fontSize: "clamp(36px, 4.8vw, 72px)" }}
             >
               Everything here was made{" "}
               <span>by hand.</span>
