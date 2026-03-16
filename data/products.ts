@@ -15,6 +15,9 @@ export interface Product {
   alternateImages?: string[];
   galleryImages?: string[];
   process_note?: string;
+  stockStatus?: "available" | "low_stock" | "sold_out" | "coming_soon";
+  stockRemaining?: number;
+  notifyWhenAvailable?: boolean;
 }
 
 export const products: Product[] = [
@@ -31,6 +34,7 @@ export const products: Product[] = [
     materials: "Reduction-fired stoneware, feldspathic glaze, high-iron clay body",
     dimensions: "16cm diameter × 38cm tall",
     care: "Dishwasher safe. Microwave safe. Will develop character over years of use.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #6e5c4c 0%, #4a3c30 40%, #3a2e24 100%)",
     image: "/images/FGproductvase.webp",
     alternateImages: ["/images/FGproduct2.webp"],
@@ -48,6 +52,7 @@ export const products: Product[] = [
     materials: "Reduction-fired stoneware, feldspathic crackle glaze, high-iron clay body",
     dimensions: "14cm diameter × 16cm tall",
     care: "Dishwasher safe. Microwave safe. The crackle pattern will evolve with use — this is intentional and beautiful.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #d4ccc0 0%, #b8a898 40%, #a09080 100%)",
     image: "/images/FGobject1webp.webp",
     process_note: "Wheel-thrown and fired to cone 10. The crackle glaze is a centuries-old technique — the crazing develops as the glaze cools faster than the clay body beneath it. Every crack is a record of that moment.",
@@ -63,6 +68,7 @@ export const products: Product[] = [
     materials: "Reduction-fired stoneware, feldspathic crackle glaze, high-iron clay body",
     dimensions: "8cm diameter × 9cm tall, ~200ml",
     care: "Dishwasher safe. Microwave safe. Will develop character over years of use.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #c8bfb0 0%, #a89888 40%, #887868 100%)",
     image: "/images/FGobject2.webp",
     process_note: "Thrown on the wheel and trimmed by hand. Fired twice in a reduction kiln. The feldspathic glaze is mixed in-studio from raw materials — no two pieces fire identically.",
@@ -80,6 +86,7 @@ export const products: Product[] = [
     materials: "Soda-lime glass, iron oxide inclusion for color",
     dimensions: "8cm diameter × 10cm tall, ~300ml",
     care: "Hand wash only. Do not microwave. Each tumbler is slightly different in weight and color — this is inherent to hand-blown glass.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #c0d4d8 0%, #8ab0b8 40%, #6a9098 100%)",
     image: "/images/HMproduct1.webp",
   },
@@ -95,6 +102,7 @@ export const products: Product[] = [
     materials: "Soda-lime glass, cobalt oxide, hand-polished pontil mark",
     dimensions: "Tokkuri: 8cm × 14cm, 260ml. Cups: 5cm × 4cm, 45ml each",
     care: "Hand wash only. Store upright. The sake set is lead-free and food safe.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #2a3a50 0%, #1a2a40 40%, #0e1a28 100%)",
     image: "/images/HMproduct%202.webp",
   },
@@ -110,6 +118,7 @@ export const products: Product[] = [
     materials: "Layered soda-lime glass, manganese and iron oxide inclusions",
     dimensions: "15cm diameter × 20cm tall",
     care: "Display piece. Clean with a soft dry cloth. Avoid direct sustained sunlight which may cause uneven heating.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #4a3850 0%, #3a2840 40%, #2a1a30 100%)",
     image: "/images/HMobject.webp",
   },
@@ -125,6 +134,7 @@ export const products: Product[] = [
     materials: "Soda-lime glass, mixed metallic oxide inclusions",
     dimensions: "Varies — tallest approximately 18cm, widest approximately 12cm",
     care: "Hand wash only. Display together or separately. Each vessel is unique and may not sit perfectly level — this is intentional.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #a0b0b8 0%, #708898 40%, #506878 100%)",
     image: "/images/HMobjects.jpg",
   },
@@ -141,6 +151,7 @@ export const products: Product[] = [
     materials: "Salvaged white oak with walnut butterfly key, hand-rubbed tung oil finish",
     dimensions: "52cm × 30cm × 3cm (including handle)",
     care: "Hand wash with mild soap. Oil monthly with food-grade mineral oil or butcher block conditioner. Will darken with use and age. Do not submerge or dishwash.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #b8a080 0%, #8a7458 40%, #5c4830 100%)",
     image: "/images/Woodproduct.webp",
   },
@@ -155,6 +166,7 @@ export const products: Product[] = [
     materials: "Reclaimed barn oak, food-grade mineral oil and beeswax finish",
     dimensions: "48cm × 25cm × 2.5cm (including handle)",
     care: "Hand wash with warm water and mild soap. Re-oil every few weeks with mineral oil. The patina will deepen with every meal. Do not submerge.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #6e5840 0%, #4a3828 40%, #2e2018 100%)",
     image: "/images/woodproduct2.webp",
   },
@@ -169,6 +181,7 @@ export const products: Product[] = [
     materials: "Salvaged cherry wood, hand-rubbed walnut oil finish",
     dimensions: "Large: 28cm, Medium: 24cm, Small: 20cm",
     care: "Hand wash and dry immediately. Oil occasionally with walnut or mineral oil. The wood will lighten with washing and darken with oiling — both are beautiful.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #c8a878 0%, #a08458 40%, #786040 100%)",
     image: "/images/woodproduct3.webp",
   },
@@ -184,6 +197,7 @@ export const products: Product[] = [
     materials: "Salvaged olive ash, hand-rubbed tung and linseed oil blend",
     dimensions: "50cm × 35cm × 3.5cm",
     care: "Hand wash with mild soap. Oil monthly. The live edge will soften with handling over years. Keep away from sustained heat. Do not dishwash.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #d4b888 0%, #a89068 40%, #7a6848 100%)",
     image: "/images/woodproduct4.webp",
   },
@@ -200,6 +214,7 @@ export const products: Product[] = [
     materials: "Wheel-thrown stoneware, forest teal glaze",
     dimensions: "15cm diameter \u00D7 8cm tall",
     care: "Dishwasher safe. Microwave safe. The glaze will deepen slightly with use.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #4a7a6a 0%, #3a5a4a 40%, #2a3a30 100%)",
     image: "/images/NCproduct4.jpeg",
   },
@@ -214,6 +229,7 @@ export const products: Product[] = [
     materials: "Wheel-thrown stoneware, white glaze with brushed iron oxide",
     dimensions: "9cm diameter \u00D7 10cm tall, ~350ml",
     care: "Dishwasher safe. Microwave safe. The iron oxide brushwork will not fade.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #d4ccc0 0%, #b8a898 40%, #a09080 100%)",
     image: "/images/NCproduct1.jpeg",
   },
@@ -228,6 +244,7 @@ export const products: Product[] = [
     materials: "Wheel-thrown stoneware, forest teal glaze",
     dimensions: "8cm diameter \u00D7 9cm tall, ~250ml",
     care: "Dishwasher safe. Microwave safe. Will develop character with daily use.",
+    stockStatus: "available",
     bgGradient: "linear-gradient(145deg, #3a6a5a 0%, #2a4a3a 40%, #1a2a20 100%)",
     image: "/images/NCProduct3jpeg.jpeg",
   },

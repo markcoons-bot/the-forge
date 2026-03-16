@@ -82,8 +82,10 @@ export const allProductsQuery = groq`
     materials,
     dimensions,
     care,
+    stock_status,
     stock_remaining,
     lead_time,
+    notify_when_available,
     featured,
     maker->{
       _id,
@@ -110,8 +112,10 @@ export const productBySlugQuery = groq`
     materials,
     dimensions,
     care,
+    stock_status,
     stock_remaining,
     lead_time,
+    notify_when_available,
     featured,
     maker->{
       _id,
@@ -141,8 +145,10 @@ export const featuredProductsQuery = groq`
     materials,
     dimensions,
     care,
+    stock_status,
     stock_remaining,
     lead_time,
+    notify_when_available,
     featured,
     maker->{
       _id,
@@ -169,8 +175,10 @@ export const productsByMakerQuery = groq`
     materials,
     dimensions,
     care,
+    stock_status,
     stock_remaining,
     lead_time,
+    notify_when_available,
     featured,
     maker->{
       _id,

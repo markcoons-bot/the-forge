@@ -100,14 +100,37 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "stock_status",
+      title: "Stock Status",
+      type: "string",
+      options: {
+        list: [
+          { title: "Available", value: "available" },
+          { title: "Low Stock", value: "low_stock" },
+          { title: "Sold Out", value: "sold_out" },
+          { title: "Coming Soon", value: "coming_soon" },
+        ],
+      },
+      initialValue: "available",
+    }),
+    defineField({
       name: "stock_remaining",
       title: "Stock Remaining",
       type: "number",
+      description: "Show remaining stock. Leave blank to hide.",
     }),
     defineField({
       name: "lead_time",
       title: "Lead Time",
       type: "string",
+      description: "e.g. 4–6 weeks. Shown on made to order items.",
+    }),
+    defineField({
+      name: "notify_when_available",
+      title: "Show notify me option",
+      type: "boolean",
+      description: "Show a waitlist button when sold out.",
+      initialValue: false,
     }),
     defineField({
       name: "featured",

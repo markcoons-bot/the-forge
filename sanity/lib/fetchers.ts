@@ -45,8 +45,10 @@ interface SanityProduct {
   materials?: string;
   dimensions?: string;
   care?: string;
+  stock_status?: string;
   stock_remaining?: number;
   lead_time?: string;
+  notify_when_available?: boolean;
   featured: boolean;
   maker?: {
     _id: string;
@@ -144,6 +146,10 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
     }),
     ...(sp.process_note && { process_note: sp.process_note }),
     ...(!sp.process_note && local?.process_note && { process_note: local.process_note }),
+    stockStatus: (sp.stock_status as Product["stockStatus"]) || local?.stockStatus || "available",
+    ...(sp.stock_remaining != null && { stockRemaining: sp.stock_remaining }),
+    ...(sp.stock_remaining == null && local?.stockRemaining != null && { stockRemaining: local.stockRemaining }),
+    ...(sp.notify_when_available != null && { notifyWhenAvailable: sp.notify_when_available }),
   };
 }
 

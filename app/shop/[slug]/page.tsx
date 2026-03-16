@@ -168,11 +168,46 @@ export default async function ProductPage({ params }: PageProps) {
                 </ScrollReveal>
               )}
 
-              {/* Add to Cart — desktop */}
+              {/* Scarcity / shipping signal + Add to Cart — desktop */}
               <ScrollReveal delay={400}>
-                <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
-                  Add to cart
-                </button>
+                {/* Scarcity or shipping line */}
+                {product.stockStatus !== "sold_out" && product.stockStatus !== "coming_soon" && (
+                  <p className="font-sans text-[12px] font-normal tracking-[0.1em] uppercase text-[#A0785A] mb-4">
+                    {(product.stockStatus === "low_stock" || (product.stockRemaining != null && product.stockRemaining <= 3))
+                      ? product.stockRemaining != null
+                        ? `Only ${product.stockRemaining} remaining`
+                        : "Almost gone"
+                      : product.status === "Made to Order" && product.leadTime
+                        ? `Made to order — ships in ${product.leadTime}`
+                        : product.status === "Ready to Ship"
+                          ? "Ready to ship — 2 business days"
+                          : null}
+                  </p>
+                )}
+
+                {product.stockStatus === "sold_out" ? (
+                  <div>
+                    <button disabled className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
+                      Sold out
+                    </button>
+                    {product.notifyWhenAvailable && (
+                      <Link
+                        href="mailto:orders@form-element.com"
+                        className="hidden lg:block mt-3 font-sans text-[13px] font-normal tracking-[0.05em] text-[#A0785A] hover:text-forge-text transition-colors duration-300"
+                      >
+                        Notify me when available &rarr;
+                      </Link>
+                    )}
+                  </div>
+                ) : product.stockStatus === "coming_soon" ? (
+                  <button disabled className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
+                    Coming soon
+                  </button>
+                ) : (
+                  <button className="hidden lg:inline-flex items-center justify-center w-full md:w-auto px-12 py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
+                    Add to cart
+                  </button>
+                )}
               </ScrollReveal>
             </div>
           </div>
@@ -181,9 +216,29 @@ export default async function ProductPage({ params }: PageProps) {
 
       {/* Sticky Add to Cart — mobile/tablet only */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-forge-paper/95 backdrop-blur-md border-t border-forge-text/10 px-6 py-4">
-        <button className="w-full py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
-          Add to cart &mdash; {formatPrice(product.price, product.currency)}
-        </button>
+        {product.stockStatus === "sold_out" ? (
+          <div>
+            <button disabled className="w-full py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
+              Sold out
+            </button>
+            {product.notifyWhenAvailable && (
+              <Link
+                href="mailto:orders@form-element.com"
+                className="block text-center mt-2 font-sans text-[13px] font-normal tracking-[0.05em] text-[#A0785A]"
+              >
+                Notify me when available &rarr;
+              </Link>
+            )}
+          </div>
+        ) : product.stockStatus === "coming_soon" ? (
+          <button disabled className="w-full py-[18px] bg-forge-text/40 text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-not-allowed">
+            Coming soon
+          </button>
+        ) : (
+          <button className="w-full py-[18px] bg-forge-text text-forge-paper font-sans text-[14px] font-normal tracking-[0.1em] uppercase cursor-pointer transition-all duration-400 hover:bg-[#3a3530]">
+            Add to cart &mdash; {formatPrice(product.price, product.currency)}
+          </button>
+        )}
       </div>
 
       {/* More from this maker */}
