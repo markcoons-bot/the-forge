@@ -175,12 +175,7 @@ export async function fetchHomepageMakers(): Promise<Maker[]> {
   try {
     const sanityMakers: SanityMaker[] = await client.fetch(featuredMakersQuery);
     if (sanityMakers && sanityMakers.length > 0) {
-      const mapped = sanityMakers.map(mapSanityMakerToLocal);
-      // Preserve the homepage order from local data
-      const order = ["nathan-coons", "hana-miura", "florian-gadsby"];
-      return order
-        .map((slug) => mapped.find((m) => m.slug === slug))
-        .filter((m): m is Maker => m !== undefined);
+      return sanityMakers.map(mapSanityMakerToLocal);
     }
   } catch (e) {
     console.warn("Sanity fetch failed for featuredMakers, using local data:", e);

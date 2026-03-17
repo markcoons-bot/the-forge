@@ -222,7 +222,7 @@ export default async function Home() {
       {/* ═══════════════════════════════════════════════
           FROM THE STUDIOS
           ═══════════════════════════════════════════════ */}
-      <StudioFeed />
+      <StudioFeed makers={allMakers} products={allProducts} />
 
       <Footer />
     </>

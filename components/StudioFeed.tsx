@@ -1,86 +1,89 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
+import { useMemo } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { SECTION_LABEL_LIGHT, NAV_LINK } from "@/lib/typography";
+import type { Maker } from "@/data/makers";
+import type { Product } from "@/data/products";
 
 interface StudioTile {
   image: string;
   makerName: string;
   medium: string;
   caption: string;
+  href: string;
 }
 
-const tiles: StudioTile[] = [
-  {
-    image: "/images/FGextra.webp",
-    makerName: "Florian Gadsby",
-    medium: "Clay",
-    caption: "Kiln opening, 6am",
-  },
-  {
-    image: "/images/HMprocess.jpg",
-    makerName: "Hana Miura",
-    medium: "Glass",
-    caption: "Gathering from the furnace",
-  },
-  {
-    image: "/images/Wood1.webp",
-    makerName: "Elias Brandt",
-    medium: "Wood",
-    caption: "Selecting salvaged stock",
-  },
-  {
-    image: "/images/FGProcess2.webp",
-    makerName: "Florian Gadsby",
-    medium: "Clay",
-    caption: "Glaze testing, batch 34",
-  },
-  {
-    image: "/images/walnut.webp",
-    makerName: "Elias Brandt",
-    medium: "Wood",
-    caption: "Black walnut grain, close",
-  },
-  {
-    image: "/images/HMobject.webp",
-    makerName: "Hana Miura",
-    medium: "Glass",
-    caption: "Light vessel, afternoon sun",
-  },
-  {
-    image: "/images/woodproduct3.webp",
-    makerName: "Elias Brandt",
-    medium: "Wood",
-    caption: "Spoons, cherry, hand-carved",
-  },
-  {
-    image: "/images/Potterytools.webp",
-    makerName: "Florian Gadsby",
-    medium: "Clay",
-    caption: "Tools of the trade",
-  },
-  {
-    image: "/images/glassblowinggloryhole.jpg",
-    makerName: "Hana Miura",
-    medium: "Glass",
-    caption: "Glory hole, 1,100°C",
-  },
-  {
-    image: "/images/woodproduct2.webp",
-    makerName: "Elias Brandt",
-    medium: "Wood",
-    caption: "Barn oak, bread, artichoke",
-  },
-  {
-    image: "/images/FGprocess3.webp",
-    makerName: "Florian Gadsby",
-    medium: "Clay",
-    caption: "Trimming, early morning",
-  },
-];
+interface StudioFeedProps {
+  makers: Maker[];
+  products: Product[];
+}
 
-export default function StudioFeed() {
+function shuffle<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+function buildTiles(makers: Maker[], products: Product[]): StudioTile[] {
+  const tiles: StudioTile[] = [];
+  const seen = new Set<string>();
+
+  // Studio tiles from maker images (portrait, storyImages)
+  for (const maker of makers) {
+    if (maker.portraitImage && !seen.has(maker.portraitImage)) {
+      seen.add(maker.portraitImage);
+      tiles.push({
+        image: maker.portraitImage,
+        makerName: maker.name,
+        medium: maker.medium,
+        caption: `${maker.name}'s studio`,
+        href: `/makers/${maker.slug}`,
+      });
+    }
+    for (const img of maker.storyImages || []) {
+      if (!seen.has(img)) {
+        seen.add(img);
+        tiles.push({
+          image: img,
+          makerName: maker.name,
+          medium: maker.medium,
+          caption: `${maker.medium} making process`,
+          href: `/makers/${maker.slug}`,
+        });
+      }
+    }
+  }
+
+  // Product tiles from product images
+  for (const product of products) {
+    if (product.image && !seen.has(product.image)) {
+      seen.add(product.image);
+      const maker = makers.find((m) => m.slug === product.makerSlug);
+      tiles.push({
+        image: product.image,
+        makerName: maker?.name || "",
+        medium: maker?.medium || "",
+        caption: product.name,
+        href: `/shop/${product.slug}`,
+      });
+    }
+  }
+
+  return tiles;
+}
+
+export default function StudioFeed({ makers, products }: StudioFeedProps) {
+  const tiles = useMemo(
+    () => shuffle(buildTiles(makers, products)).slice(0, 14),
+    [makers, products]
+  );
+
   return (
     <section className="bg-forge-paper pt-6 md:pt-10 pb-20 md:pb-28">
       {/* Header */}
@@ -110,14 +113,15 @@ export default function StudioFeed() {
         <div className="studio-feed-scroll overflow-x-auto pb-4 px-6 md:px-10">
           <div className="flex gap-3 w-max">
             {tiles.map((tile, index) => (
-              <div
+              <Link
                 key={index}
-                className="group relative w-[260px] md:w-[300px] aspect-square shrink-0 overflow-hidden cursor-pointer"
+                href={tile.href}
+                className="group relative w-[260px] md:w-[300px] aspect-square shrink-0 overflow-hidden"
               >
                 {/* Photo */}
                 <Image
                   src={tile.image}
-                  alt={`${tile.makerName} studio — ${tile.medium.toLowerCase()} making process`}
+                  alt={`${tile.makerName} — ${tile.medium.toLowerCase()}`}
                   fill
                   className="object-cover transition-transform duration-700 ease-forge group-hover:scale-[1.06]"
                   sizes="300px"
@@ -144,7 +148,7 @@ export default function StudioFeed() {
                     {tile.caption}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
