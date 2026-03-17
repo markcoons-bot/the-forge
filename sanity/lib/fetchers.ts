@@ -73,13 +73,14 @@ function mapSanityMakerToLocal(sm: SanityMaker): Maker {
   const local = localMakers.find((m) => m.slug === sm.slug);
 
   // Resolve portrait image: Sanity first, then local fallback
+  // 2400px wide covers retina displays at full viewport width
   const portraitImage = sm.portrait
-    ? urlFor(sm.portrait).width(800).url()
+    ? urlFor(sm.portrait).width(2400).quality(80).auto("format").url()
     : local?.portraitImage || "";
 
   // Resolve studio/story images: Sanity first, then local fallback
   const storyImages = sm.studioImages && sm.studioImages.length > 0
-    ? sm.studioImages.map((img: any) => urlFor(img).width(1200).url())
+    ? sm.studioImages.map((img: any) => urlFor(img).width(1800).quality(80).auto("format").url())
     : local?.storyImages || [];
 
   return {
@@ -117,7 +118,7 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
 
   // Resolve product image: Sanity first, then local fallback
   const image = sp.image
-    ? urlFor(sp.image).width(800).url()
+    ? urlFor(sp.image).width(1200).quality(80).auto("format").url()
     : local?.image || "";
 
   return {
@@ -137,7 +138,7 @@ function mapSanityProductToLocal(sp: SanityProduct): Product {
     image,
     ...(local?.alternateImages && { alternateImages: local.alternateImages }),
     ...(sp.gallery && sp.gallery.length > 0 && {
-      galleryImages: sp.gallery.map((img: any) => urlFor(img).width(1200).url()),
+      galleryImages: sp.gallery.map((img: any) => urlFor(img).width(1800).quality(80).auto("format").url()),
     }),
     ...(sp.process_note && { process_note: sp.process_note }),
     ...(!sp.process_note && local?.process_note && { process_note: local.process_note }),
