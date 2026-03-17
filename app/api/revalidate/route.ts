@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
     "/makers/[slug]",
     "/shop",
     "/shop/[slug]",
+    "/gallery",
   ];
 
   try {
