@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Product } from "@/data/products";
@@ -12,10 +12,36 @@ interface ProductShowcaseProps {
   makers: Maker[];
 }
 
+/** Shuffle, then reorder so no two consecutive items share a maker. */
+function spreadByMaker(items: Product[]): Product[] {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  // Separate pass: swap adjacent duplicates
+  for (let i = 1; i < shuffled.length; i++) {
+    if (shuffled[i].makerSlug === shuffled[i - 1].makerSlug) {
+      // Find the nearest item ahead that has a different maker
+      for (let j = i + 1; j < shuffled.length; j++) {
+        if (shuffled[j].makerSlug !== shuffled[i - 1].makerSlug) {
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+          break;
+        }
+      }
+    }
+  }
+
+  return shuffled;
+}
+
 export default function ProductShowcase({ products, makers }: ProductShowcaseProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const displayProducts = useMemo(() => spreadByMaker(products), [products]);
 
   const formatPrice = (price: number, currency: string) => {
     const symbols: Record<string, string> = { USD: "$", GBP: "£", EUR: "€" };
@@ -99,7 +125,7 @@ export default function ProductShowcase({ products, makers }: ProductShowcasePro
         className="overflow-x-auto scrollbar-hidden showcase-scroll px-6 md:px-10"
       >
         <div className="flex gap-3 w-max">
-          {products.map((product, index) => {
+          {displayProducts.map((product, index) => {
             const maker = makers.find((m) => m.slug === product.makerSlug);
 
             return (
