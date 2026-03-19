@@ -58,6 +58,14 @@ export default defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: "heroImage",
+      title: "Profile Page Hero Image",
+      type: "image",
+      options: { hotspot: true },
+      description:
+        "Full-bleed hero image shown at the top of the maker profile page. If left blank, the portrait image will be used as fallback.",
+    }),
+    defineField({
       name: "studioImages",
       title: "Studio Images",
       type: "array",

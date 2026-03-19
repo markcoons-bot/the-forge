@@ -27,6 +27,7 @@ interface SanityMaker {
   bio: string;
   featured: boolean;
   portrait?: any;
+  heroImage?: any;
   studioImages?: any[];
   products?: SanityProduct[];
 }
@@ -99,7 +100,9 @@ function mapSanityMakerToLocal(sm: SanityMaker): Maker {
     portraitImage,
     storyImages,
     // Carry forward all local-only fields
-    ...(local?.profileHeroImage && { profileHeroImage: local.profileHeroImage }),
+    ...(sm.heroImage
+      ? { profileHeroImage: urlFor(sm.heroImage).width(2400).quality(80).auto("format").url() }
+      : local?.profileHeroImage ? { profileHeroImage: local.profileHeroImage } : {}),
     ...(local?.storyImagePositions && { storyImagePositions: local.storyImagePositions }),
     ...(local?.storyImageCaptions && { storyImageCaptions: local.storyImageCaptions }),
     ...(local?.materialsImage && { materialsImage: local.materialsImage }),

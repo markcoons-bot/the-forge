@@ -28,6 +28,7 @@ export const makerBySlugQuery = groq`
     bio,
     featured,
     portrait,
+    heroImage,
     studioImages,
     "products": *[_type == "product" && maker._ref == ^._id] | order(title asc) {
       _id,
